@@ -171,14 +171,28 @@ def iso_hafta(d: datetime):
 
 
 def json_ayikla(metin):
-    """Model ```json bloğu veya önsöz eklerse kurtar."""
+    """Model ```json bloğu veya önsöz eklerse kurtar.
+
+    LLM'ler uzun JSON'da ara sıra kaçışsız tırnak / eksik virgül üretir
+    (haber metinlerinde alıntı geçince tipik). Katı parse başarısızsa
+    json_repair ile onarılır — bu kütüphane tam bu iş için yazılmıştır.
+    """
     metin = temizle(metin).strip()
     metin = re.sub(r"^```(?:json)?\s*", "", metin)
     metin = re.sub(r"\s*```$", "", metin)
     bas, son = metin.find("{"), metin.rfind("}")
     if bas == -1 or son == -1:
         raise ValueError("JSON bulunamadı")
-    return json.loads(metin[bas:son + 1])
+    govde = metin[bas:son + 1]
+    try:
+        return json.loads(govde)
+    except json.JSONDecodeError as e:
+        log(f"  ⚠ JSON hatalı ({e}) — json_repair ile onarılıyor")
+        from json_repair import repair_json
+        onarik = repair_json(govde, return_objects=True)
+        if isinstance(onarik, dict) and onarik:
+            return onarik
+        raise
 
 
 # ============================================================
@@ -521,13 +535,23 @@ def olaylari_zenginlestir(olaylar, adaylar):
 # 5) AŞAMA 2 — YAZIM
 # ============================================================
 def yaz(derin, radar_havuz, sayi_no, bas, bit, pencere):
-    cikti = llm.llm_cagri(
-        AYARLAR["model_yazim"], prompts.YAZIM_PROMPT,
-        prompts.yazim_kullanici_mesaji(derin, radar_havuz, sayi_no, bas, bit, pencere),
-        AYARLAR["max_tokens_yazim"],
-        stream=True,     # uzun çıktı — zaman aşımını önler
-    )
-    return json_ayikla(cikti)
+    """json_repair'e rağmen geçersiz çıktı gelirse yazımı BİR kez daha dene —
+    haftalık cron tek bozuk üretim yüzünden boş geçmesin."""
+    son_hata = None
+    for deneme in range(2):
+        if deneme:
+            log("  ⚠ Yazım çıktısı kurtarılamadı — yazım yeniden deneniyor (2/2)")
+        try:
+            cikti = llm.llm_cagri(
+                AYARLAR["model_yazim"], prompts.YAZIM_PROMPT,
+                prompts.yazim_kullanici_mesaji(derin, radar_havuz, sayi_no, bas, bit, pencere),
+                AYARLAR["max_tokens_yazim"],
+                stream=True,     # uzun çıktı — zaman aşımını önler
+            )
+            return json_ayikla(cikti)
+        except (ValueError, json.JSONDecodeError) as e:
+            son_hata = e
+    raise son_hata
 
 
 # ============================================================
