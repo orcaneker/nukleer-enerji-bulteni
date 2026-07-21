@@ -38,7 +38,9 @@ AYARLAR = {
     # (yarı iletken bülteninde yaşanan uyumsuzluk deneyimi).
     "triyaj_batch": 40,              # tek seferde triyaja giden aday sayısı
     "max_tokens_triyaj": 8000,
-    "max_tokens_yazim": 24000,       # 14 haberin TAMAMI yazıldığı için geniş (streaming)
+    "max_tokens_yazim": 48000,       # 14 haberin TAMAMI yazıldığı için GENİŞ olmalı.
+                                     # ⚠ Düşük tutulursa çıktı JSON tamamlanmadan kesilir
+                                     # (JSONDecodeError). Streaming olduğu için zaman aşımı yok.
     "derin_olay_sayisi": 14,         # tam metinle yazıma giden olay — HEPSİ haber olur
     "toplam_olay_sayisi": 40,        # geri kalanı radar adayı (başlık+link)
 
