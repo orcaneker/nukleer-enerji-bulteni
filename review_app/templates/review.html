@@ -141,10 +141,14 @@ body{background:var(--kagit);color:var(--murekkep);font-family:var(--serif);
     <div class="sec-baslik">Bültene Girecek Haberler <span id="secili-sayac" style="letter-spacing:0"></span></div>
     <div id="secili-liste"></div>
 
-    <div class="sec-baslik">Yedek Havuzu — takas için hazır</div>
+    <div class="sec-baslik">Yedek Havuzu — bültene alınabilir</div>
     <p style="font-size:14px;color:var(--soluk);margin-bottom:14px">
       Bu haberler de tam olarak yazıldı ancak bülten gövdesine seçilmedi.
-      Yukarıdaki bir haberin altındaki <b>“Değiştir”</b> düğmesiyle takas yapabilirsiniz.</p>
+      Her birinin altındaki <b>“Bültene al”</b> ile doğrudan ekleyebilir
+      (üstteki listeye eklenir, sayı artar), ya da bir öne çıkan haberin
+      <b>“Değiştir”</b> düğmesiyle onunla yer değiştirebilirsiniz. Öne çıkan
+      haberleri <b>“Bültenden çıkar”</b> ile azaltabilirsiniz — tek sınır,
+      en az manşetin kalmasıdır.</p>
     <div id="yedek-liste"></div>
 
     <div class="sec-baslik">Radar</div>
@@ -196,11 +200,15 @@ function kartHTML(s, secili){
     islemler = `<div class="islemler">
       ${manset ? "" : `<button class="btn mavi" onclick="mansetYap('${s.id}')">Manşet yap</button>`}
       <button class="btn" onclick="takasAc('${s.id}')">Değiştir…</button>
-      ${manset ? "" : `<button class="btn kirmizi" onclick="cikar('${s.id}')">Yedeğe indir</button>`}
+      ${manset ? "" : `<button class="btn kirmizi" onclick="cikar('${s.id}')">Bültenden çıkar</button>`}
     </div>
     <div class="takas-panel" id="takas-${s.id}">
       <div class="baslik">Yerine hangi yedek haber girsin?</div>
       <div id="takas-listesi-${s.id}"></div>
+    </div>`;
+  } else if(duzenlenebilir && !secili){
+    islemler = `<div class="islemler">
+      <button class="btn mavi" onclick="promote('${s.id}')">Bültene al</button>
     </div>`;
   }
 
@@ -312,6 +320,10 @@ async function cikar(id){
 }
 async function mansetYap(id){
   try{ await api("lead", {id}); mesaj("Manşet değiştirildi"); await yukle(); }
+  catch(e){ mesaj(e.message, true); }
+}
+async function promote(id){
+  try{ await api("promote", {id}); mesaj("Haber bültene alındı"); await yukle(); }
   catch(e){ mesaj(e.message, true); }
 }
 async function radarCikar(kume, url){

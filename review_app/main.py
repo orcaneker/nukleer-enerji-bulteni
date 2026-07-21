@@ -134,7 +134,8 @@ async def takas(token: str, req: Request):
 
 @app.post("/api/{token}/remove")
 async def cikar(token: str, req: Request):
-    """Haberi yerine koymadan yedeğe indir (min sayının altına inilmez)."""
+    """Haberi yedeğe indir. Serbest: tek sınır manşetin çıkarılamamasıdır —
+    yani en az manşet kalır. Sayıyı istediğiniz kadar düşürebilirsiniz."""
     h = _hakem(token)
     sayi = _duzenlenebilir()
     veri = await req.json()
@@ -145,13 +146,8 @@ async def cikar(token: str, req: Request):
     st = next((s for s in stories if s["id"] == hid), None)
     if not st or st.get("secim") != "one_cikan":
         raise HTTPException(400, "Haber bulunamadı veya zaten yedekte")
-    secili = [s for s in stories if s.get("secim") == "one_cikan"]
-    if len(secili) <= AYARLAR["one_cikan_min"]:
-        raise HTTPException(400,
-            f"En az {AYARLAR['one_cikan_min']} haber kalmalı — "
-            f"çıkarmak yerine yedekle takas yapın")
     if taslak.get("lead_id") == hid:
-        raise HTTPException(400, "Manşet çıkarılamaz — önce başka manşet seçin")
+        raise HTTPException(400, "Manşet çıkarılamaz — önce başka bir haberi manşet yapın")
 
     st["secim"] = "yedek"
     for m in taslak.get("brief", []):
@@ -160,6 +156,26 @@ async def cikar(token: str, req: Request):
 
     db.taslak_guncelle(sayi["id"], taslak)
     db.logla(sayi["id"], h["ad"], "cikar", {"id": hid})
+    return {"ok": True}
+
+
+@app.post("/api/{token}/promote")
+async def bultene_al(token: str, req: Request):
+    """Yedek havuzundaki bir haberi doğrudan bültene ekle (takas gerektirmeden).
+    Böylece 10 haberin yanına 4 yedeği de alıp 14'e çıkarabilirsiniz."""
+    h = _hakem(token)
+    sayi = _duzenlenebilir()
+    veri = await req.json()
+    hid = veri.get("id")
+
+    taslak = sayi["draft_json"]
+    st = next((s for s in taslak.get("stories", []) if s["id"] == hid), None)
+    if not st or st.get("secim") == "one_cikan":
+        raise HTTPException(400, "Haber bulunamadı veya zaten bültende")
+    st["secim"] = "one_cikan"
+
+    db.taslak_guncelle(sayi["id"], taslak)
+    db.logla(sayi["id"], h["ad"], "bultene_al", {"id": hid})
     return {"ok": True}
 
 
