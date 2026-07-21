@@ -1,11 +1,42 @@
 # ============================================================
 # NÜKLEER ENERJİ BÜLTENİ — Render Blueprint
 # ------------------------------------------------------------
-# 2 cron + 1 web service. Ortam değişkenleri Render panelinden
-# elle girilir (sync: false → panelde doldurulması istenir).
-# Cron saatleri UTC: Pazar 09:00 UTC = 12:00 TSİ ·
-#                    Pazartesi 05:00 UTC = 08:00 TSİ
+# 2 cron + 1 web service + 1 ortak ortam değişkeni grubu.
+# TÜM anahtarlar tek grupta (nukleer-bulten-ortak) toplanır;
+# bir kez girilir, üç servis de oradan okur. Bir servisin
+# kullanmadığı değişken zararsızdır (yok sayılır).
+#
+# Cron saatleri UTC: Pazar 09:00 UTC = 12:00 TSİ (taslak) ·
+#                    Pazartesi 05:00 UTC = 08:00 TSİ (yayın)
 # ============================================================
+envVarGroups:
+  - name: nukleer-bulten-ortak
+    envVars:
+      - key: EXA_API_KEY           # cron 1 — exa.ai
+        sync: false
+      - key: ANTHROPIC_API_KEY     # cron 1
+        sync: false
+      - key: OPENAI_API_KEY        # opsiyonel — openai: modeli denenirse
+        sync: false
+      - key: DATABASE_URL          # Neon bağlantı dizesi (hepsi)
+        sync: false
+      - key: RESEND_API_KEY        # e-postalar (hepsi)
+        sync: false
+      - key: MAIL_FROM             # gönderen; vars. onboarding@resend.dev
+        sync: false
+      - key: GITHUB_REPO           # orcaneker/nukleer-enerji-bulteni
+        sync: false
+      - key: GITHUB_TOKEN          # PAT — Contents: Read & Write
+        sync: false
+      - key: REVIEW_BASE_URL       # web servisinin URL'i (Adım 7'de eklenir)
+        sync: false
+      - key: RAPOR_ALICI           # çalışma raporu e-postası
+        sync: false
+      - key: ELEVENLABS_API_KEY    # opsiyonel — sesli bülten
+        sync: false
+      - key: ELEVENLABS_VOICE_ID   # opsiyonel
+        sync: false
+
 services:
   # ── CRON 1: taslak üretimi (Pazar 12:00 TSİ) ──
   - type: cron
@@ -15,22 +46,7 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: python pipeline.py
     envVars:
-      - key: EXA_API_KEY
-        sync: false
-      - key: ANTHROPIC_API_KEY
-        sync: false
-      - key: OPENAI_API_KEY          # opsiyonel — openai: modeli denenirse
-        sync: false
-      - key: DATABASE_URL            # Neon bağlantı dizesi
-        sync: false
-      - key: RESEND_API_KEY
-        sync: false
-      - key: MAIL_FROM
-        sync: false
-      - key: REVIEW_BASE_URL         # inceleme servisi URL'i
-        sync: false
-      - key: RAPOR_ALICI
-        sync: false
+      - fromGroup: nukleer-bulten-ortak
 
   # ── CRON 2: yayın / hatırlatma (Pazartesi 08:00 TSİ) ──
   - type: cron
@@ -40,26 +56,9 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: python publish.py
     envVars:
-      - key: DATABASE_URL
-        sync: false
-      - key: RESEND_API_KEY
-        sync: false
-      - key: MAIL_FROM
-        sync: false
-      - key: GITHUB_REPO             # orcaneker/nukleer-enerji-bulteni
-        sync: false
-      - key: GITHUB_TOKEN            # PAT — Contents: Read & Write
-        sync: false
-      - key: REVIEW_BASE_URL
-        sync: false
-      - key: RAPOR_ALICI
-        sync: false
-      - key: ELEVENLABS_API_KEY      # opsiyonel — sesli bülten
-        sync: false
-      - key: ELEVENLABS_VOICE_ID
-        sync: false
+      - fromGroup: nukleer-bulten-ortak
 
-  # ── WEB: hakem inceleme servisi (sürekli) ──
+  # ── WEB: hakem inceleme servisi (sürekli, ücretsiz katman) ──
   - type: web
     name: nukleer-bulten-inceleme
     runtime: python
@@ -67,19 +66,4 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn review_app.main:app --host 0.0.0.0 --port $PORT
     envVars:
-      - key: DATABASE_URL
-        sync: false
-      - key: RESEND_API_KEY          # geç onayda "yayınlandı" e-postası için
-        sync: false
-      - key: MAIL_FROM
-        sync: false
-      - key: GITHUB_REPO             # geç onayda anında yayın için
-        sync: false
-      - key: GITHUB_TOKEN
-        sync: false
-      - key: ELEVENLABS_API_KEY
-        sync: false
-      - key: ELEVENLABS_VOICE_ID
-        sync: false
-      - key: RAPOR_ALICI
-        sync: false
+      - fromGroup: nukleer-bulten-ortak
