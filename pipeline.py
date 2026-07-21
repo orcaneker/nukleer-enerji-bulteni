@@ -309,6 +309,7 @@ def tara(pencere_gun):
                     "title": temizle(r.get("title") or "")[:220],
                     "url": url,
                     "domain": domain_of(url),
+                    "max_yas_gun": gun,   # bu sorgunun izin verdiği azami yaş (TR: 21)
                     "published_date": (r.get("publishedDate") or "")[:10] or None,
                     "author": r.get("author"),
                     "image": gorsel_sec(r),
@@ -420,11 +421,34 @@ def teyit_ara(olaylar, adaylar):
 # 3) DETERMİNİSTİK ELEME
 # ============================================================
 def on_eleme(adaylar, state):
+    """Görülmüş URL + başlık tekrarı + TARİH DİSİPLİNİ.
+
+    ⚠ Tarih filtresi DETERMİNİSTİKTİR ve LLM'e bırakılmaz: Exa'nın tarih
+    parametreleri bazen eski/tarihsiz sonuç sızdırıyor (2025'ten kalma
+    haberler görüldü). Yayın tarihi olmayan veya sorgusunun penceresinden
+    (standart 7, Türkiye 21 gün) yaşlı her aday burada, LLM'e hiç
+    gitmeden elenir. Haftalık bültenin tarih güvencesi bu satırlardır.
+    """
     gorulmus_url = set(state.get("urls", []))
-    kalan, elenen = [], 0
+    bugun = datetime.now(timezone.utc).date()
+    kalan, elenen, tarih_elenen = [], 0, 0
     baslik_hash = set()
 
     for a in adaylar:
+        pd = a.get("published_date")
+        if not pd:
+            tarih_elenen += 1          # tarihi doğrulanamayan aday bültene giremez
+            continue
+        try:
+            yas = (bugun - datetime.strptime(pd, "%Y-%m-%d").date()).days
+        except ValueError:
+            tarih_elenen += 1
+            continue
+        # +1 gün tolerans: saat dilimi farkları; negatif alt sınır: "gelecek
+        # tarihli" bozuk veriyi de ele
+        if yas > a.get("max_yas_gun", AYARLAR["pencere_gun"]) + 1 or yas < -1:
+            tarih_elenen += 1
+            continue
         if a["url"] in gorulmus_url:
             elenen += 1
             continue
@@ -436,8 +460,9 @@ def on_eleme(adaylar, state):
         a["tier"] = kaynak_tier(a["domain"])
         kalan.append(a)
 
-    log(f"Deterministik eleme: {elenen} elendi, {len(kalan)} kaldı")
-    return kalan, elenen
+    log(f"Deterministik eleme: tarih dışı {tarih_elenen} + tekrar {elenen} elendi, "
+        f"{len(kalan)} kaldı")
+    return kalan, elenen + tarih_elenen
 
 
 # ============================================================

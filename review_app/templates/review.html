@@ -216,7 +216,6 @@ function kartHTML(s, secili){
     <div class="ust">
       ${manset ? '<span class="rozet">Manşet</span>' : ""}
       <span class="kat">${esc(kat)}</span>
-      ${s.maturity ? `<span class="kat" style="border-color:var(--cizgi);color:var(--soluk)">${esc(s.maturity)}</span>` : ""}
       <span class="puan">puan ${s.score ?? "?"}</span>
     </div>
     <h3>${esc(s.title)}</h3>
