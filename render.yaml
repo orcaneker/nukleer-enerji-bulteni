@@ -1,0 +1,85 @@
+# ============================================================
+# NÜKLEER ENERJİ BÜLTENİ — Render Blueprint
+# ------------------------------------------------------------
+# 2 cron + 1 web service. Ortam değişkenleri Render panelinden
+# elle girilir (sync: false → panelde doldurulması istenir).
+# Cron saatleri UTC: Pazar 09:00 UTC = 12:00 TSİ ·
+#                    Pazartesi 05:00 UTC = 08:00 TSİ
+# ============================================================
+services:
+  # ── CRON 1: taslak üretimi (Pazar 12:00 TSİ) ──
+  - type: cron
+    name: nukleer-bulten-taslak
+    runtime: python
+    schedule: "0 9 * * 0"
+    buildCommand: pip install -r requirements.txt
+    startCommand: python pipeline.py
+    envVars:
+      - key: EXA_API_KEY
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY          # opsiyonel — openai: modeli denenirse
+        sync: false
+      - key: DATABASE_URL            # Neon bağlantı dizesi
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      - key: REVIEW_BASE_URL         # inceleme servisi URL'i
+        sync: false
+      - key: RAPOR_ALICI
+        sync: false
+
+  # ── CRON 2: yayın / hatırlatma (Pazartesi 08:00 TSİ) ──
+  - type: cron
+    name: nukleer-bulten-yayin
+    runtime: python
+    schedule: "0 5 * * 1"
+    buildCommand: pip install -r requirements.txt
+    startCommand: python publish.py
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      - key: GITHUB_REPO             # orcaneker/nukleer-enerji-bulteni
+        sync: false
+      - key: GITHUB_TOKEN            # PAT — Contents: Read & Write
+        sync: false
+      - key: REVIEW_BASE_URL
+        sync: false
+      - key: RAPOR_ALICI
+        sync: false
+      - key: ELEVENLABS_API_KEY      # opsiyonel — sesli bülten
+        sync: false
+      - key: ELEVENLABS_VOICE_ID
+        sync: false
+
+  # ── WEB: hakem inceleme servisi (sürekli) ──
+  - type: web
+    name: nukleer-bulten-inceleme
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn review_app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: RESEND_API_KEY          # geç onayda "yayınlandı" e-postası için
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      - key: GITHUB_REPO             # geç onayda anında yayın için
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: ELEVENLABS_VOICE_ID
+        sync: false
+      - key: RAPOR_ALICI
+        sync: false

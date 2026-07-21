@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bülten İnceleme — Nükleer Enerji Bülteni</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+/* Kurumsal dosya estetiği — site ile aynı dil: kağıt, lacivert, Çerenkov mavisi */
+:root{
+  --kagit:#F7F5F0; --panel:#FFFFFF; --panel-2:#F0EDE5;
+  --cizgi:#D8D3C8; --cizgi-soft:#E5E1D8;
+  --murekkep:#0B2239; --soluk:#5B6B7C; --dim:#8A94A0;
+  --cerenkov:#2E9BD6; --cerenkov-koyu:#1B7AB0; --cerenkov-acik:#E3F1FA;
+  --uyari:#C0392B; --ok:#3E7C4F;
+  --serif:"Source Serif 4",Georgia,serif;
+  --display:"Fraunces",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--kagit);color:var(--murekkep);font-family:var(--serif);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+/* taslak bandı */
+.band{background:var(--murekkep);color:#fff;position:sticky;top:0;z-index:50;
+  border-bottom:3px solid var(--cerenkov)}
+.band-in{max-width:900px;margin:0 auto;padding:12px 20px;display:flex;
+  align-items:center;gap:14px;flex-wrap:wrap}
+.band .etiket{font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;background:var(--cerenkov);color:#fff;padding:3px 10px}
+.band b{font-family:var(--display);font-weight:600;font-size:17px}
+.band .kim{margin-left:auto;font-family:var(--mono);font-size:12px;color:#B9C6D2}
+
+.sec-baslik{font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--cerenkov-koyu);margin:36px 0 14px;
+  display:flex;align-items:center;gap:10px}
+.sec-baslik::after{content:"";flex:1;height:1px;background:var(--cizgi)}
+
+.not{background:var(--cerenkov-acik);border:1px solid var(--cerenkov);
+  border-left-width:4px;padding:12px 16px;font-size:14px;margin:20px 0}
+
+.brief li{list-style:none;display:flex;gap:12px;padding:9px 0;
+  border-bottom:1px dotted var(--cizgi-soft);font-size:15px}
+.brief li::before{content:counter(b,decimal-leading-zero);counter-increment:b;
+  font-family:var(--mono);font-size:11px;color:var(--cerenkov-koyu);padding-top:5px}
+.brief{counter-reset:b}
+
+/* haber kartı */
+.kart{background:var(--panel);border:1px solid var(--cizgi);margin-bottom:14px;
+  padding:18px 20px;position:relative}
+.kart.manset{border-left:4px solid var(--cerenkov)}
+.kart.yedek-kart{background:var(--panel-2)}
+.kart .ust{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:8px}
+.kat{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--cerenkov-koyu);border:1px solid var(--cerenkov);padding:2px 8px}
+.rozet{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--murekkep);color:#fff;padding:3px 8px}
+.puan{font-family:var(--mono);font-size:11px;color:var(--dim);margin-left:auto}
+.kart h3{font-family:var(--display);font-weight:600;font-size:20px;line-height:1.3;
+  margin-bottom:8px}
+.kart .ozet{font-size:15px;color:#33475C;margin-bottom:8px}
+.kart .kaynak{font-family:var(--mono);font-size:11px;color:var(--soluk)}
+.kart .kaynak a{color:var(--cerenkov-koyu)}
+.detay-ac{font-family:var(--mono);font-size:11px;color:var(--cerenkov-koyu);
+  cursor:pointer;border:0;background:none;text-decoration:underline;padding:0}
+.detay{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed var(--cizgi);
+  font-size:14.5px;color:#33475C;white-space:pre-line}
+.detay.acik{display:block}
+
+.islemler{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:12px;padding:7px 14px;cursor:pointer;
+  border:1px solid var(--murekkep);background:var(--panel);color:var(--murekkep)}
+.btn:hover{background:var(--murekkep);color:#fff}
+.btn.mavi{border-color:var(--cerenkov-koyu);color:var(--cerenkov-koyu)}
+.btn.mavi:hover{background:var(--cerenkov-koyu);color:#fff}
+.btn.kirmizi{border-color:var(--uyari);color:var(--uyari)}
+.btn.kirmizi:hover{background:var(--uyari);color:#fff}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* takas seçici */
+.takas-panel{display:none;margin-top:12px;border:1px dashed var(--cerenkov);
+  background:var(--cerenkov-acik);padding:12px}
+.takas-panel.acik{display:block}
+.takas-panel .baslik{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:10px;color:var(--cerenkov-koyu)}
+.takas-secenek{display:flex;gap:10px;align-items:baseline;padding:8px 10px;
+  background:#fff;border:1px solid var(--cizgi);margin-bottom:6px;cursor:pointer}
+.takas-secenek:hover{border-color:var(--cerenkov)}
+.takas-secenek b{font-family:var(--display);font-weight:600;font-size:15px}
+.takas-secenek .k{font-family:var(--mono);font-size:10px;color:var(--soluk)}
+
+/* radar */
+.radar-kume{margin-bottom:18px}
+.radar-kume h4{font-family:var(--display);font-weight:600;font-size:16px;margin-bottom:6px}
+.radar-kume li{list-style:none;display:flex;gap:10px;align-items:baseline;
+  padding:6px 0;border-bottom:1px dotted var(--cizgi-soft);font-size:14px}
+.radar-kume .x{font-family:var(--mono);color:var(--uyari);cursor:pointer;border:0;
+  background:none;font-size:13px;padding:0 4px}
+.radar-kume .rk{font-family:var(--mono);font-size:10px;color:var(--soluk)}
+
+/* onay çubuğu */
+.onay-bar{position:sticky;bottom:0;background:var(--panel);border-top:2px solid var(--murekkep);
+  padding:14px 0;margin-top:40px;z-index:40}
+.onay-in{max-width:900px;margin:0 auto;padding:0 20px;display:flex;gap:14px;
+  align-items:center;flex-wrap:wrap}
+.onay-in .durum{font-size:14px;color:var(--soluk)}
+.onay-buyuk{font-family:var(--mono);font-size:14px;letter-spacing:.05em;padding:12px 28px;
+  background:var(--murekkep);color:#fff;border:0;cursor:pointer;margin-left:auto}
+.onay-buyuk:hover{background:var(--cerenkov-koyu)}
+.onay-buyuk:disabled{background:var(--dim);cursor:not-allowed}
+
+.mesaj{position:fixed;top:70px;right:20px;background:var(--murekkep);color:#fff;
+  padding:12px 18px;font-size:14px;z-index:100;display:none;max-width:340px}
+.mesaj.hata{background:var(--uyari)}
+#yukleniyor{text-align:center;padding:80px 0;font-family:var(--mono);color:var(--soluk)}
+@media(max-width:640px){.kart h3{font-size:18px}}
+</style>
+</head>
+<body>
+
+<div class="band"><div class="band-in">
+  <span class="etiket" id="durum-etiket">Taslak — İnceleme</span>
+  <b>Nükleer Enerji Bülteni</b>
+  <span style="font-family:var(--mono);font-size:12px" id="sayi-bilgi"></span>
+  <span class="kim" id="hakem-adi"></span>
+</div></div>
+
+<div class="wrap">
+  <div id="yukleniyor">Taslak yükleniyor…</div>
+  <div id="icerik" style="display:none">
+
+    <div class="not" id="ust-not"></div>
+
+    <div class="sec-baslik">Bu Hafta 60 Saniyede</div>
+    <ol class="brief" id="brief"></ol>
+
+    <div class="sec-baslik">Bültene Girecek Haberler <span id="secili-sayac" style="letter-spacing:0"></span></div>
+    <div id="secili-liste"></div>
+
+    <div class="sec-baslik">Yedek Havuzu — takas için hazır</div>
+    <p style="font-size:14px;color:var(--soluk);margin-bottom:14px">
+      Bu haberler de tam olarak yazıldı ancak bülten gövdesine seçilmedi.
+      Yukarıdaki bir haberin altındaki <b>“Değiştir”</b> düğmesiyle takas yapabilirsiniz.</p>
+    <div id="yedek-liste"></div>
+
+    <div class="sec-baslik">Radar</div>
+    <div id="radar"></div>
+  </div>
+</div>
+
+<div class="onay-bar" id="onay-bar" style="display:none"><div class="onay-in">
+  <span class="durum" id="onay-durum"></span>
+  <button class="onay-buyuk" id="onay-btn" onclick="onayla()">Onayla ve Yayına Hazırla</button>
+</div></div>
+
+<div class="mesaj" id="mesaj"></div>
+
+<script>
+const TOKEN = "__TOKEN__";
+const API = (yol) => `/api/${TOKEN}/${yol}`;
+let VERI = null;
+
+function mesaj(t, hata=false){
+  const m = document.getElementById("mesaj");
+  m.textContent = t; m.className = "mesaj" + (hata ? " hata" : "");
+  m.style.display = "block";
+  setTimeout(() => m.style.display = "none", 4200);
+}
+
+async function api(yol, govde){
+  const r = await fetch(API(yol), govde !== undefined
+    ? {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(govde)}
+    : undefined);
+  const d = await r.json().catch(() => ({}));
+  if(!r.ok){ throw new Error(d.detail || d.hata || "İşlem başarısız"); }
+  return d;
+}
+
+function esc(s){ const d = document.createElement("div"); d.textContent = s ?? ""; return d.innerHTML; }
+
+function kartHTML(s, secili){
+  const t = VERI.taslak;
+  const manset = t.lead_id === s.id;
+  const kat = VERI.kategoriler[s.category] || s.category;
+  const kaynak = s.source ? `<a href="${esc(s.source.url)}" target="_blank" rel="noopener">${esc(s.source.name)}</a>` : "";
+  const destek = (s.supporting_sources||[]).map(k =>
+    `<a href="${esc(k.url)}" target="_blank" rel="noopener">${esc(k.name)}</a>`).join(" · ");
+  const duzenlenebilir = VERI.status === "review";
+
+  let islemler = "";
+  if(duzenlenebilir && secili){
+    islemler = `<div class="islemler">
+      ${manset ? "" : `<button class="btn mavi" onclick="mansetYap('${s.id}')">Manşet yap</button>`}
+      <button class="btn" onclick="takasAc('${s.id}')">Değiştir…</button>
+      ${manset ? "" : `<button class="btn kirmizi" onclick="cikar('${s.id}')">Yedeğe indir</button>`}
+    </div>
+    <div class="takas-panel" id="takas-${s.id}">
+      <div class="baslik">Yerine hangi yedek haber girsin?</div>
+      <div id="takas-listesi-${s.id}"></div>
+    </div>`;
+  }
+
+  return `<div class="kart ${manset ? "manset" : ""} ${secili ? "" : "yedek-kart"}" id="kart-${s.id}">
+    <div class="ust">
+      ${manset ? '<span class="rozet">Manşet</span>' : ""}
+      <span class="kat">${esc(kat)}</span>
+      ${s.maturity ? `<span class="kat" style="border-color:var(--cizgi);color:var(--soluk)">${esc(s.maturity)}</span>` : ""}
+      <span class="puan">puan ${s.score ?? "?"}</span>
+    </div>
+    <h3>${esc(s.title)}</h3>
+    <p class="ozet">${esc(s.excerpt)}</p>
+    <p class="kaynak">Kaynak: ${kaynak}${destek ? " · Destek: " + destek : ""}
+       &nbsp;·&nbsp;<button class="detay-ac" onclick="detayAc('${s.id}')">tam metni göster</button></p>
+    <div class="detay" id="detay-${s.id}">${esc(s.detail)}</div>
+    ${islemler}
+  </div>`;
+}
+
+function ciz(){
+  const t = VERI.taslak;
+  const stories = t.stories || [];
+  const secili = stories.filter(s => s.secim === "one_cikan");
+  const yedek = stories.filter(s => s.secim !== "one_cikan");
+
+  document.getElementById("sayi-bilgi").textContent =
+    `Sayı ${VERI.sayi_no} · ${VERI.hafta}`;
+  document.getElementById("hakem-adi").textContent = `İnceleyen: ${VERI.hakem}`;
+
+  const etiket = document.getElementById("durum-etiket");
+  if(VERI.status === "approved"){
+    etiket.textContent = "Onaylandı"; etiket.style.background = "var(--ok)";
+  }
+
+  const not = document.getElementById("ust-not");
+  if(VERI.status === "review"){
+    not.innerHTML = `Bu bir <b>taslaktır</b> — henüz yayınlanmadı. Haberleri inceleyin;
+      beğenmediklerinizi yedek havuzundaki haberlerle değiştirin. <b>Tek onay yeterlidir.</b>
+      ${VERI.yayin_aninda
+        ? "Yayın saati geçti: onayladığınız anda bülten <b>hemen</b> yayınlanır."
+        : "Onaylanan bülten <b>Pazartesi 08:00</b>'de otomatik yayınlanır."}`;
+  } else {
+    not.innerHTML = `Bu sayı <b>${esc(VERI.approved_by || "?")}</b> tarafından onaylandı —
+      artık düzenlenemez.`;
+  }
+
+  document.getElementById("brief").innerHTML =
+    (t.brief||[]).map(m => `<li>${esc(m.text)}</li>`).join("");
+
+  document.getElementById("secili-sayac").textContent = ` — ${secili.length} haber`;
+  // manşet en üstte
+  secili.sort((a,b) => (t.lead_id===b.id) - (t.lead_id===a.id) || (b.score??0)-(a.score??0));
+  document.getElementById("secili-liste").innerHTML =
+    secili.map(s => kartHTML(s, true)).join("");
+  document.getElementById("yedek-liste").innerHTML =
+    yedek.length ? yedek.map(s => kartHTML(s, false)).join("")
+                 : '<p style="color:var(--dim);font-size:14px">Yedek haber kalmadı.</p>';
+
+  document.getElementById("radar").innerHTML = (t.radar||[]).map(k => `
+    <div class="radar-kume"><h4>${esc(k.kume)}</h4><ul>
+      ${(k.maddeler||[]).map(m => `<li>
+        ${VERI.status==="review" ? `<button class="x" title="Radardan çıkar"
+           onclick="radarCikar('${esc(k.kume)}','${esc(m.url)}')">✕</button>` : ""}
+        <span>${esc(m.title)}</span>
+        <span class="rk"><a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.source)}</a></span>
+      </li>`).join("")}
+    </ul></div>`).join("");
+
+  const bar = document.getElementById("onay-bar");
+  bar.style.display = "block";
+  const btn = document.getElementById("onay-btn");
+  const durum = document.getElementById("onay-durum");
+  if(VERI.status === "review"){
+    btn.disabled = false;
+    durum.textContent = `${secili.length} haber + ${
+      (t.radar||[]).reduce((a,k)=>a+(k.maddeler||[]).length,0)} radar maddesi yayına hazır.`;
+  } else {
+    btn.disabled = true; btn.textContent = "Onaylandı ✓";
+    durum.textContent = `Onaylayan: ${VERI.approved_by || "?"}`;
+  }
+}
+
+function detayAc(id){ document.getElementById("detay-"+id).classList.toggle("acik"); }
+
+function takasAc(id){
+  const p = document.getElementById("takas-"+id);
+  const acikti = p.classList.contains("acik");
+  document.querySelectorAll(".takas-panel").forEach(x => x.classList.remove("acik"));
+  if(acikti) return;
+  const yedekler = (VERI.taslak.stories||[]).filter(s => s.secim !== "one_cikan");
+  document.getElementById("takas-listesi-"+id).innerHTML = yedekler.length
+    ? yedekler.map(y => `<div class="takas-secenek" onclick="takasYap('${id}','${y.id}')">
+        <b>${esc(y.title)}</b>
+        <span class="k">${esc(VERI.kategoriler[y.category]||y.category)} · puan ${y.score??"?"}</span>
+      </div>`).join("")
+    : '<p style="font-size:13px">Yedek haber kalmadı.</p>';
+  p.classList.add("acik");
+}
+
+async function takasYap(outId, inId){
+  try{ await api("swap", {out_id:outId, in_id:inId});
+       mesaj("Takas yapıldı"); await yukle(); }
+  catch(e){ mesaj(e.message, true); }
+}
+async function cikar(id){
+  if(!confirm("Bu haber bültenden çıkarılıp yedeğe insin mi?")) return;
+  try{ await api("remove", {id}); mesaj("Haber yedeğe indirildi"); await yukle(); }
+  catch(e){ mesaj(e.message, true); }
+}
+async function mansetYap(id){
+  try{ await api("lead", {id}); mesaj("Manşet değiştirildi"); await yukle(); }
+  catch(e){ mesaj(e.message, true); }
+}
+async function radarCikar(kume, url){
+  try{ await api("radar-remove", {kume, url}); mesaj("Radar maddesi çıkarıldı"); await yukle(); }
+  catch(e){ mesaj(e.message, true); }
+}
+
+async function onayla(){
+  const uyari = VERI.yayin_aninda
+    ? "Bülteni onaylıyorsunuz. Yayın saati geçtiği için HEMEN yayınlanacak. Devam?"
+    : "Bülteni onaylıyorsunuz. Pazartesi 08:00'de otomatik yayınlanacak. Devam?";
+  if(!confirm(uyari)) return;
+  const btn = document.getElementById("onay-btn");
+  btn.disabled = true; btn.textContent = "İşleniyor…";
+  try{
+    const d = await api("approve", {});
+    if(d.durum === "yayinlandi"){ mesaj("Bülten YAYINLANDI ✓"); }
+    else{ mesaj("Onaylandı — Pazartesi 08:00'de yayınlanacak"); }
+    await yukle();
+  }catch(e){
+    mesaj(e.message, true);
+    btn.disabled = false; btn.textContent = "Onayla ve Yayına Hazırla";
+  }
+}
+
+async function yukle(){
+  try{
+    VERI = await api("draft");
+    document.getElementById("yukleniyor").style.display = "none";
+    document.getElementById("icerik").style.display = "block";
+    ciz();
+  }catch(e){
+    document.getElementById("yukleniyor").textContent = "Hata: " + e.message;
+  }
+}
+yukle();
+</script>
+</body>
+</html>
