@@ -1,0 +1,722 @@
+{
+  "issue": {
+    "number": 1,
+    "hafta": "2026-W30",
+    "publication_date": "2026-07-22",
+    "coverage_start": "2026-07-14",
+    "coverage_end": "2026-07-21",
+    "window_days": 7,
+    "audio": {
+      "url": "assets/audio/2026-W30.mp3",
+      "duration_sec": 58,
+      "voice": "lxZLq5dcyw12UangGJgN",
+      "chars": 745,
+      "generated_at": "2026-07-22"
+    }
+  },
+  "brief": [
+    {
+      "text": "New Jersey'de Power NJ Act yasalaşarak 1.100 MW yeni nükleer kapasite için rekabetçi ihale süreci başlatıldı.",
+      "slug": "new-jersey-power-nj-act-ile-en-az-1-100-mw-yeni-nukleer-kapasite-icin-"
+    },
+    {
+      "text": "Amazon ve X-energy, Güney Koreli ortaklarla 2039'a kadar ABD'de 5 GW+ SMR kapasitesi için 50 milyar dolar seferber etmeyi hedefliyor.",
+      "slug": "amazon-ve-x-energy-khnp-ve-doosan-ile-2039-a-kadar-abd-de-5-gw-smr-ici"
+    },
+    {
+      "text": "Sizewell B'nin ömrü 800 milyon sterlinlik yenileme yatırımıyla 2035'ten 2055'e uzatıldı; ek 180 TWh üretim öngörülüyor.",
+      "slug": "sizewell-b-nin-omru-800-milyon-sterlinlik-yenilemeyle-2035-ten-2055-e-"
+    },
+    {
+      "text": "X-energy, Amazon liderliğinde 700 milyon dolarlık Seri C-1 finansman turunu kapattı; TRISO-X yakıt tesisi ve Xe-100 lisansı finanse edilecek.",
+      "slug": null
+    },
+    {
+      "text": "Akkuyu 1. Ünite'de reaktör montajı tamamlandı, hidrolik test aşamasına geçildi; yıl içi şebeke bağlantısı hedefleniyor.",
+      "slug": "akkuyu-birinci-unite-reaktor-montaji-tamamlandi-isletmeye-alma-testler"
+    }
+  ],
+  "metrics": {
+    "aciklanan_yatirim_usd_milyon": 69840,
+    "toplam_kapasite_mwe": 52138,
+    "politika_gelismesi": 1,
+    "kapsanan_ulke": 6
+  },
+  "lead": {
+    "id": "akkuyu-unit1-testing",
+    "slug": "akkuyu-birinci-unite-reaktor-montaji-tamamlandi-isletmeye-alma-testler",
+    "image": {
+      "url": "https://web-cdnprod.aa.com.tr/uploads/Contents/2026/06/30/thumbs_b_c_e94c63aa827a00737a002d47d9b8cb6b.jpg",
+      "type": "og",
+      "credit": "aa.com.tr"
+    },
+    "score": 10,
+    "secim": "one_cikan",
+    "title": "Akkuyu Birinci Ünite reaktör montajı tamamlandı, işletmeye alma testleri başladı",
+    "detail": "Akkuyu NGS 1. Güç Ünitesinde inşaat çalışmaları tamamlandı; işletmeye alma öncesi (ön-devreye alma) test sürecine geçildi. Reaktörün mekanik montajı bitirildi, temsili yakıt demetleri reaktör kalbine yüklendi ve hidrolik testlere başlandı. Tüm ünitelerin inşaatını yürüten Akkuyu Nükleer AŞ, bu testlerin 2026 yılı içinde birinci ünitenin şebekeye bağlanması için tamamlanması gerektiğini belirtti. Santralin 1. ünitesinde kurulu bulunan ve Rusya tasarımı VVER-1200 teknolojisine dayanan reaktörün birinci beton dökümü Nisan 2018'de gerçekleştirilmişti.\n\nBirinci ünitedeki ilerlemeye paralel olarak 2. Güç Ünitesinde iç koruma kabuğunun (VZO – Vnutrennei Zatsitnoi Obolochki) kubbesi yaklaşık dört aylık hazırlık sürecinin ardından ağır paletli vinç kullanılarak yaklaşık yedi saatlik operasyonla yerine yerleştirildi. Yaklaşık 215 ton ağırlığındaki kubbeye hizmet platformları ve sprinkler sistemi eklenmesiyle toplam kaldırma yükü 250 tonu aştı; operasyonda 40 uzman görev aldı. Kubbenin silindirik gövdeyle kaynak işlemleri tamamlandığında reaktör bölmesinin sızdırmaz hacmi oluşturulmuş olacak.\n\nÜçüncü ve dördüncü güç ünitelerinin de inşaat ve montaj çalışmaları sahadaki 25 bin çalışanın katkısıyla sürdürülmektedir. 2. ünite için temel betonu Haziran 2020'de, 3. ünite için Mart 2021'de, 4. ünite için ise Temmuz 2022'de dökülmüştü. Santralin toplam kapasitesi dört VVER-1200 üniteyle 4.800 MWe olacak. Akkuyu, Rosatom'un inşa-sahip-işlet (BOO) modeli çerçevesinde gerçekleştirilen ilk projedir.\n\nProjenin yerelleştirme boyutunda Türk sanayi katkısı proje başlangıcından bu yana 2.000 tedarikçi ve yüklenici firmayı kapsayan bir zincire ulaştı; bugün itibarıyla sahada 300'ün üzerinde şirket aktif olarak çalışmaktadır. Bakanlık verilerine göre yerelleştirme hacmi yaklaşık 12 milyar ABD dolarına ulaştı. Akkuyu NGS sahasında nükleer enerji ile yenilenebilir enerji kaynaklarını bir arada kullanan hibrit enerji çözümlerine yönelik değerlendirmeler de Enerji ve Tabii Kaynaklar Bakanlığı ve Türk iş ortaklarıyla birlikte yürütülmektedir. Türkiye'nin teknik destek kuruluşu NÜTED'in Rosatom'un Macaristan projesinde görev aldığı, Türk şirketlerinin aynı zamanda Mısır'daki El Dabaa projesinde de deneyimlerini aktardığı bildirilmektedir.",
+    "source": {
+      "url": "https://aa.com.tr/tr/bilim-teknoloji/akkuyu-ngsde-nukleer-ve-yenilenebilir-enerji-temelli-hibrit-cozumler-gundemde/3982334",
+      "name": "Anadolu Ajansı",
+      "tier": 1,
+      "type": "news_agency",
+      "primary": true
+    },
+    "excerpt": "Akkuyu Nükleer Güç Santralinin (NGS) 1. Güç Ünitesinde reaktör montajı tamamlandı, temsili yakıt demetleri reaktöre yüklendi ve hidrolik testler aşamasına geçildi. Akkuyu Nükleer AŞ Yönetim Kurulu Başkanı, tüm bu çalışmaların birinci ünitenin 2026 yılı içinde işletmeye alınması için zorunlu ön koşulları oluşturduğunu açıkladı. Sahada 25 bin kişi görev yapıyor.",
+    "category": "turkiye",
+    "maturity": "commissioning",
+    "companies": [
+      "Akkuyu Nuclear"
+    ],
+    "countries": [
+      "Turkey"
+    ],
+    "event_date": "2026-06-30",
+    "investment": null,
+    "value_chain": [
+      "reaktor-insa",
+      "isletme"
+    ],
+    "capacity_mwe": 4800,
+    "neden_onemli": null,
+    "technologies": [
+      "VVER-1200",
+      "PWR"
+    ],
+    "subcategories": [
+      "devreye-alma",
+      "inşaat"
+    ],
+    "published_date": "2026-06-30",
+    "supporting_sources": [
+      {
+        "url": "https://neimagazine.com/news/akkuyu-unit-2-dome-installed",
+        "name": "NEI Magazine"
+      }
+    ]
+  },
+  "stories": [
+    {
+      "id": "turkey-nuke-policy-summit",
+      "slug": "turkiye-2035-e-kadar-7-2-gw-2053-e-kadar-20-gw-nukleer-kapasite-hedefi",
+      "image": {
+        "url": "https://www.enerjigunlugu.net/d/news/55166.jpg",
+        "type": "og",
+        "credit": "enerjigunlugu.net"
+      },
+      "score": 9,
+      "secim": "one_cikan",
+      "title": "Türkiye 2035'e kadar 7,2 GW, 2053'e kadar 20 GW nükleer kapasite hedefini yineledi",
+      "detail": "Ankara Sanayi Odası (ASO) ve Nükleer Sanayi Derneği (NSD) tarafından Enerji ve Tabii Kaynaklar Bakanlığı desteğiyle düzenlenen 12. Nükleer Santraller Zirvesi (NPPES), 30 Haziran–1 Temmuz 2026 tarihleri arasında İstanbul Teknik Üniversitesi Süleyman Demirel Kültür Merkezi'nde gerçekleştirildi. \"Yeni Nükleer Çağ: Sanayiyi, İnovasyonu ve Net Sıfır Hedeflerini Güçlendirmek\" temasıyla düzenlenen zirve Türkiye, Ortadoğu, Kuzey Afrika ve Balkanların en kapsamlı nükleer enerji platformu olarak tanımlanmaktadır. Bakanlık Nükleer Enerji Genel Müdürü Salih Sarı, açılış konuşmasında nükleer enerjinin enerji arz güvenliği, ithal kaynaklara bağımlılığın azaltılması, karbon emisyonu düşürülmesi, yüksek teknoloji gelişimi ve enerji bağımsızlığı açısından Türkiye için tercih değil zorunluluk olduğunu vurguladı.\n\nTürkiye'nin nükleer kapasite hedefleri üç eksende tanımlandı: 2035 yılına kadar 7,2 GW, 2053 yılına kadar en az 20 GW konvansiyonel kapasite ve bu toplam içinde en az 5 GW SMR kapasitesi. Yetkililer, SMR stratejisinin salt kapasite kurulumunu değil, Türkiye'nin reaktörleri tasarlayan, üreten, işleten ve ihraç eden bir ülke konumuna getirilmesini hedeflediğini belirtti. Akkuyu NGS'nin birinci ünitesinden 2026 yılı içinde ilk elektrik üretiminin gerçekleştirilmesi de toplantıda yinelenen hedefler arasında yer aldı.\n\nAkkuyu projesinin yanı sıra Sinop ilinde ve Trakya bölgesinde planlanan iki konvansiyonel nükleer santral projesi için hazırlıklar sürmektedir. Sinop sahası yatırıma hazır hale getirilmiş; Trakya sahasında uluslararası standartlar çerçevesinde saha etütleri devam etmektedir. Her iki proje için teknoloji, finansman, yerelleştirme ve yakıt çevrimi konularında rekabetçi teklifler alınmak üzere potansiyel ortaklarla görüşmeler yürütüldüğü açıklandı. Araştırma, sanayi, insan kaynağı, yakıt çevrimi ile test ve sertifikasyon alanlarında kendi kendine yeterliliğe ulaşma amacı da stratejik çerçeve içinde tanımlandı.",
+      "source": {
+        "url": "https://enerjigunlugu.net/sari-nukleer-enerji-bir-tercih-degil-zorunluluktur-68737h.htm",
+        "name": "Enerji Günlüğü",
+        "tier": 2,
+        "type": "trade_press",
+        "primary": true
+      },
+      "excerpt": "Türkiye Enerji ve Tabii Kaynaklar Bakanlığı, ülkenin 2035 yılına kadar 7,2 GW ve 2053 yılına kadar en az 20 GW nükleer kapasiteye ulaşma hedefini 12. Nükleer Santraller Zirvesi'nde (NPPES) teyit etti. 2053 yılına kadar en az 5 GW SMR kapasitesine ulaşmak ve bu reaktörleri kendi tasarlayan, üreten, ihraç eden bir ülke konumuna gelmek stratejik öncelikler arasında yer almaktadır. Akkuyu'ya ek olarak Sinop ve Trakya'da iki konvansiyonel santral projesi için çalışmalar sürmektedir.",
+      "category": "turkiye",
+      "maturity": "announced",
+      "companies": [],
+      "countries": [
+        "Turkey"
+      ],
+      "event_date": "2026-06-30",
+      "investment": null,
+      "value_chain": [
+        "reaktor-insa"
+      ],
+      "capacity_mwe": 20000,
+      "neden_onemli": null,
+      "technologies": [],
+      "subcategories": [
+        "politika",
+        "smr"
+      ],
+      "published_date": "2026-07-01",
+      "supporting_sources": [
+        {
+          "url": "https://aa.com.tr/tr/ekonomi/akkuyu-nukleer-guc-santralinde-yerlilestirme-hacmi-12-milyar-dolara-ulasti/3982115",
+          "name": "Anadolu Ajansı"
+        }
+      ]
+    },
+    {
+      "id": "ic-holding-smr-arc",
+      "slug": "ic-holding-arc-clean-technology-ile-turkiye-ve-bolge-icin-20-sodyum-so",
+      "image": {
+        "url": "https://web-cdnprod.aa.com.tr/uploads/Contents/2026/07/02/thumbs_b_c_f91bfdfa86df8d3272caaa77445c6446.jpg",
+        "type": "og",
+        "credit": "aa.com.tr"
+      },
+      "score": 9,
+      "secim": "one_cikan",
+      "title": "IC Holding, ARC Clean Technology ile Türkiye ve bölge için 20 sodyum soğutmalı SMR planlıyor",
+      "detail": "IC Holding bünyesinde kurulan IC Nükleer Teknoloji, 30 Haziran–1 Temmuz 2026 tarihleri arasında İstanbul'da gerçekleştirilen 12. Nükleer Santraller Zirvesi'nde (NPPES) ABD merkezli ARC Clean Technology ile stratejik ortaklığını duyurdu. IC Nükleer Teknoloji Yönetim Kurulu Başkanı Murad Bayar, uzun vadeli planların Türkiye'de 10, bölge genelinde toplam 20 reaktör kurulumunu kapsadığını belirtti. İşbirliği teknik, ekonomik ve düzenleyici fizibilite etüdlerini, yerelleştirmeyi, lisans hazırlığını, tedarik zinciri geliştirmeyi ve ticarileştirme süreçlerini kapsamaktadır.\n\nOrtaklığa konu olan ARC-100, sodyum soğutmalı hızlı reaktör teknolojisine dayanan 100 MWe sınıfı 4. nesil bir SMR tasarımıdır. Bayar, bu teknolojinin elektrik üretiminin yanı sıra yüksek sıcaklık proses ısısı gerektiren endüstriyel uygulamaları da destekleyebileceğini vurguladı. Olası uygulama alanları arasında veri merkezleri, enerji yoğun sanayi tesisleri, organize sanayi bölgeleri, petrokimya tesisleri, madencilik sahaları, tuzdan arındırma tesisleri ve şebeke kapasitesinin sınırlı olduğu bölgeler sayıldı.\n\nMaliyet projeksiyonları açısından Bayar, teknolojinin olgunlaşmasıyla birlikte sonraki SMR kurulumlarının yaklaşık 3.000 dolar/kW seviyesine yaklaşabileceğini öngördü; bu da 100 MWe sınıfı bir reaktör için yaklaşık 300 milyon dolara karşılık gelmektedir. Ancak bu rakamın teknoloji olgunluğuna, lisanslama sürecine, konuma, tedarik zincirine ve proje modeline göre farklılaşabileceği belirtildi. Bayar, işbirliğinin hazır bir teknolojiyi Türkiye'ye aktarmak değil, teknolojiyi ortak olarak geliştirmek, farklı uygulama alanlarına uyarlamak ve tedarik zincirini yerelleştirmek olduğunu vurguladı.\n\nTürkiye'nin 2053 nükleer vizyonu çerçevesinde 20 GW toplam kapasite hedefinin en az 5 GW'lık bölümünün SMR'lardan sağlanması öngörülmektedir. Bayar'a göre bu vizyon salt kurulu güç hedefi olarak değil; teknoloji geliştirme, yerli tedarik zinciri, düzenleme, insan kaynağı ve sanayi rekabetçiliği fırsatı olarak değerlendirilmelidir. ARC-100 için lisanslama takvimi henüz paylaşılmamıştır.",
+      "source": {
+        "url": "https://aa.com.tr/en/economy/turkish-firm-plans-up-to-20-small-modular-nuclear-reactors-with-us-partner/3984480",
+        "name": "Anadolu Ajansı",
+        "tier": 1,
+        "type": "news_agency",
+        "primary": true
+      },
+      "excerpt": "Türk holding şirketi IC Holding, ABD'li ARC Clean Technology ile stratejik ortaklık kapsamında Türkiye'de 10, bölgede toplam 20 adet 4. nesil sodyum soğutmalı küçük modüler reaktör (SMR) kurulumunu planladığını açıkladı. ARC-100 tasarımı 100 MWe sınıfı bir SMR olup maliyet projeksiyonları ileri aşamalarda yaklaşık 3.000 dolar/kW seviyesini, yani reaktör başına yaklaşık 300 milyon dolar öngörmektedir. Türkiye'nin 2053 hedefi en az 5 GW SMR kapasitesidir.",
+      "category": "smr",
+      "maturity": "announced",
+      "companies": [
+        "IC Holding",
+        "ARC Clean Technology"
+      ],
+      "countries": [
+        "Turkey"
+      ],
+      "event_date": "2026-06-30",
+      "investment": {
+        "currency": null,
+        "amount_original": null,
+        "amount_usd_million": null,
+        "public_support_usd_million": null
+      },
+      "value_chain": [
+        "reaktor-insa"
+      ],
+      "capacity_mwe": 2000,
+      "neden_onemli": null,
+      "technologies": [
+        "ARC-100",
+        "sodyum soğutmalı hızlı reaktör"
+      ],
+      "subcategories": [
+        "yatırım",
+        "yerelleştirme"
+      ],
+      "published_date": "2026-07-02",
+      "supporting_sources": []
+    },
+    {
+      "id": "nj-nuclear-procurement-2026",
+      "slug": "new-jersey-power-nj-act-ile-en-az-1-100-mw-yeni-nukleer-kapasite-icin-",
+      "image": {
+        "url": "https://world-nuclear-news.org/images/share.png",
+        "type": "og",
+        "credit": "world-nuclear-news.org"
+      },
+      "score": 8,
+      "secim": "one_cikan",
+      "title": "New Jersey Power NJ Act ile en az 1.100 MW yeni nükleer kapasite için ihale başlattı",
+      "detail": "New Jersey Valisi Mikie Sherrill, 14 Temmuz 2026 tarihinde Power NJ Act'i imzaladı. Bu yasa, eyalette en az 1.100 MW yeni nükleer enerji kapasitesi temin edilmesini amaçlayan şeffaf ve rekabetçi bir ihale süreci oluşturmaktadır. Yasa, New Jersey Kamu Hizmetleri Kurulu (BPU) ile New Jersey Ekonomik Kalkınma Otoritesi'nin (EDA) iş birliğiyle yürütülecek değerlendirme ve müzakere aşamalarını düzenlemektedir. Yasa ikinci kanatlı yasama organlarının her ikisinde de oybirliğiyle geniş iki partili destekle geçmişti.\n\nYasanın belirlediği takvim aşağıdaki şekilde öngörülmektedir: BPU, yasanın yürürlüğe girmesinden itibaren 180 gün içinde (9 Ocak 2027'ye kadar) ilgi ifadesi talebi (RFI) açacak; geliştiriciler 60 gün içinde düzenleyici, çevresel, finansal ve istihdam bilgilerini içeren tekliflerini sunacak. BPU, takip eden 90 gün içinde (9 Nisan 2027'ye kadar) projelerin müzakere sürecine kabul edilip edilmeyeceğine karar verecek. Müzakere süreci 12 ay sürecek (9 Nisan 2028'e kadar) ve bu süreçte doğru maliyet tahminleri, elektrik fiyatı ve diğer koşullar belirlenecek. BPU, müzakere sürecinin ardından 90 gün içinde Nihai Kurul Kararı'nı verecek (en geç 8 Temmuz 2028).\n\nYasa, tüketici güvencelerine ilişkin kapsamlı hükümler içermektedir. Tüketiciler, proje inşa edilip enerji üretmeye başlayana kadar herhangi bir maliyet yüklenmeyecek; maliyet aşımlarından sorumlu tutulmayacaktır. Tüm projelerin federal finansman güvencesi sağlaması zorunlu tutularak risk tüketiciden uzaklaştırılmaktadır. Herhangi bir saha için birden fazla kamuoyu görüş toplantısı ve teklif verilen belediyede bir kamuoyu dinleme toplantısı düzenlenmesi de şart koşulmaktadır. BPU ve EDA'nın bağımsız Tarife Danışmanlığı Bölümü değerlendirmelerini süreç boyunca dikkate alması da yasal zorunluluklar arasındadır.\n\nNew Jersey Nisan 2026'da yeni nükleer geliştirme üzerindeki 50 yıllık fiili moratoryumu kaldıran izin engeli yasasını çıkarmıştı ve Nükleer Görev Gücü'nü (Nuclear Task Force) oluşturmuştu. Power NJ Act bu adımın devamı niteliğindedir. Yasa, büyük ölçekli yeni inşa projelerinin yanı sıra SMR'leri ve mikro reaktörleri de kapsayacak biçimde tasarlanmış olup 1.100 MW taban eşiği hem büyük reaktör projelerini hem de küçük reaktör kümelerini değerlendirme imkânı tanımaktadır.",
+      "source": {
+        "url": "https://world-nuclear-news.org/articles/new-jersey-launches-procurement-process-for-new-nuclear",
+        "name": "World Nuclear News",
+        "tier": 1,
+        "type": "trade_press",
+        "primary": true
+      },
+      "excerpt": "New Jersey Valisi Mikie Sherrill, eyalette en az 1.100 MW yeni nükleer kapasite temin edilmesine yönelik rekabetçi ihale çerçevesini oluşturan Power NJ Act'i imzaladı. Yasa, iki kanatlı yasama organından oy birliğiyle geçmişti. Nihai Kurul Kararı en geç 8 Temmuz 2028'e kadar verilmesi öngörülmekte olup tüketici maliyetlerine yönelik kapsamlı güvence hükümleri de yasaya dahil edildi.",
+      "category": "politika",
+      "maturity": "announced",
+      "companies": [],
+      "countries": [
+        "USA"
+      ],
+      "event_date": "2026-07-14",
+      "investment": null,
+      "value_chain": [
+        "reaktor-insa"
+      ],
+      "capacity_mwe": 1100,
+      "neden_onemli": null,
+      "technologies": [],
+      "subcategories": [
+        "düzenleme",
+        "ihale"
+      ],
+      "published_date": "2026-07-15",
+      "supporting_sources": [
+        {
+          "url": "https://neimagazine.com/news/new-jersey-backs-new-nuclear",
+          "name": "NEI Magazine"
+        }
+      ]
+    },
+    {
+      "id": "india-jindal-nuclear-18gw",
+      "slug": "hindistan-dan-naveen-jindal-grubu-18-gw-nukleer-santral-icin-18-63-mil",
+      "image": {
+        "url": "https://www.neimagazine.com/news/drone-strike-kills-znpp-engineer/",
+        "type": "og",
+        "credit": "neimagazine.com"
+      },
+      "score": 8,
+      "secim": "one_cikan",
+      "title": "Hindistan'dan Naveen Jindal Grubu 18 GW nükleer santral için 18,63 milyar dolarlık yatırım planladı",
+      "detail": "Çelik, madencilik, enerji ve gayrimenkul sektörlerinde faaliyet gösteren Naveen Jindal Grubu, Hindistan'ın özel sektörde nükleer enerjiye giren ilk büyük konglomeraları arasında yer almak üzere Jindal Renewables'ın tam sahipli bağlı kuruluşu Jindal Nuclear Power Private Limited'i kurdu. Grup, önümüzdeki iki on yıl içinde 18 GW nükleer kapasite kurmayı ve bu doğrultuda INR 1.800 milyar (18,63 milyar ABD doları) yatırım yapmayı planlamaktadır. Gujarat, Odisha, Andhra Pradesh, Tamil Nadu, Jharkhand ve Chhattisgarh dahil en az dokuz eyalette saha değerlendirmesi yürütülmektedir. Sahalar; arazi imkânları, su kaynakları, jeolojik ve sismik uygunluk, iletim bağlantısı, düzenleyici hazırlık ve uzun vadeli proje fizibilitesi kriterlerine göre incelenmektedir.\n\nGrubun değerlendirdiği reaktör portföyü teknoloji açısından çeşitlilik içermektedir: 220 MWe sınıfı SMR'lar, Hindistan Nükleer Enerji Şirketi'nden (NPCIL) 700 MWe basınçlı ağır su reaktörleri (PHWR), Rosatom'un 1.200 MWe VVER tasarımları ve EDF'nin 1.650 MWe EPR tasarımları değerlendirme kapsamında yer almaktadır. Şirket, EDF, Rosatom ve Westinghouse dahil uluslararası teknoloji şirketleriyle potansiyel ortaklıklar üzerine görüşmeler yürütmektedir. Grup yöneticilerine göre teknoloji seçimi tamamen teknoloji-bağımsız bir değerlendirme sürecine dayanmakta olup büyük ölçekli reaktörler ön planda tutulmaktadır.\n\nSaha hazırlığı açısından jeoteknik etütler ve ön ısınma faaliyetleri büyük ölçüde tamamlanmış, çevre etki değerlendirmesi (ÇED) çalışmaları başlatılmıştır. Reaktör teknolojisi ortakları ve resmi lisanslama başvuruları için herhangi bir takvim henüz paylaşılmamıştır. Hindistan'da özel sektörün nükleer güç üretimine girişi yasal düzenlemeler açısından tarihsel olarak kısıtlıydı; Jindal'ın girişimi bu alanda yeni bir sürecin habercisi olmaktadır. Grup, Hindistan'ın her zaman büyük santrallerle başlayıp ölçeği artırarak büyüyen nükleer gelişim modelini izlemeyi öngördüğünü bildirdi.",
+      "source": {
+        "url": "https://neimagazine.com/news/naveen-jindals-indian-nuclear-plans",
+        "name": "NEI Magazine",
+        "tier": 2,
+        "type": "trade_press",
+        "primary": true
+      },
+      "excerpt": "Hindistan'ın Naveen Jindal Grubu, önümüzdeki iki on yıl içinde 18 GW nükleer kapasite kurmayı hedefleyerek Gujarat ve Odisha dahil en az dokuz eyalette saha değerlendirmelerini başlattı. Grubun INR 1.800 milyar (18,63 milyar dolar) tutarındaki nükleer yatırım planı kapsamında kurulan Jindal Nuclear Power Private Limited, EDF, Rosatom ve Westinghouse dahil uluslararası teknoloji ortaklarıyla görüşmeler yürütmektedir. Çevre etki değerlendirmesi çalışmaları başlatılmış, jeoteknik etütlerin önemli kısmı tamamlanmıştır.",
+      "category": "buyuk-reaktor",
+      "maturity": "announced",
+      "companies": [
+        "Naveen Jindal Group",
+        "Jindal Nuclear Power Private Limited"
+      ],
+      "countries": [
+        "India"
+      ],
+      "event_date": "2026-07-16",
+      "investment": {
+        "currency": "USD",
+        "amount_original": 18.63,
+        "amount_usd_million": 18630,
+        "public_support_usd_million": null
+      },
+      "value_chain": [
+        "reaktor-insa"
+      ],
+      "capacity_mwe": 18000,
+      "neden_onemli": null,
+      "technologies": [
+        "VVER-1200",
+        "EPR",
+        "PHWR"
+      ],
+      "subcategories": [
+        "yatırım",
+        "özel sektör"
+      ],
+      "published_date": "2026-07-16",
+      "supporting_sources": []
+    },
+    {
+      "id": "sizewell-b-life-extension-20yr",
+      "slug": "sizewell-b-nin-omru-800-milyon-sterlinlik-yenilemeyle-2035-ten-2055-e-",
+      "image": {
+        "url": "https://www.neimagazine.com/news/uk-science-park-to-host-odin-microreactor/",
+        "type": "og",
+        "credit": "neimagazine.com"
+      },
+      "score": 8,
+      "secim": "one_cikan",
+      "title": "Sizewell B'nin ömrü 800 milyon sterlinlik yenilemeyle 2035'ten 2055'e uzatıldı",
+      "detail": "İngiltere'nin Suffolk ilinde konuşlanan Sizewell B Nükleer Güç Santrali, 1.188 MWe kapasitesiyle ülkenin tek basınçlı su reaktörüdür (PWR). Reaktörün nükleer adası 1970'lerde geliştirilen Westinghouse dört-halkalı Standart Nükleer Ünite Güç Santrali Sistemi'ne (SNUPPS) dayanmakta, buna ek güvenlik sistemleri ve çeşitli modifikasyonlar uygulanmış bulunmaktadır. Konteynman yapısı SNUPPS'a dayanmayıp National Nuclear Corporation (2005'te Amec Foster Wheeler tarafından satın alındı) ve Bechtel tarafından tasarlanmıştır. Santral, 2 milyondan fazla haneye enerji sağlamakta ve İngiltere'nin toplam elektrik üretiminin yüzde üçünü karşılamaktadır.\n\nİmzalanan Heads of Terms belgesi 2035–2055 dönemini kapsamaktadır. CfD düzenlemesi kapsamında belirlenen taban fiyatı (strike price) 2025 fiyatlarıyla MWh başına 70,50 sterlin olarak kararlaştırıldı. EDF, 15 yıl boyunca 18 ayda bir gerçekleşen bakım duruşları sırasında yaklaşık 800 milyon sterlin tutarında yenileme yatırımı yapacak. Bu yaklaşım, santralin uzun süreli kapatılmasına gerek kalmaksızın kritik işlerin yürütülmesine imkân tanıyacak. CfD'nin bu yıl içinde kesinleştirilmesi öngörülmektedir.\n\nPlanlanan yatırımlar şu kalemleri kapsamaktadır: Hinkley Point C'ye benzer yeni bir çevre izleme sistemi, yeni otomatik tesis izleme sistemleri, sahada boru, vana ve pompa değişimleri ve devam eden teknik analiz ve tesis denetimleri için ek finansman. 20 yıllık işletme uzatmasının sağlayacağı yaklaşık 180 TWh ek üretim kapasitesi öngörülmektedir. İngiltere Nükleer Düzenleme Ofisi (ONR), uzatma planlarını güvenlik ve teknik gereklilikler açısından incelediğini ve düzenleyici denetimin kapsamlı, orantılı ve hedefli muayene ile değerlendirme rejimiyle sürdürüleceğini açıkladı.\n\nSizewell B genişletmesi; EDF'nin mevcut santral filosunun ömrünü uzatma ile yeni santral inşasını bir arada yürütme stratejisinin parçası olarak tanımlandı. Uzatma sürecinde 900 nitelikli istihdam Suffolk'ta korunacak. Ayrıca İngiltere Hükümeti'nin bu anlaşmayı enerji güvenliğini güçlendirme ve tüketicileri piyasa dalgalanmalarına karşı koruma politikasının bir yansıması olarak sunduğu belirtildi.",
+      "source": {
+        "url": "https://neimagazine.com/news/sizewell-b-life-extended",
+        "name": "NEI Magazine",
+        "tier": 2,
+        "type": "trade_press",
+        "primary": true
+      },
+      "excerpt": "EDF ve İngiltere Hükümeti, Sizewell B Nükleer Güç Santrali'nin işletme ömrünün 2035'ten 2055'e uzatılmasına ilişkin Fark Sözleşmesi (Contract for Difference – CfD) Ön Koşullar Belgesi'ni (Heads of Terms) imzaladı. EDF, 15 yıl boyunca planlı bakım duruşları sırasında gerçekleştirilecek yaklaşık 800 milyon sterlin (yaklaşık 1,06 milyar dolar) tutarında büyük çaplı yenileme yatırımını üstlenecek. 20 yıllık uzatmayla santral yaklaşık 180 TWh ek elektrik üretecek.",
+      "category": "isletme",
+      "maturity": "operational",
+      "companies": [
+        "EDF"
+      ],
+      "countries": [
+        "UK"
+      ],
+      "event_date": "2026-07-14",
+      "investment": {
+        "currency": "GBP",
+        "amount_original": 800,
+        "amount_usd_million": 1060,
+        "public_support_usd_million": null
+      },
+      "value_chain": [
+        "isletme"
+      ],
+      "capacity_mwe": 1188,
+      "neden_onemli": null,
+      "technologies": [
+        "PWR",
+        "SNUPPS"
+      ],
+      "subcategories": [
+        "ömür uzatma",
+        "CfD"
+      ],
+      "published_date": "2026-07-14",
+      "supporting_sources": []
+    },
+    {
+      "id": "kairos-tva-google-50mw-ppa",
+      "slug": "kairos-power-ve-tva-google-veri-merkezleri-icin-50-mw-lik-ilk-smr-elek",
+      "image": {
+        "url": "https://media.datacenterdynamics.com/media/images/StackPWC.2e16d0ba.fill-280x185.jpg",
+        "type": "og",
+        "credit": "datacenterdynamics.com"
+      },
+      "score": 8,
+      "secim": "one_cikan",
+      "title": "Kairos Power ve TVA, Google veri merkezleri için 50 MW'lık ilk SMR elektrik alım anlaşmasını imzaladı",
+      "detail": "Tennessee Vadisi Otoritesi (TVA), Kairos Power ile 50 MW kapasiteli bir elektrik alım anlaşması (PPA) imzaladı. Bu anlaşma, bir ABD kamu hizmeti kuruluşu ile Gen IV ileri SMR geliştiricisi arasında imzalanan ilk PPA olma özelliği taşımaktadır. PPA kapsamında Google, TVA iletim şebekesi üzerinden Montgomery County, Tennessee ve Jackson County, Alabama'da bulunan veri merkezlerine temiz enerji niteliği aktarımı alacak.\n\nElektrik, Tennessee'nin Oak Ridge kentinde yer alan East Tennessee Technology Park Heritage Center'da inşa edilen Hermes 2 tesisinden sağlanacak. Tesisin inşaatı Temmuz 2025'te başladı; tek reaktörün ilk ünitesinin 2027 sonunda tamamlanması beklenmektedir. Tam operasyonel statüye 2030 yılında ulaşılması öngörülmekte olup reaktörün çıkış kapasitesi PPA gerekliliklerini karşılamak üzere 28 MW'dan 50 MW'a yükseltilecektir.\n\nHermes 2, Kairos Power'ın Florür Tuzu Soğutmalı Yüksek Sıcaklık Reaktörü (KP-FHR) teknolojisini geliştirmeye yönelik bir demonstrasyon tesisidir. Bu tasarım, geleneksel nesil III su soğutmalı reaktörlerden farklı olarak florür erimiş tuzunu soğutucu olarak kullanmakta ve seramik pebble tipi yakıtla ısıyı buhar türbinine aktararak elektrik üretmektedir. Kairos Power, Hermes 2'den önce Oak Ridge'de Hermes 1 adıyla bilinen daha küçük ölçekli bir demonstrasyon reaktörünü de inşa etmekteydi.\n\nBu anlaşma, Google'ın 2024 yılında Kairos Power ile imzaladığı ve 2035'e kadar altı ila yedi reaktörden toplam 500 MW satın alınmasını öngören daha kapsamlı ortaklığın ilk somut çıktısıdır. TVA, bu anlaşmayı ABD'de ileri nükleer teknoloji geliştirme, tedarik zinciri ve teslimat modeli oluşturma kapsamında değerlendirdi.",
+      "source": {
+        "url": "https://datacenterdynamics.com/en/news/tva-signs-50mw-ppa-with-smr-developer-kairos-for-google-data-centers-in-tennessee-and-alabama",
+        "name": "Data Center Dynamics",
+        "tier": 2,
+        "type": "trade_press",
+        "primary": true
+      },
+      "excerpt": "Kairos Power, ABD'li kamu hizmeti kuruluşu Tennessee Valley Authority (TVA) ile bir elektrik alım anlaşması (PPA) imzalayarak Tennessee ve Alabama'daki Google veri merkezlerine Hermes 2 tesisinden 50 MW temiz enerji sağlamayı taahhüt etti. Bir ABD kamu hizmeti kuruluşu ile Gen IV ileri SMR geliştiricisi arasında imzalanan bu anlaşma bu alanda ilk örnek niteliği taşımaktadır. Hermes 2'nin tek reaktörle çıkışı 28 MW'dan 50 MW'a çıkarılacak; tam operasyonel kapasite 2030'da ulaşılacak.",
+      "category": "kurumsal-alim",
+      "maturity": "construction",
+      "companies": [
+        "Kairos Power",
+        "Google",
+        "TVA"
+      ],
+      "countries": [
+        "USA"
+      ],
+      "event_date": "2026-07-17",
+      "investment": null,
+      "value_chain": [
+        "isletme",
+        "reaktor-insa"
+      ],
+      "capacity_mwe": 50,
+      "neden_onemli": null,
+      "technologies": [
+        "KP-FHR",
+        "florür tuzu soğutmalı reaktör"
+      ],
+      "subcategories": [
+        "PPA",
+        "smr",
+        "veri merkezi"
+      ],
+      "published_date": "2026-07-17",
+      "supporting_sources": []
+    },
+    {
+      "id": "amazon-x-energy-korea-smr",
+      "slug": "amazon-ve-x-energy-khnp-ve-doosan-ile-2039-a-kadar-abd-de-5-gw-smr-ici",
+      "image": {
+        "url": "https://media.datacenterdynamics.com/media/images/StackPWC.2e16d0ba.fill-280x185.jpg",
+        "type": "og",
+        "credit": "datacenterdynamics.com"
+      },
+      "score": 8,
+      "secim": "one_cikan",
+      "title": "Amazon ve X-energy, KHNP ve Doosan ile 2039'a kadar ABD'de 5 GW+ SMR için 50 milyar dolarlık ortaklık kurdu",
+      "detail": "Amazon, X-energy, Korea Hydro & Nuclear Power (KHNP) ve Doosan Enerbility arasında stratejik işbirliği anlaşması imzalandı. Anlaşmanın temel hedefi X-energy'nin Xe-100 SMR tasarımını hızla ticari ölçeğe taşımak ve veri merkezi sektörü başta olmak üzere büyük enerji taleplerini karşılamaktır. İşbirliği kapsamında 2039 yılına kadar ABD genelinde 5 GW'ın üzerinde nükleer kapasite kurulması hedeflenmekte olup bu doğrultuda kamusal ve özel yatırımlardan oluşan 50 milyar dolara kadar finansmanın seferber edilmesi öngörülmektedir.\n\nAnlaşma; reaktör mühendislik tasarımı, tedarik zinciri geliştirme, inşaat planlaması, yatırım stratejileri, uzun vadeli işletme ve yapay zeka-nükleer ortak global dağıtım fırsatları alanlarında işbirliğini kapsamaktadır. Güney Koreli tarafların katkısı, KHNP'nin nükleer işletim deneyimi ve Doosan Enerbility'nin reaktör bileşeni üretim kapasitesini içermektedir. Bu anlaşma, X-energy'nin Güney Koreli stratejik ortağı DL E&C dahil önceki Kore ilişkileri üzerine inşa edilmektedir.\n\nXe-100, pebble bed yüksek sıcaklıklı gaz soğutmalı reaktör (HTGR) tasarımıdır. Her reaktör modülü 80 MWe elektrik ve 200 MWt ısı üretmekte; 320 MW ile 960 MW arasında değişen kapasitelerde çok ünite kurulum seçeneği sunmaktadır. Yakıt olarak bilardo topu büyüklüğünde, her biri binlerce uranyum yakıt parçacığı içeren küresel pebble elemanlar kullanılmaktadır. Xe-100, Dow Chemical'ın Texas Gulf Coast'taki Seadrift Operations üretim sahasında ilk grid-ölçekli kurulum için geliştirilmekte olup ABD Enerji Bakanlığı'nın İleri Reaktör Demonstrasyon Programı'ndan destek almaktadır.\n\nAmazon Web Services, bu ortaklıkla veri merkezi altyapısı için karbonsuz, güvenilir baz yük enerjisini güvence altına almayı hedeflemektedir. Anlaşma ayrıca daha önce duyurulan Energy Northwest anlaşmasıyla örtüşmektedir: Energy Northwest için toplam 320 MW'lık ilk aşamada dört Xe-100 modülü kurulacak, seçenek kullanıldığında bu kapasite sekiz ek modülle 960 MW'a çıkacak ve projeler 2030'ların başında devreye girecek.",
+      "source": {
+        "url": "https://datacenterdynamics.com/en/news/amazon-x-energy-partner-with-south-korean-consortium-to-advance-smr-development-across-us",
+        "name": "Data Center Dynamics",
+        "tier": 2,
+        "type": "trade_press",
+        "primary": true
+      },
+      "excerpt": "Amazon ve X-energy, Güney Koreli Korea Hydro & Nuclear Power (KHNP) ile Doosan Enerbility ile stratejik işbirliği anlaşması imzalayarak 2039 yılına kadar ABD'de 5 GW'ın üzerinde Xe-100 SMR kapasitesi kurmayı hedefledi. Anlaşma kapsamında kamusal ve özel yatırımlardan oluşan toplam 50 milyar dolara kadar finansman seferber edilmesi öngörülüyor. Xe-100, 80 MWe elektrik ve 200 MWt ısı üreten pebble bed yüksek sıcaklıklı gaz soğutmalı bir reaktördür.",
+      "category": "smr",
+      "maturity": "announced",
+      "companies": [
+        "Amazon",
+        "X-energy",
+        "Korea Hydro & Nuclear Power",
+        "Doosan Enerbility"
+      ],
+      "countries": [
+        "USA",
+        "South Korea"
+      ],
+      "event_date": "2026-07-17",
+      "investment": {
+        "currency": "USD",
+        "amount_original": 50,
+        "amount_usd_million": 50000,
+        "public_support_usd_million": null
+      },
+      "value_chain": [
+        "reaktor-insa"
+      ],
+      "capacity_mwe": 5000,
+      "neden_onemli": null,
+      "technologies": [
+        "Xe-100",
+        "HTGR",
+        "pebble bed"
+      ],
+      "subcategories": [
+        "yatırım",
+        "ortaklık",
+        "veri merkezi"
+      ],
+      "published_date": "2026-07-17",
+      "supporting_sources": []
+    },
+    {
+      "id": "general-fusion-nasdaq",
+      "slug": "general-fusion-nasdaq-a-kote-oldu-150-milyon-dolar-nakit-ve-0-72-kev-p",
+      "image": {
+        "url": "https://www.neimagazine.com/news/india-launches-largest-phwr-tender/",
+        "type": "og",
+        "credit": "neimagazine.com"
+      },
+      "score": 8,
+      "secim": "one_cikan",
+      "title": "General Fusion Nasdaq'a kote oldu; 150 milyon dolar nakit ve 0,72 keV plazma kilometre taşıyla halka açıldı",
+      "detail": "General Fusion, Ocak 2026'da duyurulan Spring Valley Acquisition Corp. III iş birleşmesinin kapanmasının ardından GFUZ kodu ile Nasdaq'ta işlem görmeye başladı ve borsaya kote olan ilk füzyon şirketi unvanını kazandı. Şirket, 105–108 milyon dolarlık taahhüt edilmiş ve fazlaya takılan PIPE (halka arz öncesi özel yatırım) yatırımı ile yaklaşık 230 milyon dolarlık Spring Valley güven sermayesine erişimle piyasaya girdi; sonuç olarak şirketin yaklaşık 150 milyon dolar nakit ile kamu piyasalarına girdiği açıklandı.\n\nBu sermaye, General Fusion'ın Lawson programını 2028'de öngörülen birkaç kritik teknik kilometre taşına ulaştırmayı hedeflemektedir. Ayrıca Vancouver yakınlarındaki şirket merkezinde faaliyet gösteren Lawson Machine 26 (LM26) Magnetik Hedef Füzyon (MTF) demonstrasyon tesisini tamamen finanse edecektir. MTF teknolojisi, kapalı bir sıvı metal girdabı konseptine dayanmaktadır: plazma girdabın merkezine enjekte edilmekte, ardından dışarıdan çok sayıda piston çarpışı plazmayı sıkıştırmakta ve füzyon reaksiyonu başlatılmaktadır; oluşan ısı sıvı metal tarafından soğrulmaktadır. Bu yaklaşım, süper iletken mıknatıslar ve yüksek güçlü lazerler gerektirmemesi nedeniyle pratik ve ekonomik bir füzyon yolu olarak öne çıkarılmaktadır.\n\nGeneral Fusion, son iki on yıl içinde 200.000'i aşkın plazma deneyi gerçekleştirmiştir. Şirket, LM26 ile en son kritik bir sıcaklık kilometre taşını da aştığını duyurdu: sadece mekanik sıkıştırmayla plazma elektron sıcaklığı 0,72 keV'e (yaklaşık 8,4 milyon santigrat derece) yükseltildi. Bu değer, önceki plazma sıcaklığının üç katından fazlasına karşılık gelmekte ve şirketi 1 keV hedefine yaklaştırmaktadır. Lawson programı daha sonra sırasıyla 10 keV (100 milyon santigrat derece) eşiğini ve nihayetinde ticari ölçekte net füzyon enerjisi çıkışını kanıtlamayı hedefleyen Lawson kriteri koşullarını sağlamayı öngörmektedir.\n\nGeneral Fusion'ın halka açılması, 1955'te İngiliz mühendis ve fizikçi JD Lawson tarafından formüle edilen Lawson kriterini ticari ölçekte karşılamayı hedefleyen bir füzyon şirketinin ilk kez kamuoyuna hesap verme yükümlülüğü altına girmesi anlamında sektörel bir ilktir. Şirket, borsaya kote olan ilk füzyon kuruluşu olarak kamu piyasalarının füzyon alanındaki uzun vadeli yatırım döngülerine nasıl yanıt vereceğini test eden bir örnek oluşturmaktadır.",
+      "source": {
+        "url": "https://neimagazine.com/news/general-fusion-lists-on-nasdaq",
+        "name": "NEI Magazine",
+        "tier": 2,
+        "type": "trade_press",
+        "primary": true
+      },
+      "excerpt": "Kanadalı füzyon şirketi General Fusion, Spring Valley Acquisition Corp. III ile gerçekleştirilen iş birleşmesinin ardından GFUZ kodu ile Nasdaq'ta işlem görmeye başladı ve böylece borsaya kote olan ilk füzyon şirketi unvanını aldı. Şirket, 105–108 milyon dolarlık taahhüt edilmiş PIPE yatırımı ve 230 milyon dolarlık Spring Valley güven sermayesine erişimle yaklaşık 150 milyon dolar nakit ile piyasaya girdi. Bu sermaye, LM26 Magnetik Hedef Füzyon demonstrasyon tesisini ve 2028 hedeflenen Lawson programı kilometre taşlarını finanse edecek.",
+      "category": "fuzyon",
+      "maturity": "funded",
+      "companies": [
+        "General Fusion"
+      ],
+      "countries": [
+        "Canada"
+      ],
+      "event_date": "2026-07-17",
+      "investment": {
+        "currency": "USD",
+        "amount_original": 150,
+        "amount_usd_million": 150,
+        "public_support_usd_million": null
+      },
+      "value_chain": [
+        "reaktor-insa"
+      ],
+      "capacity_mwe": null,
+      "neden_onemli": null,
+      "technologies": [
+        "Magnetik Hedef Füzyon",
+        "MTF"
+      ],
+      "subcategories": [
+        "finansman",
+        "teknoloji kilometre taşı"
+      ],
+      "published_date": "2026-07-17",
+      "supporting_sources": []
+    }
+  ],
+  "radar": [
+    {
+      "kume": "Türkiye: Politika ve sektör gelişmeleri",
+      "maddeler": [
+        {
+          "url": "https://dunya.com/sektorler/nukleerde-4-nesil-teknoloji-turkiyeden-bolgeye-yayilacak-haberi-830658",
+          "date": "2026-07-01",
+          "title": "Türkiye sodyum soğutmalı 4. nesil SMR ekosistemi ve bölgesel teknoloji ihracatını gündemine aldı",
+          "source": "Dünya Gazetesi",
+          "category": "turkiye"
+        },
+        {
+          "url": "https://ekonomim.com/ekonomi/nukleer-enerjiye-20-yillik-destek-haberi-906308",
+          "date": "2026-07-15",
+          "title": "TBMM nükleer santral yatırımlarına 2045'e kadar 20 yıllık kurumlar vergisi, KDV ve damga vergisi desteği onayladı",
+          "source": "Ekonomim.com",
+          "category": "turkiye"
+        },
+        {
+          "url": "https://enerjigunlugu.net/nuclean-ve-portland-nukleer-enerji-anlasmasi-imzaladi-68971h.htm",
+          "date": "2026-07-17",
+          "title": "Türk firması Nuclean ile Kanadalı Portland Holdings nükleer SMR ekosistemi için LOI imzaladı",
+          "source": "Enerji Günlüğü",
+          "category": "turkiye"
+        },
+        {
+          "url": "https://enerjigunlugu.net/thoratom-ve-infinitixten-ileri-nukleer-teknolojilerde-guc-birligi-68740h.htm",
+          "date": "2026-07-01",
+          "title": "ThorAtom ve Fransız INFINITIX erimiş tuz reaktörleri dahil ileri nükleer teknolojilerde iş birliği duyurdu",
+          "source": "Enerji Günlüğü",
+          "category": "turkiye"
+        }
+      ]
+    },
+    {
+      "kume": "SMR: Lisanslama ve proje geliştirme",
+      "maddeler": [
+        {
+          "url": "https://world-nuclear-news.org/articles/sge-team-targets-14-bwrx300-smrs-uk",
+          "date": "2026-07-02",
+          "title": "SGE, İngiltere'de 14 adet BWRX-300 ile 4,2 GW özel nükleer filo planı sundu",
+          "source": "World Nuclear News",
+          "category": "smr"
+        },
+        {
+          "url": "https://powermag.com/blue-energy-ge-vernova-advance-gas-bridge-model-to-unlock-nuclear-finance",
+          "date": "2026-07-01",
+          "title": "Blue Energy ve GE Vernova, Texas'ta BWRX-300 SMR içeren 2,5 GW gaz-artı-nükleer hibrit projesini geliştiriyor",
+          "source": "Power Magazine",
+          "category": "smr"
+        },
+        {
+          "url": "https://world-nuclear-news.org/articles/international-safety-review-of-finnish-smr-design-completed",
+          "date": "2026-07-03",
+          "title": "STUK, Fin firması Steady Energy'nin LDR-50 SMR tasarımı için temel güvenlik sorunu bulunmadığını bildirdi",
+          "source": "World Nuclear News",
+          "category": "smr"
+        },
+        {
+          "url": "https://neimagazine.com/news/first-nations-backs-darlington-smr",
+          "date": "2026-07-06",
+          "title": "Güney Kore William Treaties First Nations, Ontario Power Generation'ın Darlington BWRX-300 projesine 700 milyon CAD öz kaynak yatırımı yaptı",
+          "source": "NEI Magazine",
+          "category": "smr"
+        },
+        {
+          "url": "https://world-nuclear-news.org/articles/trilateral-cooperation-agreement-on-smr-deployment",
+          "date": "2026-07-08",
+          "title": "ABD, Japonya ve Güney Kore Hint-Pasifik odaklı SMR dağıtımı için üçlü işbirliği anlaşması imzaladı",
+          "source": "World Nuclear News",
+          "category": "smr"
+        }
+      ]
+    },
+    {
+      "kume": "SMR: Yatırım ve kurumsal anlaşmalar",
+      "maddeler": [
+        {
+          "url": "https://datacenterdynamics.com/en/news/equinix-backed-microreactor-firm-radiant-raises-300m-in-latest-funding-round",
+          "date": "2026-07-17",
+          "title": "Radiant Industries, Equinix desteğiyle mikroreaktör geliştirme için 300 milyon dolar topladı",
+          "source": "Data Center Dynamics",
+          "category": "smr"
+        },
+        {
+          "url": "https://datacenterdynamics.com/en/news/fermi-america-inks-reactor-supply-and-design-deals-for-up-to-11gw-data-center-campus-in-amarillo-texas",
+          "date": "2026-07-14",
+          "title": "Fermi America, Texas Amarillo veri merkezi kampüsü için Doosan Enerbility ile dört AP1000 reaktör tedarik anlaşması imzaladı",
+          "source": "Data Center Dynamics",
+          "category": "kurumsal-alim"
+        },
+        {
+          "url": "https://datacenterdynamics.com/en/news/google-partners-with-elementl-to-advance-development-of-three-advanced-nuclear-projects-in-us",
+          "date": "2026-07-17",
+          "title": "Google, Elementl Power ile ABD'de 600 MW ve üzeri kapasiteli üç ileri nükleer proje geliştirmek için ortaklık kurdu",
+          "source": "Data Center Dynamics",
+          "category": "smr"
+        },
+        {
+          "url": "https://datacenterdynamics.com/en/news/deep-fission-to-supply-endeavour-data-centers-with-2gw-of-nuclear-energy-from-mile-deep-smr",
+          "date": "2026-07-14",
+          "title": "Deep Fission, Endeavour Energy ile veri merkezleri için 2 GW borehole SMR kurulumu ortaklığı duyurdu; ilk reaktörler 2029'da bekleniyor",
+          "source": "Data Center Dynamics",
+          "category": "smr"
+        }
+      ]
+    },
+    {
+      "kume": "Büyük reaktör projeleri",
+      "maddeler": [
+        {
+          "url": "https://dunya.com/ekonomi/yapay-zekanin-elektrik-istahi-nukleer-sirketi-borsaya-tasidi-haberi-831840",
+          "date": "2026-07-11",
+          "title": "Holtec International, Palisades reaktörü yeniden başlatması için 1,52 milyar dolar DOE kredisiyle halka arz sürecini başlattı",
+          "source": "Dünya Gazetesi",
+          "category": "buyuk-reaktor"
+        },
+        {
+          "url": "https://world-nuclear-news.org/articles/site-licence-granted-for-new-kola-nuclear-power-plant-units",
+          "date": "2026-07-16",
+          "title": "Rusya Rostekhnadzor, yeni Kola Nükleer Santrali'nin iki ünitesi için saha lisansı verdi",
+          "source": "World Nuclear News",
+          "category": "buyuk-reaktor"
+        },
+        {
+          "url": "https://aa.com.tr/en/middle-east/egypt-launches-advanced-phase-of-el-dabaa-nuclear-power-plant/3993772",
+          "date": "2026-07-10",
+          "title": "El Dabaa 2. Ünite'ye reaktör basınçlı kabı yerleştirildi; Mısır'ın ilk nükleer santrali inşaatında kritik aşama tamamlandı",
+          "source": "Anadolu Ajansı",
+          "category": "buyuk-reaktor"
+        }
+      ]
+    },
+    {
+      "kume": "Yakıt zinciri",
+      "maddeler": [
+        {
+          "url": "https://x-energy.com/news/triso-x-awarded-tennessee-grant-to-support-expansion-of-nuclear-fuel-campus",
+          "date": "2026-07-15",
+          "title": "X-energy TRISO-X, Oak Ridge nükleer yakıt kampüsünü HALEU üretimiyle genişletmek için Tennessee hibesi aldı",
+          "source": "X-energy",
+          "category": "yakit"
+        },
+        {
+          "url": "https://neimagazine.com/news/doe-licenses-seawater-uranium-tech",
+          "date": "2026-07-16",
+          "title": "ABD Enerji Bakanlığı, SuperCritical Materials'ın deniz suyu uranyum ekstraksiyon teknolojisini ticarileştirme amacıyla lisansladı",
+          "source": "NEI Magazine",
+          "category": "yakit"
+        },
+        {
+          "url": "https://dunya.com/dunya/enerjide-dengeleri-degistirecek-tarihi-anlasma-uranyum-engeli-12-yil-sonra-kalkti-haberi-831606",
+          "date": "2026-07-09",
+          "title": "Avustralya ve Hindistan, 12 yıllık güvenlik incelemesinin ardından uranyum ihracat anlaşmasını kesinleştirdi",
+          "source": "Dünya Gazetesi",
+          "category": "yakit"
+        },
+        {
+          "url": "https://world-nuclear-news.org/articles/newcleo-advances-mox-fuel-licensing-in-france",
+          "date": "2026-07-21",
+          "title": "Newcleo, Fransa'da MOX yakıt lisanslama sürecinde ASNR güvenlik incelemesinden geçti",
+          "source": "World Nuclear News",
+          "category": "yakit"
+        }
+      ]
+    },
+    {
+      "kume": "Füzyon",
+      "maddeler": [
+        {
+          "url": "https://datacenterdynamics.com/en/news/openai-in-talks-to-purchase-energy-from-nuclear-fusion-startup-helion-energy-report",
+          "date": "2026-07-17",
+          "title": "OpenAI, Helion Energy'den 2035'e kadar 50 GW füzyon enerjisi satın alma görüşmeleri yürüttüğü bildirildi",
+          "source": "Data Center Dynamics",
+          "category": "fuzyon"
+        },
+        {
+          "url": "https://datacenterdynamics.com/en/news/microsoft-backed-fusion-firm-helion-raises-465m-in-series-g-funding-round",
+          "date": "2026-07-14",
+          "title": "Helion Energy, 465 milyon dolarlık Seri G turuyla değerlemesini 15,5 milyar dolara taşıdı",
+          "source": "Data Center Dynamics",
+          "category": "fuzyon"
+        },
+        {
+          "url": "https://ans.org/news/article-8111/doe-approves-xcimer-laser-fusion-power-plant-design",
+          "date": "2026-07-17",
+          "title": "ABD Enerji Bakanlığı Xcimer'in lazer füzyon santral tasarımını onayladı ve yeni hibe finansmanı sağladı",
+          "source": "ANS",
+          "category": "fuzyon"
+        }
+      ]
+    },
+    {
+      "kume": "Teknoloji ve test altyapısı",
+      "maddeler": [
+        {
+          "url": "https://inl.gov/news-release/dome-worlds-first-nuclear-reactor-test-bed-ready-for-privately-developed-advanced-reactors",
+          "date": "2026-07-16",
+          "title": "Idaho Ulusal Laboratuvarı'nda DOME test reaktörü özel geliştiricilere açık ilk ileri reaktör test yatağı olarak hazır hale geldi",
+          "source": "Idaho National Laboratory",
+          "category": "teknoloji"
+        }
+      ]
+    },
+    {
+      "kume": "İşletme: Ömür uzatma",
+      "maddeler": [
+        {
+          "url": "https://world-nuclear-news.org/articles/spanish-regulator-supports-almaraz-licence-extension",
+          "date": "2026-07-17",
+          "title": "İspanya Nükleer Güvenlik Konseyi (CSN) Almaraz santralinin Haziran 2030'a kadar lisans uzatımını destekledi",
+          "source": "World Nuclear News",
+          "category": "isletme"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "issue_no": 1,
+  "events": [
+    {
+      "baslik_ozet": "Akkuyu Birinci Ünite reaktör montajı tamamlandı, işletmeye alma testleri başladı",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "Türkiye 2035'e kadar 7,2 GW, 2053'e kadar 20 GW nükleer kapasite hedefini yineledi",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "IC Holding, ARC Clean Technology ile Türkiye ve bölge için 20 sodyum soğutmalı SMR planlıyor",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "New Jersey Power NJ Act ile en az 1.100 MW yeni nükleer kapasite için ihale başlattı",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "Hindistan'dan Naveen Jindal Grubu 18 GW nükleer santral için 18,63 milyar dolarlık yatırım planladı",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "Sizewell B'nin ömrü 800 milyon sterlinlik yenilemeyle 2035'ten 2055'e uzatıldı",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "Kairos Power ve TVA, Google veri merkezleri için 50 MW'lık ilk SMR elektrik alım anlaşmasını imzaladı",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "Amazon ve X-energy, KHNP ve Doosan ile 2039'a kadar ABD'de 5 GW+ SMR için 50 milyar dolarlık ortaklık kurdu",
+      "hafta": "2026-W30"
+    },
+    {
+      "baslik_ozet": "General Fusion Nasdaq'a kote oldu; 150 milyon dolar nakit ve 0,72 keV plazma kilometre taşıyla halka açıldı",
+      "hafta": "2026-W30"
+    }
+  ],
+  "urls": [
+    "https://aa.com.tr/tr/bilim-teknoloji/akkuyu-ngsde-nukleer-ve-yenilenebilir-enerji-temelli-hibrit-cozumler-gundemde/3982334",
+    "https://neimagazine.com/news/akkuyu-unit-2-dome-installed",
+    "https://aa.com.tr/tr/ekonomi/akkuyu-nukleer-guc-santralinde-yerlilestirme-hacmi-12-milyar-dolara-ulasti/3982115",
+    "https://enerjigunlugu.net/sari-nukleer-enerji-bir-tercih-degil-zorunluluktur-68737h.htm",
+    "https://aa.com.tr/en/economy/turkish-firm-plans-up-to-20-small-modular-nuclear-reactors-with-us-partner/3984480",
+    "https://aa.com.tr/tr/ekonomi/abd-ticaret-ve-kalkinma-ajansindan-turkiyenin-smr-yatirimlari-icin-isbirligi-mesaji/3993805",
+    "https://ekonomim.com/sektorler/enerji/abd-turkiye-ile-smr-duzenlemelerinde-isbirligi-yapacagiz-haberi-905262",
+    "https://world-nuclear-news.org/articles/new-jersey-launches-procurement-process-for-new-nuclear",
+    "https://neimagazine.com/news/new-jersey-backs-new-nuclear",
+    "https://neimagazine.com/news/naveen-jindals-indian-nuclear-plans",
+    "https://neimagazine.com/news/sizewell-b-life-extended",
+    "https://datacenterdynamics.com/en/news/tva-signs-50mw-ppa-with-smr-developer-kairos-for-google-data-centers-in-tennessee-and-alabama",
+    "https://datacenterdynamics.com/en/news/amazon-x-energy-partner-with-south-korean-consortium-to-advance-smr-development-across-us",
+    "https://datacenterdynamics.com/en/news/smr-firm-x-energy-closes-700m-funding-round-led-by-amazon",
+    "https://neimagazine.com/news/general-fusion-lists-on-nasdaq",
+    "https://datacenterdynamics.com/en/news/commonwealth-fusion-systems-raises-more-than-1bn-backed-by-unnamed-hyperscale-data-center-developer-report",
+    "https://dunya.com/sektorler/nukleerde-4-nesil-teknoloji-turkiyeden-bolgeye-yayilacak-haberi-830658",
+    "https://ekonomim.com/ekonomi/nukleer-enerjiye-20-yillik-destek-haberi-906308",
+    "https://enerjigunlugu.net/nuclean-ve-portland-nukleer-enerji-anlasmasi-imzaladi-68971h.htm",
+    "https://enerjigunlugu.net/thoratom-ve-infinitixten-ileri-nukleer-teknolojilerde-guc-birligi-68740h.htm",
+    "https://world-nuclear-news.org/articles/sge-team-targets-14-bwrx300-smrs-uk",
+    "https://powermag.com/blue-energy-ge-vernova-advance-gas-bridge-model-to-unlock-nuclear-finance",
+    "https://world-nuclear-news.org/articles/international-safety-review-of-finnish-smr-design-completed",
+    "https://neimagazine.com/news/first-nations-backs-darlington-smr",
+    "https://world-nuclear-news.org/articles/trilateral-cooperation-agreement-on-smr-deployment",
+    "https://datacenterdynamics.com/en/news/equinix-backed-microreactor-firm-radiant-raises-300m-in-latest-funding-round",
+    "https://datacenterdynamics.com/en/news/fermi-america-inks-reactor-supply-and-design-deals-for-up-to-11gw-data-center-campus-in-amarillo-texas",
+    "https://datacenterdynamics.com/en/news/google-partners-with-elementl-to-advance-development-of-three-advanced-nuclear-projects-in-us",
+    "https://datacenterdynamics.com/en/news/deep-fission-to-supply-endeavour-data-centers-with-2gw-of-nuclear-energy-from-mile-deep-smr",
+    "https://dunya.com/ekonomi/yapay-zekanin-elektrik-istahi-nukleer-sirketi-borsaya-tasidi-haberi-831840",
+    "https://world-nuclear-news.org/articles/site-licence-granted-for-new-kola-nuclear-power-plant-units",
+    "https://aa.com.tr/en/middle-east/egypt-launches-advanced-phase-of-el-dabaa-nuclear-power-plant/3993772",
+    "https://x-energy.com/news/triso-x-awarded-tennessee-grant-to-support-expansion-of-nuclear-fuel-campus",
+    "https://neimagazine.com/news/doe-licenses-seawater-uranium-tech",
+    "https://dunya.com/dunya/enerjide-dengeleri-degistirecek-tarihi-anlasma-uranyum-engeli-12-yil-sonra-kalkti-haberi-831606",
+    "https://world-nuclear-news.org/articles/newcleo-advances-mox-fuel-licensing-in-france",
+    "https://datacenterdynamics.com/en/news/openai-in-talks-to-purchase-energy-from-nuclear-fusion-startup-helion-energy-report",
+    "https://datacenterdynamics.com/en/news/microsoft-backed-fusion-firm-helion-raises-465m-in-series-g-funding-round",
+    "https://ans.org/news/article-8111/doe-approves-xcimer-laser-fusion-power-plant-design",
+    "https://inl.gov/news-release/dome-worlds-first-nuclear-reactor-test-bed-ready-for-privately-developed-advanced-reactors",
+    "https://world-nuclear-news.org/articles/spanish-regulator-supports-almaraz-licence-extension"
+  ]
+}
