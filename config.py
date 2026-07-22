@@ -19,7 +19,9 @@ AYARLAR = {
 
     "pencere_gun": 7,                # birincil tarama penceresi
     "pencere_genis_gun": 14,         # yetersiz sonuçta genişletilir
-    "turkiye_pencere_gun": 21,       # TR haber akışı seyrek — daha geniş pencere
+    # NOT: Türkiye için ayrı geniş pencere KULLANILMIYOR (21 gün denendi,
+    # bir sonraki sayıda aynı haberin tekrarlanması riski doğurdu — hakem
+    # kararıyla tüm sorgular 7 günlük pencerede).
 
     # Bülten hacim hedefleri
     "manset": 1,
@@ -361,7 +363,6 @@ SORGULAR = [
         ],
         "domain_seti": ["turkiye", "tier1", "tier2"],
         "sonuc": 25,
-        "pencere_gun": 21,        # TR akışı seyrek — geniş pencere
         "kullanici_konumu": "tr",
     },
     {

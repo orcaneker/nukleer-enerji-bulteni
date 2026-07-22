@@ -66,7 +66,8 @@
 #   fuzyon         füzyon kilometre taşları ve yatırımlar
 #   atik-sokum     atık depolama, nihai depo, söküm, yeniden işleme
 #   teknoloji      Gen-IV, malzeme, TRISO, araştırma reaktörleri
-#   turkiye        Akkuyu, Sinop, NDK, TENMAK (21 günlük geniş pencere)
+#   turkiye        Akkuyu, Sinop, NDK, TENMAK (7 gün — 21 gün denendi,
+#                  sonraki sayıda tekrar riski doğurduğu için vazgeçildi)
 #   guvenlik       nükleer güvenlik/emniyet olayları, INES, IAEA misyonları
 #   rapor          IAEA/IEA/WNA piyasa verisi ve raporlar
 #

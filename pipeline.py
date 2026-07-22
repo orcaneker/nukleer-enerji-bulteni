@@ -91,6 +91,9 @@ GORSEL_RED_IZLERI = (
     "/logo", "-logo", "_logo", "logo.", "favicon", "placeholder",
     "og-default", "og_default", "default-image", "1x1", "/pixel",
     "spacer", "amp-logo", "site-logo", "header-logo", "publisher-logo",
+    # paylaşım/sosyal medya ikonları da haber görseli değildir
+    "share", "/social", "-social", "social.", "sprite",
+    "/icons/", "-icon.", "_icon.",
 )
 
 
@@ -309,7 +312,7 @@ def tara(pencere_gun):
                     "title": temizle(r.get("title") or "")[:220],
                     "url": url,
                     "domain": domain_of(url),
-                    "max_yas_gun": gun,   # bu sorgunun izin verdiği azami yaş (TR: 21)
+                    "max_yas_gun": gun,   # bu sorgunun izin verdiği azami yaş
                     "published_date": (r.get("publishedDate") or "")[:10] or None,
                     "author": r.get("author"),
                     "image": gorsel_sec(r),
@@ -426,7 +429,7 @@ def on_eleme(adaylar, state):
     ⚠ Tarih filtresi DETERMİNİSTİKTİR ve LLM'e bırakılmaz: Exa'nın tarih
     parametreleri bazen eski/tarihsiz sonuç sızdırıyor (2025'ten kalma
     haberler görüldü). Yayın tarihi olmayan veya sorgusunun penceresinden
-    (standart 7, Türkiye 21 gün) yaşlı her aday burada, LLM'e hiç
+    (7 gün) yaşlı her aday burada, LLM'e hiç
     gitmeden elenir. Haftalık bültenin tarih güvencesi bu satırlardır.
     """
     gorulmus_url = set(state.get("urls", []))
@@ -593,10 +596,28 @@ ESLESME = {
 }
 
 
-def dogrula_taslak(b):
-    """Şema doğrulama + slug üretimi. Metrikler yayında (nihai seçim
-    üzerinden) hesaplanır — burada değil."""
+def dogrula_taslak(b, kapsam_bas=None, kapsam_bit=None):
+    """Şema doğrulama + slug üretimi + radar tarih kesimi.
+    Metrikler yayında (nihai seçim üzerinden) hesaplanır — burada değil."""
     hatalar = []
+
+    # --- radar tarih kesimi: kapsam dışı madde bültene giremez ---
+    # (tarih_dogrula olay bazında zaten eledi; bu, modelin yazdığı tarihe
+    # karşı son emniyet kemeridir — ISO tarihlerde dizge karşılaştırma yeter)
+    if kapsam_bas:
+        atilan = 0
+        for k in (b.get("radar") or []):
+            once = len(k.get("maddeler", []))
+            k["maddeler"] = [
+                m for m in k.get("maddeler", [])
+                if not (isinstance(m.get("date"), str) and len(m["date"]) >= 10
+                        and (m["date"][:10] < kapsam_bas
+                             or (kapsam_bit and m["date"][:10] > kapsam_bit)))
+            ]
+            atilan += once - len(k["maddeler"])
+        b["radar"] = [k for k in (b.get("radar") or []) if k.get("maddeler")]
+        if atilan:
+            hatalar.append(f"radar: {atilan} kapsam dışı madde çıkarıldı")
     stories = b.get("stories") or []
     if len(stories) < 8:
         hatalar.append(f"stories az ({len(stories)})")
@@ -674,31 +695,154 @@ def dogrula_taslak(b):
 
 
 # ============================================================
+# 5.5) SAYFA DOĞRULAMA — gerçek tarih + gerçek görsel
+# ------------------------------------------------------------
+# ⚠ Exa'nın publishedDate alanı bazen DÜPEDÜZ YANLIŞ: Ağustos 2025
+# tarihli bir DCD makalesini "17 Temmuz 2026" diye etiketlediği görüldü.
+# Bu yüzden triyajdan geçen her olayın birincil kaynak SAYFASI çekilir;
+# makalenin kendi meta etiketlerinden (article:published_time,
+# datePublished...) gerçek tarih okunur. Aynı çekimde og:image de alınır
+# → Exa'nın yanlış görsel tahminleri (paylaşım ikonu, alakasız render)
+# yerine makalenin kendi görseli kullanılır.
+# ============================================================
+OG_GORSEL_KALIPLARI = (
+    r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)',
+    r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
+    r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)',
+)
+# Makale KAPSAMLI tarih işaretleri (sayfa geneli değil — güvenilir katman).
+# ⚠ Genel "<time datetime=...>" kalıbı BİLEREK YOK: haber sayfaları "ilgili
+# haberler" bölümlerinde BAŞKA makalelerin tarihlerini taşır; ilk <time>'ı
+# almak DCD'de Ağustos 2025 makalesini "17 Temmuz 2026" gösterdi.
+TARIH_META_KALIPLARI = (
+    r'<meta[^>]+property=["\']article:published_time["\'][^>]+content=["\']([^"\']+)',
+    r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']article:published_time["\']',
+    r'"datePublished"\s*:\s*"([^"]+)"',
+    r'<meta[^>]+itemprop=["\']datePublished["\'][^>]+content=["\']([^"\']+)',
+    r'<meta[^>]+name=["\'](?:pubdate|publish-date|publication_date|date)["\'][^>]+content=["\']([^"\']+)',
+)
+# class'ında makale ipucu taşıyan <time> (ör. DCD: class="article-intro__date")
+_TIME_SINIF = r'(?:article|entry|post|intro|publish|byline)'
+TARIH_TIME_KALIPLARI = (
+    rf'<time[^>]+class=["\'][^"\']*{_TIME_SINIF}[^"\']*["\'][^>]*datetime=["\'](\d{{4}}-\d{{2}}-\d{{2}})',
+    rf'<time[^>]+datetime=["\'](\d{{4}}-\d{{2}}-\d{{2}})[^"\']*["\'][^>]*class=["\'][^"\']*{_TIME_SINIF}',
+)
+
+
+def _gecerli_tarih(aday):
+    try:
+        datetime.strptime(aday[:10], "%Y-%m-%d")
+        return aday[:10]
+    except ValueError:
+        return None
+
+
+def _tarih_ayikla(html):
+    """Katmanlı çıkarım: (1) makale-kapsamlı meta/JSON-LD, (2) makale
+    sınıflı <time>, (3) sayfadaki datePublished <time>'lar TEK benzersiz
+    değerse o. Birden çok aday varsa BELİRSİZ → None (yanlış karar verme)."""
+    for kalip in TARIH_META_KALIPLARI:
+        m = re.search(kalip, html, re.I)
+        if m:
+            t = _gecerli_tarih(m.group(1))
+            if t:
+                return t
+    for kalip in TARIH_TIME_KALIPLARI:
+        m = re.search(kalip, html, re.I)
+        if m:
+            t = _gecerli_tarih(m.group(1))
+            if t:
+                return t
+    tarihler = set(re.findall(
+        r'itemprop=["\']datePublished["\'][^>]*datetime=["\'](\d{4}-\d{2}-\d{2})', html))
+    tarihler |= set(re.findall(
+        r'datetime=["\'](\d{4}-\d{2}-\d{2})[^"\']*["\'][^>]*itemprop=["\']datePublished["\']', html))
+    if len(tarihler) == 1:
+        return tarihler.pop()
+    return None
+
+
+def sayfa_bilgisi(url):
+    """Makale sayfasını çek → (gerçek yayın tarihi, og görseli).
+    Ağ hatası / bulunamadı / belirsiz tarih → (None, ...); akış etkilenmez."""
+    try:
+        r = requests.get(url, timeout=10, headers={
+            "User-Agent": "Mozilla/5.0 (compatible; BultenBot/1.0)"})
+        if r.status_code != 200:
+            return None, None
+        html = r.text[:150000]
+    except Exception:
+        return None, None
+
+    tarih = _tarih_ayikla(html)
+
+    gorsel = None
+    for kalip in OG_GORSEL_KALIPLARI:
+        m = re.search(kalip, html, re.I)
+        if m and gorsel_gecerli(m.group(1)):
+            gorsel = m.group(1)
+            break
+    return tarih, gorsel
+
+
+def tarih_dogrula(olaylar, pencere):
+    """Olayların birincil kaynak sayfalarını çekip gerçek tarihi doğrula.
+
+    · Sayfadaki gerçek tarih pencere dışıysa → olay TAMAMEN atılır
+      (radar dahil hiçbir yerde görünmez)
+    · Tarih bulunduysa kaynak kaydına yazılır → bültende doğru görünür
+    · Sayfanın og:image'ı toplanır → görsel bağlamada birinci öncelik
+    Dönen: (kalan olaylar, url→görsel sözlüğü)
+    """
+    bugun = datetime.now(timezone.utc).date()
+    onbellek, sayfa_gorselleri = {}, {}
+    kalan, atilan = [], 0
+
+    for o in olaylar[:60]:          # maliyet/süre sınırı — kullanılan en çok 40
+        k = o["kaynaklar"][0]
+        url = k["url"]
+        if url not in onbellek:
+            onbellek[url] = sayfa_bilgisi(url)
+        tarih, gorsel = onbellek[url]
+
+        if gorsel:
+            sayfa_gorselleri[url_normalize(url)] = {
+                "url": gorsel, "credit": k["domain"], "type": "og-sayfa"}
+
+        if tarih:
+            k["published_date"] = tarih          # görünen tarihi düzelt
+            try:
+                yas = (bugun - datetime.strptime(tarih, "%Y-%m-%d").date()).days
+            except ValueError:
+                yas = None
+            if yas is not None and (yas > pencere + 1 or yas < -1):
+                atilan += 1
+                log(f"  ✗ gerçek tarih pencere dışı ({tarih}): "
+                    f"{(o.get('baslik_ozet') or '')[:55]} [{k['domain']}]")
+                continue
+        kalan.append(o)
+
+    kalan += olaylar[60:]
+    log(f"Tarih doğrulama: {len(onbellek)} sayfa çekildi · {atilan} olay atıldı · "
+        f"{len(sayfa_gorselleri)} sayfa görseli alındı")
+    return kalan, sayfa_gorselleri
+
+
+# ============================================================
 # 6.5) GÖRSEL BAĞLAMA
 # ============================================================
 def og_gorsel_cek(url):
     """Son çare: makalenin OG görselini HTML'den çek."""
-    try:
-        r = requests.get(url, timeout=12, headers={
-            "User-Agent": "Mozilla/5.0 (compatible; BultenBot/1.0)"})
-        if r.status_code != 200:
-            return None
-        html = r.text[:120000]
-        for kalip in (
-            r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)',
-            r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
-            r'<meta[^>]+name=["\']twitter:image["\'][^>]+content=["\']([^"\']+)',
-        ):
-            m = re.search(kalip, html, re.I)
-            if m and gorsel_gecerli(m.group(1)):
-                return m.group(1)
-    except Exception:
-        pass
-    return None
+    return sayfa_bilgisi(url)[1]
 
 
-def gorselleri_bagla(taslak, adaylar, olaylar=None):
-    """TÜM haberlere (yedekler dahil) görsel bağla — takas sonrası da görsel olsun."""
+def gorselleri_bagla(taslak, adaylar, olaylar=None, sayfa_gorselleri=None):
+    """TÜM haberlere (yedekler dahil) görsel bağla — takas sonrası da görsel olsun.
+
+    Öncelik: (1) makale sayfasından doğrulanmış og:image (tarih_dogrula
+    çekti — en güvenilir), (2) Exa'nın verdiği görsel, (3) olayın diğer
+    kaynaklarındaki görsel, (4) son çare OG çekimi."""
+    sayfa_gorselleri = sayfa_gorselleri or {}
     idx = {}
     for a in adaylar:
         if a.get("image"):
@@ -719,7 +863,8 @@ def gorselleri_bagla(taslak, adaylar, olaylar=None):
         urller += [k.get("url") for k in (st.get("supporting_sources") or [])]
         urller = [url_normalize(u) for u in urller if u]
 
-        g = next((idx[u] for u in urller if u in idx), None) \
+        g = next((sayfa_gorselleri[u] for u in urller if u in sayfa_gorselleri), None) \
+            or next((idx[u] for u in urller if u in idx), None) \
             or next((olay_gorsel[u] for u in urller if u in olay_gorsel), None)
         if g:
             st["image"] = g
@@ -833,7 +978,7 @@ def main():
     if args.mock:
         log("MOCK modu — Exa/LLM atlanıyor")
         b = mock_taslak(sayi_no, kapsam_bas, kapsam_bit, pencere)
-        adaylar, olaylar = [], []
+        adaylar, olaylar, sayfa_gorselleri = [], [], {}
     else:
         # --- Tarama (7 gün → yetersizse 14 gün) ---
         log(f"Exa taraması ({pencere} gün)…")
@@ -861,6 +1006,10 @@ def main():
         olaylar, reject = triyaj(adaylar, kapsam_bas, kapsam_bit, state)
         olaylar = olaylari_zenginlestir(olaylar, adaylar)
         teyit_ara(olaylar, adaylar)
+
+        # Exa tarihlerine güvenme — kaynak sayfalarından gerçek tarihi oku
+        log("Tarih doğrulama (kaynak sayfaları çekiliyor — birkaç dk sürebilir)…")
+        olaylar, sayfa_gorselleri = tarih_dogrula(olaylar, pencere)
         rapor["events_created"] = len(olaylar)
         rapor["llm_rejected"] = len(reject)
 
@@ -877,13 +1026,13 @@ def main():
         log("Aşama 2 — yazım…")
         b = yaz(derin, radar_havuz, sayi_no, kapsam_bas, kapsam_bit, pencere)
 
-    hatalar = dogrula_taslak(b)
+    hatalar = dogrula_taslak(b, kapsam_bas, kapsam_bit)
     if hatalar:
         log(f"⚠ {len(hatalar)} şema uyarısı")
         for h in hatalar[:10]:
             log(f"  ! {h}")
 
-    gorselleri_bagla(b, adaylar, olaylar)
+    gorselleri_bagla(b, adaylar, olaylar, sayfa_gorselleri)
 
     stories = b.get("stories") or []
     rapor["written"] = len(stories)

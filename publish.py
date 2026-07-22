@@ -107,9 +107,34 @@ AY_TR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
          "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 SIRA = ["Bir", "İki", "Üç", "Dört", "Beş", "Altı", "Yedi"]
 
+# TTS birim/kısaltma açılımları — seslendirici "GW", "TWh" gibi birimleri
+# telaffuz edemiyor; ses metninde açık yazılır. Uzun birimler önce
+# (TWh, GW'den önce eşleşmeli). Sadece SES metnini etkiler, bülteni değil.
+TTS_ACILIMLAR = [
+    (r"\bTWh\b", "teravat saat"),
+    (r"\bGWh\b", "gigavat saat"),
+    (r"\bMWh\b", "megavat saat"),
+    (r"\bkWh\b", "kilovat saat"),
+    (r"\bGWe\b", "gigavat"),
+    (r"\bMWe\b", "megavat"),
+    (r"\bGWt\b", "gigavat termal"),
+    (r"\bMWt\b", "megavat termal"),
+    (r"\bGW\b", "gigavat"),
+    (r"\bMW\b", "megavat"),
+    (r"\bkW\b", "kilovat"),
+    (r"%\s*(\d)", r"yüzde \1"),
+]
+
+
+def _tts_acilim(t):
+    for kalip, yerine in TTS_ACILIMLAR:
+        t = re.sub(kalip, yerine, t)
+    return t
+
 
 def ses_metni(bulten):
-    """TTS için okunabilir metin. Parantez içi İngilizce terimler ayıklanır."""
+    """TTS için okunabilir metin. Parantez içi İngilizce terimler ayıklanır,
+    birimler açık yazılır (GW → gigavat)."""
     i = bulten["issue"]
     d = datetime.strptime(i["publication_date"], "%Y-%m-%d")
     satirlar = [
@@ -119,6 +144,7 @@ def ses_metni(bulten):
     for n, m in enumerate(bulten.get("brief", [])):
         t = m.get("text", "") if isinstance(m, dict) else str(m)
         t = re.sub(r"\s*\([^)]*\)", "", t).strip()   # "(SMR)" → sil
+        t = _tts_acilim(t)
         t = re.sub(r"\s{2,}", " ", t)
         if t:
             satirlar.append(f"{SIRA[n] if n < len(SIRA) else n + 1}. {t}")
