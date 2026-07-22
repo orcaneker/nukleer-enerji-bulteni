@@ -199,5 +199,19 @@ if __name__ == "__main__":
     elif args[0] == "--reviewers":
         for h in hakemler():
             print(f"  {h['ad']} <{h['email']}>  /r/{h['token']}")
+    elif args[0] == "--durum":
+        # Bakım: bir sayının durumunu elle değiştir.
+        # Örn. yayın push'u başarısız olduysa geri onaylıya al:
+        #   python db.py --durum 2026-W30 approved
+        if len(args) < 3 or args[2] not in ("review", "approved"):
+            sys.exit("Kullanım: python db.py --durum <hafta> <review|approved>")
+        with baglan() as conn:
+            r = conn.execute(
+                "UPDATE issues SET status=%s WHERE hafta=%s RETURNING id, sayi_no",
+                (args[2], args[1])).fetchone()
+        if r:
+            print(f"Sayı {r['sayi_no']} ({args[1]}) → durum '{args[2]}' yapıldı")
+        else:
+            sys.exit(f"Sayı bulunamadı: {args[1]}")
     else:
         sys.exit(f"Bilinmeyen komut: {args[0]}")

@@ -378,6 +378,13 @@ def yayinla(issue_row, dry_run=False):
         return None
 
     url = deploy(bulten["issue"]["number"])
+    if not url:
+        # Push başarısızsa sayı 'approved' durumunda KALIR — sorun (örn.
+        # GITHUB_TOKEN izni) giderilince yayın cron'u yeniden tetiklenebilir.
+        db.logla(issue_row["id"], issue_row.get("approved_by"), "yayin_hatasi", {})
+        raise RuntimeError(
+            "Deploy başarısız (yukarıdaki 'Deploy hatası' satırına bakın) — "
+            "sayı onaylı durumda bırakıldı; sorunu giderip yayını yeniden tetikleyin")
     db.yayinlandi(issue_row["id"], bulten)
     db.logla(issue_row["id"], issue_row.get("approved_by"), "yayin",
              {"url": url})
