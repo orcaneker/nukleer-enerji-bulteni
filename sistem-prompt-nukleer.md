@@ -231,10 +231,14 @@
 #   döner (enerjilendirme). Şerit altındaki gösterge kart ilerleme çubuğu
 #   değil, "çubuk konum göstergesi" + "3–5 / 9" okuması.
 #
-# HERO: assets/hero-loop-pingpong.mp4 (sessiz, döngü) + hero*.avif/webp
-#   poster. Video mobilde ve hareket azaltma modunda HİÇ indirilmez.
-#   Şu anki dosya GEÇİCİ (kod üretimi kullanılmış yakıt havuzu klibi);
-#   gerçek tanıtım videosu aynı adla üzerine yazılacak.
+# HERO: assets/hero-loop-pingpong.mp4 (sessiz, 1280×548, 16 sn) +
+#   hero*.avif/webp poster. Mavi saatte sahil nükleer santrali: dört
+#   konteynman kubbesi sağ yarıda, sol yarı karanlık deniz/gökyüzü —
+#   başlık tam oraya oturduğu için kompozisyon böyle seçildi.
+#   Seedance 2.0 ile 8 sn üretilip ileri+ters birleştirilerek döngülendi.
+#   ⚠ Hareket yalnızca su ve ışıkla sınırlı: ping-pong'da ters oynadığı
+#   için yön belirten hareket (yükselen duman, geçen araç) bozulur.
+#   Video mobilde ve hareket azaltma modunda HİÇ indirilmez.
 #
 # ERİŞİLEBİLİRLİK TABANI: mobil uyumlu, görünür klavye odağı, modalda odak
 #   tuzağı, prefers-reduced-motion'da tüm animasyon kapalı, aşama göstergesi

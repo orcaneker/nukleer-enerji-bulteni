@@ -164,8 +164,6 @@ uvicorn review_app.main:app --port 8000
       başka bir bültenin veritabanı paylaşılırsa aynı haftada çakışır)
 - [ ] `db.py --seed` ile üç hakemi ekleyin
 - [ ] `python emails.py --test` ile üçünün de e-posta aldığını doğrulayın
-- [ ] Hero videosunu `assets/hero-loop-pingpong.mp4` olarak değiştirin
-      (aşağıdaki nota bakın)
 - [ ] Render'da cron 1'i elle tetikleyip (Manual Run) daveti test edin
 - [ ] İnceleme linkinden takas + onay akışını deneyin
 - [ ] Cron 2'yi elle tetikleyip yayını doğrulayın
@@ -198,11 +196,17 @@ Tipografi: **Archivo** (geniş, kazıma künye başlıkları) + **Newsreader**
 - **State canlı sitede yaşar** (`docs/data/state/seen_events.json`) çünkü
   Render cron diski her çalışmada sıfırlanır. İlk çalıştırmada 404 normaldir.
 - **reuters/bloomberg** Exa `includeDomains`'e eklenemez (403) — dolaylı gelir.
-- **Hero videosu**: `assets/hero-loop-pingpong.mp4` şu an **geçici** — kod
-  üretimi, kusursuz döngülü 2 sn'lik bir "kullanılmış yakıt havuzu" klibi
-  (38 KB). Gerçek tanıtım videosu geldiğinde aynı adla üzerine yazın;
-  `assets/hero.avif|webp` (masaüstü) ve `assets/hero-mobile.avif|webp`
-  (mobil) poster görsellerini de videodan alınmış bir kareyle değiştirin.
+- **Hero videosu**: `assets/hero-loop-pingpong.mp4` — mavi saatte bir sahil
+  nükleer santrali; dört konteynman kubbesi sağda, sol yarı karanlık deniz
+  ve gökyüzü (başlık oraya oturuyor). 1280×548, 16 sn, 336 KB.
+  Seedance 2.0 ile 8 sn üretilip **ileri + ters birleştirilerek** kusursuz
+  döngü hâline getirildi; bu yüzden dosya adı `-pingpong`. Hareket bilinçli
+  olarak yalnızca deniz yüzeyi ve ışık yansımalarıyla sınırlı — yön belirten
+  bir hareket (yükselen duman, geçen araç) ters oynatıldığında bozulurdu.
+  Değiştirirseniz `assets/hero.avif|webp` (masaüstü) ve
+  `assets/hero-mobile.avif|webp` (mobil) posterlerini de videodan alınmış
+  bir kareyle yenileyin, `site/index.html`'deki `width/height` değerlerini
+  yeni en-boy oranına göre güncelleyin.
   Video **mobilde ve hareket azaltma modunda hiç indirilmez**; o durumda
   poster görünür.
 - **Kapasite metriği**: Yarı iletken bülteninden farklı olarak burada
