@@ -37,7 +37,7 @@ def baglan():
 SEMA = """
 CREATE TABLE IF NOT EXISTS issues (
     id            SERIAL PRIMARY KEY,
-    hafta         TEXT UNIQUE NOT NULL,          -- '2026-W30'
+    hafta         TEXT UNIQUE NOT NULL,          -- '2026-H31' (H = Hafta)
     sayi_no       INTEGER NOT NULL,
     status        TEXT NOT NULL DEFAULT 'review',-- review | approved | published
     draft_json    JSONB NOT NULL,                -- pipeline çıktısı (secim alanlı)
@@ -122,6 +122,21 @@ def taslak_guncelle(issue_id, draft):
                      (json.dumps(draft, ensure_ascii=False), issue_id))
 
 
+def govde_guncelle(issue_id, alan, veri):
+    """draft_json veya final_json gövdesini günceller (metin düzeltmesi).
+
+    taslak_guncelle'den farkı: durum kısıtı YOKTUR — yayınlanmış sayıda da
+    yazım/çeviri hatası düzeltilebilmeli. Hangi gövdenin güncelleneceğini
+    çağıran belirler; alan adı beyaz listeyle sınırlıdır (SQL'e doğrudan
+    girdiği için serbest bırakılamaz).
+    """
+    if alan not in ("draft_json", "final_json"):
+        raise ValueError(f"Geçersiz gövde alanı: {alan}")
+    with baglan() as conn:
+        conn.execute(f"UPDATE issues SET {alan}=%s WHERE id=%s",
+                     (json.dumps(veri, ensure_ascii=False), issue_id))
+
+
 def onayla(issue_id, hakem_ad):
     """TEK onay yeterli → status=approved. Zaten onaylıysa dokunmaz."""
     with baglan() as conn:
@@ -202,7 +217,7 @@ if __name__ == "__main__":
     elif args[0] == "--durum":
         # Bakım: bir sayının durumunu elle değiştir.
         # Örn. yayın push'u başarısız olduysa geri onaylıya al:
-        #   python db.py --durum 2026-W30 approved
+        #   python db.py --durum 2026-H31 approved
         if len(args) < 3 or args[2] not in ("review", "approved"):
             sys.exit("Kullanım: python db.py --durum <hafta> <review|approved>")
         with baglan() as conn:

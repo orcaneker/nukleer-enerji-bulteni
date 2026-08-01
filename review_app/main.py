@@ -20,6 +20,7 @@ Yerel çalıştırma:
 import os
 import sys
 import json
+import threading
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -33,7 +34,9 @@ sys.path.insert(0, str(KOK))
 import db                                      # noqa: E402
 from config import AYARLAR, KATEGORILER        # noqa: E402
 
-app = FastAPI(title="Nükleer Enerji Bülteni — İnceleme", docs_url=None, redoc_url=None)
+app = FastAPI(title="Yarı İletken Bülteni — İnceleme", docs_url=None, redoc_url=None)
+
+SITE_URL = AYARLAR["site_url"].rstrip("/")
 
 SABLON = (Path(__file__).parent / "templates" / "review.html").read_text(encoding="utf-8")
 
@@ -46,13 +49,65 @@ def _hakem(token):
 
 
 def _aktif_sayi():
-    """İncelenecek sayı: önce review, yoksa approved (salt-okunur gösterim)."""
-    sayi = db.issue_getir(status="review") or db.issue_getir(status="approved")
+    """Ekranda gösterilecek sayı: review > approved > published.
+
+    'published' de dahildir çünkü yayınlanmış bültende yazım/çeviri hatası
+    düzeltilebilir (düzeltmeler final_json üzerinde yapılır, sonra
+    'Düzeltmeleri yayınla' ile GitHub'a gönderilir).
+    """
+    sayi = (db.issue_getir(status="review")
+            or db.issue_getir(status="approved")
+            or db.issue_getir(status="published"))
     if not sayi:
         raise HTTPException(404, "İncelenecek taslak yok")
-    if isinstance(sayi["draft_json"], str):
-        sayi["draft_json"] = json.loads(sayi["draft_json"])
+    for alan in ("draft_json", "final_json"):
+        if isinstance(sayi.get(alan), str):
+            sayi[alan] = json.loads(sayi[alan])
     return sayi
+
+
+# ============================================================
+# GÖVDE NORMALLEŞTİRME
+# ------------------------------------------------------------
+# draft_json ve final_json yapıları FARKLIDIR:
+#   draft : {brief, lead_id, stories[<hepsi, secim alanlı>], radar}
+#   final : {brief, lead{...}, stories[<sadece seçilenler>], radar, metrics}
+# Arayüzün tek bir biçimle çalışabilmesi için yayınlanmış sayı taslak
+# görünümüne çevrilir; düzenleme yapılırken ise asıl gövde üzerinde
+# id ile bulunup güncellenir (aşağıdaki _haber_bul).
+# ============================================================
+def _govde(sayi):
+    """Düzenlenecek asıl JSON: yayınlanmışsa final_json, değilse draft_json."""
+    if sayi["status"] == "published" and sayi.get("final_json"):
+        return sayi["final_json"], "final_json"
+    return sayi["draft_json"], "draft_json"
+
+
+def _gorunum(sayi):
+    """Arayüze gönderilecek tek biçimli görünüm (her zaman taslak şeklinde)."""
+    govde, tip = _govde(sayi)
+    if tip == "draft_json":
+        return govde
+    lead = govde.get("lead") or {}
+    haberler = ([dict(lead, secim="one_cikan")] if lead else []) + \
+               [dict(s, secim="one_cikan") for s in (govde.get("stories") or [])]
+    return {
+        "issue": govde.get("issue", {}),
+        "brief": govde.get("brief", []),
+        "lead_id": lead.get("id"),
+        "stories": haberler,
+        "radar": govde.get("radar", []),
+    }
+
+
+def _haber_bul(govde, tip, hid):
+    """id ile haber nesnesini asıl gövdede bulur (final'de lead ayrıdır)."""
+    if tip == "draft_json":
+        return next((s for s in govde.get("stories", []) if s.get("id") == hid), None)
+    lead = govde.get("lead") or {}
+    if lead.get("id") == hid:
+        return lead
+    return next((s for s in govde.get("stories", []) if s.get("id") == hid), None)
 
 
 def yayin_esigi(created_at):
@@ -91,15 +146,89 @@ def taslak_getir(token: str):
         "yayin_aninda": datetime.now(timezone.utc) >= esik,
         "yayin_esigi_utc": esik.isoformat(),
         "kategoriler": {k: v["ad"] for k, v in KATEGORILER.items()},
-        "taslak": sayi["draft_json"],
+        # Metin düzeltme her durumda açıktır (yazım/çeviri hatası her aşamada
+        # düzeltilebilmeli); yapısal değişiklik yalnızca 'review'da.
+        "yapisal_duzenleme": sayi["status"] == "review",
+        "site_url": SITE_URL,
+        "taslak": _gorunum(sayi),
     }
 
 
 def _duzenlenebilir():
+    """Yapısal değişiklik (takas, çıkarma, manşet, radar) — sadece taslakta."""
     sayi = _aktif_sayi()
     if sayi["status"] != "review":
-        raise HTTPException(409, "Bu sayı onaylanmış — düzenlenemez")
+        raise HTTPException(409, "Bu sayı onaylanmış — yapısal değişiklik yapılamaz "
+                                 "(metin düzeltmesi yapılabilir)")
     return sayi
+
+
+# ============================================================
+# METİN DÜZELTME — her aşamada (taslak, onaylı, yayınlanmış)
+# ------------------------------------------------------------
+# Amaç: çeviri/yazım hatalarını düzeltmek (ör. "diyeze" → "dizel").
+# Yayınlanmış sayıda yapılan düzeltme final_json'a yazılır; siteye
+# gitmesi için ayrıca /republish çağrılır.
+# ============================================================
+DUZENLENEBILIR_ALANLAR = {"title", "excerpt", "detail"}
+
+
+@app.post("/api/{token}/edit")
+async def metin_duzelt(token: str, req: Request):
+    h = _hakem(token)
+    sayi = _aktif_sayi()
+    veri = await req.json()
+    tip = veri.get("tip", "haber")
+    govde, govde_alani = _govde(sayi)
+
+    if tip == "haber":
+        hid, alan = veri.get("id"), veri.get("alan")
+        deger = (veri.get("deger") or "").strip()
+        if alan not in DUZENLENEBILIR_ALANLAR:
+            raise HTTPException(400, f"Düzenlenemez alan: {alan}")
+        if not deger:
+            raise HTTPException(400, "Metin boş olamaz")
+        st = _haber_bul(govde, govde_alani, hid)
+        if not st:
+            raise HTTPException(400, "Haber bulunamadı")
+        eski = st.get(alan) or ""
+        st[alan] = deger
+        detay = {"id": hid, "alan": alan, "eski": eski[:300], "yeni": deger[:300]}
+
+    elif tip == "brief":
+        i = veri.get("index")
+        deger = (veri.get("deger") or "").strip()
+        maddeler = govde.get("brief") or []
+        if not isinstance(i, int) or not (0 <= i < len(maddeler)):
+            raise HTTPException(400, "Madde bulunamadı")
+        if not deger:
+            raise HTTPException(400, "Metin boş olamaz")
+        eski = maddeler[i].get("text", "") if isinstance(maddeler[i], dict) else str(maddeler[i])
+        if isinstance(maddeler[i], dict):
+            maddeler[i]["text"] = deger
+        else:
+            maddeler[i] = {"text": deger, "ref": None}
+        detay = {"brief_index": i, "eski": eski[:300], "yeni": deger[:300]}
+
+    elif tip == "radar":
+        kume, url = veri.get("kume"), veri.get("url")
+        deger = (veri.get("deger") or "").strip()
+        if not deger:
+            raise HTTPException(400, "Metin boş olamaz")
+        madde = next((m for k in (govde.get("radar") or []) if k.get("kume") == kume
+                      for m in k.get("maddeler", []) if m.get("url") == url), None)
+        if not madde:
+            raise HTTPException(400, "Radar maddesi bulunamadı")
+        eski = madde.get("title", "")
+        madde["title"] = deger
+        detay = {"kume": kume, "url": url, "eski": eski[:300], "yeni": deger[:300]}
+
+    else:
+        raise HTTPException(400, f"Bilinmeyen düzenleme tipi: {tip}")
+
+    db.govde_guncelle(sayi["id"], govde_alani, govde)
+    db.logla(sayi["id"], h["ad"], "metin_duzelt", detay)
+    return {"ok": True, "yayinda": sayi["status"] == "published"}
 
 
 @app.post("/api/{token}/swap")
@@ -238,17 +367,93 @@ async def onayla(token: str):
 
     esik = yayin_esigi(sayi["created_at"])
     if datetime.now(timezone.utc) >= esik:
-        # geç onay → anında yayın
-        import publish
-        sayi = db.issue_getir(issue_id=sayi["id"])
-        if isinstance(sayi["draft_json"], str):
-            sayi["draft_json"] = json.loads(sayi["draft_json"])
-        try:
-            url = publish.yayinla(sayi)
-            return {"ok": True, "durum": "yayinlandi", "url": url}
-        except Exception as e:
-            return JSONResponse(status_code=500, content={
-                "ok": False, "durum": "onaylandi-yayin-hatasi", "hata": str(e)})
+        _yayin_baslat(sayi["id"], h["ad"])      # geç onay → arka planda hemen yayınla
+        return {"ok": True, "durum": "yayinlaniyor"}
 
     return {"ok": True, "durum": "onaylandi",
             "yayin": "Pazartesi 08:00 TSİ'de otomatik yayınlanacak"}
+
+
+# ============================================================
+# YAYIN İŞLERİ — arka planda çalışır, arayüz durumu yoklar
+# ------------------------------------------------------------
+# ⚠ NEDEN ARKA PLAN: Yayın işlemi ses üretimi + GitHub klon/push içerir ve
+# 30-90 sn sürebilir; ücretsiz Render servisi ayrıca uykudan uyanıyorsa
+# üstüne ~50 sn biner. Senkron yapılsaydı tarayıcı zaman aşımına düşer,
+# yönetici "hata" görürken işlem aslında tamamlanmış olurdu. Bu yüzden iş
+# hemen başlatılıp durum /yayin-durum ile yoklanır.
+# Aynı anda tek iş çalışır (çift yayın/çift push olmasın).
+# ============================================================
+YAYIN_DURUMU = {"calisiyor": False, "tur": None, "url": None,
+                "hata": None, "kim": None}
+_yayin_kilidi = threading.Lock()
+
+
+def _is_baslat(tur, kim, hedef):
+    with _yayin_kilidi:
+        if YAYIN_DURUMU["calisiyor"]:
+            raise HTTPException(409, "Bir yayın işlemi zaten sürüyor — birkaç saniye bekleyin")
+        YAYIN_DURUMU.update(calisiyor=True, tur=tur, url=None, hata=None, kim=kim)
+
+    def calistir():
+        try:
+            url = hedef()
+            with _yayin_kilidi:
+                YAYIN_DURUMU.update(calisiyor=False, url=url, hata=None)
+        except Exception as e:
+            with _yayin_kilidi:
+                YAYIN_DURUMU.update(calisiyor=False, url=None, hata=str(e)[:400])
+
+    threading.Thread(target=calistir, daemon=True).start()
+
+
+def _yayin_baslat(issue_id, kim):
+    """Onaylı sayıyı arka planda yayınlar (tam yayın: ses + arşiv + push)."""
+    def is_():
+        import publish
+        s = db.issue_getir(issue_id=issue_id)
+        if isinstance(s["draft_json"], str):
+            s["draft_json"] = json.loads(s["draft_json"])
+        return publish.yayinla(s)
+    _is_baslat("yayin", kim, is_)
+
+
+@app.post("/api/{token}/publish")
+async def hemen_yayinla(token: str):
+    """'Şimdi yayınla' — onaylı sayıyı Pazartesi 08:00'i beklemeden yayınlar.
+    Yöneticinin Render'a girmesine gerek kalmaz."""
+    h = _hakem(token)
+    sayi = _aktif_sayi()
+    if sayi["status"] == "published":
+        return {"ok": True, "durum": "zaten-yayinda"}
+    if sayi["status"] != "approved":
+        raise HTTPException(409, "Önce bülteni onaylayın")
+    db.logla(sayi["id"], h["ad"], "elle_yayin")
+    _yayin_baslat(sayi["id"], h["ad"])
+    return {"ok": True, "durum": "yayinlaniyor"}
+
+
+@app.post("/api/{token}/republish")
+async def duzeltmeleri_yayinla(token: str):
+    """Yayınlanmış sayıda yapılan metin düzeltmelerini siteye gönderir."""
+    h = _hakem(token)
+    sayi = _aktif_sayi()
+    if sayi["status"] != "published":
+        raise HTTPException(409, "Bu sayı henüz yayınlanmadı")
+    final = sayi.get("final_json")
+    if not final:
+        raise HTTPException(409, "Yayınlanmış içerik bulunamadı")
+    db.logla(sayi["id"], h["ad"], "duzeltme_yayini")
+
+    def is_():
+        import publish
+        return publish.duzeltme_yayinla(final)
+    _is_baslat("duzeltme", h["ad"], is_)
+    return {"ok": True, "durum": "yayinlaniyor"}
+
+
+@app.get("/api/{token}/yayin-durum")
+def yayin_durumu(token: str):
+    _hakem(token)
+    with _yayin_kilidi:
+        return dict(YAYIN_DURUMU)

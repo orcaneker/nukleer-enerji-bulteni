@@ -28,21 +28,28 @@ AYARLAR = {
     "brief_madde": 5,                # "Bu Hafta 60 Saniyede"
     "one_cikan_min": 8,
     "one_cikan_max": 10,
-    "radar_min": 15,
+    "radar_min": 18,
     "radar_max": 30,
 
     # LLM — sağlayıcı öneki zorunlu: "anthropic:..." veya "openai:..."
-    # OpenAI denemesi için: OPENAI_API_KEY tanımla ve modeli değiştir,
-    # ör. "openai:gpt-5-mini" (triyaj) / "openai:gpt-5.1" (yazım).
     "model_triyaj": "anthropic:claude-haiku-4-5-20251001",
-    "model_yazim": "anthropic:claude-sonnet-4-6",
-    # NOT: temperature parametresi BİLEREK gönderilmiyor
-    # (yarı iletken bülteninde yaşanan uyumsuzluk deneyimi).
+    "model_yazim": "anthropic:claude-sonnet-5",
+    # NOT: temperature parametresi BİLEREK gönderilmiyor (model uyumsuzluk deneyimi).
+
+    # OpenAI reasoning modelleri (gpt-5.6 ailesi) için akıl yürütme seviyesi:
+    # none | low | medium | high | xhigh | max
+    # Anthropic modellerinde yok sayılır. REASONING_EFFORT ortam değişkeni
+    # bu ayarı ezer (deneme yaparken pratik).
+    "reasoning_effort": "medium",
     "triyaj_batch": 40,              # tek seferde triyaja giden aday sayısı
     "max_tokens_triyaj": 8000,
     "max_tokens_yazim": 48000,       # 14 haberin TAMAMI yazıldığı için GENİŞ olmalı.
-                                     # ⚠ Düşük tutulursa çıktı JSON tamamlanmadan kesilir
-                                     # (JSONDecodeError). Streaming olduğu için zaman aşımı yok.
+                                     # ⚠ Düşük tutulursa çıktı JSON tamamlanmadan kesilir.
+    # Akıl yürüten modellerde (gpt-5.x, Sonnet 5, Opus 4.7+, Fable 5) "düşünme"
+    # token'ları da BU bütçeden düşer — görünür metne kalan pay azalır ve JSON
+    # ortadan kesilebilir. Bu modeller 128K çıktı desteklediği için rahat pay
+    # bırakıldı — kullanılmayan bütçe ücretlendirilmez.
+    "max_tokens_yazim_reasoning": 96000,
     "derin_olay_sayisi": 14,         # tam metinle yazıma giden olay — HEPSİ haber olur
     "toplam_olay_sayisi": 40,        # geri kalanı radar adayı (başlık+link)
 
@@ -55,12 +62,22 @@ AYARLAR = {
     "exa_tip": "auto",
 
     # Site
+    # ⚠ ALAN ADI GEÇİŞİ: nukleer-enerji-bulteni.site alınınca
+    #   1) burayı "https://nukleer-enerji-bulteni.site" yap
+    #   2) docs/CNAME dosyası oluştur, içine SADECE alan adını yaz
+    #   3) DNS'te A kayıtlarını GitHub Pages IP'lerine yönlendir
+    # site_url yalnızca RSS bağlantıları ve canlı state okuması için kullanılır.
     "site_url": "https://orcaneker.github.io/nukleer-enerji-bulteni",
     "cikti_dizini": "docs",          # GitHub Pages sadece / veya /docs kabul eder
 
-    # TASLAK MODU: sayı numarası sabitlenir (test çalıştırmalarında artmasın).
-    # Yayına geçerken None yap → otomatik artmaya başlar.
-    "sayi_no_sabit": 1,
+    # Sayı numarası: None → otomatik artar (yayınlanan son sayı + 1).
+    # Sayaç canlı sitedeki data/state/seen_events.json → issue_no alanında
+    # yaşar; publish.py her yayında oraya yazar. Arşiv ve state sıfırlandığı
+    # için (bkz. docs/data) ilk gerçek çalıştırma otomatik olarak Sayı 1 olur.
+    # Test amacıyla numarayı dondurmak istersen sabit bir sayı ver — ama
+    # YAYINA GEÇERKEN None'a geri al, aksi halde her sayı aynı numarayı
+    # alır ve arşivde mükerrer görünür.
+    "sayi_no_sabit": None,
 }
 
 # ============================================================
@@ -72,6 +89,22 @@ FIYAT = {
     "anthropic:claude-haiku-4-5-20251001": {"in": 1.00, "out":  5.00, "cache_w": 1.25, "cache_r": 0.10},
     "openai:gpt-5-mini":                   {"in": 0.25, "out":  2.00, "cache_w": 0.25, "cache_r": 0.025},
     "openai:gpt-5.1":                      {"in": 1.25, "out": 10.00, "cache_w": 1.25, "cache_r": 0.125},
+    "openai:gpt-5.6-luna":                 {"in": 1.00, "out":  6.00, "cache_w": 1.25, "cache_r": 0.10},
+    # ⚠ Sonnet 5 liste fiyatı 4.6 ile AYNI ($3/$15) ama 31 Ağustos 2026'ya kadar
+    # tanıtım fiyatı $2/$10. Aşağıda LİSTE fiyatı yazılı — maliyet raporu böylece
+    # olduğundan düşük görünmez.
+    "anthropic:claude-sonnet-5":           {"in": 3.00, "out": 15.00, "cache_w": 3.75, "cache_r": 0.30},
+}
+
+# ============================================================
+# EXA ARAMA FİYATI (USD) — maliyet TAHMİNİ için
+# ⚠ exa.ai/pricing'den doğrula; değişebilir.
+# Model: istek başına taban ücret İLK 10 SONUCU kapsar (sayfa içeriği dahil,
+# Mart 2026 güncellemesi); 10'un üzerindeki her sonuç ayrıca ücretlenir.
+# ============================================================
+EXA_FIYAT = {
+    "arama": 7.00 / 1000,      # $7 / 1.000 istek (ilk 10 sonuç dahil)
+    "ek_sonuc": 1.00 / 1000,   # 10'un üzerindeki her sonuç için $1 / 1.000
 }
 
 # ============================================================
@@ -106,6 +139,12 @@ DEGER_ZINCIRI = [
 # OLGUNLUK ÖLÇEĞİ — nükleer projeler için
 # "Niyet mektubu" ile "şebekeye bağlı reaktör" arasında uçurum var;
 # nükleerde bu fark yarı iletkenden bile büyüktür (10+ yıllık projeler).
+#
+# ⚠ SIRA ANLAMLIDIR: site (site/index.html → OLG) bu ölçeği bir "aşama
+# göstergesi" olarak çizer — bültenin imza görsel öğesi budur. Yeni bir
+# aşama eklersen SİTEDEKİ KARŞILIĞINI DA GÜNCELLE, yoksa gösterge o
+# haberde boş kalır. delayed/cancelled ölçeğin DIŞINDADIR: sıralı değil,
+# durum bildirir; site onları ayrı rozet olarak gösterir.
 # ============================================================
 OLGUNLUK = [
     "research",           # araştırma/kavramsal tasarım
@@ -161,8 +200,8 @@ KAYNAK_TIER1 = [
 ]
 
 # ⚠ reuters.com ve bloomberg.com Exa'nın includeDomains filtresinde KABUL
-# EDİLMİYOR (lisans kısıtı, 403). Listeye EKLEME — filtresiz aramalarda
-# ve diğer sitelerin alıntılarında dolaylı yakalanıyor.
+# EDİLMİYOR (lisans kısıtı, 403 döner). Listeye EKLEME — filtresiz aramalarda
+# ve diğer sitelerin alıntılarında dolaylı olarak yakalanıyor.
 KAYNAK_TIER2 = [
     "world-nuclear-news.org", "neimagazine.com", "nucnet.org",
     "ans.org", "powermag.com", "power-eng.com", "modernpowersystems.com",
@@ -188,8 +227,14 @@ KAYNAK_TURKIYE = [
 
 # ============================================================
 # ÖDEME DUVARLI KAYNAKLAR
-# Dışlanmazlar ama asla birincil kaynak olmazlar; tek kaynaklarsa olay
-# yazılmaz, Radar'a düşer. (Detaylı gerekçe: sistem-prompt-nukleer.md)
+# ------------------------------------------------------------
+# Bu kaynaklar DIŞLANMAZ — haber değerleri yüksek, çoğu zaman bir
+# gelişmeyi ilk onlar veriyor. Ama Exa yalnızca teaser paragrafını
+# görebiliyor. Bu yüzden:
+#   · asla BİRİNCİL kaynak olmazlar (erişilebilir kaynak varsa o birincil olur)
+#   · tek kaynak onlarsa olay YAZILMAZ, RADAR'a düşer (başlık + link yeterli)
+# Böylece "ödeme duvarı arkasında, detaylandırılmadı" gibi içi boş
+# cümleler bülten metnine hiç girmez.
 # ============================================================
 KAYNAK_ODEME_DUVARI = [
     "ft.com", "wsj.com", "asia.nikkei.com", "economist.com",
@@ -197,6 +242,7 @@ KAYNAK_ODEME_DUVARI = [
     "spglobal.com", "woodmac.com", "bnef.com",
 ]
 
+# Metinde bunlardan biri geçiyorsa → ödeme duvarı (alan adına bakmaksızın)
 ODEME_DUVARI_IZLERI = [
     "subscribe to read", "subscribers only", "members only",
     "sign in to continue", "log in to read", "register to continue",
@@ -206,16 +252,20 @@ ODEME_DUVARI_IZLERI = [
 ODEME_DUVARI_MIN_KARAKTER = 500   # bundan kısa metin → içi boş, duvarlı say
 
 # ── TEYİT ARAMASI (corroboration search) ──────────────────
-# Tüm kaynakları duvarlı olan olay için ikinci bir Exa araması yapılır;
-# erişilebilir kaynak bulunursa olay "bildirildi" diliyle yazılabilir olur.
+# Tüm kaynakları ödeme duvarlı olan bir olayı doğrudan çöpe atmıyoruz.
+# Energy Intelligence / Montel gibi kaynakların haberleri genellikle saatler
+# içinde açık sitelerde (World Nuclear News, NucNet, Power Engineering…)
+# yankılanır. Olayın başlığıyla İKİNCİ bir Exa araması yapıp erişilebilir
+# bir kaynak bulmaya çalışıyoruz. Bulursak olay yazılabilir hale gelir.
+# ⚠ Bulunan kaynak ikinci elden aktarımdır → "bildirildi" diliyle yazılır.
 TEYIT = {
     "aktif": True,
-    "max_olay": 12,
-    "sonuc": 6,
-    "min_benzerlik": 0.20,
-    "min_ortak_kelime": 2,
-    "min_metin": 700,
-    "gun_toleransi": 3,
+    "max_olay": 12,          # en yüksek puanlı N duvarlı olay için ara (maliyet sınırı)
+    "sonuc": 6,              # arama başına sonuç
+    "min_benzerlik": 0.20,   # başlık örtüşme eşiği (Jaccard)
+    "min_ortak_kelime": 2,   # en az bu kadar anlamlı kelime ortak olmalı
+    "min_metin": 700,        # teyit kaynağının metni bundan uzun olmalı
+    "gun_toleransi": 3,      # olay tarihinden ± bu kadar gün
 }
 
 # Başlık karşılaştırmasında yok sayılacak kelimeler
@@ -232,15 +282,20 @@ DURAK_KELIMELER = {
 KAYNAK_DISLA = [
     "linkedin.com", "facebook.com", "x.com", "twitter.com", "reddit.com",
     "medium.com", "quora.com", "youtube.com", "pinterest.com",
-    "prnewswire.com", "globenewswire.com", "businesswire.com",
+    "prnewswire.com", "globenewswire.com", "businesswire.com",  # ham PR dağıtım
     "marketresearchfuture.com", "marketsandmarkets.com",
     "researchandmarkets.com", "verifiedmarketresearch.com",
+    "grandviewresearch.com", "fortunebusinessinsights.com",
     "openpr.com", "einpresswire.com", "issuewire.com",
 ]
 
 # ============================================================
 # EXA SORGULARI (12)
-# Kısa semantik sorgu + ayrı parametreler. Uzun doğal dil komutu YAZILMAZ.
+# ------------------------------------------------------------
+# Exa'da uzun doğal dil komutu YAZILMAZ. Kısa semantik sorgu + ayrı
+# parametreler (domain, tarih, kategori) kullanılır.
+# 'ek_sorgular' aynı temanın farklı yüzlerini yakalar.
+# 'domain_seti' → hangi kaynak katmanına öncelik verileceği.
 # ============================================================
 SORGULAR = [
     {

@@ -1,5 +1,5 @@
 # ============================================================
-# NÜKLEER ENERJİ BÜLTENİ — SİSTEM PROMPT DOSYASI (v1.0)
+# NÜKLEER ENERJİ BÜLTENİ — SİSTEM PROMPT DOSYASI (v2.0)
 # ============================================================
 # Bu dosya sistemin BEYNİ ve REFERANS BELGESİDİR.
 # Kodda karşılıkları:
@@ -8,16 +8,22 @@
 #   BÖLÜM 3 (LLM promptları) → prompts.py → TRIYAJ_PROMPT / YAZIM_PROMPT
 #   BÖLÜM 4 (kaynaklar)      → config.py  → KAYNAK_TIER1/TIER2/...
 #   BÖLÜM 5 (onay akışı)     → db.py / review_app / publish.py
-#   BÖLÜM 6-8 (şema, ayar)   → config.py  → AYARLAR
+#   BÖLÜM 6-7 (ayar, şema)   → config.py  → AYARLAR
+#   BÖLÜM 8 (tasarım)        → site/index.html + site/arsiv.html
 #
 # Buradaki bir şeyi değiştirdiğinde İLGİLİ KOD DOSYASINI DA GÜNCELLE.
 #
-# Yarı iletken bülteninden (orcaneker/yari-iletkenler-bulteni) farkları:
-#   1. ONAY KATMANI: taslak → hakem incelemesi → onay → yayın
-#   2. Neon Postgres (taslak/onay durumu) + Resend (e-posta)
-#   3. Derin olayların TAMAMI yazılır → hakem takası için yedek havuz
-#   4. Sağlayıcı-bağımsız LLM katmanı (anthropic:/openai: önekleri)
-#   5. Açık temalı "kurumsal dosya" tasarımı (Çerenkov mavisi)
+# Yarı iletken bülteninden (orcaneker/yari-iletkenler-bulteni) uyarlanmıştır;
+# alan bilgisi (kategoriler, kaynaklar, sorgular, promptlar) bu deponun v1
+# sürümünden taşındı. v1'den (Perplexity + Netlify) farkları:
+#   1. ARAMA: Perplexity yerine Exa AI (semantik + domain filtreli)
+#   2. İKİ AŞAMA: triyaj (Haiku) → yazım (Sonnet) — eskiden tek çağrı
+#   3. ONAY KATMANI: taslak → hakem incelemesi → onay → yayın
+#   4. Neon Postgres (taslak/onay durumu) + Resend (e-posta)
+#   5. Cron GitHub Actions yerine Render; yayın Netlify yerine GitHub Pages
+#   6. Radar + "Bu Hafta 60 Saniyede" + ElevenLabs sesli özet + yedek havuz
+#   7. Yazım modeli Sonnet 4.6 → Sonnet 5 (adaptif düşünme, geniş çıktı bütçesi)
+#   8. Tamamen yeni ön yüz: "Kontrol Odası + Çerenkov" (bkz. BÖLÜM 8)
 # ============================================================
 
 
@@ -29,16 +35,17 @@
 #   pipeline.py
 #   ↓ EXA SEARCH — 12 sorgu × ek sorgu varyasyonları
 #   ↓ NORMALİZASYON — UTM/AMP temizliği, başlık hash, görülmüş URL elemesi
-#   ↓ AŞAMA 1 — triyaj modeli (ucuz): olay kümeleme, eleme, puanlama
-#   ↓ AŞAMA 2 — yazım modeli (kaliteli): 14 derin olayın TAMAMI tam haber
+#   ↓ DETERMİNİSTİK TARİH FİLTRESİ — pencere dışı/tarihsiz aday LLM'e gitmeden elenir
+#   ↓ AŞAMA 1 — triyaj modeli (Haiku): olay kümeleme, eleme, puanlama
+#   ↓ AŞAMA 2 — yazım modeli (Sonnet): 14 derin olayın TAMAMI tam haber
 #     (8-10 "one_cikan" + kalanı "yedek") + radar + brief
 #   ↓ TASLAK → Neon'a kaydet (status=review)
-#   ↓ Resend → hakemlere davet e-postası (magic link)
+#   ↓ Resend → üç hakeme davet e-postası (magic link)
 #
 # İNCELEME — Render Web Service (FastAPI, sürekli)
 #   Hakem linke tıklar → taslağı görür
 #   · Haberi çıkar → yedek havuzundan birini yerine koy (takas)
-#   · Radar maddesi çıkarabilir
+#   · Yedeği doğrudan bültene al / manşeti değiştir / radar maddesi çıkar
 #   · "Onayla ve Yayınla" → status=approved  (TEK ONAY YETERLİ)
 #   · Onay Pazartesi 08:00 TSİ'den SONRA gelirse yayın ANINDA tetiklenir
 #
@@ -48,191 +55,185 @@
 #     state + RSS + ElevenLabs sesli özet → docs/ → GitHub push → Pages
 #   · status=review   → Resend hatırlatma e-postası; YAYIN YAPILMAZ
 #     (otomatik yayın YOK — onay gelene dek bekler)
-#   · Çalışma raporu e-postası (Resend)
+#   · Çalışma raporu e-postası (Resend → RAPOR_ALICI)
 
 
 # ============================================================
 # BÖLÜM 1 — EXA ARAMA SORGULARI (12)
 # ============================================================
 # config.py → SORGULAR. Kısa semantik sorgu + ayrı parametreler
-# (tarih, domain, konum). Uzun doğal dil komutu yazılmaz.
+# (tarih, domain, konum). Uzun doğal dil komutu YAZILMAZ.
 #
-#   politika       nükleer politika, düzenleme, jeopolitik, AB taksonomi
-#   buyuk-reaktor  yeni büyük santral projeleri (EPR/AP1000/APR1400/VVER)
-#   smr            SMR & mikro reaktörler: tasarım onayı, sipariş, saha
-#   yakit          uranyum, dönüşüm, zenginleştirme, HALEU, yakıt üretimi
-#   isletme        uzatma, güç artırımı, yeniden başlatma, performans
-#   kurumsal-alim  veri merkezi / hiperölçekli PPA, endüstriyel ısı
-#   fuzyon         füzyon kilometre taşları ve yatırımlar
-#   atik-sokum     atık depolama, nihai depo, söküm, yeniden işleme
-#   teknoloji      Gen-IV, malzeme, TRISO, araştırma reaktörleri
-#   turkiye        Akkuyu, Sinop, NDK, TENMAK (7 gün — 21 gün denendi,
-#                  sonraki sayıda tekrar riski doğurduğu için vazgeçildi)
-#   guvenlik       nükleer güvenlik/emniyet olayları, INES, IAEA misyonları
-#   rapor          IAEA/IEA/WNA piyasa verisi ve raporlar
+#   politika        mevzuat, lisanslama, Euratom, taksonomi, jeopolitik
+#   buyuk-reaktor   yeni inşa, FID, EPR/AP1000/APR1400/VVER kilometre taşları
+#   smr             SMR & mikro reaktör: tasarım onayı, sipariş, saha seçimi
+#   yakit           uranyum madenciliği, dönüşüm, zenginleştirme, HALEU, yakıt üretimi
+#   isletme         ömür uzatma, lisans yenileme, yeniden başlatma, kapasite faktörü
+#   kurumsal-alim   veri merkezi PPA'ları, hyperscaler anlaşmaları, endüstriyel ısı
+#   fuzyon          tokamak/stellarator kilometre taşı, yatırım turu, ITER
+#   atik-sokum      kullanılmış yakıt deposu, ara depolama, söküm, yeniden işleme
+#   teknoloji       Gen-IV, ergimiş tuz, sodyum soğutmalı hızlı reaktör, TRISO, izotop
+#   turkiye         Akkuyu, Sinop, NDK, TENMAK (Türkçe + userLocation=tr)
+#   guvenlik        INES olayları, IAEA denetimi, Zaporijya
+#   rapor           IAEA/IEA/WNA kapasite tahmini, uranyum piyasası verisi
 #
-# ⚠ SİVİL nükleer enerji odaklıyız. Nükleer silah/askeri program haberleri
-#   triyajda reddedilir (enerji sektörünü etkileyen yaptırım/ihracat
-#   kontrolü politikaları HARİÇ).
+# Tarih penceresi: birincil 7 gün; <40 aday kalırsa 14 güne genişler.
+# ⚠ Türkiye için AYRI geniş pencere KULLANILMIYOR. 21 gün denendi; bir
+# sonraki sayıda aynı haberin tekrarlanması riskini doğurduğu için hakem
+# kararıyla geri alındı. Türkiye sorgusu yalnızca userLocation="tr" ile
+# yerel sonuç ağırlığı alır.
 
 
 # ============================================================
-# BÖLÜM 2 — TAKSONOMİ
+# BÖLÜM 2 — KATEGORİ TAKSONOMİSİ (12) ve KOTALAR
 # ============================================================
-# 12 kategori (config.py → KATEGORILER, kota = Öne Çıkanlar çeşitlilik hedefi):
-#   politika 2 · smr 2 · buyuk-reaktor 1 · yakit 1 · isletme 1 ·
-#   kurumsal-alim 1 · teknoloji 1 · turkiye 1 · rapor 1 ·
-#   fuzyon 0 · atik-sokum 0 · guvenlik 0   (0 = kota yok, puanla girer)
+# config.py → KATEGORILER. "kota" = Öne Çıkanlar'da hedef sayı (katı değil).
+# Kota olmadan SMR duyuruları ve veri merkezi anlaşmaları akışı domine eder.
 #
-# ⚠ KOTA NEDEN VAR: SMR duyuruları ve hiperölçekli PPA haberleri akışı
-#   domine eder. Kota olmadan bültenin yarısı SMR basın bülteni olur.
+#   politika (2) · smr (2) · buyuk-reaktor (1) · yakit (1) · isletme (1) ·
+#   kurumsal-alim (1) · fuzyon (0) · atik-sokum (0) · teknoloji (1) ·
+#   turkiye (1) · guvenlik (0) · rapor (1)
 #
-# OLGUNLUK ÖLÇEĞİ (nükleere özgü — en kritik sinyal/gürültü filtresi):
-#   research → design_cert → site_permit → licensed → announced → funded
-#   → construction → commissioning → grid_connection → operational
-#   (+ delayed / cancelled)
-# "Niyet mektubu" ile "şebekeye bağlı reaktör" arasında 10+ yıl vardır.
-# Yazımda fiili aşama açıkça belirtilir: "anlaşma imzalandı" ≠
-# "lisans alındı" ≠ "inşaat başladı" ≠ "ticari işletmeye geçti".
+# OLGUNLUK (config.py → OLGUNLUK) — proje olaylarında ZORUNLU:
+#   research → design_cert → site_permit → licensed → announced → funded →
+#   construction → commissioning → grid_connection → operational
+#   (+ ölçek dışı: delayed / cancelled)
+# "Anlaşma imzalandı" ile "şebekeye bağlandı" arasında 10+ yıl var — bu
+# sektörün en büyük sinyal-gürültü sorunudur, aşama net belirtilir.
+# ⚠ Bu ölçek sitede GÖRSEL olarak çizilir (bkz. BÖLÜM 8). Sıra değişirse
+# site/index.html → OLG_SIRA da değişmeli.
 #
-# DEĞER ZİNCİRİ ETİKETLERİ (site navigasyonu):
-#   uranyum · donusum-zenginlestirme · yakit-uretim · reaktor-insa ·
-#   isletme · atik-sokum · uygulama
+# DEĞER ZİNCİRİ (config.py → DEGER_ZINCIRI):
+#   uranyum → donusum-zenginlestirme → yakit-uretim → reaktor-insa →
+#   isletme → atik-sokum → uygulama
 
 
 # ============================================================
-# BÖLÜM 3 — LLM TALİMATLARI (prompts.py)
+# BÖLÜM 3 — LLM PROMPTLARI
 # ============================================================
-# AŞAMA 1 (triyaj): olay kümeleme → eleme → sınıflandırma → olgunluk →
-# puanlama (1-10). Öncelik merdiveni:
-#   [10] Türkiye'yi doğrudan etkileyen (Akkuyu, Sinop, NDK, yakıt tedariki)
-#   [9]  Büyük düzenleyici karar (lisans, tasarım onayı, mevzuat)
-#   [8]  Büyük yatırım/FID >1 mlr USD, yeni reaktör kararı, büyük PPA
-#   [7]  Yakıt zinciri kırılması (uranyum/zenginleştirme/HALEU)
-#   [6]  Proje kilometre taşı (ilk beton, kritiklik, şebeke bağlantısı)
-#   [5]  Doğrulanmış sektör verisi (IAEA/IEA/WNA)
-#   [4]  Ortaklık, orta ölçekli anlaşma
-#   [1-3] Rutin/tekrar
+# prompts.py → TRIYAJ_PROMPT (Haiku) + YAZIM_PROMPT (Sonnet).
 #
-# AŞAMA 2 (yazım): Türkçe, kurumsal ton, ANALİZ YOK (neden_onemli=null),
-# rakam sadakati (MWe, ton U3O8, SWU, %, USD), kaynak durumu anlatma
-# yasağı, söylenti kısıtı. Teknik terim ilk geçişte parantezli:
-# "küçük modüler reaktör (SMR)", "nihai yatırım kararı (FID)",
-# "yüksek oranda zenginleştirilmiş düşük seviyeli uranyum (HALEU)".
+# TRİYAJ: sınıflandırır, YORUM YAPMAZ. Olay kümeler (aynı gelişmenin farklı
+#   haberleri = 1 olay), eler (tarih dışı, söylenti, SEO, hisse yorumu,
+#   nükleer SİLAH / askerî program), 1-10 puanlar.
+# YAZIM: Türkçeleştirir, SOMUT VERİYİ (tutar, MWe kapasite, reaktör tipi,
+#   zenginlik oranı, SWU, takvim, saha, program) eksiksiz çıkarır.
+#   ANALİZ/YORUM YASAK. Kaynağın durumunu ASLA anlatmaz. Derin olayların
+#   TAMAMINI yazar (hakem takası için) — İKİ MUTLAK KURAL: kaynakta
+#   olmayanı ekleme, sayısal verileri eksiksiz/birebir koru.
+#   ⚠ MWe (elektrik) ile MWt (termal) ASLA karıştırılmaz.
+
+
+# ============================================================
+# BÖLÜM 4 — KAYNAK KATMANLARI
+# ============================================================
+# config.py → KAYNAK_TIER1 (birincil: IAEA, OECD-NEA, NRC, ENSREG, ONR, ASNR,
+#   DOE/INL/ORNL + reaktör tedarikçileri ve işletmeciler + SMR geliştiricileri
+#   + yakıt zinciri şirketleri + füzyon girişimleri),
+#   KAYNAK_TIER2 (World Nuclear News, NEI Magazine, NucNet, ANS, Power
+#   Engineering, Utility Dive, Data Center Dynamics…), KAYNAK_AKADEMIK,
+#   KAYNAK_TURKIYE (enerji.gov.tr, ndk.gov.tr, tenmak.gov.tr, akkuyunpp.com…).
+# ÖDEME DUVARI: KAYNAK_ODEME_DUVARI'ndaki kaynaklar (FT, WSJ, Nikkei,
+#   Energy Intelligence, Montel, S&P Global, Wood Mackenzie…) asla birincil
+#   olmaz; tek kaynak duvarlıysa olay Radar'a düşer, teyit araması
+#   erişilebilir kaynak bulmaya çalışır. DIŞLANANLAR: sosyal medya, PR wire,
+#   SEO pazar araştırma siteleri (config.py → KAYNAK_DISLA).
+# ⚠ reuters.com / bloomberg.com Exa includeDomains'e EKLENMEZ (403).
+
+
+# ============================================================
+# BÖLÜM 5 — ONAY AKIŞI
+# ============================================================
+# db.py (Neon) issue durumları: review → approved → published.
+# ÜÇ hakem tanımlıdır; TEK onay yeterlidir. Onay Pazartesi 08:00'den
+# önceyse cron 2 yayınlar; sonraysa inceleme servisi publish.yayinla()'yı
+# anında çağırır.
+# Hakem ekleme: python db.py --seed "Ad Soyad" mail@ornek.com
+
+
+# ============================================================
+# BÖLÜM 6 — GENEL AYARLAR (config.py → AYARLAR)
+# ============================================================
+#   haber (Öne Çıkanlar) : 8-10  ·  derin olay: 14  ·  radar: 18-30
+#   pencere: 7 gün (yetersizse 14) ·  brief: 5 madde
+#   yayım: Pazartesi 08:00 TSİ  ·  taslak: Pazar 12:00 TSİ
+#   model_triyaj: anthropic:claude-haiku-4-5-20251001
+#   model_yazim:  anthropic:claude-sonnet-5
+#   site_url: https://orcaneker.github.io/nukleer-enerji-bulteni
+#             (nukleer-enerji-bulteni.site alınınca güncellenecek —
+#              adımlar README'de)
 #
-# ⚠ ONAY KATMANI GEREĞİ: 14 derin olayın TAMAMI tam haber yazılır.
-#   Model "secim" alanıyla one_cikan/yedek önerir; son karar hakemde.
+# sayi_no_sabit = None → sayı otomatik artar. Sayaç canlı sitedeki
+# data/state/seen_events.json → issue_no alanında yaşar. Arşiv sıfırdan
+# başladığı için ilk gerçek çalıştırma Sayı 1 olur.
 
 
 # ============================================================
-# BÖLÜM 4 — KAYNAK KATMANLARI (config.py)
+# BÖLÜM 7 — VERİ ŞEMASI (latest.json)
 # ============================================================
-# TIER 1 (birincil): IAEA, NRC, DOE, OECD-NEA, WNA, AB kurumları, ONR,
-#   ulusal düzenleyiciler + şirket newsroom'ları (Westinghouse, EDF,
-#   Framatome, Rosatom, KHNP, GE Vernova; NuScale, X-energy, TerraPower,
-#   Oklo, Kairos, Rolls-Royce SMR, Holtec; Cameco, Urenco, Orano,
-#   Kazatomprom, Centrus; ITER, CFS, Helion...)
-# TIER 2: World Nuclear News, NEI Magazine, NucNet, ANS, POWER Mag,
-#   Utility Dive, Montel, DataCenterDynamics...
-# TÜRKİYE: enerji.gov.tr, ndk.gov.tr, tenmak.gov.tr, akkuyunpp.com,
-#   resmigazete.gov.tr, AA, Dünya, Ekonomim, BloombergHT, EnerjiGünlüğü...
-# ⚠ reuters/bloomberg Exa includeDomains'e EKLENMEZ (403) — dolaylı gelir.
-# ÖDEME DUVARI: FT, WSJ, Nikkei, Economist, S&P, WoodMac, BNEF... —
-#   dışlanmaz ama birincil olamaz; tek kaynaksa Radar'a düşer;
-#   teyit aramasıyla erişilebilir kaynak bulunursa "bildirildi" diliyle yazılır.
-# DIŞLA: sosyal medya, ham PR dağıtım, SEO pazar araştırması siteleri.
-
-
-# ============================================================
-# BÖLÜM 5 — ONAY AKIŞI VE VERİ MODELİ (Neon Postgres)
-# ============================================================
-# issues:
-#   id · hafta (2026-W30) · sayi_no · status (review→approved→published)
-#   draft_json   ← pipeline çıktısı (tüm haberler + secim alanları)
-#   final_json   ← yayın anında kurulan nihai bülten
-#   approved_by · approved_at · published_at · rapor (çalışma istatistikleri)
-# reviewers:
-#   id · ad · email · token (magic link: {REVIEW_BASE_URL}/r/{token}) · aktif
-# events_log:
-#   issue_id · reviewer · eylem (goruntuledi/takas/radar_cikar/onay/yayin) · detay · ts
-#
-# KURALLAR:
-#   · TEK hakem onayı yeterli (istenirse ileride çoğunluk/tam onaya çevrilir)
-#   · Otomatik yayın YOK — onay gelmeden bülten çıkmaz
-#   · Pazartesi 08:00'de onay yoksa: hatırlatma e-postası, bekleme
-#   · Onay 08:00'den önce geldiyse yayın CRON 2'ye bırakılır (08:00'de çıkar)
-#   · Onay 08:00'den sonra geldiyse review_app yayını ANINDA tetikler
-#   · Takas: one_cikan ↔ yedek yer değiştirir; içerik zaten yazılı olduğu
-#     için LLM'e dönülmez. Brief maddesi çıkarılan habere ref veriyorsa
-#     ref=null yapılır (metin korunur).
-
-
-# ============================================================
-# BÖLÜM 6 — ÇIKTI ŞEMASI (docs/data/latest.json)
-# ============================================================
-# issue:   number · hafta · publication_date · coverage_start/end ·
-#          window_days · audio {url, duration_sec, voice, generated_at} | null
-# brief:   5 × {text, slug|null}
-# metrics: aciklanan_yatirim_usd_milyon · toplam_kapasite_mwe ·
-#          politika_gelismesi · kapsanan_ulke     ← koddan hesaplanır
-# lead:    story (manşet)
-# stories: 7-9 story (öne çıkanlar; manşet hariç)
-# radar:   [{kume, maddeler[{title, source, url, date, category}]}]
-#
-# story: id · slug · title · excerpt · detail · neden_onemli(null) ·
+# issue: number · hafta · publication_date · coverage_start/end ·
+#        window_days · audio{url,duration_sec,voice,chars,generated_at}
+# brief: [{text, slug|null}]  (5 madde)
+# metrics: aciklanan_yatirim_usd_milyon · kapasite_mwe · proje_sayisi ·
+#          politika_gelismesi · kapsanan_ulke
+#   ⚠ kapasite_mwe: yarı iletkenden FARKLI olarak burada kapasite tek ve
+#     homojen bir birimle (MWe) ifade edildiği için TOPLANABİLİR. Site bunu
+#     üst durum şeridinde "Σ … MWe" olarak okur.
+# lead / stories[]: id · slug · title · excerpt · detail · neden_onemli(null) ·
 #   category · subcategories · value_chain · maturity · companies ·
-#   countries · technologies · capacity_mwe · investment{...} ·
+#   countries · technologies · capacity_mwe(SAYI) · investment{...} ·
 #   published_date · event_date · source{name,url,type,tier,primary} ·
-#   supporting_sources · image{url,credit,type} · score
+#   supporting_sources[] · image{url,credit,type} · score
+# radar: [{kume, maddeler:[{title,url,source,date,category}]}]
+
+
+# ============================================================
+# BÖLÜM 8 — SİTE TASARIMI: "KONTROL ODASI + ÇERENKOV"
+# ============================================================
+# site/index.html + arsiv.html. Biyoekonomi (yeşil/toprak "biyofilm") ve
+# yarı iletken (bakır/kehribar "fab temiz odası") bültenlerinden YAPI olarak
+# da ayrışır — yalnızca palet değişikliği değildir.
 #
-# Slug ve metrikler MODELDEN İSTENMEZ — kod deterministik üretir.
-
-
-# ============================================================
-# BÖLÜM 7 — KALICI HAFIZA (STATE)
-# ============================================================
-# Render diski geçici → "görülmüş olaylar" canlı sitede yaşar:
-#   pipeline.py başında  → GET {site_url}/data/state/seen_events.json
-#   publish.py sonunda   → güncel state docs/ içine yazılır, push edilir
-# İlk çalıştırmada 404 normaldir — sıfırdan başlar.
-# Şema: issue_no · events[{baslik_ozet, hafta}] (son ~400) · urls[] (son ~3000)
-
-
-# ============================================================
-# BÖLÜM 8 — GENEL AYARLAR / ORTAM DEĞİŞKENLERİ
-# ============================================================
-# Takvim : taslak Pazar 12:00 TSİ (UTC 0 9 * * 0) ·
-#          yayın Pazartesi 08:00 TSİ (UTC 0 5 * * 1)
-# Modeller: anthropic:claude-haiku-4-5-20251001 (triyaj) ·
-#           anthropic:claude-sonnet-4-6 (yazım)
-#           OpenAI denemesi: OPENAI_API_KEY + "openai:gpt-5-mini" vb.
-# temperature BİLEREK gönderilmez.
+# PALET (konudan türetildi):
+#   grafit #15171B / #1B1E24   — moderatör, kontrol odası karanlığı
+#   Çerenkov #7C9CFF (koyu üstünde) · #2846C4 (kağıt üstünde, AA 6.3:1)
+#   kadmiyum #E0A93B (koyu) · #7E5A0C (kağıt, AA 5.1:1) — kontrol çubuğu
+#   kağıt #E8E9E6 / plaka #F5F6F3 — boyalı beton grisi, KREM DEĞİL
+#   sıcak #B03A2E — ertelendi/iptal
 #
-# Env: EXA_API_KEY · ANTHROPIC_API_KEY · OPENAI_API_KEY(ops) ·
-#      DATABASE_URL (Neon) · RESEND_API_KEY · MAIL_FROM ·
-#      GITHUB_REPO · GITHUB_TOKEN · GITHUB_BRANCH ·
-#      REVIEW_BASE_URL · RAPOR_ALICI ·
-#      ELEVENLABS_API_KEY(ops) · ELEVENLABS_VOICE_ID(ops)
-
-
-# ============================================================
-# BÖLÜM 9 — SESLİ BÜLTEN (ElevenLabs)
-# ============================================================
-# publish.py, ONAYLI nihai içerikten ses metni üretir:
-#   giriş (sayı/tarih) + "Bu Hafta 60 Saniyede" 5 maddesi + kapanış.
-# Parantez içi İngilizce terimler ayıklanır. eleven_multilingual_v2.
-# Çıktı: docs/assets/audio/{hafta}.mp3 · issue.audio doldurulur.
-# Anahtar yoksa/hata olursa bülten SESSİZ yayınlanır — akış kırılmaz.
-# Taslak aşamasında TTS çağrısı YAPILMAZ (maliyet).
-
-
-# ============================================================
-# BÖLÜM 10 — v2 KANCALARI
-# ============================================================
-# 1. Editoryal analiz ("Neden önemli?") — şema alanı bugünden rezerve
-# 2. Hero videosu (higgsfield.ai) — assets/video/hero.webm koyunca açılır,
-#    çalışma zamanı bağımlılığı yok; hedef ≤1.5 MB, 6-8 sn, sessiz
-# 3. Çoklu onay modu (çoğunluk / tam onay) — reviewers tablosu hazır
-# 4. Hakem yorum alanı (haber bazında not bırakma)
-# 5. Şirket/ülke sayfaları · reaktör projesi zaman çizelgesi ·
-#    kapasite veri tabanı · e-posta aboneliği
+# TİPOGRAFİ: Archivo (geniş/expanded, kazıma künye başlıkları) +
+#   Newsreader (gövde serifi) + Martian Mono (enstrüman etiketleri).
+#   Fraunces bilinçli olarak KULLANILMADI — o diğer iki bültenin dili.
+#
+# YAPI:
+#   durum şeridi → sticky masthead → koyu hero (ping-pong video + havuz
+#   parıltısı + yükselen kabarcık tuvali) → açık gövde (60 Saniyede →
+#   Manşet → Öne Çıkanlar plaka şeridi → Radar sütunları → arşiv bandı)
+#   → modal → koyu footer
+#
+# İMZA ÖĞE — AŞAMA GÖSTERGESİ:
+#   Her haberde projenin 10 kademeli olgunluk ölçeğindeki yeri bir kontrol
+#   çubuğu göstergesi olarak çizilir; geçilen kademeler dolu, bulunulan
+#   kademe yükseltilmiş ve parlak. Görünür alana girince soldan sağa dolar.
+#   delayed/cancelled ölçeğin DIŞINDADIR → kırmızı "trip" durumu.
+#   ⚠ site/index.html → OLG_SIRA, config.py → OLGUNLUK ile BİREBİR aynı
+#   sırada olmalı. Yeni aşama eklenirse ikisi birden güncellenir.
+#
+# RADAR: Kayan kart DEĞİL — CSS çoklu kolon ile sütunlara ayrılmış, alt alta
+#   akan kümeler (mobil 1 / tablet 2 / geniş 3 sütun). Her küme bir vardiya
+#   defteri sayfası: mono başlık bandı + madde sayısı + kaynak·tarih satırları.
+#
+# ÖNE ÇIKANLAR: Sürüklenebilir plaka şeridi. Her plaka bir "ekipman künyesi":
+#   üstte kategori + MWe okuması, ortada başlık/özet, altında aşama göstergesi
+#   ve kaynak·tarih. İmleç üzerine gelince üst kenar soldan sağa Çerenkov'a
+#   döner (enerjilendirme). Şerit altındaki gösterge kart ilerleme çubuğu
+#   değil, "çubuk konum göstergesi" + "3–5 / 9" okuması.
+#
+# HERO: assets/hero-loop-pingpong.mp4 (sessiz, döngü) + hero*.avif/webp
+#   poster. Video mobilde ve hareket azaltma modunda HİÇ indirilmez.
+#   Şu anki dosya GEÇİCİ (kod üretimi kullanılmış yakıt havuzu klibi);
+#   gerçek tanıtım videosu aynı adla üzerine yazılacak.
+#
+# ERİŞİLEBİLİRLİK TABANI: mobil uyumlu, görünür klavye odağı, modalda odak
+#   tuzağı, prefers-reduced-motion'da tüm animasyon kapalı, aşama göstergesi
+#   ekran okuyucuya "Proje aşaması: inşaat — 10 kademeden 7." diye okunur.

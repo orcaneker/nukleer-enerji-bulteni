@@ -1,84 +1,160 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Arşiv — Nükleer Enerji Bülteni</title>
+<meta name="theme-color" content="#15171B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62.5..125,300..900&family=Newsreader:opsz,wght@6..72,300..700&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap" rel="stylesheet">
+<script>document.documentElement.className="js"+("IntersectionObserver" in window?" io":"");</script>
 <style>
+/* Ana sayfayla aynı dil: kontrol odası bandı + vardiya defteri listesi */
 :root{
-  --kagit:#F7F5F0; --panel:#FFFFFF; --cizgi:#D8D3C8; --cizgi-soft:#E5E1D8;
-  --murekkep:#0B2239; --govde:#33475C; --soluk:#5B6B7C; --dim:#94A0AC;
-  --cerenkov:#2E9BD6; --cerenkov-koyu:#1B7AB0;
-  --serif:"Source Serif 4",Georgia,serif;
-  --display:"Fraunces",Georgia,serif;
-  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --graphite:#15171B; --graphite-2:#1B1E24; --line-dark:#333944;
+  --cerenkov:#7C9CFF; --cadmium:#E0A93B;
+  --text-dark:#E6E8EC; --muted-dark:#9AA2B0;
+  --paper:#E8E9E6; --paper-2:#DEDFDB; --plate:#F5F6F3;
+  --ink:#15181B; --ink-soft:#575C60; --line-light:#CFD1CC;
+  --cerenkov-d:#2846C4; --cadmium-d:#7E5A0C;
+  --f-display:"Archivo",system-ui,sans-serif;
+  --f-body:"Newsreader",Georgia,serif;
+  --f-mono:"Martian Mono",ui-monospace,monospace;
+  --gutter:clamp(1.1rem,4vw,4rem);
+  --max:960px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--kagit);color:var(--murekkep);font-family:var(--serif);
-  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
-.wrap{max-width:860px;margin:0 auto;padding:0 24px}
-a{color:var(--cerenkov-koyu)}
-.cetvel{background:var(--murekkep);color:#B9C6D2;font-family:var(--mono);
-  font-size:11px;letter-spacing:.08em;padding:7px 24px}
-header{border-bottom:2px solid var(--murekkep);padding:30px 0 18px}
-.ust{font-family:var(--mono);font-size:11px;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--cerenkov-koyu);margin-bottom:4px}
-h1{font-family:var(--display);font-weight:700;font-size:clamp(26px,4vw,38px)}
-h1 em{font-style:italic;font-weight:400;color:var(--cerenkov-koyu)}
-.geri{font-family:var(--mono);font-size:12px;margin-top:10px;display:inline-block;
-  color:var(--soluk);text-decoration:none}
-.geri:hover{color:var(--cerenkov-koyu)}
-.liste{padding:26px 0 60px}
-.sayi{display:grid;grid-template-columns:110px 1fr auto;gap:20px;align-items:baseline;
-  padding:18px 0;border-bottom:1px solid var(--cizgi-soft);text-decoration:none;
-  color:var(--murekkep)}
-.sayi:hover h2{color:var(--cerenkov-koyu)}
-.no{font-family:var(--mono);font-size:12px;color:var(--soluk)}
-.no b{display:block;font-size:16px;color:var(--murekkep);font-weight:600}
-.sayi h2{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.3;
-  transition:color .15s}
-.sayi .m{font-family:var(--mono);font-size:11px;color:var(--dim);text-align:right;
-  white-space:nowrap}
-.bos{padding:70px 0;text-align:center;font-family:var(--mono);color:var(--soluk)}
-@media(max-width:640px){.sayi{grid-template-columns:1fr}.sayi .m{text-align:left}}
+/* az sayıda kayıt varken bile footer sayfanın altına otursun */
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;
+  min-height:100vh;display:flex;flex-direction:column}
+main{flex:1}
+.shell{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+:focus-visible{outline:2px solid var(--cerenkov-d);outline-offset:3px;border-radius:2px}
+.lbl{font-family:var(--f-mono);font-stretch:85%;font-weight:400;
+  font-size:.63rem;letter-spacing:.13em;text-transform:uppercase}
+
+/* ── DURUM ŞERİDİ ── */
+.rail{background:var(--graphite-2);color:var(--muted-dark)}
+.rail-in{max-width:var(--max);margin:0 auto;padding:.5rem var(--gutter);
+  display:flex;gap:1.3rem;flex-wrap:wrap}
+.rail b{color:var(--cerenkov);font-weight:500}
+
+/* ── KOYU BAŞLIK BANDI ── */
+.top{background:var(--graphite);color:var(--text-dark);
+  padding:clamp(2.4rem,7vh,4rem) 0 clamp(2rem,5vh,3.2rem);
+  border-bottom:3px solid var(--cerenkov-d);position:relative;overflow:hidden}
+.top::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(110% 80% at 50% 132%,rgba(124,156,255,.24),transparent 62%)}
+.top .in{position:relative;z-index:1}
+.ust{color:var(--cadmium);margin-bottom:.7rem;letter-spacing:.22em}
+h1{font-family:var(--f-display);font-weight:800;font-stretch:114%;
+  text-transform:uppercase;
+  font-size:clamp(2rem,5.6vw,3.4rem);line-height:.98;letter-spacing:-.015em}
+h1 em{font-style:normal;color:var(--cerenkov)}
+@supports (-webkit-text-stroke:1px #000){
+  h1 em{color:transparent;-webkit-text-stroke:1.4px var(--cerenkov)}
+}
+.geri{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.4rem;
+  color:var(--muted-dark);text-decoration:none;transition:color .18s}
+.geri:hover{color:var(--cerenkov)}
+.top :focus-visible{outline-color:var(--cerenkov)}
+
+/* ── LİSTE — vardiya defteri kayıtları ── */
+.liste{padding:clamp(1.8rem,5vw,3rem) 0 clamp(3.2rem,8vw,5rem)}
+.sayi{display:grid;grid-template-columns:118px 1fr auto;gap:1.3rem;align-items:center;
+  padding:1.05rem 1.05rem;margin:0 -1.05rem;
+  border-bottom:1px solid var(--line-light);text-decoration:none;color:var(--ink);
+  border-left:2px solid transparent;
+  transition:background .18s,border-left-color .18s}
+.sayi:hover,.sayi:focus-visible{background:var(--plate);border-left-color:var(--cerenkov-d)}
+.sayi:hover h2{color:var(--cerenkov-d)}
+.no{color:var(--ink-soft);font-family:var(--f-mono);font-stretch:85%;
+  font-size:.6rem;letter-spacing:.1em}
+.no b{display:block;font-family:var(--f-display);font-weight:800;font-stretch:112%;
+  font-size:1.5rem;color:var(--ink);letter-spacing:-.02em;margin-bottom:.1rem;
+  font-variant-numeric:tabular-nums}
+.sayi h2{font-family:var(--f-display);font-weight:700;font-stretch:100%;
+  font-size:1.08rem;line-height:1.26;letter-spacing:-.011em;transition:color .18s}
+.sayi .m{color:var(--ink-soft);text-align:right;white-space:nowrap;line-height:1.8;
+  font-family:var(--f-mono);font-stretch:85%;font-size:.58rem;letter-spacing:.06em}
+.bos{padding:clamp(3.2rem,10vh,5.5rem) 0;text-align:center;color:var(--ink-soft)}
+@media(max-width:640px){
+  .sayi{grid-template-columns:1fr;gap:.45rem}
+  .sayi .m{text-align:left}
+  .no b{display:inline;margin-right:.55rem}
+}
+
+/* ── FOOTER ── */
+footer{background:var(--graphite);border-top:1px solid var(--line-dark);
+  color:var(--muted-dark)}
+.foot-in{max-width:var(--max);margin:0 auto;padding:2rem var(--gutter) 2.8rem;
+  display:flex;gap:.9rem 1.5rem;flex-wrap:wrap;align-items:center}
+.foot-in a{color:var(--muted-dark);text-decoration:none}
+.foot-in a:hover{color:var(--cerenkov)}
+.foot-in .sag{margin-left:auto;display:flex;gap:1.1rem}
+
+.io .rv{opacity:0;transform:translateY(13px);
+  transition:opacity .5s cubic-bezier(.2,.7,.25,1),transform .5s cubic-bezier(.2,.7,.25,1)}
+.io .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  .io .rv{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
-<div class="cetvel">NÜKLEER ENERJİ BÜLTENİ — SAYI ARŞİVİ</div>
-<header><div class="wrap">
-  <div class="ust">Haftalık İzleme Raporu</div>
+
+<div class="rail lbl"><div class="rail-in">
+  <span>Dosya <b>NEB — SAYI ARŞİVİ</b></span>
+</div></div>
+
+<header class="top"><div class="shell in">
+  <div class="ust lbl">Haftalık İzleme Raporu</div>
   <h1>Arşiv <em>— geçmiş sayılar</em></h1>
-  <a class="geri" href="./">← Güncel sayıya dön</a>
+  <a class="geri lbl" href="./">← Güncel sayıya dön</a>
 </div></header>
 
-<main class="wrap"><div class="liste" id="liste">
-  <div class="bos">Arşiv yükleniyor…</div>
+<main class="shell"><div class="liste" id="liste">
+  <div class="bos lbl">Arşiv yükleniyor…</div>
 </div></main>
+
+<footer><div class="foot-in lbl">
+  <span>Nükleer Enerji Bülteni</span>
+  <span class="sag"><a href="./">Güncel sayı</a><a href="feed.xml">RSS</a></span>
+</div></footer>
 
 <script>
 function trTarih(iso){
   if(!iso) return "—";
   const ay=["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
   const d=new Date(iso+"T00:00:00");
+  if(isNaN(d)) return "—";
   return `${d.getDate()} ${ay[d.getMonth()]} ${d.getFullYear()}`;
 }
 function esc(s){const d=document.createElement("div");d.textContent=s??"";return d.innerHTML;}
 
 fetch("data/index.json").then(r=>r.json()).then(sayilar=>{
   const el=document.getElementById("liste");
-  if(!sayilar.length){ el.innerHTML='<div class="bos">Henüz yayınlanmış sayı yok.</div>'; return; }
+  if(!sayilar.length){ el.innerHTML='<div class="bos lbl">Henüz yayımlanmış sayı yok.</div>'; return; }
   el.innerHTML=sayilar.map(s=>`
-    <a class="sayi" href="./?hafta=${esc(s.hafta)}">
-      <span class="no"><b>SAYI ${s.number}</b>${esc(s.hafta)}</span>
+    <a class="sayi rv" href="./?hafta=${esc(s.hafta)}">
+      <span class="no"><b>${String(s.number).padStart(3,"0")}</b>${esc(s.hafta)}</span>
       <h2>${esc(s.lead_title)}</h2>
       <span class="m">${trTarih(s.publication_date)}<br>${s.story_count} haber · ${s.radar_count} radar</span>
     </a>`).join("");
+
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches){
+    el.querySelectorAll(".rv").forEach(x=>x.classList.add("in")); return;
+  }
+  const io=new IntersectionObserver((g,o)=>g.forEach(x=>{
+    if(x.isIntersecting){ x.target.classList.add("in"); o.unobserve(x.target); }
+  }),{rootMargin:"0px 0px -6% 0px"});
+  el.querySelectorAll(".rv").forEach(x=>io.observe(x));
 }).catch(()=>{
   document.getElementById("liste").innerHTML=
-    '<div class="bos">Arşiv verisi yüklenemedi.</div>';
+    '<div class="bos lbl">Arşiv verisi yüklenemedi.</div>';
 });
 </script>
 </body>

@@ -63,7 +63,11 @@ def nihai_kur(taslak):
              for m in (taslak.get("brief") or [])]
 
     # --- metrikler ---
-    yatirim, kapasite = 0, 0
+    # ⚠ Yarı iletkenden farkı: nükleerde kapasite TEK ve HOMOJEN bir birimle
+    # (MWe) ifade edilir, dolayısıyla toplanabilir. capacity_mwe bu yüzden
+    # serbest dize değil SAYIDIR (bkz. prompts.py → story şeması).
+    yatirim = 0
+    kapasite = 0
     ulkeler = set()
     for s in secili:
         inv = (s.get("investment") or {}).get("amount_usd_million")
@@ -89,7 +93,8 @@ def nihai_kur(taslak):
         "brief": brief,
         "metrics": {
             "aciklanan_yatirim_usd_milyon": round(yatirim) or None,
-            "toplam_kapasite_mwe": round(kapasite) or None,
+            "kapasite_mwe": round(kapasite) or None,
+            "proje_sayisi": len(secili) or None,
             "politika_gelismesi": sum(
                 1 for s in secili if s.get("category") == "politika") or None,
             "kapsanan_ulke": len(ulkeler) or None,
@@ -229,7 +234,7 @@ def rss_uret(son):
 <rss version="2.0"><channel>
   <title>Nükleer Enerji Bülteni</title>
   <link>{SITE_URL}</link>
-  <description>Haftalık nükleer enerji sektörü ve politika izleme bülteni</description>
+  <description>Haftalık nükleer enerji sektörü, teknoloji ve politika izleme bülteni</description>
   <language>tr</language>
   <lastBuildDate>{datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')}</lastBuildDate>
 {chr(10).join(ogeler)}
@@ -270,27 +275,62 @@ def state_guncelle(state, taslak, bulten):
     return state
 
 
-def arsiv_indeksi(bulten):
-    """Mevcut index.json'u canlı siteden çek, yeni sayıyı ekle."""
-    try:
-        r = requests.get(f"{SITE_URL}/data/index.json", timeout=20)
-        sayilar = r.json() if r.status_code == 200 else []
-    except Exception:
-        sayilar = []
-    i = bulten["issue"]
-    sayilar = [s for s in sayilar if s["hafta"] != i["hafta"]]
-    sayilar.append({
+def _indeks_satiri(b):
+    """Tam bülten JSON'undan arşiv indeksi satırı üretir."""
+    i = b["issue"]
+    return {
         "number": i["number"],
         "hafta": i["hafta"],
-        "publication_date": i["publication_date"],
-        "coverage_start": i["coverage_start"],
-        "coverage_end": i["coverage_end"],
-        "lead_title": bulten["lead"]["title"] if bulten.get("lead") else "?",
-        "story_count": len(bulten.get("stories", [])),
-        "radar_count": sum(len(k.get("maddeler", [])) for k in bulten.get("radar", [])),
+        "publication_date": i.get("publication_date"),
+        "coverage_start": i.get("coverage_start"),
+        "coverage_end": i.get("coverage_end"),
+        "lead_title": b["lead"]["title"] if b.get("lead") else "?",
+        "story_count": len(b.get("stories", [])),
+        "radar_count": sum(len(k.get("maddeler", [])) for k in b.get("radar", [])),
         "file": f"data/arsiv/{i['hafta']}.json",
-    })
-    return sorted(sayilar, key=lambda s: s["number"], reverse=True)
+    }
+
+
+def _indeks_kur(arsiv_dizini, yeni_bulten=None):
+    """Verilen arşiv klasöründeki tüm sayı dosyalarından indeks listesi kurar.
+
+    yeni_bulten verilirse (henüz diske yazılmamış sayı) listeye eklenir;
+    aynı haftanın önceki kaydının üzerine yazar.
+    """
+    kayitlar = {}
+    if os.path.isdir(arsiv_dizini):
+        for ad in sorted(os.listdir(arsiv_dizini)):
+            if not ad.endswith(".json"):
+                continue
+            try:
+                with open(os.path.join(arsiv_dizini, ad), encoding="utf-8") as f:
+                    b = json.load(f)
+                kayitlar[b["issue"]["hafta"]] = _indeks_satiri(b)
+            except Exception as e:
+                log(f"  ⚠ arşiv dosyası okunamadı, atlandı ({ad}): {e}")
+    if yeni_bulten:
+        kayitlar[yeni_bulten["issue"]["hafta"]] = _indeks_satiri(yeni_bulten)
+    return sorted(kayitlar.values(),
+                  key=lambda s: (s["number"] or 0, s["hafta"]), reverse=True)
+
+
+def arsiv_indeksi(bulten):
+    """Arşiv indeksini YEREL arşiv dosyalarından yeniden kurar.
+
+    ⚠ NEDEN YERELDEN: Önceki sürüm index.json'u canlı siteden HTTP ile
+    çekiyordu; tek bir ağ hatasında liste boş ([]) kabul edilip TÜM ARŞİV
+    GEÇMİŞİ siliniyordu (dosyalar diskte kalsa bile arşiv sayfası boşalırdı).
+
+    docs/data/arsiv/*.json git'te tutulduğu için Render cron'u her çalışmada
+    depoyu klonladığında yayınlanmış tüm sayılar zaten yerelde hazır olur —
+    bu, ağa bağımlı olmayan otoriter kaynaktır. İndeks bozulsa/silinse bile
+    arşiv dosyalarından kendini onarır.
+    """
+    liste = _indeks_kur(f"{OUT}/data/arsiv", bulten)
+    log(f"Arşiv indeksi: {len(liste)} sayı "
+        f"({', '.join(str(s['number']) for s in liste[:8])}"
+        f"{'…' if len(liste) > 8 else ''})")
+    return liste
 
 
 def insa_et(bulten, state, sayilar):
@@ -423,6 +463,87 @@ def yayinla(issue_row, dry_run=False):
                                  bulten["issue"]["hafta"], SITE_URL,
                                  issue_row.get("approved_by") or "?")
     return url
+
+
+# ============================================================
+# DÜZELTME YAYINI — yayınlanmış sayıdaki metin hatasını siteye gönder
+# ------------------------------------------------------------
+# Tam yayından (yayinla) farkları:
+#   · Ses YENİDEN ÜRETİLMEZ — ElevenLabs kotası harcanmaz. (Sesli özet
+#     düzeltilen metni okumaya devam eder; kabul edilen ödünç budur.)
+#   · state/sayaç DEĞİŞMEZ — bu yeni bir sayı değil, mevcut sayının düzeltmesi.
+#   · Depo TAZE klonlanır ve yalnızca ilgili dosyalar değiştirilir. Yerel
+#     docs/ kopyasına güvenilmez: web servisinin çalışma dizini son cron
+#     yayınına göre bayat olabilir ve tüm docs/ üzerine yazmak yayınlanmış
+#     sayıları silebilirdi.
+# ============================================================
+def duzeltme_yayinla(bulten):
+    """Düzeltilmiş bülteni siteye gönderir. Dönen: site URL'i.
+
+    Değiştirilen dosyalar: data/arsiv/<hafta>.json, (sayı en günceli ise)
+    data/latest.json ve feed.xml, ve her durumda data/index.json.
+    """
+    if not (GITHUB_REPO and GITHUB_TOKEN):
+        raise RuntimeError("GITHUB_REPO / GITHUB_TOKEN tanımlı değil")
+
+    import shutil
+    import tempfile
+    import subprocess
+
+    hafta = bulten["issue"]["hafta"]
+    tmp = tempfile.mkdtemp()
+    uzak = f"https://x-access-token:{GITHUB_TOKEN}@github.com/{GITHUB_REPO}.git"
+
+    def git(*a, kontrol=True):
+        r = subprocess.run(["git", "-C", tmp, *a], capture_output=True, text=True)
+        if kontrol and r.returncode != 0:
+            raise RuntimeError(f"git {a[0]}: {r.stderr[:200]}")
+        return r
+
+    try:
+        r = subprocess.run(["git", "clone", "--depth", "1", "-b", GITHUB_BRANCH, uzak, tmp],
+                           capture_output=True, text=True)
+        if r.returncode != 0:
+            raise RuntimeError(f"clone: {r.stderr[:200]}")
+
+        kok = os.path.join(tmp, OUT)
+        arsiv_dizini = os.path.join(kok, "data", "arsiv")
+        os.makedirs(arsiv_dizini, exist_ok=True)
+
+        # 1) sayının arşiv dosyası
+        yaz_json(os.path.join(arsiv_dizini, f"{hafta}.json"), bulten)
+
+        # 2) en güncel sayı ise ana sayfa verisi + RSS
+        latest_yolu = os.path.join(kok, "data", "latest.json")
+        guncel_mi = False
+        if os.path.exists(latest_yolu):
+            try:
+                with open(latest_yolu, encoding="utf-8") as f:
+                    guncel_mi = (json.load(f).get("issue", {}).get("hafta") == hafta)
+            except Exception:
+                guncel_mi = False
+        if guncel_mi:
+            yaz_json(latest_yolu, bulten)
+            with open(os.path.join(kok, "feed.xml"), "w", encoding="utf-8") as f:
+                f.write(rss_uret(bulten))
+
+        # 3) indeksi arşiv dosyalarından yeniden kur (başlık değişmiş olabilir)
+        yaz_json(os.path.join(kok, "data", "index.json"), _indeks_kur(arsiv_dizini))
+
+        git("config", "user.email", "bulten-bot@users.noreply.github.com")
+        git("config", "user.name", "Bulten Bot")
+        git("add", "-A")
+        c = git("commit", "-m", f"Sayı {bulten['issue']['number']} — metin düzeltmesi",
+                kontrol=False)
+        if c.returncode != 0 and "nothing to commit" in (c.stdout + c.stderr):
+            log("Düzeltme: değişiklik yok — push atlandı")
+            return SITE_URL
+        git("push", "origin", GITHUB_BRANCH)
+        log(f"Düzeltme yayınlandı ({hafta}"
+            f"{', ana sayfa dahil' if guncel_mi else ', yalnızca arşiv'})")
+        return SITE_URL
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
 
 
 # ============================================================

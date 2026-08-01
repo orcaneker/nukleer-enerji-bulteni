@@ -37,7 +37,7 @@ from config import (
     AYARLAR, KATEGORILER, SORGULAR, OLGUNLUK,
     KAYNAK_TIER1, KAYNAK_TIER2, KAYNAK_AKADEMIK, KAYNAK_TURKIYE, KAYNAK_DISLA,
     KAYNAK_ODEME_DUVARI, ODEME_DUVARI_IZLERI, ODEME_DUVARI_MIN_KARAKTER,
-    TEYIT, DURAK_KELIMELER,
+    TEYIT, DURAK_KELIMELER, FIYAT, EXA_FIYAT,
 )
 import prompts
 import llm
@@ -45,12 +45,73 @@ import llm
 EXA_API_KEY = os.environ.get("EXA_API_KEY", "")
 REVIEW_BASE_URL = os.environ.get("REVIEW_BASE_URL", "").rstrip("/")
 RAPOR_ALICI = os.environ.get("RAPOR_ALICI", "")
+# Tanımlıysa yazım adımı bu modelde de çalıştırılıp sonuç e-postayla
+# karşılaştırılır. Yayınlanan bülten etkilenmez. Örn: openai:gpt-5.6-luna
+KARSILASTIR_MODEL = os.environ.get("KARSILASTIR_MODEL", "").strip()
+# Tanımlıysa taslak KAYDEDİLMEZ ve davet GÖNDERİLMEZ; yalnızca karşılaştırma
+# e-postası atılır. Model denemesini tekrarlarken incelemedeki taslağı ezmemek
+# ve diğer yöneticilere mükerrer davet göndermemek için.
+KIYAS_MODU = os.environ.get("SADECE_KARSILASTIR", "").strip().lower() \
+    not in ("", "0", "false", "hayir")
 
 EXA_URL = "https://api.exa.ai/search"
 SITE_URL = AYARLAR["site_url"].rstrip("/")
 
 LOG = []
 YASAKLI_DOMAINLER = set()   # Exa'nın lisans nedeniyle reddettiği alan adları
+
+# ── EXA KULLANIM SAYACI ──────────────────────────────────────────
+# "deneme"  : API'ye giden HER istek (başarısızlar ve yeniden denemeler dahil).
+#             ⚠ Fatura bunu takip ediyor: 403 sonrası yasaklı alan adı ayıklanıp
+#             atılan tekrar istek de ücretlendiriliyor. Yalnızca 200'leri saymak
+#             faturayı olduğundan DÜŞÜK gösteriyordu (48 sayılırken fatura ~72).
+# "cagri"   : 200 dönen istekler (kaç tanesi işe yaradı).
+# "ek_sonuc": her istekte 10'u aşan sonuç adedi (taban ücret ilk 10'u kapsar).
+# "bildirilen": Exa yanıtta maliyet bildiriyorsa (costDollars) toplanır —
+#             o zaman tahmin yerine GERÇEK tutar raporlanır.
+EXA_KULLANIM = {"deneme": 0, "cagri": 0, "sonuc": 0, "ek_sonuc": 0,
+                "bildirilen": 0.0, "bildirim_var": False}
+
+
+def _exa_bildirilen_maliyet(veri):
+    """Exa yanıtındaki maliyet alanını bul (varsa). Şema değişirse sessizce None."""
+    for anahtar in ("costDollars", "cost_dollars", "cost"):
+        d = veri.get(anahtar)
+        if isinstance(d, (int, float)):
+            return float(d)
+        if isinstance(d, dict):
+            for alt in ("total", "totalDollars", "amount"):
+                if isinstance(d.get(alt), (int, float)):
+                    return float(d[alt])
+    return None
+
+
+def exa_maliyet():
+    """(rapor metni, tutar) — Exa arama maliyeti.
+
+    Exa yanıtta maliyet bildiriyorsa GERÇEK tutar kullanılır; bildirmiyorsa
+    yayınlanmış fiyat listesinden tahmin edilir (o zaman 'tahmin' diye yazar).
+    """
+    k = EXA_KULLANIM
+    taban = k["deneme"] * EXA_FIYAT["arama"]      # fatura denemeleri sayıyor
+    ek = k["ek_sonuc"] * EXA_FIYAT["ek_sonuc"]
+    tahmin = taban + ek
+    basarisiz = k["deneme"] - k["cagri"]
+
+    satirlar = [
+        f"  exa.ai arama ({k['deneme']} istek"
+        + (f", {basarisiz} yeniden deneme/hatalı" if basarisiz else "")
+        + f" · {k['sonuc']:,} sonuç)",
+        f"    taban {k['deneme']}×${EXA_FIYAT['arama']:.4f} = ${taban:.3f} · "
+        f"ek sonuç {k['ek_sonuc']:,}×${EXA_FIYAT['ek_sonuc']:.4f} = ${ek:.3f}",
+    ]
+    if k["bildirim_var"]:
+        satirlar.append(f"    = ${k['bildirilen']:.3f}  (Exa'nın bildirdiği GERÇEK tutar; "
+                        f"liste fiyatı tahmini ${tahmin:.3f})")
+        return "\n".join(satirlar), k["bildirilen"]
+    satirlar.append(f"    ≈ ${tahmin:.3f}  (tahmin — Exa yanıtta tutar bildirmiyor; "
+                    f"kesin rakam exa.ai panelinde)")
+    return "\n".join(satirlar), tahmin
 
 
 def log(msg):
@@ -63,7 +124,7 @@ llm.set_logger(log)
 
 
 # ============================================================
-# YARDIMCILAR (yarı iletken bülteninden kanıtlanmış)
+# YARDIMCILAR
 # ============================================================
 IZLEME_PARAMLARI = {
     "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
@@ -94,6 +155,10 @@ GORSEL_RED_IZLERI = (
     # paylaşım/sosyal medya ikonları da haber görseli değildir
     "share", "/social", "-social", "social.", "sprite",
     "/icons/", "-icon.", "_icon.",
+    # kurumsal/jenerik marka kartları (haber fotoğrafı DEĞİL): resmî sitelerin
+    # fotoğrafsız basın bültenlerinde koyduğu markalı OG görselleri. Örn. gov.uk
+    # "govuk-opengraph-image-….png" ve "s300_GOV.UK__12_.png" gibi numaralı kartlar.
+    "opengraph-image", "gov.uk__", "govuk-opengraph", "default-og", "generic-og",
 )
 
 
@@ -169,8 +234,19 @@ def kaynak_tier(domain: str) -> int:
 
 
 def iso_hafta(d: datetime):
+    """Sayının hafta kimliği — ör. '2026-H31' (2026'nın 31. haftası).
+
+    H = Hafta. ISO 8601'in 'W' (week) harfi yerine Türkçe karşılığı
+    kullanılıyor; hafta numarası yine ISO 8601 takvimine göre hesaplanır.
+
+    ⚠ Bu değer yalnızca ekranda görünen bir etiket DEĞİLDİR; aynı zamanda
+    arşiv dosyası adı (data/arsiv/<hafta>.json), sesli özet dosyası adı,
+    kalıcı bağlantı (?hafta=…) ve veritabanındaki UNIQUE anahtardır.
+    Formatı değiştirmek yayınlanmış sayıların bağlantılarını kırar —
+    değiştirilecekse arşiv boşken yapılmalıdır.
+    """
     y, w, _ = d.isocalendar()
-    return f"{y}-W{w:02d}"
+    return f"{y}-H{w:02d}"
 
 
 def json_ayikla(metin):
@@ -215,6 +291,38 @@ def state_yukle():
     return {"issue_no": 0, "events": [], "urls": []}
 
 
+def son_sayi_no(state):
+    """Yayınlanmış son sayı numarası — sayacın tek doğruluk kaynağı.
+
+    ⚠ NEDEN SADECE STATE'E GÜVENİLMEZ: state canlı siteden HTTP ile çekilir;
+    istek başarısız olursa issue_no=0 döner ve sayı numarası 1'e geri düşer
+    (arşivde mükerrer numara oluşur). docs/data/arsiv/*.json git'te tutulduğu
+    için Render her çalışmada klonladığında yayınlanmış tüm sayılar yerelde
+    hazırdır ve ağa bağımlı değildir.
+
+    İkisinin BÜYÜĞÜ alınır: yerel arşiv otoriterdir, state ise arşiv dosyası
+    henüz commit edilmemiş bir ara durumu yakalayabilir.
+    """
+    en_buyuk = 0
+    dizin = os.path.join(AYARLAR["cikti_dizini"], "data", "arsiv")
+    if os.path.isdir(dizin):
+        for ad in os.listdir(dizin):
+            if not ad.endswith(".json"):
+                continue
+            try:
+                with open(os.path.join(dizin, ad), encoding="utf-8") as f:
+                    n = (json.load(f).get("issue") or {}).get("number")
+                if isinstance(n, int):
+                    en_buyuk = max(en_buyuk, n)
+            except Exception as e:
+                log(f"  ⚠ arşiv dosyası okunamadı ({ad}): {e}")
+    state_no = state.get("issue_no", 0) or 0
+    if en_buyuk != state_no:
+        log(f"  Sayaç: yerel arşiv {en_buyuk} · canlı state {state_no} "
+            f"→ {max(en_buyuk, state_no)} kabul edildi")
+    return max(en_buyuk, state_no)
+
+
 # ============================================================
 # 2) EXA TARAMA
 # ============================================================
@@ -249,13 +357,25 @@ def exa_ara(sorgu, dom_dahil, bas_tarih, bit_tarih, sonuc, konum=None, ek_disla=
 
     for deneme in range(3):
         try:
+            EXA_KULLANIM["deneme"] += 1     # fatura her isteği sayıyor
             r = requests.post(
                 EXA_URL,
                 headers={"x-api-key": EXA_API_KEY, "Content-Type": "application/json"},
                 json=payload, timeout=60,
             )
             if r.status_code == 200:
-                return r.json().get("results", [])
+                veri = r.json()
+                sonuclar = veri.get("results", [])
+                EXA_KULLANIM["cagri"] += 1
+                EXA_KULLANIM["sonuc"] += len(sonuclar)
+                EXA_KULLANIM["ek_sonuc"] += max(0, len(sonuclar) - 10)
+                bildirilen = _exa_bildirilen_maliyet(veri)
+                if bildirilen is not None:
+                    EXA_KULLANIM["bildirilen"] += bildirilen
+                    if not EXA_KULLANIM["bildirim_var"]:
+                        EXA_KULLANIM["bildirim_var"] = True
+                        log(f"  Exa gerçek maliyet bildiriyor — tahmin yerine o kullanılacak")
+                return sonuclar
 
             # 403 "domains are not available" → Exa bazı alan adlarını lisans
             # nedeniyle kabul etmiyor. Ayıkla ve tekrar dene (kendini onarma).
@@ -562,18 +682,30 @@ def olaylari_zenginlestir(olaylar, adaylar):
 # ============================================================
 # 5) AŞAMA 2 — YAZIM
 # ============================================================
-def yaz(derin, radar_havuz, sayi_no, bas, bit, pencere):
+def yaz(derin, radar_havuz, sayi_no, bas, bit, pencere, model=None):
     """json_repair'e rağmen geçersiz çıktı gelirse yazımı BİR kez daha dene —
-    haftalık cron tek bozuk üretim yüzünden boş geçmesin."""
+    haftalık cron tek bozuk üretim yüzünden boş geçmesin.
+
+    model: None ise AYARLAR["model_yazim"]. Model karşılaştırma modunda
+    (KARSILASTIR_MODEL) aynı veriyle ikinci bir model çalıştırmak için kullanılır.
+    """
+    model = model or AYARLAR["model_yazim"]
+    # Akıl yürüten modellerde düşünme token'ları da çıktı bütçesinden düşer →
+    # görünür metnin kesilmemesi için daha geniş limit kullanılır.
+    # (gpt-5.x · Sonnet 5 · Opus 4.7+ · Fable 5 — hepsinde düşünme varsayılan açık)
+    AKIL_YURUTEN = ("openai:gpt-5", "anthropic:claude-sonnet-5",
+                    "anthropic:claude-opus-", "anthropic:claude-fable-")
+    limit = (AYARLAR.get("max_tokens_yazim_reasoning", AYARLAR["max_tokens_yazim"])
+             if model.startswith(AKIL_YURUTEN) else AYARLAR["max_tokens_yazim"])
     son_hata = None
     for deneme in range(2):
         if deneme:
             log("  ⚠ Yazım çıktısı kurtarılamadı — yazım yeniden deneniyor (2/2)")
         try:
             cikti = llm.llm_cagri(
-                AYARLAR["model_yazim"], prompts.YAZIM_PROMPT,
+                model, prompts.YAZIM_PROMPT,
                 prompts.yazim_kullanici_mesaji(derin, radar_havuz, sayi_no, bas, bit, pencere),
-                AYARLAR["max_tokens_yazim"],
+                limit,
                 stream=True,     # uzun çıktı — zaman aşımını önler
             )
             return json_ayikla(cikti)
@@ -583,16 +715,128 @@ def yaz(derin, radar_havuz, sayi_no, bas, bit, pencere):
 
 
 # ============================================================
+# 5.9) MODEL KARŞILAŞTIRMA (opsiyonel)
+# ------------------------------------------------------------
+# KARSILASTIR_MODEL ortam değişkeni tanımlıysa yazım adımı AYNI olaylarla
+# ikinci bir modelde daha çalıştırılır ve iki çıktı e-postayla yan yana
+# gönderilir. Yayınlanan bülten DEĞİŞMEZ — asıl model neyse o yayınlanır;
+# ikinci çıktı yalnızca kaliteyi kıyaslamak içindir.
+#
+# Kullanımı (Render → Environment):
+#   KARSILASTIR_MODEL = openai:gpt-5.6-luna
+# Karşılaştırma bitince değişkeni SİLİN, yoksa her hafta ekstra ücret çıkar.
+# ============================================================
+def _ilk_paragraf(metin, n=400):
+    p = (metin or "").split("\n\n")[0].strip()
+    return p[:n] + ("…" if len(p) > n else "")
+
+
+def model_karsilastir(model, derin, radar_havuz, sayi_no, bas, bit, pencere, asil):
+    """İkinci modelle yazımı tekrarlar, karşılaştırma metni döndürür.
+    Hata olursa akışı BOZMAZ — None döner."""
+    log(f"Model karşılaştırma — ikinci yazım: {model}")
+    onceki = dict(llm.KULLANIM)          # asıl yazımın kullanımını ayırmak için
+    try:
+        b2 = yaz(derin, radar_havuz, sayi_no, bas, bit, pencere, model=model)
+    except Exception as e:
+        log(f"  ! Karşılaştırma yazımı başarısız: {e}")
+        return None
+
+    # sadece bu modelin maliyeti
+    k = llm.KULLANIM.get(model, {})
+    f = FIYAT.get(model)
+    m2 = ((k.get("in", 0) * f["in"] + k.get("out", 0) * f["out"]) / 1e6) if f else 0.0
+    ka = onceki.get(AYARLAR["model_yazim"], {})
+    fa = FIYAT.get(AYARLAR["model_yazim"])
+    m1 = ((ka.get("in", 0) * fa["in"] + ka.get("out", 0) * fa["out"]) / 1e6) if fa else 0.0
+
+    # haberleri BİRİNCİL KAYNAK URL'iyle eşle (id'ler modele göre değişebilir)
+    def indeksle(b):
+        d = {}
+        for s in (b.get("stories") or []):
+            u = url_normalize((s.get("source") or {}).get("url") or "")
+            if u:
+                d[u] = s
+        return d
+    a_idx, b_idx = indeksle(asil), indeksle(b2)
+    ortak = [u for u in a_idx if u in b_idx][:4]
+
+    # nesnel uzunluk ölçüsü — "kısa/uzun" izlenimini rakamla doğrula
+    def ort(b, alan):
+        d = [len(s.get(alan) or "") for s in (b.get("stories") or [])]
+        return sum(d) / len(d) if d else 0
+
+    def rakam_sayisi(b):
+        """excerpt'lerdeki sayı adedi — veri yoğunluğunun kaba göstergesi."""
+        n = [len(re.findall(r"\d", s.get("excerpt") or ""))
+             for s in (b.get("stories") or [])]
+        return sum(n) / len(n) if n else 0
+
+    satirlar = [
+        "MODEL KARŞILAŞTIRMASI — aynı haberler, iki farklı yazım modeli",
+        "=" * 66,
+        f"A) {AYARLAR['model_yazim']}   (yayınlanan bu)",
+        f"B) {model}   (yalnızca karşılaştırma)"
+        + (f"   · reasoning_effort={os.environ.get('REASONING_EFFORT') or AYARLAR.get('reasoning_effort')}"
+           if model.startswith("openai:") else ""),
+        "",
+        "UZUNLUK / YOĞUNLUK (haber başına ortalama)",
+        f"  özet   : A {ort(asil,'excerpt'):>5.0f} krkt   ·   B {ort(b2,'excerpt'):>5.0f} krkt",
+        f"  metin  : A {ort(asil,'detail'):>5.0f} krkt   ·   B {ort(b2,'detail'):>5.0f} krkt",
+        f"  özetteki rakam adedi: A {rakam_sayisi(asil):.1f}   ·   B {rakam_sayisi(b2):.1f}",
+        "",
+        f"Maliyet (yalnızca yazım adımı):  A ≈ ${m1:.3f}   ·   B ≈ ${m2:.3f}",
+        f"Token:  A girdi {ka.get('in',0):,} / çıktı {ka.get('out',0):,}"
+        f"   ·   B girdi {k.get('in',0):,} / çıktı {k.get('out',0):,}",
+        f"Üretilen haber:  A {len(asil.get('stories') or [])}  ·  B {len(b2.get('stories') or [])}",
+        f"Karşılaştırılabilen (aynı kaynaklı) haber: {len(ortak)}",
+        "=" * 66, "",
+    ]
+    for i, u in enumerate(ortak, 1):
+        a, b = a_idx[u], b_idx[u]
+        satirlar += [
+            f"── HABER {i} ─────────────────────────────────────────────",
+            f"kaynak: {u}", "",
+            f"[A] BAŞLIK : {a.get('title','')}",
+            f"[B] BAŞLIK : {b.get('title','')}", "",
+            f"[A] ÖZET   : {a.get('excerpt','')}",
+            f"[B] ÖZET   : {b.get('excerpt','')}", "",
+            f"[A] METİN  : {_ilk_paragraf(a.get('detail'))}",
+            f"[B] METİN  : {_ilk_paragraf(b.get('detail'))}", "", "",
+        ]
+    if not ortak:
+        satirlar.append("(İki model ortak haber üretmedi — kıyas yapılamadı.)")
+    satirlar += ["=" * 66,
+                 "Değerlendirirken bakılacaklar: Türkçe akıcılık, rakamların",
+                 "eksiksiz aktarımı, yorum/analiz kaçağı olup olmadığı,",
+                 "terimlerin ilk geçişte parantezle verilmesi."]
+    return "\n".join(satirlar)
+
+
+# ============================================================
 # 6) DOĞRULAMA — taslak düzeyinde
 # ============================================================
 ESLESME = {
-    # Model bazen değer zinciri etiketini kategori sanıyor — sessizce onar.
-    "uranyum": "yakit", "donusum-zenginlestirme": "yakit", "yakit-uretim": "yakit",
-    "reaktor-insa": "buyuk-reaktor", "uygulama": "teknoloji",
-    "duzenleme": "politika", "jeopolitik": "politika", "mevzuat": "politika",
-    "piyasa": "rapor", "akademik": "teknoloji", "arastirma": "teknoloji",
-    "veri-merkezi": "kurumsal-alim", "ppa": "kurumsal-alim",
-    "atik": "atik-sokum", "sokum": "atik-sokum",
+    # Model bazen değer zinciri etiketini/eş anlamlıyı kategori sanıyor — sessizce onar.
+    "duzenleme": "politika", "mevzuat": "politika", "strateji": "politika",
+    "lisanslama": "politika", "yaptirim": "politika", "ihracat-kontrolu": "politika",
+    "buyuk-reaktor": "buyuk-reaktor", "yeni-insa": "buyuk-reaktor",
+    "reaktor-insa": "buyuk-reaktor", "epr": "buyuk-reaktor", "vver": "buyuk-reaktor",
+    "smr": "smr", "mikro-reaktor": "smr", "modüler": "smr", "moduler": "smr",
+    "yakit": "yakit", "uranyum": "yakit", "zenginlestirme": "yakit",
+    "donusum-zenginlestirme": "yakit", "haleu": "yakit", "yakit-uretim": "yakit",
+    "isletme": "isletme", "omur-uzatma": "isletme", "yeniden-baslatma": "isletme",
+    "filo": "isletme",
+    "kurumsal-alim": "kurumsal-alim", "ppa": "kurumsal-alim",
+    "veri-merkezi": "kurumsal-alim", "hyperscaler": "kurumsal-alim",
+    "fuzyon": "fuzyon", "tokamak": "fuzyon", "stellarator": "fuzyon",
+    "atik-sokum": "atik-sokum", "atik": "atik-sokum", "sokum": "atik-sokum",
+    "depolama": "atik-sokum", "yeniden-isleme": "atik-sokum",
+    "teknoloji": "teknoloji", "ar-ge": "teknoloji", "gen-iv": "teknoloji",
+    "triso": "teknoloji", "izotop": "teknoloji",
+    "guvenlik": "guvenlik", "emniyet": "guvenlik", "ines": "guvenlik",
+    "safeguards": "guvenlik",
+    "piyasa": "rapor", "akademik": "rapor", "arastirma": "rapor",
 }
 
 
@@ -893,20 +1137,21 @@ def gorselleri_bagla(taslak, adaylar, olaylar=None, sayfa_gorselleri=None):
 # MOCK — API'siz test taslağı
 # ============================================================
 def mock_taslak(sayi_no, bas, bit, pencere):
-    def st(i, secim, kat, baslik):
+    def st(i, secim, kat, baslik, olg="announced"):
         return {
             "id": f"event_{i:03d}", "secim": secim,
             "title": baslik,
-            "excerpt": f"Örnek özet {i}: anlaşma 2,4 milyar dolar değerinde, "
+            "excerpt": f"Örnek özet {i}: yatırım 2,4 milyar dolar değerinde, "
                        f"kapasite 470 MWe. Bu bir test metnidir, gerçek haber değildir.",
             "detail": ("Bu bir TEST haberidir; gerçek bir gelişmeyi yansıtmaz.\n\n"
-                       "İkinci paragraf: proje kapsamında 470 MWe kapasiteli iki "
+                       "İkinci paragraf: proje kapsamında 470 MWe kapasiteli bir "
                        "reaktör planlanıyor, toplam yatırım 2,4 milyar dolar.\n\n"
                        "Üçüncü paragraf: takvim paylaşılmadı."),
             "neden_onemli": None, "category": kat, "subcategories": [],
-            "value_chain": ["reaktor-insa"], "maturity": "announced",
+            "value_chain": ["reaktor-insa"], "maturity": olg,
             "companies": ["Örnek A.Ş."], "countries": ["USA"],
-            "technologies": ["PWR"], "capacity_mwe": 470,
+            "technologies": ["PWR"],
+            "capacity_mwe": 470,
             "investment": {"amount_original": 2.4, "currency": "USD",
                            "amount_usd_million": 2400,
                            "public_support_usd_million": None},
@@ -920,11 +1165,18 @@ def mock_taslak(sayi_no, bas, bit, pencere):
 
     katlar = ["politika", "smr", "buyuk-reaktor", "yakit", "isletme",
               "kurumsal-alim", "teknoloji", "turkiye", "rapor"]
+    # Aşama göstergesi (site imza öğesi) mock'ta da çeşitli görünsün diye
+    # olgunluk ölçeğinin farklı basamakları dolaşılıyor.
+    olgunluklar = ["announced", "licensed", "construction", "funded",
+                   "commissioning", "operational", "site_permit",
+                   "grid_connection", "design_cert", "delayed"]
     stories = [st(i + 1, "one_cikan", katlar[i % len(katlar)],
-                  f"[TEST] Öne çıkan haber {i+1}: örnek nükleer gelişme")
+                  f"[TEST] Öne çıkan haber {i+1}: örnek nükleer enerji gelişmesi",
+                  olgunluklar[i % len(olgunluklar)])
                for i in range(9)]
     stories += [st(i + 10, "yedek", katlar[i % len(katlar)],
-                   f"[TEST] Yedek haber {i+10}: takas için bekleyen gelişme")
+                   f"[TEST] Yedek haber {i+10}: takas için bekleyen gelişme",
+                   olgunluklar[(i + 4) % len(olgunluklar)])
                 for i in range(5)]
     return {
         "brief": [{"text": f"[TEST] 60 saniyede madde {i+1} — örnek gelişme özeti.",
@@ -932,14 +1184,30 @@ def mock_taslak(sayi_no, bas, bit, pencere):
         "lead_id": "event_001",
         "stories": stories,
         "radar": [
-            {"kume": "Uranyum tedariki",
-             "maddeler": [{"title": f"[TEST] Radar maddesi {i+1}",
-                           "source": "WNN", "url": f"https://example.org/radar-{i}",
-                           "date": bit, "category": "yakit"} for i in range(4)]},
             {"kume": "SMR lisanslama",
-             "maddeler": [{"title": f"[TEST] Radar maddesi {i+5}",
-                           "source": "NucNet", "url": f"https://example.org/radar-{i+4}",
-                           "date": bit, "category": "smr"} for i in range(4)]},
+             "maddeler": [{"title": f"[TEST] Radar maddesi {i+1}",
+                           "source": "World Nuclear News",
+                           "url": f"https://example.org/radar-{i}",
+                           "date": bit, "category": "smr"} for i in range(5)]},
+            {"kume": "Uranyum tedariki",
+             "maddeler": [{"title": f"[TEST] Radar maddesi {i+6}",
+                           "source": "NucNet", "url": f"https://example.org/radar-{i+5}",
+                           "date": bit, "category": "yakit"} for i in range(4)]},
+            {"kume": "Avrupa yeni inşa",
+             "maddeler": [{"title": f"[TEST] Radar maddesi {i+10}",
+                           "source": "NEI Magazine",
+                           "url": f"https://example.org/radar-{i+9}",
+                           "date": bit, "category": "buyuk-reaktor"} for i in range(4)]},
+            {"kume": "Veri merkezi anlaşmaları",
+             "maddeler": [{"title": f"[TEST] Radar maddesi {i+14}",
+                           "source": "Utility Dive",
+                           "url": f"https://example.org/radar-{i+13}",
+                           "date": bit, "category": "kurumsal-alim"} for i in range(3)]},
+            {"kume": "Atık ve söküm",
+             "maddeler": [{"title": f"[TEST] Radar maddesi {i+17}",
+                           "source": "Power Engineering",
+                           "url": f"https://example.org/radar-{i+16}",
+                           "date": bit, "category": "atik-sokum"} for i in range(3)]},
         ],
     }
 
@@ -965,7 +1233,7 @@ def main():
     log(f"NÜKLEER ENERJİ BÜLTENİ — TASLAK — {bugun.strftime('%Y-%m-%d')}")
 
     state = state_yukle()
-    sayi_no = AYARLAR.get("sayi_no_sabit") or (state.get("issue_no", 0) + 1)
+    sayi_no = AYARLAR.get("sayi_no_sabit") or (son_sayi_no(state) + 1)
     hafta = iso_hafta(bugun)
     pencere = AYARLAR["pencere_gun"]
     kapsam_bas = (bugun - timedelta(days=pencere)).strftime("%Y-%m-%d")
@@ -974,6 +1242,7 @@ def main():
     rapor = {"queries_run": 0, "results_found": 0, "dedup_removed": 0,
              "events_created": 0, "llm_rejected": 0, "written": 0,
              "radar_items": 0, "failed_queries": []}
+    karsilastirma = None          # KARSILASTIR_MODEL tanımlıysa doldurulur
 
     if args.mock:
         log("MOCK modu — Exa/LLM atlanıyor")
@@ -1026,6 +1295,12 @@ def main():
         log("Aşama 2 — yazım…")
         b = yaz(derin, radar_havuz, sayi_no, kapsam_bas, kapsam_bit, pencere)
 
+        # --- opsiyonel: ikinci modelle aynı veriden yazım (yalnızca kıyas) ---
+        if KARSILASTIR_MODEL:
+            karsilastirma = model_karsilastir(
+                KARSILASTIR_MODEL, derin, radar_havuz, sayi_no,
+                kapsam_bas, kapsam_bit, pencere, b)
+
     hatalar = dogrula_taslak(b, kapsam_bas, kapsam_bit)
     if hatalar:
         log(f"⚠ {len(hatalar)} şema uyarısı")
@@ -1054,17 +1329,44 @@ def main():
         "hatalar": hatalar,
     }
 
-    mm, mt = llm.maliyet_raporu()
-    rapor["maliyet_usd"] = round(mt, 3)
+    mm, mt = llm.maliyet_raporu()          # model (Haiku + yazım)
+    em, et = exa_maliyet()                 # arama
+    rapor["maliyet_model_usd"] = round(mt, 3)
+    rapor["maliyet_exa_usd"] = round(et, 3)
+    rapor["maliyet_usd"] = round(mt + et, 3)   # genel toplam
 
     lead = next((s for s in stories if s.get("id") == taslak["lead_id"]),
                 stories[0] if stories else {})
     secili_sayi = sum(1 for s in stories if s.get("secim") == "one_cikan")
 
+    # ── SADECE KIYAS MODU ──────────────────────────────────────────
+    # SADECE_KARSILASTIR tanımlıysa: taslak Neon'a YAZILMAZ, hakemlere davet
+    # GİTMEZ, yalnızca karşılaştırma e-postası (tek alıcı: RAPOR_ALICI) gider.
+    # Böylece model denemesi tekrarlanırken incelemedeki taslak ezilmez ve
+    # diğer yöneticilere mükerrer davet düşmez.
+    if KIYAS_MODU:
+        log("SADECE KIYAS MODU — taslak kaydedilmedi, davet gönderilmedi")
+        if karsilastirma and RAPOR_ALICI:
+            import emails
+            emails.rapor_gonder(
+                RAPOR_ALICI,
+                f"[Kıyas] Sayı {sayi_no} — {AYARLAR['model_yazim']} vs {KARSILASTIR_MODEL}",
+                karsilastirma + f"\n\nTOKEN VE MALİYET (tüm adımlar)\n{mm}")
+            log("Karşılaştırma e-postası gönderildi")
+        elif not karsilastirma:
+            log("! Karşılaştırma üretilemedi — KARSILASTIR_MODEL tanımlı mı?")
+        log(f"Tamamlandı — {time.time() - t0:.0f} sn · tahmini maliyet ${mt:.3f}")
+        log("═" * 46)
+        return
+
     if args.dry_run:
         with open("taslak_preview.json", "w", encoding="utf-8") as f:
             json.dump(taslak, f, ensure_ascii=False, indent=2)
         log("DRY RUN — DB/e-posta atlandı → taslak_preview.json yazıldı")
+        if karsilastirma:
+            with open("model_karsilastirma.txt", "w", encoding="utf-8") as f:
+                f.write(karsilastirma)
+            log("Model karşılaştırması → model_karsilastirma.txt")
     else:
         import db
         import emails
@@ -1074,18 +1376,21 @@ def main():
         log(f"Taslak Neon'a kaydedildi (issue_id={issue_id})")
 
         # --- Hakemlere davet ---
+        hakemler = db.hakemler()          # bir kez çek, hem davette hem raporda kullan
         gonderilen = 0
-        for h in db.hakemler():
+        for h in hakemler:
             link = f"{REVIEW_BASE_URL}/r/{h['token']}" if REVIEW_BASE_URL else "(REVIEW_BASE_URL yok)"
             if emails.davet_gonder(h, link, sayi_no, hafta,
                                    lead.get("title", "?"), secili_sayi):
                 gonderilen += 1
         log(f"Davet e-postası: {gonderilen} hakeme gönderildi")
 
-        # --- Çalışma raporu ---
-        if RAPOR_ALICI:
+        # --- Çalışma raporu (hakemler + RAPOR_ALICI) ---
+        # Koşul artık RAPOR_ALICI'ya bağlı DEĞİL: rapor hakemlere de gittiği
+        # için o değişken boş olsa bile gönderim yapılmalı.
+        if hakemler or RAPOR_ALICI:
             govde = (
-                f"Nükleer Enerji Bülteni — Sayı {sayi_no} Taslak Raporu\n"
+                f"Yarı İletken Bülteni — Sayı {sayi_no} Taslak Raporu\n"
                 f"{'=' * 52}\n"
                 f"Kapsam        : {kapsam_bas} — {kapsam_bit} ({pencere} gün)\n\n"
                 f"Sorgu çalıştırıldı : {rapor['queries_run']}\n"
@@ -1102,17 +1407,33 @@ def main():
                 + "".join(f"  - {q}\n" for q in rapor["failed_queries"]) +
                 f"\nŞema uyarıları     : {len(hatalar)}\n"
                 + "".join(f"  ! {h}\n" for h in hatalar[:15]) +
-                f"\nTOKEN VE MALİYET\n{mm}\n\n"
+                f"\nMALİYET (bu sayının üretimi)\n{em}\n{mm}\n"
+                f"  ══ GENEL TOPLAM ≈ ${mt + et:.3f}  (arama + model)\n\n"
                 f"Durum: İNCELEME BEKLİYOR — davet {gonderilen} hakeme gitti.\n"
                 f"{'=' * 52}\nLOG:\n" + "\n".join(LOG[-40:])
             )
-            emails.rapor_gonder(RAPOR_ALICI,
-                                f"Nükleer Bülten — Sayı {sayi_no} taslak hazır", govde)
+            # Rapor artık TÜM hakemlere gidiyor (maliyet görünürlüğü için),
+            # RAPOR_ALICI dahil — mükerrer adres olmasın diye tekilleştiriliyor.
+            rapor_alicilari = list(dict.fromkeys(
+                [h["email"] for h in hakemler] +
+                ([RAPOR_ALICI] if RAPOR_ALICI else [])))
+            emails.rapor_gonder(rapor_alicilari,
+                                f"Yarı İletken Bülteni — Sayı {sayi_no} taslak hazır", govde)
+            log(f"Çalışma raporu: {len(rapor_alicilari)} kişiye gönderildi")
 
-    log("TOKEN VE MALİYET")
-    for satir in mm.split("\n"):
+            # model karşılaştırması ayrı e-posta — rapor okunaklı kalsın
+            if karsilastirma:
+                emails.rapor_gonder(
+                    RAPOR_ALICI,
+                    f"[Karşılaştırma] Sayı {sayi_no} — {AYARLAR['model_yazim']} vs "
+                    f"{KARSILASTIR_MODEL}", karsilastirma)
+                log("Model karşılaştırma e-postası gönderildi")
+
+    log("MALİYET")
+    for satir in (em + "\n" + mm).split("\n"):
         log(satir)
-    log(f"Tamamlandı — {time.time() - t0:.0f} sn · tahmini maliyet ${mt:.3f}")
+    log(f"  ══ GENEL TOPLAM ≈ ${mt + et:.3f}  (arama ${et:.3f} + model ${mt:.3f})")
+    log(f"Tamamlandı — {time.time() - t0:.0f} sn · tahmini maliyet ${mt + et:.3f}")
     log("═" * 46)
 
 

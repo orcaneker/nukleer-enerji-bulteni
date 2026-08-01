@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-NÜKLEER ENERJİ BÜLTENİ — LLM KATMANI
+BİYOEKONOMİ BÜLTENİ — LLM KATMANI
 =====================================
 Sağlayıcı-bağımsız tek arayüz:
 
@@ -23,7 +23,7 @@ from datetime import datetime, timezone
 
 import requests
 
-from config import FIYAT
+from config import FIYAT, AYARLAR as _A
 
 ANTHROPIC_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
@@ -73,8 +73,25 @@ def maliyet_raporu():
             f"cache yaz {k['cache_w']:,} · cache oku {k['cache_r']:,}\n"
             f"    ≈ ${m:.3f}"
         )
-    satirlar.append(f"  ── TOPLAM ≈ ${toplam:.3f}")
+    # "model toplamı" — Exa arama maliyeti buna DAHİL DEĞİL; genel toplamı
+    # pipeline.py hesaplayıp raporun altına ayrı satır olarak yazar.
+    satirlar.append(f"  ── model toplamı ≈ ${toplam:.3f}")
     return "\n".join(satirlar), toplam
+
+
+def _effort_destekler(ad):
+    """Anthropic modeli output_config.effort kabul ediyor mu?
+
+    Kabul EDENLER : Sonnet 4.6 / Sonnet 5, Opus 4.5 ve sonrası, Fable 5
+    Kabul ETMEYEN : Haiku 4.5, Sonnet 4.5  → gönderilirse istek hata döner.
+    Triyaj Haiku'da çalıştığı için bu ayrım kritik.
+    """
+    if ad.startswith("claude-haiku"):
+        return False
+    if ad.startswith("claude-sonnet-4-5"):
+        return False
+    return ad.startswith(("claude-sonnet-4-6", "claude-sonnet-5",
+                          "claude-opus-", "claude-fable-", "claude-mythos-"))
 
 
 def _parcala(model):
@@ -96,7 +113,7 @@ def llm_cagri(model, sistem, kullanici, max_tokens, stream=False, cache=False):
 
 
 # ============================================================
-# ANTHROPIC — Messages API (ham HTTP; yarı iletken bülteninden kanıtlanmış)
+# ANTHROPIC — Messages API (ham HTTP; önceki bültenlerde kanıtlanmış)
 # ============================================================
 def _anthropic(model, ad, sistem, kullanici, max_tokens, stream, cache):
     """stream=True → UZUN çıktılarda ZORUNLU: akışsız istekte bağlantı
@@ -121,6 +138,20 @@ def _anthropic(model, ad, sistem, kullanici, max_tokens, stream, cache):
         "system": sistem_blok,
         "messages": [{"role": "user", "content": kullanici}],
     }
+
+    # ── EFFORT (output_config.effort) ──
+    # Anthropic'te akıl yürütme derinliği bu parametreyle ayarlanır
+    # (OpenAI'deki reasoning_effort'un karşılığı; aynı config anahtarını kullanıyoruz).
+    # ⚠ HER MODEL DESTEKLEMEZ: Haiku 4.5 ve Sonnet 4.5'e gönderilirse HATA verir —
+    # triyaj Haiku'da çalıştığı için bu kapı şart. Sonnet 4.6+/5, Opus 4.5+ ve
+    # Fable 5 destekler.
+    # ⚠ temperature / top_p / top_k ve thinking.budget_tokens BİLEREK gönderilmiyor:
+    # Sonnet 5 ve Opus 4.7+ bunları 400 ile reddediyor.
+    seviye = os.environ.get("REASONING_EFFORT", "").strip() or _A.get("reasoning_effort")
+    if seviye and _effort_destekler(ad):
+        body["output_config"] = {"effort": seviye}
+        _log(f"{ad}: effort={seviye}")
+
     if stream:
         body["stream"] = True
 
@@ -208,6 +239,20 @@ def _openai(model, ad, sistem, kullanici, max_tokens, stream):
             {"role": "user", "content": kullanici},
         ],
     }
+
+    # ── AKIL YÜRÜTME SEVİYESİ (gpt-5.x reasoning modelleri) ──
+    # AÇIKÇA gönderilir: gönderilmediğinde model kendi varsayılanını kullanır
+    # ve ürettiği "düşünme" token'ları ÇIKTI fiyatından faturalanır — maliyet
+    # sessizce katlanabilir. Ayrıca gpt-5.6'da reasoning_effort belirtilmemiş
+    # isteklerin bazı durumlarda 400 döndürdüğü bildirildi.
+    # Reasoning desteklemeyen eski modellere (gpt-4o vb.) gönderilmez.
+    # REASONING_EFFORT ortam değişkeni config'i EZER — model kıyası yaparken
+    # seviyeyi Render'dan değiştirip kod dokunmadan tekrar denemek için.
+    seviye = os.environ.get("REASONING_EFFORT", "").strip() or _A.get("reasoning_effort")
+    if seviye and ad.startswith(("gpt-5", "o1", "o3", "o4")):
+        body["reasoning_effort"] = seviye
+        _log(f"{ad}: reasoning_effort={seviye}")
+
     if stream:
         body["stream"] = True
         body["stream_options"] = {"include_usage": True}
@@ -233,6 +278,7 @@ def _openai(model, ad, sistem, kullanici, max_tokens, stream):
 
             # ── STREAMING ──
             parcalar, u = [], {}
+            bitis, ham_usage = None, {}
             with requests.post(OPENAI_URL, headers=basliklar, json=body,
                                stream=True, timeout=(30, 120)) as r:
                 if r.status_code != 200:
@@ -255,13 +301,24 @@ def _openai(model, ad, sistem, kullanici, max_tokens, stream):
                         icerik = (c.get("delta") or {}).get("content")
                         if icerik:
                             parcalar.append(icerik)
+                        if c.get("finish_reason"):
+                            bitis = c["finish_reason"]
                     if olay.get("usage"):
-                        u = _openai_usage(olay["usage"])
+                        ham_usage = olay["usage"]
+                        u = _openai_usage(ham_usage)
 
             if parcalar:
                 kullanim_ekle(model, u)
+                # reasoning modellerinde "düşünme" token'ları çıktıya dahildir;
+                # ayrıştırmak maliyeti ve kısa çıktı şüphesini teşhis etmeyi sağlar
+                dusunme = ((ham_usage.get("completion_tokens_details") or {})
+                           .get("reasoning_tokens")) or 0
                 _log(f"Stream tamam — {sum(len(p) for p in parcalar)} karakter · "
-                     f"girdi {u.get('input_tokens', 0):,} / çıktı {u.get('output_tokens', 0):,}")
+                     f"girdi {u.get('input_tokens', 0):,} / çıktı {u.get('output_tokens', 0):,}"
+                     + (f" (bunun {dusunme:,}'i düşünme)" if dusunme else ""))
+                if bitis == "length":
+                    _log("  ⚠ ÇIKTI KESİLDİ (max_completion_tokens doldu) — "
+                         "metinler eksik olabilir; limiti artırın")
                 return "".join(parcalar)
             _log("Stream boş döndü")
 

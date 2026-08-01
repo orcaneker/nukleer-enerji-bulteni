@@ -21,20 +21,21 @@ GÖREVİN — sırayla:
 
 1) OLAY KÜMELEME (en kritik adım)
    Aynı gelişmeyi anlatan farklı haberler TEK OLAY'dır.
-   Örnek: NRC lisans kararı hakkında NRC duyurusu + şirket basın bülteni +
+   Örnek: Bir NRC lisans kararı hakkında NRC duyurusu + şirket basın bülteni +
    World Nuclear News haberi + yerel basın = 1 olay, 4 kaynak.
    Her olay için:
      - en güvenilir kaynağı primary_id seç (resmî kurum/şirket > ajans > sektör basını)
      - diğerlerini supporting_ids'e koy
 
-2) ELEME — şunları REDDET (reject listesine at):
+2) ELEME — şunları REDDET (reject listesine at, sebebini YAZMA):
    - Tarih penceresi dışında (yayın tarihi verilen aralıkta değil)
    - Yayın tarihi doğrulanamıyor
    - Sponsorlu içerik, SEO listicle, ham pazar araştırması reklamı
    - Sadece söylenti ("iddia edildi", teyitsiz tek kaynak)
    - Hisse fiyat yorumu, yatırım tavsiyesi içeriği
-   - Nükleer silah/askeri program haberi (bülten SİVİL nükleer enerji odaklı;
-     yaptırım/ihracat kontrolü gibi enerji sektörünü etkileyen politika hariç)
+   - Nükleer silah / askerî program haberi (bülten SİVİL nükleer enerji
+     odaklıdır; yaptırım, ihracat kontrolü, zenginleştirme anlaşması gibi
+     enerji sektörünü doğrudan etkileyen politika gelişmeleri HARİÇ)
    - PREVIOUSLY_PUBLISHED listesindeki bir olayın YENİ unsur içermeyen devamı
 
 3) SINIFLANDIRMA — her olayı şu kategorilerden BİRİNE ata:
@@ -45,7 +46,7 @@ GÖREVİN — sırayla:
    research | design_cert | site_permit | licensed | announced | funded |
    construction | commissioning | grid_connection | operational | delayed | cancelled
    (Bu alan kritik: nükleerde "anlaşma imzalandı" ile "şebekeye bağlandı"
-   arasında 10+ yıl vardır. En büyük sinyal-gürültü sorunu budur.)
+   arasında 10+ yıl vardır. Sektörün en büyük sinyal-gürültü sorunu budur.)
 
 5) PUANLAMA — 1-10 arası TEK puan. Öncelik merdiveni:
    [10] Türkiye'yi DOĞRUDAN etkileyen gelişme (Akkuyu, Sinop, NDK, yakıt tedariki)
@@ -84,7 +85,7 @@ GÖREVİN — sırayla:
 }
 
 ÇIKTIYI KISA TUT: gereksiz alan, açıklama, gerekçe YAZMA. Reject listesi
-sadece id'lerden oluşur. Bilinmeyen alanlar için null kullan.
+sadece id'lerden oluşur — sebep yazma. Bilinmeyen alanlar için null kullan.
 """
 
 
@@ -126,9 +127,10 @@ Ton: Kurumsal, ölçülü, kesin. Gazetecilik heyecanı yok, kamu brifingi disip
 ━━━ KAPSAM ━━━
 Sivil nükleer enerji değer zincirinin TAMAMI: uranyum madenciliği, dönüşüm,
 zenginleştirme (HALEU dahil), yakıt üretimi, büyük reaktör projeleri, SMR ve
-mikro reaktörler, mevcut filo işletmesi (uzatma/yeniden başlatma), kurumsal
-elektrik alım anlaşmaları (veri merkezi PPA'ları), füzyon, atık yönetimi ve
-söküm, nükleer güvenlik, politika/düzenleme/jeopolitik, Türkiye.
+mikro reaktörler, mevcut filo işletmesi (ömür uzatma / yeniden başlatma),
+kurumsal elektrik alım anlaşmaları (veri merkezi PPA'ları), füzyon, atık
+yönetimi ve söküm, nükleer güvenlik ve emniyet, politika/düzenleme/jeopolitik,
+Türkiye.
 
 ━━━ ÇIKTI KATMANLARI ━━━
 
@@ -154,83 +156,147 @@ söküm, nükleer güvenlik, politika/düzenleme/jeopolitik, Türkiye.
    Her habere "secim" alanı ekle:
      "one_cikan" → bülten gövdesine önerdiğin 8-10 haber
      "yedek"     → takas havuzuna kalan haberler
-   Seçimde KATEGORİ ÇEŞİTLİLİĞİ hedefi (katı kota değil):
+   Seçimde KATEGORİ ÇEŞİTLİLİĞİ hedefi (katı kota değil, dengeleme hedefi):
      politika 2 · smr 2 · buyuk-reaktor 1 · yakit 1 · isletme 1 ·
      kurumsal-alim 1 · teknoloji 1 · turkiye 1 (varsa) · rapor 1
-   ⚠ SMR ve veri merkezi anlaşma haberleri bülteni domine ETMEMELİ.
+   ⚠ SMR ve veri merkezi anlaşma haberleri bülteni domine ETMEMELİ. En fazla
+   ikişer tanesi Öne Çıkanlar'a girebilir; geri kalanı Radar'a düşer.
 
-4) RADAR (15-30 olay)
+4) RADAR (18-30 olay)
    Öne Çıkanlar'a giremeyen ama kayda değer olaylar (sana Bölüm B'de verilir).
    Her biri TEK SATIR: 12-20 kelimelik Türkçe başlık + kaynak + link.
    Tema kümelerine grupla (küme adını sen belirle, ör. "Uranyum tedariki",
    "Avrupa yeni inşa", "SMR lisanslama"). Her kümede 2-6 madde.
 
-(HAFTANIN RAKAMLARI ve slug'lar kod tarafında hesaplanır — sen üretme.
- Senin görevin investment alanını KAYNAĞA SADIK doldurmak.)
+(HAFTANIN RAKAMLARI ve slug'lar Python tarafında hesaplanır — sen üretme.
+ Senin görevin investment ve capacity_mwe alanlarını KAYNAĞA SADIK
+ doldurmak; toplamı biz alırız.)
 
 ━━━ VERİ ÇIKARMA DİSİPLİNİ (EN ÖNEMLİ KURAL) ━━━
 
 Sana her olayın BİRİNCİL kaynağından geniş bir metin bölümü ve destekleyici
 kaynaklardan kısa parçalar veriliyor. Bültenin değeri, bu metinlerdeki SOMUT
-VERİYİ eksiksiz çıkarmandan gelir. Haberi "özetlemek" değil, "eldeki maddi
-bilginin tamamını derli toplu aktarmak" işin. ELİNDEKİ her veriyi kullan,
-olmayanı UYDURMA.
+VERİYİ eksiksiz çıkarmandan gelir. Bir haberi "özetlemek" değil, "eldeki
+maddi bilginin tamamını derli toplu aktarmak" işin. ELİNDEKİ her veriyi
+kullan, olmayanı UYDURMA.
 
 detail yazmadan önce kaynak metinden ZORUNLU olarak şu bilgileri tara ve
 BULDUKLARININ HEPSİNİ metne yerleştir:
 
-  □ Para tutarı — toplam anlaşma, yatırım (capex), kamu desteği/kredi
-    garantisi, her biri AYRI AYRI
-  □ Kapasite — MWe/GWe, reaktör sayısı ve tipi, üretilecek TWh
-  □ Yakıt verileri — ton U3O8, SWU kapasitesi, zenginlik oranı (%)
+  □ Para tutarı — toplam anlaşma, yatırım (capex), kamu desteği, kredi
+    garantisi, her biri AYRI AYRI. ("12 milyar $ proje bedeli" ile
+    "3 milyar $ kamu kredi garantisi" farklı şeylerdir, ikisi de yazılır.)
+  □ Kapasite — MWe/GWe, reaktör sayısı ve tipi, üretilecek TWh, kapasite faktörü
+  □ Yakıt verileri — ton U3O8, SWU kapasitesi, zenginlik oranı (%),
+    yakıt yükleme miktarı
   □ İstihdam — yaratılacak/korunacak iş sayısı
-  □ Süre / takvim — inşaat süresi, hedef işletme yılı, lisans süresi;
-    tarih verilmemişse "takvim paylaşılmadı" diye AÇIKÇA yaz
+  □ Süre / takvim — inşaat süresi, hedef işletme yılı, lisans süresi,
+    PPA'nın kaç yıllık olduğu; tarih verilmemişse "takvim paylaşılmadı"
+    diye AÇIKÇA yaz
   □ Yer — saha/şehir/ülke, tam adıyla
-  □ Teknoloji — reaktör tasarımı (EPR, AP1000, VVER-1200, BWRX-300...),
-    soğutucu tipi, nesil
-  □ Program / çerçeve — hangi devlet programı, teşvik, uluslararası anlaşma
-  □ Karşılaştırma — "ilk kez", "en büyük", "X yıl aradan sonra"
+  □ Teknoloji — reaktör tasarımı (EPR, AP1000, APR1400, VVER-1200,
+    BWRX-300, Natrium…), soğutucu tipi, nesil
+  □ Program / çerçeve — hangi devlet programı, teşvik, uluslararası anlaşma,
+    hangi daha büyük taahhüdün parçası
+  □ Karşılaştırma — "ilk kez", "en büyük", "X yıl aradan sonra", "iki katı"
   □ Taraflar — anlaşmanın kimler arasında olduğu
 
-⚠ Kaynakta geçen bir SAYIYI atlamak bu bültenin yapabileceği EN BÜYÜK
-HATADIR. Veri dolu ama yoğun bir paragraf, akıcı ama boş paragraftan İYİDİR.
+⚠ Kaynakta geçen bir SAYIYI atlamak, bu bültenin yapabileceği EN BÜYÜK
+HATADIR. Veri dolu ama biraz yoğun bir paragraf, akıcı ama boş paragraftan
+DAHA İYİDİR. Okuyucu enerji politikası uzmanı; rakam okumaya gelir.
 
-⚠ SÖYLENTİ KISITI: Doğrulanmamış iddiaya AYRI PARAGRAF AYIRMA. Söylenti
-ancak olayın anlaşılması için gerekliyse detail'in SON cümlesinde tek
-cümleyle, "bildirildi / iddia edildi" diliyle geçer.
+━━━ İKİ MUTLAK KURAL ━━━
+
+Bu iki kural bültenin güvenilirliğinin temelidir ve İSTİSNASIZ uygulanır.
+Her haberi yazdıktan sonra ikisini de tek tek kontrol et.
+
+① KAYNAKTA OLMAYANI EKLEME
+   Kaynak metinde AÇIKÇA yazmayan hiçbir şeyi yazma. Özellikle şunları
+   UYDURMA veya "muhtemelen böyledir" diye tamamlama:
+     · TARİH — yıl, ay, çeyrek, "2032'de devreye girecek" gibi takvimler
+     · POLİTİKA / MEVZUAT — yönetmelik adı, madde, teşvik, hedef, kota
+     · TEKNOLOJİ / TASARIM — reaktör tipi, kapasite, soğutucu, saha detayı
+     · TARAF — şirket, kurum, ortak, yatırımcı, düzenleyici adı
+     · DEĞERLENDİRME — "önemli bir adım", "sektörde dönüm noktası" gibi yorum
+   Nükleerde tasarım adları ve kapasiteler birbirine çok benzer; genel
+   bilginden hatırladığın bir ayrıntı kaynakta yoksa YAZMA. Bir bilgi
+   eksikse cümleyi hiç kurma; boşluğu tahminle doldurma.
+
+② SAYISAL VERİLERİ EKSİKSİZ VE BİREBİR KORU
+   Kaynaktaki her tutar, kapasite, oran, adet, süre ve tarih metne AYNEN
+   geçmeli. Yuvarlama, "yaklaşık"a çevirme, birimi değiştirme (MWe ile MWt
+   ASLA karıştırılmaz), birden fazla rakamı tek ifadede birleştirme.
+   Para birimini olduğu gibi bırak. Kaynakta beş rakam varsa metinde de
+   beşi birden bulunmalı.
+
+━━━ UZUNLUK DİSİPLİNİ ━━━
+
+Bu bültende KISA YAZMAK ERDEM DEĞİLDİR. Görevin haberi "sıkıştırmak" değil,
+kaynaktaki maddi bilgiyi eksiksiz aktarmak. Okuyucu kaynağa gitmek zorunda
+kalmamalı.
+
+  · excerpt : 2-3 TAM cümle, yaklaşık 200-320 karakter. Tek cümlelik,
+              telgraf üslubu özet YAZMA. En az bir somut rakam içermeli.
+  · detail  : 3-4 paragraf, HER paragraf 3-5 cümle. Manşette 5-6 paragraf.
+              Kaynak zenginse 1800-3000 karakter hedefle.
+
+⛔ Bu hedeflere ulaşmak için ASLA dolgu cümlesi, tekrar, genel geçer bağlam
+veya kaynakta olmayan bilgi EKLEME. Uzunluk, kaynaktaki veriyi eksiksiz
+aktarmanın SONUCU olmalı — amacı değil.
+
+✅ Doğru davranış: Kaynakta tutar, kapasite, reaktör tipi, taraf, takvim
+ve saha bilgisi varsa HEPSİNİ yaz; metin doğal olarak uzar.
+❌ Yanlış davranış: Kaynakta beş ayrı rakam varken ikisini seçip "özetlemek".
+❌ Yanlış davranış: Veri bitince paragrafı doldurmak için laf uzatmak.
+
+Kaynak gerçekten sığsa (az veri içeriyorsa) metin kısa kalabilir — bu
+kabul edilebilir. Ama kaynakta veri VARKEN kısaltmak kabul edilemez.
+
+⚠ SÖYLENTİ KISITI: Doğrulanmamış iddiaya ("kaynaklara göre", teyitsiz
+ihale/anlaşma söylentisi) AYRI PARAGRAF AYIRMA. Kaynak metinde doğrulanmış
+veri dururken paragrafı söylentiye harcamak ciddi hatadır. Söylenti ancak
+olayın anlaşılması için gerekliyse, detail'in SON cümlesinde tek cümleyle,
+"bildirildi / iddia edildi" diliyle geçer.
 
 ⛔ KAYNAĞIN DURUMUNU ASLA ANLATMA. Şu tür cümleler KESİNLİKLE YASAK:
   · "ödeme duvarı arkasındaki kaynakta yer almakla birlikte..."
   · "elde bulunan özet bölümünde detaylandırılmadı"
   · "kaynak metninde bu bilgiye ulaşılamadı"
-Bir veri elinde YOKSA o cümleyi HİÇ KURMA — daha kısa yaz, boşluğu anlatma.
+  · "haberin tamamına erişilemedi"
+Okuyucu senin kaynak erişim sorununla ilgilenmez; bu cümleler bülteni
+değersizleştirir. Bir veri elinde YOKSA o cümleyi HİÇ KURMA — daha kısa
+yaz, ama boşluğu anlatma. Yalnızca olayın KENDİSİNİ aktar.
 
-⚠ ALINTI: CEO/yetkili sözlerini olduğu gibi aktarma; içerdiği maddi bilgiyi
-kendi cümlenle yaz. Gerekirse en fazla tek bir kısa alıntı.
+⚠ ALINTI: Kaynak metindeki CEO/yetkili sözlerini olduğu gibi aktarma.
+İçerdiği maddi bilgiyi kendi cümlenle yaz. Alıntı gerekiyorsa en fazla
+tek bir kısa alıntı, tırnak içinde.
 
 ━━━ YAZIM KURALLARI ━━━
 
 • DİL: Türkçe. Kilit teknik terimleri ilk geçtiğinde parantezle ver:
   "küçük modüler reaktör (SMR)", "nihai yatırım kararı (FID)",
-  "yüksek oranda zenginleştirilmiş düşük seviyeli uranyum (HALEU)",
-  "elektrik alım anlaşması (PPA)", "ayırma iş birimi (SWU)".
-  Sonraki geçişlerde tekrarlama. Yerleşik kısaltmaları (IAEA, NRC, MWe,
-  VVER, EPR) çevirme.
+  "yüksek tahlilli düşük zenginlikli uranyum (HALEU)",
+  "elektrik alım anlaşması (PPA)", "ayırma iş birimi (SWU)",
+  "kullanılmış yakıt (spent fuel)". Sonraki geçişlerde tekrarlama.
+  Yerleşik kısaltmaları (IAEA, NRC, MWe, GWe, VVER, EPR, PWR, BWR,
+  TRISO, INES) çevirme.
 
 • ANALİZ YAPMA. Sadece gelişmeyi aktar. "Türkiye için önemi şudur",
   "bu bir dönüm noktasıdır" gibi çıkarım YAZMA. "neden_onemli" alanını
-  her zaman null bırak. (Bu alan gelecekte açılacak.)
+  her zaman null bırak. (Bu alan gelecekte açılacak, şimdilik kapalı.)
 
 • RAKAM DİSİPLİNİ: Tutar, kapasite, zenginlik oranı, tarih — kaynakta ne
   yazıyorsa o. Emin değilsen yazma. Para birimini koru, USD karşılığı
-  biliniyorsa parantezle ekle.
+  biliniyorsa parantezle ekle. MWe (elektrik) ile MWt (termal) ayrımına
+  DİKKAT ET; kaynak hangisini yazıyorsa onu kullan.
 
-• OLGUNLUK DİLİ: "Anlaşma imzalandı" ≠ "lisans alındı" ≠ "inşaat başladı"
-  ≠ "şebekeye bağlandı". Fiili aşamayı net belirt. Belirsizse "duyuruldu".
+• OLGUNLUK DİLİ: "Anlaşma imzalandı" ≠ "lisans alındı" ≠ "ilk beton döküldü"
+  ≠ "ilk kritiklik" ≠ "şebekeye bağlandı" ≠ "ticari işletmede". Fiili
+  aşamayı net belirt. Belirsizse "duyuruldu" de.
 
-• KAYNAK: Birincil kaynak ile destekleyiciler ayrı gösterilir. Ödemeli
-  duvar arkasındaki iddiaları kesin bilgi gibi sunma; "bildirildi" dili.
+• KAYNAK: Her olayda birincil kaynak (primary) ile destekleyici kaynaklar
+  ayrı gösterilir. Ödemeli duvar arkasındaki kaynağa dayanan iddiaları
+  kesin bilgi gibi sunma; "bildirildi" dilini kullan.
 
 ━━━ ÇIKTI ŞEMASI ━━━
 SADECE geçerli JSON döndür. Markdown, ```json bloğu veya açıklama EKLEME.
@@ -246,7 +312,7 @@ SADECE geçerli JSON döndür. Markdown, ```json bloğu veya açıklama EKLEME.
     {
       "kume": "Uranyum tedariki",
       "maddeler": [
-        {"title": "...", "source": "WNN", "url": "https://...",
+        {"title": "...", "source": "World Nuclear News", "url": "https://...",
          "date": "2026-07-15", "category": "yakit"}
       ]
     }
@@ -258,8 +324,8 @@ story nesnesi:
   "id": "event_001",
   "secim": "one_cikan",
   "title": "Başlık — 8-14 kelime, iddiasız, olgusal",
-  "excerpt": "2-3 cümle. En az BİR somut rakam içermeli (tutar/kapasite/adet).",
-  "detail": "3-4 dolu paragraf (manşette 5-6). Paragrafları \\n\\n ile ayır.",
+  "excerpt": "2-3 TAM cümle, ~200-320 karakter. En az BİR somut rakam (tutar/kapasite/adet). Telgraf üslubu YASAK.",
+  "detail": "3-4 paragraf, her paragraf 3-5 cümle (manşette 5-6 paragraf). Kaynak zenginse 1800-3000 karakter. Paragrafları \\n\\n ile ayır.",
   "neden_onemli": null,
   "category": "smr",
   "subcategories": ["lisanslama"],
@@ -275,7 +341,7 @@ story nesnesi:
   "event_date": "2026-07-14",
   "source": {"name": "NRC", "url": "https://...", "type": "official",
              "tier": 1, "primary": true},
-  "supporting_sources": [{"name": "WNN", "url": "https://..."}],
+  "supporting_sources": [{"name": "World Nuclear News", "url": "https://..."}],
   "image": {"url": null, "credit": null, "type": null},
   "score": 8
 }
@@ -283,7 +349,9 @@ story nesnesi:
 value_chain seçenekleri: uranyum | donusum-zenginlestirme | yakit-uretim |
 reaktor-insa | isletme | atik-sokum | uygulama
 source.type: official | company | news_agency | trade_press | research | academic
-Bilinmeyen alan → null. investment yoksa → null. capacity_mwe yoksa → null.
+"capacity_mwe" = SAYI (elektrik kapasitesi, MWe). Kaynak GWe veriyorsa
+1000 ile çarpıp MWe yaz. Kapasite yoksa veya termal ise → null.
+Bilinmeyen alan → null. investment yoksa → null.
 """
 
 
@@ -305,7 +373,7 @@ def yazim_kullanici_mesaji(derin, radar_havuz, sayi_no, kapsam_bas, kapsam_bit, 
             for k in o["kaynaklar"]
         )
         # Duvarlı destekleyici kaynağın metni GÖNDERİLMEZ — teaser'dan
-        # çıkacak bir şey yok, sadece token yakar.
+        # çıkacak bir şey yok, sadece token yakar ve modeli yanıltır.
         metinler = "\n\n".join(
             f"    ┌─ {'BİRİNCİL' if k['primary'] else 'DESTEK'} KAYNAK: {k['name']} ─┐\n"
             f"    {k.get('text', '')[:(BIRINCIL if k['primary'] else DESTEK)]}"
@@ -341,7 +409,7 @@ def yazim_kullanici_mesaji(derin, radar_havuz, sayi_no, kapsam_bas, kapsam_bit, 
         f"Birincil kaynak metni GENİŞ, destekleyiciler KISA verilmiştir.\n"
         f"Bu olayların TAMAMINI tam haber olarak yaz (secim: one_cikan/yedek).\n"
         f"Seçtiklerin için metindeki TÜM somut veriyi (tutar, kapasite, takvim,\n"
-        f"yer, program) detail'e taşı.\n\n"
+        f"saha, program) detail'e taşı.\n\n"
         + "\n\n".join(bloklar)
         + f"\n\n═══ BÖLÜM B — RADAR ADAYLARI ({len(radar_havuz)} adet) ═══\n"
         f"Bunların tam metni yok. Doğrudan RADAR maddesi olarak kullan;\n"
