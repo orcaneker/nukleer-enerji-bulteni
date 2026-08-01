@@ -62,12 +62,10 @@ AYARLAR = {
     "exa_tip": "auto",
 
     # Site
-    # ⚠ ALAN ADI GEÇİŞİ: nukleer-enerji-bulteni.site alınınca
-    #   1) burayı "https://nukleer-enerji-bulteni.site" yap
-    #   2) docs/CNAME dosyası oluştur, içine SADECE alan adını yaz
-    #   3) DNS'te A kayıtlarını GitHub Pages IP'lerine yönlendir
-    # site_url yalnızca RSS bağlantıları ve canlı state okuması için kullanılır.
-    "site_url": "https://orcaneker.github.io/nukleer-enerji-bulteni",
+    # ⚠ docs/CNAME dosyasıyla AYNI alan adı olmalı. Farklı kalırsa RSS
+    # bağlantıları yanlış adrese çıkar ve publish.py canlı state'i
+    # (data/state/seen_events.json) okuyamayıp sayı sayacını sıfırlar.
+    "site_url": "https://nukleer-enerji-bulteni.site",
     "cikti_dizini": "docs",          # GitHub Pages sadece / veya /docs kabul eder
 
     # Sayı numarası: None → otomatik artar (yayınlanan son sayı + 1).

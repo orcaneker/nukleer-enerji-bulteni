@@ -37,22 +37,36 @@ sistem-prompt-nukleer.md   Sistemin beyni/referans belgesi
 ### 1. GitHub deposu
 Bu depo `orcaneker/nukleer-enerji-bulteni`.
 GitHub → Settings → Pages → Source: **main / docs** seçin.
-Site adresi: `https://orcaneker.github.io/nukleer-enerji-bulteni`
 
-**Özel alan adına geçiş** (`nukleer-enerji-bulteni.site` alındığında):
+Özel alan adı: **`nukleer-enerji-bulteni.site`** (Namecheap).
+`docs/CNAME` ve `config.py → AYARLAR["site_url"]` bu adla eşleşir — **ikisi
+birden** değişmeli, yoksa RSS bağlantıları yanlış adrese çıkar ve `publish.py`
+canlı `seen_events.json`'ı okuyamayıp sayı sayacını sıfırlar.
 
-1. `docs/CNAME` dosyası oluşturun, içine **sadece** alan adını yazın:
-   `nukleer-enerji-bulteni.site`
-2. `config.py → AYARLAR["site_url"]` değerini
-   `https://nukleer-enerji-bulteni.site` yapın.
-3. Alan adı sağlayıcısında DNS kayıtları:
-   - `A` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - `www` için `CNAME` → `orcaneker.github.io`
-4. GitHub → Settings → Pages → Custom domain alanına aynı adı girin,
-   sertifika çıkınca **Enforce HTTPS** kutusunu işaretleyin.
+DNS kayıtları (Namecheap → Domain List → Manage → **Advanced DNS**):
 
-⚠ `site_url` yalnızca RSS bağlantıları ve canlı `seen_events.json` okuması
-için kullanılır; yanlış kalırsa sayı sayacı sıfırlanabilir.
+| Tip | Host | Değer | Amaç |
+|---|---|---|---|
+| A | `@` | `185.199.108.153` | GitHub Pages |
+| A | `@` | `185.199.109.153` | GitHub Pages |
+| A | `@` | `185.199.110.153` | GitHub Pages |
+| A | `@` | `185.199.111.153` | GitHub Pages |
+| CNAME | `www` | `orcaneker.github.io.` | www → apex |
+| MX | `send` | Resend'in verdiği (öncelik 10) | e-posta geri bildirimi |
+| TXT | `send` | `v=spf1 include:amazonses.com ~all` | SPF |
+| TXT | `resend._domainkey` | Resend'in verdiği `p=…` | DKIM |
+
+⚠ Namecheap'in hazır gelen **`CNAME www → parkingpage.cash…`** ve
+**`URL Redirect @ → http://www…`** kayıtları SİLİNMELİ; durdukları sürece
+Pages çalışmaz.
+
+Son adım: GitHub → Settings → Pages → **Custom domain** alanına
+`nukleer-enerji-bulteni.site` yazıp kaydedin; sertifika çıkınca
+**Enforce HTTPS**'i işaretleyin.
+
+⚠ `docs/CNAME` dosyasını silmeyin. `publish.py → deploy()` hedefteki `docs/`
+klasörünü silip yerelin kopyasını koyuyor; dosya yerelde yoksa push depodaki
+CNAME'i de siler ve alan adı düşer.
 
 ### 2. Neon (veritabanı)
 Neon projenizden bağlantı dizesini alın (`postgresql://...`), sonra:
@@ -79,7 +93,7 @@ Repo'yu Render'a bağlayın — `render.yaml` otomatik algılanır (Blueprint).
 | `OPENAI_API_KEY` | — | sadece `openai:` modeli denenirse |
 | `DATABASE_URL` | ✅ (hepsi) | Neon |
 | `RESEND_API_KEY` | ✅ (hepsi) | resend.com |
-| `MAIL_FROM` | — | vars. `onboarding@resend.dev`; alan adı doğrulayınca değiştirin |
+| `MAIL_FROM` | ⚠ | `Nükleer Enerji Bülteni <bulten@nukleer-enerji-bulteni.site>` — boş bırakılırsa `onboarding@resend.dev` kullanılır ve **yalnızca hesap sahibine** gönderilir |
 | `GITHUB_REPO` | ✅ (cron 2 + web) | `orcaneker/nukleer-enerji-bulteni` |
 | `GITHUB_TOKEN` | ✅ (cron 2 + web) | PAT — Contents: Read & Write |
 | `REVIEW_BASE_URL` | ✅ (cron 1-2) | inceleme servisinin URL'i (ör. `https://nukleer-bulten-inceleme.onrender.com`) |
@@ -138,6 +152,11 @@ uvicorn review_app.main:app --port 8000
 
 ## İlk yayın öncesi kontrol listesi
 
+- [ ] Namecheap'te DNS kayıtlarını girin (yukarıdaki tablo), park kayıtlarını silin
+- [ ] GitHub → Pages → Custom domain + Enforce HTTPS
+- [ ] Resend'de alan adını doğrulayın, `MAIL_FROM`'u güncelleyin
+- [ ] Nükleer için **ayrı** bir Neon projesi açın (`issues.hafta` UNIQUE —
+      başka bir bültenin veritabanı paylaşılırsa aynı haftada çakışır)
 - [ ] `db.py --seed` ile üç hakemi ekleyin
 - [ ] `python emails.py --test` ile üçünün de e-posta aldığını doğrulayın
 - [ ] Hero videosunu `assets/hero-loop-pingpong.mp4` olarak değiştirin

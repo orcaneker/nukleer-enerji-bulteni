@@ -348,6 +348,13 @@ def insa_et(bulten, state, sayilar):
 
     open(f"{OUT}/.nojekyll", "w").close()   # Jekyll işlemesini kapat
 
+    # ⚠ docs/CNAME'e DOKUNULMAZ ama korunması ZORUNLUDUR: deploy() hedefteki
+    # docs/ klasörünü silip bunun kopyasını koyuyor. Bu dosya burada yoksa
+    # push, depodaki CNAME'i de siler ve özel alan adı düşer. Depoda kayıtlı
+    # olduğu için Render'ın checkout'unda hazır gelir — silmeyin.
+    if not os.path.exists(f"{OUT}/CNAME"):
+        log("  ⚠ docs/CNAME yok — push özel alan adını kaldırabilir")
+
     for dosya in ("index.html", "arsiv.html"):
         if os.path.exists(f"site/{dosya}"):
             with open(f"site/{dosya}", encoding="utf-8") as src, \
