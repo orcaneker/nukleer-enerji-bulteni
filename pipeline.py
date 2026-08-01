@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-NÜKLEER ENERJİ BÜLTENİ — TASLAK PIPELINE (CRON 1 — Pazar 12:00 TSİ)
+NÜKLEER ENERJİ BÜLTENİ — TASLAK PIPELINE (CRON 1 — Pazar 13:00 TSİ)
 ====================================================================
 Akış:
   1. Durum (state) yükle       → canlı siteden (Render diski geçici)

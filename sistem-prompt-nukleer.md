@@ -31,7 +31,9 @@
 # BÖLÜM 0 — MİMARİ
 # ============================================================
 #
-# CRON 1 — Pazar 12:00 TSİ (Render Cron, UTC "0 9 * * 0")
+# CRON 1 — Pazar 13:00 TSİ (Render Cron, UTC "0 10 * * 0")
+#   ⚠ Saat, diğer iki bültenle aynı API anahtarını paylaştığı için
+#     kaydırıldı: biyoekonomi 12:00 · yarı iletken 12:30 · nükleer 13:00
 #   pipeline.py
 #   ↓ EXA SEARCH — 12 sorgu × ek sorgu varyasyonları
 #   ↓ NORMALİZASYON — UTM/AMP temizliği, başlık hash, görülmüş URL elemesi
@@ -156,7 +158,7 @@
 # ============================================================
 #   haber (Öne Çıkanlar) : 8-10  ·  derin olay: 14  ·  radar: 18-30
 #   pencere: 7 gün (yetersizse 14) ·  brief: 5 madde
-#   yayım: Pazartesi 08:00 TSİ  ·  taslak: Pazar 12:00 TSİ
+#   yayım: Pazartesi 08:00 TSİ  ·  taslak: Pazar 13:00 TSİ
 #   model_triyaj: anthropic:claude-haiku-4-5-20251001
 #   model_yazim:  anthropic:claude-sonnet-5
 #   site_url: https://orcaneker.github.io/nukleer-enerji-bulteni

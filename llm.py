@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-BİYOEKONOMİ BÜLTENİ — LLM KATMANI
+NÜKLEER ENERJİ BÜLTENİ — LLM KATMANI
 =====================================
 Sağlayıcı-bağımsız tek arayüz:
 

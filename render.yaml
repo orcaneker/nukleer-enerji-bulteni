@@ -6,8 +6,20 @@
 # bir kez girilir, üç servis de oradan okur. Bir servisin
 # kullanmadığı değişken zararsızdır (yok sayılır).
 #
-# Cron saatleri UTC: Pazar 09:00 UTC = 12:00 TSİ (taslak) ·
+# Cron saatleri UTC: Pazar 10:00 UTC = 13:00 TSİ (taslak) ·
 #                    Pazartesi 05:00 UTC = 08:00 TSİ (yayın)
+#
+# ⚠ TASLAK SAATİ NEDEN 13:00: Üç bülten de aynı Anthropic ve Exa
+# anahtarını kullanıyor; hız limitleri anahtar/organizasyon başınadır.
+# Üçü aynı anda çalışırsa yazım aşamasındaki büyük Sonnet çağrıları
+# (48-96K çıktı) aynı dakikaya düşer ve 429 riski doğar. llm.py 4 kez
+# yeniden dener (15/30/45 sn) ama bu bütçe aşılırsa o hafta taslak HİÇ
+# üretilmez. Bu yüzden bültenler saat olarak ayrıldı:
+#   biyoekonomi  09:00 UTC (12:00 TSİ)
+#   yarı iletken 09:30 UTC (12:30 TSİ)
+#   nükleer      10:00 UTC (13:00 TSİ)   ← bu depo
+# Bir çalıştırma ~10-20 dk sürüyor, yarım saatlik aralık rahat yetiyor.
+# Yayın cron'u (Pazartesi) hafif olduğu için üçünde de aynı kalabilir.
 # ============================================================
 envVarGroups:
   - name: nukleer-bulten-ortak
@@ -38,11 +50,11 @@ envVarGroups:
         sync: false
 
 services:
-  # ── CRON 1: taslak üretimi (Pazar 12:00 TSİ) ──
+  # ── CRON 1: taslak üretimi (Pazar 13:00 TSİ) ──
   - type: cron
     name: nukleer-bulten-taslak
     runtime: python
-    schedule: "0 9 * * 0"
+    schedule: "0 10 * * 0"
     buildCommand: pip install -r requirements.txt
     startCommand: python pipeline.py
     envVars:
