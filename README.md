@@ -27,7 +27,7 @@ emails.py            Resend şablonları (davet, hatırlatma, yayın, rapor)
 review_app/          FastAPI inceleme servisi (magic link, takas, onay)
 site/                Bülten sayfaları (index + arşiv) — "kontrol odası" tasarımı
 docs/                GitHub Pages çıktısı (publish.py üretir)
-assets/              Hero video/görselleri (hero-loop-pingpong.mp4, hero*.avif/webp)
+assets/              Hero videosu ve posterleri (hero-loop.mp4, hero*.avif/webp)
 render.yaml          Render blueprint: 2 cron + 1 web service
 sistem-prompt-nukleer.md   Sistemin beyni/referans belgesi
 ```
@@ -196,19 +196,34 @@ Tipografi: **Archivo** (geniş, kazıma künye başlıkları) + **Newsreader**
 - **State canlı sitede yaşar** (`docs/data/state/seen_events.json`) çünkü
   Render cron diski her çalışmada sıfırlanır. İlk çalıştırmada 404 normaldir.
 - **reuters/bloomberg** Exa `includeDomains`'e eklenemez (403) — dolaylı gelir.
-- **Hero videosu**: `assets/hero-loop-pingpong.mp4` — mavi saatte bir sahil
-  nükleer santrali; dört konteynman kubbesi sağda, sol yarı karanlık deniz
-  ve gökyüzü (başlık oraya oturuyor). 1280×548, 16 sn, 336 KB.
-  Seedance 2.0 ile 8 sn üretilip **ileri + ters birleştirilerek** kusursuz
-  döngü hâline getirildi; bu yüzden dosya adı `-pingpong`. Hareket bilinçli
-  olarak yalnızca deniz yüzeyi ve ışık yansımalarıyla sınırlı — yön belirten
-  bir hareket (yükselen duman, geçen araç) ters oynatıldığında bozulurdu.
+- **Hero videosu**: `assets/hero-loop.mp4` — mavi saatte bir sahil nükleer
+  santrali; dört konteynman kubbesi sağda, sol yarı karanlık deniz ve
+  gökyüzü (başlık oraya oturuyor). 1280×548, 6,5 sn, 659 KB, sessiz.
+  Seedance 2.0 ile 8 sn üretildi, sonra **çapraz geçişle** döngülendi:
+  son 1,5 sn ilk 1,5 sn ile harmanlanıyor.
+
+  ⚠ **Ping-pong (ileri + ters) DENENDİ ve BAŞARISIZ oldu** — dosya adı bir
+  süre `-pingpong` idi. İki sorunu vardı: dönüş noktasında deniz geriye
+  akıyordu, ayrıca döngü dikişi normal kare geçişinin 10,5 katıydı. Çapraz
+  geçişte hareket tek yönlü kalıyor ve dikiş 3,2 kata iniyor. Sert kesmeyi
+  de ölçtük: 11,6 kat, en kötüsü. Kamera sabitleme (vidstab) denendi,
+  yeniden örnekleme gürültüsü eklediği için vazgeçildi.
+
+  Kodlama **crf 21 + gradfun**. Daha yüksek crf denemeyin: crf 30'da karanlık
+  gradyanlar bantlaşıyor (SSIM bunu göstermiyor, göz gösteriyor).
+
   Değiştirirseniz `assets/hero.avif|webp` (masaüstü) ve
-  `assets/hero-mobile.avif|webp` (mobil) posterlerini de videodan alınmış
-  bir kareyle yenileyin, `site/index.html`'deki `width/height` değerlerini
-  yeni en-boy oranına göre güncelleyin.
+  `assets/hero-mobile.avif|webp` (mobil) posterlerini **döngünün ilk
+  karesinden** üretin — farklı bir kare kullanılırsa video görünür olduğu an
+  zıplama olur. `site/index.html`'deki `width/height` değerlerini de yeni
+  en-boy oranına göre güncelleyin.
+
   Video **mobilde ve hareket azaltma modunda hiç indirilmez**; o durumda
   poster görünür.
+
+- **Hero'da parçacık katmanı YOK.** Bir zamanlar canvas ile çizilen
+  "havuz kabarcıkları" vardı; gerçek video gelince kaldırıldı — videonun
+  kendi deniz hareketiyle çakışıyordu. Geri eklemeyin.
 - **Kapasite metriği**: Yarı iletken bülteninden farklı olarak burada
   `capacity_mwe` bir SAYIDIR (serbest metin değil) — MWe homojen bir birim
   olduğu için `publish.py` haftanın toplam kapasitesini hesaplar ve site

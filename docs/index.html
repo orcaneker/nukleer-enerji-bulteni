@@ -91,8 +91,10 @@ img{max-width:100%}
   background:transparent;opacity:0;transition:opacity .9s ease}
 .hero-media.on{opacity:1}
 .no-js .hero-media{display:none}
-.hero-bubbles{position:absolute;inset:0;z-index:2;width:100%;height:100%;
-  mix-blend-mode:screen;pointer-events:none}
+/* NOT: Burada bir zamanlar canvas'la çizilen "havuz kabarcıkları" katmanı
+   vardı (z-index 2). Gerçek hero videosu gelince kaldırıldı — videonun
+   kendi deniz hareketiyle çakışıyor, üstüne bir de her karede boyama
+   maliyeti getiriyordu. Atmosferi artık videonun kendisi taşıyor. */
 /* havuz parıltısı: ışık alttan gelir */
 .hero::after{
   content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
@@ -451,8 +453,6 @@ footer{background:var(--graphite);border-top:1px solid var(--line-dark);
   <video id="hero-video" class="hero-media" autoplay muted loop playsinline
          preload="none" width="1280" height="548" aria-hidden="true"></video>
 
-  <canvas id="bubbles" class="hero-bubbles" aria-hidden="true"></canvas>
-
   <div class="hero-inner">
     <div class="eyebrow lbl" id="eyebrow">
       <span class="k" id="e-sayi">Sayı —</span>
@@ -796,71 +796,6 @@ window.addEventListener("hashchange",()=>{
   if(m && B) modalGoster(m[1]); else modalKapat();
 });
 
-/* ═════════ HAVUZ KABARCIKLARI ═════════
-   Kullanılmış yakıt havuzunda yukarı süzülen ışık noktaları.
-   Yoğunluk bilinçli olarak düşük — hero'nun işi videoyu taşımak. */
-(function(){
-  const cv=document.getElementById("bubbles");
-  if(!cv) return;
-  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-  const MOBILE=matchMedia("(max-width:760px)").matches;
-  const ctx=cv.getContext("2d");
-  const P={count:MOBILE?42:96,hiz:0.42,alfa:0.46};
-  let W,H,dpr,t=0,parts=[],raf=null,gorunur=true;
-
-  function dogur(yeniden){
-    return { x:Math.random()*W,
-             y: yeniden ? H+Math.random()*40*dpr : Math.random()*H,
-             r:(Math.random()*1.5+0.5)*dpr,
-             v:(Math.random()*0.7+0.45)*P.hiz*dpr,
-             salinim:Math.random()*6.28, genlik:(Math.random()*0.7+0.25)*dpr,
-             a:Math.random()*0.55+0.45,
-             sicak:Math.random()>0.9 };       // %10 kadmiyum sarısı
-  }
-  function kur(){ parts=Array.from({length:P.count|0},()=>dogur(false)); }
-  function olcekle(){
-    dpr=Math.min(devicePixelRatio||1,2);
-    const r=cv.getBoundingClientRect();
-    W=cv.width=Math.round(r.width*dpr);
-    H=cv.height=Math.round(r.height*dpr);
-    ctx.clearRect(0,0,W,H); kur();
-  }
-  const olculdu=()=>W>0&&H>0;
-
-  function kare(){
-    if(!olculdu()){ olcekle(); raf=gorunur?requestAnimationFrame(kare):null; return; }
-    ctx.clearRect(0,0,W,H);
-    for(const p of parts){
-      p.y-=p.v;
-      p.x+=Math.sin(t*1.1+p.salinim)*p.genlik*0.35;
-      const parla=0.6+0.4*Math.sin(t*1.6+p.salinim);
-      const al=P.alfa*p.a*parla;
-      const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*4);
-      const c=p.sicak?"224,169,59":"140,175,255";
-      g.addColorStop(0,`rgba(${c},${al})`);
-      g.addColorStop(0.4,`rgba(${c},${al*0.28})`);
-      g.addColorStop(1,`rgba(${c},0)`);
-      ctx.fillStyle=g;
-      ctx.beginPath(); ctx.arc(p.x,p.y,p.r*4,0,6.284); ctx.fill();
-      if(p.y<-20*dpr) Object.assign(p,dogur(true));
-    }
-    t+=0.012;
-    raf=gorunur?requestAnimationFrame(kare):null;
-  }
-  const basla=()=>{ if(!raf&&gorunur) raf=requestAnimationFrame(kare); };
-  const dur  =()=>{ if(raf){ cancelAnimationFrame(raf); raf=null; } };
-
-  olcekle();
-  let zamanlayici;
-  addEventListener("resize",()=>{ clearTimeout(zamanlayici); zamanlayici=setTimeout(olcekle,180); });
-  new IntersectionObserver(e=>{ gorunur=e[0].isIntersecting&&!document.hidden;
-    gorunur?basla():dur(); },{threshold:0}).observe(cv);
-  document.addEventListener("visibilitychange",()=>{
-    gorunur=!document.hidden; gorunur?basla():dur(); });
-  basla();
-})();
-
 /* ═════════ HERO VİDEOSU — mobilde ve hareket azaltmada yüklenmez ═════════ */
 (function(){
   const mobil=matchMedia("(max-width:760px)").matches;
@@ -869,7 +804,7 @@ window.addEventListener("hashchange",()=>{
   const v=document.getElementById("hero-video");
   if(!v) return;
   v.addEventListener("playing",()=>v.classList.add("on"),{once:true});
-  v.src="assets/hero-loop-pingpong.mp4";
+  v.src="assets/hero-loop.mp4";
   v.load();
   const p=v.play(); if(p&&p.catch) p.catch(()=>{});
 })();

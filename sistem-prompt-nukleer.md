@@ -231,13 +231,19 @@
 #   döner (enerjilendirme). Şerit altındaki gösterge kart ilerleme çubuğu
 #   değil, "çubuk konum göstergesi" + "3–5 / 9" okuması.
 #
-# HERO: assets/hero-loop-pingpong.mp4 (sessiz, 1280×548, 16 sn) +
+# HERO: assets/hero-loop.mp4 (sessiz, 1280×548, 6,5 sn, 659 KB) +
 #   hero*.avif/webp poster. Mavi saatte sahil nükleer santrali: dört
 #   konteynman kubbesi sağ yarıda, sol yarı karanlık deniz/gökyüzü —
 #   başlık tam oraya oturduğu için kompozisyon böyle seçildi.
-#   Seedance 2.0 ile 8 sn üretilip ileri+ters birleştirilerek döngülendi.
-#   ⚠ Hareket yalnızca su ve ışıkla sınırlı: ping-pong'da ters oynadığı
-#   için yön belirten hareket (yükselen duman, geçen araç) bozulur.
+#   Seedance 2.0 ile 8 sn üretildi, ÇAPRAZ GEÇİŞLE döngülendi (son 1,5 sn
+#   ilk 1,5 sn ile harmanlanır).
+#   ⚠ PING-PONG DENENDİ, BAŞARISIZ: dönüş noktasında deniz geri akıyordu,
+#     dikiş de normal kare geçişinin 10,5 katıydı. Çapraz geçişte 3,2 kat.
+#     Sert kesme 11,6 kat. Kamera sabitleme (vidstab) gürültü ekledi.
+#   ⚠ Poster DÖNGÜNÜN İLK KARESİNDEN üretilir; başka kare kullanılırsa
+#     video görünür olduğu an zıplama olur.
+#   ⚠ Kodlama crf 21 + gradfun. crf 30'da karanlık gradyanlar bantlaşıyor.
+#   Hero'da parçacık/canvas katmanı YOK — video ile çakıştığı için kaldırıldı.
 #   Video mobilde ve hareket azaltma modunda HİÇ indirilmez.
 #
 # ERİŞİLEBİLİRLİK TABANI: mobil uyumlu, görünür klavye odağı, modalda odak
