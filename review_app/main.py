@@ -34,7 +34,7 @@ sys.path.insert(0, str(KOK))
 import db                                      # noqa: E402
 from config import AYARLAR, KATEGORILER        # noqa: E402
 
-app = FastAPI(title="Yarı İletken Bülteni — İnceleme", docs_url=None, redoc_url=None)
+app = FastAPI(title="Nükleer Enerji Bülteni — İnceleme", docs_url=None, redoc_url=None)
 
 SITE_URL = AYARLAR["site_url"].rstrip("/")
 

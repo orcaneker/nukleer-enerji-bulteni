@@ -107,6 +107,19 @@ sonra cron'ların environment'ına yazın.
 gönderir; diğer iki hakem daveti ALAMAZ. `python emails.py --test` ile
 Pazar'ı beklemeden doğrulayın.
 
+⚠ `MAIL_FROM`'daki alan adı o Resend hesabında **doğrulanmamışsa** gönderim
+403 ile reddedilir (`domain is not verified`). Bu koşuyu DÜŞÜRMEZ: taslak
+davetlerden önce Neon'a yazıldığı için üretilen iş korunur, yalnızca hakemler
+linki alamaz. Ayarı düzelttikten sonra pipeline'ı baştan çalıştırmayın —
+ücret öder ve taslağı ezersiniz. Bunun yerine:
+
+```bash
+python pipeline.py --davet-yinele
+```
+
+Bekleyen taslağı Neon'dan okuyup davetleri yeniden gönderir; Exa/LLM
+çalışmaz. Ulaşamadığı hakemin linkini log'a basar, elle iletebilirsiniz.
+
 ### 4. LLM modeli değiştirme (opsiyonel)
 `config.py`:
 
