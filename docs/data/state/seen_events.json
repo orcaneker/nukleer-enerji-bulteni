@@ -1,5 +1,93 @@
 {
-  "issue_no": 0,
-  "events": [],
-  "urls": []
+  "issue_no": 1,
+  "events": [
+    {
+      "baslik_ozet": "NRC, gelişmiş reaktörler için Part 53 nihai lisanslama kuralını yayımladı",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "NRC, TerraPower'ın Natrium reaktörüne inşaat izni onayladı",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "Rosatom yetkilisi: Akkuyu, Türkiye'nin 2053 karbon nötr hedefini destekleyecek",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "Çin, 4 eyalette 8 yeni reaktörün inşasını onayladı; 25,2 milyar dolar yatırım",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "DOE, Nükleer Yaşam Döngüsü İnovasyon Kampüsleri için 5 eyaleti finalist seçti",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "Framatome, TRISO yakıt üretimi için zenginleştirme onayı aldı",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "Holtec, Oyster Creek sahasında 4 SMR-300 ünitesiyle 2036 hedefi koydu",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "Cameco, Westinghouse için halka arz planı açıkladı; 91 reaktörlük boru hattı",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "Tuna'daki rekor düşük su seviyesi Paks ve Cernavoda'da kapanmalara yol açtı",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "Rolls-Royce SMR, Çekya'da iki yeni saha için ÇEZ ile mutabakat imzaladı",
+      "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "Commonwealth Fusion Systems, ARC ticari santrali için 1 milyar dolar topladı",
+      "hafta": "2026-H31"
+    }
+  ],
+  "urls": [
+    "https://ans.org/news/article-7881/nrc-unveils-part-53-final-rule",
+    "https://ans.org/news/article-7818/nrc-approves-terrapower-construction-permit",
+    "https://ekonomim.com/sirketler/rosatom-polina-lion-nukleer-enerji-turkiyenin-karon-notr-hedefini-destekleyecek-rekabet-gucune-katki-saglayacak-haberi-908426",
+    "https://ekonomim.com/sektorler/enerji/cinden-nukleer-kapasitesini-artirma-karari-8-yeni-reaktor-insa-edecek-haberi-909478",
+    "https://aa.com.tr/tr/ekonomi/tpao-bpnin-kerkuk-merkezli-sirketinin-yuzde-15-hissesini-aldi/4011896",
+    "https://dunya.com/enerji/turkiyenin-enerji-planinda-kritik-adim-tpao-kerkuke-ortak-oldu-haberi-834530",
+    "https://bloomberght.com/bayraktar-dan-tpao-bp-anlasmasina-dair-aciklama-tarihi-bir-adim-3784055",
+    "https://aa.com.tr/en/politics/turkiye-secures-stake-in-kirkuk-oil-field-under-historic-energy-deal-with-iraq-president-erdogan/4011884",
+    "https://aa.com.tr/tr/gundem/irak-disisleri-bakani-huseyin-turkiye-sanayi-ulasim-ve-enerji-alaninda-onemli-genis-ve-gelismis-bir-altyapiya-sahip/4011728",
+    "https://energy.gov/articles/nuclear-lifecycle-innovation-campuses-contenders-announced",
+    "https://powermag.com/five-states-emerge-as-finalists-for-does-nuclear-lifecycle-innovation-campuses",
+    "https://world-nuclear-news.org/articles/five-potential-states-selected-to-host-us-nuclear-innovation-campuses",
+    "https://neimagazine.com/news/doe-names-nuclear-campus-finalists",
+    "https://world-nuclear-news.org/articles/triso-approval-haleu-pact-advance-us-nuclear-fuel",
+    "https://holtecinternational.com/hh-41-13",
+    "https://powermag.com/holtec-targets-2036-for-1-36-gw-smr-300-project-at-oyster-creek",
+    "https://world-nuclear-news.org/articles/cameco-announces-go-public-plans-for-westinghouse",
+    "https://world-nuclear-news.org/articles/danubes-record-low-leads-to-hungary-romania-nuclear-shutdowns",
+    "https://neimagazine.com/news/czechia-expands-rolls-royce-smr-plans",
+    "https://powermag.com/commonwealth-fusion-systems-raises-another-1-billion-as-work-on-commercial-power-plant-continues",
+    "https://canarymedia.com/articles/nuclear/cfs-1billion-nuclear-fusion",
+    "https://iter.org/two-thirds-iter-tokamak-core-now-place",
+    "https://world-nuclear-news.org/articles/in-pictures-iter-tokamak-core-assembly-progressing",
+    "https://ans.org/news/article-8246/nasa-and-radiant-selected-to-receive-haleu",
+    "https://world-nuclear-news.org/articles/radiant-and-nasa-awarded-us-haleu-allocations",
+    "https://neimagazine.com/news/germany-approves-vver-fuel-production",
+    "https://world-nuclear-news.org/articles/construction-work-under-way-at-canadian-uranium-project",
+    "https://ans.org/news/article-7836/return-of-the-hb-line-at-srs",
+    "https://energy.gov/articles/energy-department-announces-partnership-expand-reliable-affordable-energy-access-and-power",
+    "https://powermag.com/aalo-crusoe-plan-2027-inl-demonstration-pairing-nuclear-power-and-ai-data-center-load",
+    "https://datacenterdynamics.com/en/news/googles-ceo-says-company-is-considering-nuclear-power-deals-for-data-centers",
+    "https://ekonomim.com/sektorler/enerji/hindistandan-iklim-ve-sanayi-hamlesi-2033e-kadar-5-yerli-moduler-nukleer-santral-yolda-haberi-908673",
+    "https://neimagazine.com/news/doicesti-smr-debate-intensifies",
+    "https://ans.org/news/article-3087/uamps-downsizes-nuscale-smr-plans",
+    "https://ans.org/news/article-8260/arc-partners-with-inl-for-first-reactor-deployment",
+    "https://world-nuclear-news.org/articles/edf-teams-up-with-technip-energies-for-epr2-delivery",
+    "https://world-nuclear-news.org/articles/site-preparations-under-way-for-planned-kola-units",
+    "https://power-eng.com/nuclear/westinghouse-electric-files-for-ipo-as-nuclear-demand-grows",
+    "https://federalregister.gov/documents/2026/07/28/2026-15273/presidential-determination-on-the-proposed-agreement-for-cooperation-between-the-government-of-the",
+    "https://world-nuclear-news.org/articles/serbia-and-france-sign-nuclear-energy-partnership-agreement",
+    "https://world-nuclear-news.org/articles/prometheus-project-selected-for-federal-support",
+    "https://enerjigunlugu.net/turkiye-irak-ham-petrol-boru-hattinda-bir-yillik-yeni-anlasma-69212h.htm"
+  ]
 }
