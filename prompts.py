@@ -298,6 +298,23 @@ tek bir kısa alıntı, tırnak içinde.
   ayrı gösterilir. Ödemeli duvar arkasındaki kaynağa dayanan iddiaları
   kesin bilgi gibi sunma; "bildirildi" dilini kullan.
 
+━━━ KİMLİK VE URL — İHLALİ HABERİ YAYINDAN DÜŞÜRÜR ━━━
+① Her story'nin "id" alanı, o haberi yazdığın OLAY bloğunun başlığındaki
+   event_key'in AYNEN kopyası olacak. "### OLAY reaktor-onay-finlandiya-xyz"
+   bloğundan yazdığın haberin id'si tam olarak "reaktor-onay-finlandiya-xyz"dir.
+   Kendin id UYDURMA, "event_001" gibi sıra numarası KULLANMA.
+
+② URL'leri sadece KOPYALARSIN, asla yazmaz veya hatırlamazsın.
+   source.url, yazdığın olayın KENDİ "Kaynaklar:" listesindeki BİRİNCİL
+   satırın URL'idir. Başka bir olayın, özellikle BÖLÜM B (radar) listesinin
+   URL'sini bir habere iliştirmek AĞIR HATADIR.
+   Bir haber için URL bulamıyorsan o haberi HİÇ YAZMA.
+
+③ Radar maddelerinin url'i de BÖLÜM B listesinden AYNEN kopyalanır.
+
+④ Kaynaklar listesinde karşılığı olmayan bir gelişmeyi, genel bilginden
+   hatırlıyor olsan bile YAZMA. Verilmeyen olay, olmayan olaydır.
+
 ━━━ ÇIKTI ŞEMASI ━━━
 SADECE geçerli JSON döndür. Markdown, ```json bloğu veya açıklama EKLEME.
 
@@ -321,7 +338,7 @@ SADECE geçerli JSON döndür. Markdown, ```json bloğu veya açıklama EKLEME.
 
 story nesnesi:
 {
-  "id": "event_001",
+  "id": "<olay bloğundaki event_key — AYNEN kopyala, uydurma>",
   "secim": "one_cikan",
   "title": "Başlık — 8-14 kelime, iddiasız, olgusal",
   "excerpt": "2-3 TAM cümle, ~200-320 karakter. En az BİR somut rakam (tutar/kapasite/adet). Telgraf üslubu YASAK.",
@@ -339,9 +356,9 @@ story nesnesi:
                  "amount_usd_million": 1200, "public_support_usd_million": 500},
   "published_date": "2026-07-15",
   "event_date": "2026-07-14",
-  "source": {"name": "NRC", "url": "https://...", "type": "official",
-             "tier": 1, "primary": true},
-  "supporting_sources": [{"name": "World Nuclear News", "url": "https://..."}],
+  "source": {"name": "<BİRİNCİL kaynağın adı>", "url": "<o olayın BİRİNCİL satırındaki URL — aynen kopyala>",
+             "type": "company", "tier": 1, "primary": true},
+  "supporting_sources": [{"name": "<destek kaynak adı>", "url": "<aynı olayın destek satırındaki URL>"}],
   "image": {"url": null, "credit": null, "type": null},
   "score": 8
 }
@@ -388,6 +405,7 @@ def yazim_kullanici_mesaji(derin, radar_havuz, sayi_no, kapsam_bas, kapsam_bit, 
         bloklar.append(
             f"### OLAY {o['event_key']} | kategori: {o['kategori']} | "
             f"puan: {o['puan']} | olgunluk: {o.get('olgunluk')}{ikinci}\n"
+            f"→ Bu olaydan yazacağın story'nin id'si: {o['event_key']}\n"
             f"Özet: {o['baslik_ozet']}\n"
             f"Şirketler: {', '.join(o.get('sirketler') or []) or '-'} | "
             f"Ülkeler: {', '.join(o.get('ulkeler') or []) or '-'}\n"
