@@ -8,10 +8,10 @@
     "window_days": 7,
     "audio": {
       "url": "assets/audio/2026-H31.mp3",
-      "duration_sec": 55,
+      "duration_sec": 63,
       "voice": "lxZLq5dcyw12UangGJgN",
-      "chars": 739,
-      "generated_at": "2026-08-02"
+      "chars": 854,
+      "generated_at": "2026-08-07"
     }
   },
   "brief": [
