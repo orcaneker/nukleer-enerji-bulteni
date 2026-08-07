@@ -8,9 +8,9 @@
     "window_days": 7,
     "audio": {
       "url": "assets/audio/2026-H31.mp3",
-      "duration_sec": 63,
+      "duration_sec": 67,
       "voice": "lxZLq5dcyw12UangGJgN",
-      "chars": 854,
+      "chars": 908,
       "generated_at": "2026-08-07"
     }
   },
