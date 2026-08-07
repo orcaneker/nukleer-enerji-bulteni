@@ -407,7 +407,6 @@ story nesnesi:
   "investment": {"amount_original": 1.2, "currency": "USD",
                  "amount_usd_million": 1200, "public_support_usd_million": 500},
   "published_date": "2026-07-15",
-  "event_date": "2026-07-14",
   "source": {"name": "<BİRİNCİL kaynağın adı>", "url": "<o olayın BİRİNCİL satırındaki URL — aynen kopyala>",
              "type": "company", "tier": 1, "primary": true},
   "supporting_sources": [{"name": "<destek kaynak adı>", "url": "<aynı olayın destek satırındaki URL>"}],
