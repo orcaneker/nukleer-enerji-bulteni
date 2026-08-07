@@ -16,16 +16,16 @@
   },
   "brief": [
     {
-      "text": "NRC, gelişmiş reaktörler için teknolojiden bağımsız Part 53 lisanslama çerçevesini nihai hale getirdi; başvuru incelemesinin 18 aya inmesi bekleniyor.",
-      "slug": "nrc-gelismis-reaktorler-icin-part-53-nihai-lisanslama-kuralini-yayimla"
+      "text": "ABD Enerji Bakanlığı, Nükleer Yaşam Döngüsü İnovasyon Kampüsleri için 26 eyaletten gelen 28 başvuru arasından Utah, Tennessee, Oklahoma, Louisiana ve Idaho'yu finalist seçti.",
+      "slug": "doe-nukleer-yasam-dongusu-inovasyon-kampusleri-icin-5-eyaleti-finalist"
     },
     {
       "text": "Çin Devlet Konseyi, 4 eyalette 8 yeni reaktörün inşasını onayladı; yatırım tutarı 25,2 milyar dolar.",
       "slug": "cin-4-eyalette-8-yeni-reaktorun-insasini-onayladi-25-2-milyar-dolar-ya"
     },
     {
-      "text": "ABD Nükleer Düzenleme Kurulu, TerraPower'ın Wyoming'deki Kemmerer Ünite 1 sodyum hızlı reaktörü için inşaat iznini onayladı; Natrium projesi inşaat aşamasına geçiyor.",
-      "slug": "nrc-terrapower-in-natrium-reaktorune-insaat-izni-onayladi"
+      "text": "Holtec, NRC'nin Oyster Creek için Lisans Sonlandırma Planı'nı onaylamasının ardından sahada dört SMR-300 ünitesiyle 1.360 MWe kapasite hedefliyor; devreye alma 2036'da planlanıyor.",
+      "slug": "holtec-oyster-creek-sahasinda-4-smr-300-unitesiyle-2036-hedefi-koydu"
     },
     {
       "text": "Framatome, Richland tesisinde zenginleştirme limitini yüzde 6,5'ten yüzde 10'a çıkararak TRISO yakıt üretimine NRC onayı aldı.",
@@ -39,41 +39,42 @@
   "metrics": {
     "aciklanan_yatirim_usd_milyon": 34200,
     "kapasite_mwe": 4360,
-    "proje_sayisi": 11,
-    "politika_gelismesi": 2,
+    "proje_sayisi": 9,
+    "politika_gelismesi": 1,
     "kapsanan_ulke": 9
   },
   "lead": {
-    "id": "nrc-part53-final-rule",
-    "slug": "nrc-gelismis-reaktorler-icin-part-53-nihai-lisanslama-kuralini-yayimla",
+    "id": "china-eight-new-reactors-approval",
+    "slug": "cin-4-eyalette-8-yeni-reaktorun-insasini-onayladi-25-2-milyar-dolar-ya",
     "image": {
-      "url": "https://www.ans.org/file/12103/l/USNRC Logo Vector Black text 1280x640.jpg",
+      "url": "https://img.ekonomim.com/rcman/Cw1280h720q95gc/storage/files/images/2026/08/01/cinden-nukleer-kapasitesini-artirma-karari-8-yeni-reaktor-insa-edecek-gj7q_cover.jpg",
       "type": "og-sayfa",
-      "credit": "ans.org"
+      "credit": "ekonomim.com"
     },
     "score": 9,
     "secim": "one_cikan",
-    "title": "NRC, gelişmiş reaktörler için Part 53 nihai lisanslama kuralını yayımladı",
-    "detail": "NRC Başkanı Ho Nieh, Çarşamba günü yapılan bir basın çağrısında gelişmeyi \"gerçekten tarihi bir dönüm noktası\" olarak nitelendirdi. Nieh, Part 53'ün mevcut Part 50 ve Part 52 çerçevelerine eklenmesiyle birlikte, ayrıca üzerinde çalışılan bir mikroreaktör lisanslama çerçevesiyle birlikte, Amerika'nın artık yeni nükleer teknolojilerin geliştirilmesi ve konuşlandırılmasını takip etmek isteyen başvuru sahipleri ve lisans sahipleri için birçok seçeneğe sahip olduğunu söyledi. NRC'nin ayrı bir basın açıklamasında Nieh, kuralın \"yeni nükleerin kavramdan inşaata güvenli bir şekilde daha hızlı geçmesini sağlayacak açık, risk bilgili, teknolojiden bağımsız bir lisanslama çerçevesi\" sunan büyük bir NRC eylemi olduğunu vurguladı.\n\nPart 53, hafif su reaktörü (LWR) teknolojisi için geliştirilmiş düzenleyici çerçevelerin uzun süredir devam eden bir sorununu ele almayı amaçlıyor: LWR dışı teknolojilerin lisanslanması, başvuru sahiplerinin düzenleyici muafiyet talep etmesini gerektiriyor ve bu da hantal bir lisanslama sürecine yol açıyordu. NRC açıklamasına göre Part 53, \"hafif su dışı reaktörler dahil olmak üzere, gelişmiş reaktörleri yaşam döngüleri boyunca lisanslamak için kapsamlı yeni bir yaklaşım\" sunuyor ve tasarımcılara ile işletmecilere santrallerini nasıl inşa edip işletecekleri konusunda daha fazla esneklik sağlarken güvenliği garanti etmeye devam ediyor.\n\nBu haftaki duyuru, NRC'nin Part 53 taslak kuralını yayımlamasından bir yılı aşkın süre sonra geldi. Kamu yorumları 31 Ekim 2024'ten 28 Şubat 2025'e kadar, 60 günlük bir uzatmayı da içeren bir dönemde kabul edildi. Federal Register'daki kayıtlara göre, taslak kural için kamu yorum döneminde Westinghouse, The Breakthrough Institute, Nuclear Energy Institute ve Idaho National Laboratory dahil olmak üzere ilgili taraflardan 158 yorum sunuldu; bazı yorumlar destekleyici olurken bazıları daha fazla çalışma yapılması gerektiğini, önceki taslak kuralların çok katı olduğunu belirtti.\n\nÇarşamba günkü çağrıda NRC yetkilileri, nihai kuralda yapılan bazı değişiklikleri örneklerle aktardı: doğal tehlike bilgisi için tesis lisanslamasını değerlendirecek farklı program türlerine ilişkin bir öneri değiştirildi, sağlık hedeflerine ilişkin bir öneri de güncellendi. Nihai kural ayrıca fikir birliği kod ve standartlarını ve alternatif risk yaklaşımlarına ilişkin dili genişletiyor. Nieh, nihai Part 53'ün, kendisinin ve NRC'nin önceki versiyonlara ilişkin duyduğu birçok şikayet ve yorumu ele aldığını, bazı tarafların önceki taslakları kullanılamaz bulduğunu söyledi.\n\n\"Bu çerçevenin, onu diğer mevcut seçenekler arasında kullanılabilir bir araç haline getirecek uygun esneklik ve risk bilgili yaklaşımları sağladığına inanıyorum\" dedi Nieh. Yeni Reaktörler Bürosu Vekil Direktör Yardımcısı Jeremy Bowen ise, \"Birçok gelişmiş reaktör geliştiricisinden ve potansiyel başvuru sahibinden, Part 53 kullanıma açıldığında bunu kullanmakla ilgilendiklerine dair iletişim aldık\" diye ekledi. Bowen, Part 53 kapsamında reaktör tasarımlarının 18 ay veya daha kısa sürede onay alacağını öngördüğünü belirtti; başvuru maliyetinin de daha kısa inceleme süresi ve Part 53'ün getirdiği ek esneklik sayesinde yarı yarıya veya daha fazla azalabileceğini söyledi.",
+    "title": "Çin, 4 eyalette 8 yeni reaktörün inşasını onayladı; 25,2 milyar dolar yatırım",
+    "detail": "Çin, nükleer enerji kapasitesini artırma kararı çerçevesinde dört eyalette sekiz yeni reaktörün inşasını onayladı. Karar, ülkenin devam eden nükleer genişleme programının bir parçası olarak alındı ve toplam yatırım tutarının 25,2 milyar dolara ulaştığı belirtildi.\n\nOnay, Çin'in son yıllarda sürdürdüğü hızlı nükleer inşaat temposunun devamı niteliğinde geldi. Ülke, elektrik talebindeki artışı karşılamak ve karbon emisyonlarını azaltmak amacıyla nükleer kapasitesini genişletmeyi sürdürüyor.",
     "source": {
-      "url": "https://ans.org/news/article-7881/nrc-unveils-part-53-final-rule",
-      "name": "American Nuclear Society (ans.org)",
-      "tier": 1,
-      "type": "trade_press",
+      "url": "https://ekonomim.com/sektorler/enerji/cinden-nukleer-kapasitesini-artirma-karari-8-yeni-reaktor-insa-edecek-haberi-909478",
+      "name": "ekonomim.com",
+      "tier": 2,
+      "type": "news_agency",
       "primary": true
     },
-    "excerpt": "ABD Nükleer Düzenleme Kurulu (NRC), gelişmiş reaktörler için teknolojiden bağımsız, risk temelli yeni bir lisanslama çerçevesi olan Part 53'ü nihai hale getirdi. Kural, 158 kamu yorumunun değerlendirildiği bir sürecin ardından yürürlüğe girdi. NRC yetkilileri, yeni çerçeveyle tasarım onaylarının 18 ay veya daha kısa sürede tamamlanabileceğini belirtti.",
-    "category": "politika",
-    "maturity": null,
-    "companies": [
-      "Westinghouse",
-      "Idaho National Laboratory"
-    ],
+    "excerpt": "Çin Devlet Konseyi, dört eyalette sekiz yeni nükleer reaktörün inşasını onayladı. Proje, 25,2 milyar dolarlık bir yatırımı kapsıyor ve ülkenin nükleer kapasitesini artırma stratejisinin bir parçası.",
+    "category": "buyuk-reaktor",
+    "maturity": "construction",
+    "companies": [],
     "countries": [
-      "USA"
+      "China"
     ],
-    "event_date": "2026-07-29",
-    "investment": null,
+    "investment": {
+      "currency": "USD",
+      "amount_original": 25.2,
+      "amount_usd_million": 25200,
+      "public_support_usd_million": null
+    },
     "value_chain": [
       "reaktor-insa"
     ],
@@ -81,57 +82,12 @@
     "neden_onemli": null,
     "technologies": [],
     "subcategories": [
-      "lisanslama",
-      "duzenleme"
+      "yeni-insa"
     ],
-    "published_date": "2026-07-30",
+    "published_date": "2026-08-01",
     "supporting_sources": []
   },
   "stories": [
-    {
-      "id": "terrapower-natrium-construction-permit",
-      "slug": "nrc-terrapower-in-natrium-reaktorune-insaat-izni-onayladi",
-      "image": {
-        "url": "https://www.ans.org/file/2327/l/Natrium_1200x675_0.png",
-        "type": "og-sayfa",
-        "credit": "ans.org"
-      },
-      "score": 9,
-      "secim": "one_cikan",
-      "title": "NRC, TerraPower'ın Natrium reaktörüne inşaat izni onayladı",
-      "detail": "NRC, TerraPower'ın Kemmerer, Wyoming'de inşa etmeyi planladığı Natrium sodyum soğutmalı hızlı reaktörü için Ünite 1'e yönelik inşaat iznini onayladı. Onay, şirketin ileri nükleer reaktör teknolojisi geliştirme sürecinde düzenleyici açıdan kritik bir aşamayı temsil ediyor.\n\nKarar, ABD nükleer düzenleyicisinin gelişmiş reaktör tasarımlarına yönelik değerlendirme sürecinin bir parçası olarak geldi ve TerraPower'ın projeyi inşaat aşamasına taşımasının önünü açtı.",
-      "source": {
-        "url": "https://ans.org/news/article-7818/nrc-approves-terrapower-construction-permit",
-        "name": "American Nuclear Society (ans.org)",
-        "tier": 1,
-        "type": "trade_press",
-        "primary": true
-      },
-      "excerpt": "ABD Nükleer Düzenleme Kurulu, TerraPower'ın Kemmerer Ünite 1 sodyum hızlı reaktörü için inşaat iznini onayladı. Onay, şirketin Wyoming'deki Natrium projesinde inşaat aşamasına geçişi için düzenleyici bir kilometre taşı oluşturuyor.",
-      "category": "buyuk-reaktor",
-      "maturity": "site_permit",
-      "companies": [
-        "TerraPower"
-      ],
-      "countries": [
-        "USA"
-      ],
-      "event_date": "2026-07-29",
-      "investment": null,
-      "value_chain": [
-        "reaktor-insa"
-      ],
-      "capacity_mwe": null,
-      "neden_onemli": null,
-      "technologies": [
-        "Natrium"
-      ],
-      "subcategories": [
-        "gelismis-reaktor"
-      ],
-      "published_date": "2026-07-29",
-      "supporting_sources": []
-    },
     {
       "id": "akkuyu-rosatom-sustainability",
       "slug": "rosatom-yetkilisi-akkuyu-turkiye-nin-2053-karbon-notr-hedefini-destekl",
@@ -160,7 +116,6 @@
       "countries": [
         "Turkey"
       ],
-      "event_date": "2026-07-27",
       "investment": null,
       "value_chain": [
         "isletme"
@@ -174,51 +129,6 @@
         "iklim-hedefi"
       ],
       "published_date": "2026-07-27",
-      "supporting_sources": []
-    },
-    {
-      "id": "china-eight-new-reactors-approval",
-      "slug": "cin-4-eyalette-8-yeni-reaktorun-insasini-onayladi-25-2-milyar-dolar-ya",
-      "image": {
-        "url": "https://img.ekonomim.com/rcman/Cw1280h720q95gc/storage/files/images/2026/08/01/cinden-nukleer-kapasitesini-artirma-karari-8-yeni-reaktor-insa-edecek-gj7q_cover.jpg",
-        "type": "og-sayfa",
-        "credit": "ekonomim.com"
-      },
-      "score": 9,
-      "secim": "one_cikan",
-      "title": "Çin, 4 eyalette 8 yeni reaktörün inşasını onayladı; 25,2 milyar dolar yatırım",
-      "detail": "Çin, nükleer enerji kapasitesini artırma kararı çerçevesinde dört eyalette sekiz yeni reaktörün inşasını onayladı. Karar, ülkenin devam eden nükleer genişleme programının bir parçası olarak alındı ve toplam yatırım tutarının 25,2 milyar dolara ulaştığı belirtildi.\n\nOnay, Çin'in son yıllarda sürdürdüğü hızlı nükleer inşaat temposunun devamı niteliğinde geldi. Ülke, elektrik talebindeki artışı karşılamak ve karbon emisyonlarını azaltmak amacıyla nükleer kapasitesini genişletmeyi sürdürüyor.",
-      "source": {
-        "url": "https://ekonomim.com/sektorler/enerji/cinden-nukleer-kapasitesini-artirma-karari-8-yeni-reaktor-insa-edecek-haberi-909478",
-        "name": "ekonomim.com",
-        "tier": 2,
-        "type": "news_agency",
-        "primary": true
-      },
-      "excerpt": "Çin Devlet Konseyi, dört eyalette sekiz yeni nükleer reaktörün inşasını onayladı. Proje, 25,2 milyar dolarlık bir yatırımı kapsıyor ve ülkenin nükleer kapasitesini artırma stratejisinin bir parçası.",
-      "category": "buyuk-reaktor",
-      "maturity": "construction",
-      "companies": [],
-      "countries": [
-        "China"
-      ],
-      "event_date": "2026-08-01",
-      "investment": {
-        "currency": "USD",
-        "amount_original": 25.2,
-        "amount_usd_million": 25200,
-        "public_support_usd_million": null
-      },
-      "value_chain": [
-        "reaktor-insa"
-      ],
-      "capacity_mwe": null,
-      "neden_onemli": null,
-      "technologies": [],
-      "subcategories": [
-        "yeni-insa"
-      ],
-      "published_date": "2026-08-01",
       "supporting_sources": []
     },
     {
@@ -247,7 +157,6 @@
       "countries": [
         "USA"
       ],
-      "event_date": "2026-07-24",
       "investment": null,
       "value_chain": [
         "yakit-uretim",
@@ -308,7 +217,6 @@
       "countries": [
         "USA"
       ],
-      "event_date": "2026-06-26",
       "investment": null,
       "value_chain": [
         "donusum-zenginlestirme",
@@ -355,7 +263,6 @@
       "countries": [
         "USA"
       ],
-      "event_date": "2026-07-30",
       "investment": null,
       "value_chain": [
         "reaktor-insa",
@@ -411,7 +318,6 @@
         "Bulgaria",
         "Ukraine"
       ],
-      "event_date": "2026-07-31",
       "investment": {
         "currency": "USD",
         "amount_original": 8,
@@ -463,7 +369,6 @@
         "Hungary",
         "Romania"
       ],
-      "event_date": "2026-07-30",
       "investment": null,
       "value_chain": [
         "isletme"
@@ -511,7 +416,6 @@
       "countries": [
         "Czech Republic"
       ],
-      "event_date": "2026-07-29",
       "investment": null,
       "value_chain": [
         "reaktor-insa"
@@ -556,7 +460,6 @@
       "countries": [
         "USA"
       ],
-      "event_date": "2026-07-30",
       "investment": {
         "currency": "USD",
         "amount_original": 1,
