@@ -1,5 +1,5 @@
 {
-  "issue_no": 1,
+  "issue_no": 2,
   "events": [
     {
       "baslik_ozet": "Rosatom yetkilisi: Akkuyu, Türkiye'nin 2053 karbon nötr hedefini destekleyecek",
@@ -36,6 +36,46 @@
     {
       "baslik_ozet": "Commonwealth Fusion Systems, ARC ticari santrali için 1 milyar dolar topladı",
       "hafta": "2026-H31"
+    },
+    {
+      "baslik_ozet": "Akkuyu NGS 1. Ünite Türbin Tesisi Kritik Testi Geçti",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "Finlandiya'da Dünyanın İlk Nükleer Atık Deposu Güvenlik Onayı Aldı",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "Çin Devlet Konseyi 25,2 Milyar Dolarlık Sekiz Reaktörü Onayladı",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "Japonya 2040'lara Kadar 2 ila 5 Nükleer Reaktörün Yenilenmesi İçin Hedef Belirledi",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "EDF, EPR2 İnşası İçin Technip Energies İle Çerçeve Anlaşması İmzaladı",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "Oklo'nun Grove Reaktörü Teksas'ta İlk Kritiklik Duruma Ulaştı",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "X-energy ve Centrus, Xe-100 İçin HALEU Tedarik Anlaşması İmzaladı",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "TRISO-X, Oak Ridge Yakıt Kampüsünü 70 Dönüm Genişletiyor",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "Commonwealth Fusion Systems 1 Milyar Dolar Ek Sermaye Topladı",
+      "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "Sırbistan, EDF Ortaklığıyla Sivil Nükleer Programının Faz 1'ini Başlattı",
+      "hafta": "2026-H32"
     }
   ],
   "urls": [
@@ -80,6 +120,56 @@
     "https://federalregister.gov/documents/2026/07/28/2026-15273/presidential-determination-on-the-proposed-agreement-for-cooperation-between-the-government-of-the",
     "https://world-nuclear-news.org/articles/serbia-and-france-sign-nuclear-energy-partnership-agreement",
     "https://world-nuclear-news.org/articles/prometheus-project-selected-for-federal-support",
-    "https://enerjigunlugu.net/turkiye-irak-ham-petrol-boru-hattinda-bir-yillik-yeni-anlasma-69212h.htm"
+    "https://enerjigunlugu.net/turkiye-irak-ham-petrol-boru-hattinda-bir-yillik-yeni-anlasma-69212h.htm",
+    "https://aa.com.tr/tr/ekonomi/akkuyu-ngs-1-guc-unitesindeki-turbin-tesisi-bir-sonraki-devreye-alma-asamasina-hazir/4019939",
+    "https://dunya.com/ekonomi/nukleerde-ciraklik-donemi-akkuyu-ngs-ile-bitti-hedef-kuresel-tedarik-ligine-yukselmek-haberi-835278",
+    "https://ekonomim.com/sektorler/enerji/akkuyu-ngsde-ilk-reaktor-icin-kritik-gelisme-turbin-tesisi-hazir-haberi-910536",
+    "https://neimagazine.com/news/posiva-repository-clears-safety-review",
+    "https://world-nuclear-news.org/articles/finnish-regulator-gives-positive-decision-on-used-fuel-repository",
+    "https://powermag.com/chinese-government-approves-eight-new-nuclear-units-as-major-reactor-buildout-continues",
+    "https://world-nuclear-news.org/articles/china-approves-construction-of-eight-more-reactors",
+    "https://neimagazine.com/news/china-approves-eight-new-reactors",
+    "https://energynewsbeat.co/nuclear/china-approves-eight-new-nuclear-plants-including-four-with-hualong-one-2-0-tech",
+    "https://energyintel.com/0000019f-cbed-de9a-af9f-cfef31a60000",
+    "https://neimagazine.com/news/japan-sets-reactor-rebuild-target",
+    "https://neimagazine.com/news/edf-taps-technip-for-epr2-buildout",
+    "https://world-nuclear-news.org/articles/us-test-reactors-achieve-milestones",
+    "https://canarymedia.com/articles/nuclear/nuclear-startup-oklo-splits-its-first-atoms-in-test-reactor",
+    "https://x-energy.com/news/x-energy-centrus-sign-haleu-supplyagreement-for-xe-100-advanced-small-modular-reactor-development",
+    "https://energyintel.com/0000019f-dd0d-d1b0-a7ff-ff9dd4610000",
+    "https://blog.cfs.energy/sparc-progress-doe-milestone-approvals-reflect-cfs-power-plant-maturity",
+    "https://neimagazine.com/news/cfs-secures-fusion-funding-boost",
+    "https://x-energy.com/news/triso-x-announces-70-acre-expansion-of-oakridge-nuclear-fuel-campus",
+    "https://world-nuclear-news.org/articles/commonwealth-fusion-systems-raises-a-further-usd1-billion",
+    "https://datacenterdynamics.com/en/news/idaho-national-laboratory-nvidia-aws-x-energy-launch-prometheus-project-under-genesis-mission",
+    "https://neimagazine.com/news/serbia-initiates-phase-1-nuclear-plans",
+    "https://neimagazine.com/news/valar-raises-1bn-for-microreactors",
+    "https://canarymedia.com/articles/nuclear/microreactor-startup-valar-atomics-raises-1b",
+    "https://neimagazine.com/news/oyster-creek-eyes-smr-revival",
+    "https://powermag.com/doe-approves-safety-design-of-deep-fissions-underground-smr",
+    "https://world-nuclear-news.org/articles/arc-partners-with-inl-for-smr-deployment",
+    "https://info.westinghousenuclear.com/news/westinghouse-and-amentum-partner-to-expand-delivery-capacity-for-apx-fleet-deployment",
+    "https://nuscalepower.com/press-releases/2026/nuscale-power-reports-second-quarter-2026-results",
+    "https://onr.org.uk/news/all-news/2026/08/onr-helps-shape-international-toolkit-to-support-cooperation-in-assessment-of-advanced-reactors",
+    "https://theregister.com/science/2026/08/06/uncle-sam-aims-to-help-nuclear-energy-find-its-sea-legs/5284179",
+    "https://world-nuclear-news.org/articles/chinese-reactors-start-up-milestones",
+    "https://world-nuclear-news.org/articles/tianwan-8-completes-key-commissioning-tests",
+    "https://world-nuclear-news.org/articles/core-catcher-installed-at-leningrads-eighth-unit",
+    "https://world-nuclear-news.org/articles/bechtel-assumes-responsibility-for-polish-plant-site",
+    "https://world-nuclear-news.org/articles/nwmo-reveals-design-for-centre-of-expertise",
+    "https://holtecinternational.com/hh-41-14",
+    "https://world-nuclear-news.org/articles/water-levels-to-be-increased-in-zaporizhzhias-used-fuel-ponds",
+    "https://world-nuclear-news.org/articles/isoenergy-and-disa-to-create-new-us-uranium-company",
+    "https://x-energy.com/news/x-energy-sgl-carbon-announce-capacity-expansion-for-nuclear-grade-graphite",
+    "https://ans.org/news/2026-08-04/article-8269/nrc-issues-draft-eafonsi-for-duane-arnold-restart",
+    "https://constellationenergy.com/news/2026/08/constellation-reports-second-quarter-2026-results.html",
+    "https://dunya.com/dunya/fransada-asiri-sicakliklar-nedeniyle-3-nukleer-reaktor-faaliyetini-durdurdu-haberi-834874",
+    "https://enerjigunlugu.net/tuna-nehri-cekildi-macaristan-tek-nukleer-santralini-kapatti-69219h.htm",
+    "https://gov.uk/government/news/under-pressure-record-plasma-for-uk-flagship-machine",
+    "https://theregister.com/science/2026/08/07/brit-boffins-boast-of-beating-barriers-to-building-fusion-power/5284882",
+    "https://inl.gov/news/america-built-nuclear-power-in-idaho-first-now-its-doing-it-again",
+    "https://neimagazine.com/news/japan-supports-mhi-next-gen-reactors",
+    "https://neimagazine.com/news/bwxt-announces-800m-medical-sale",
+    "https://neimagazine.com/news/korea-uae-eye-vietnam-reactor-bid"
   ]
 }
