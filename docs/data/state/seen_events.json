@@ -1,5 +1,5 @@
 {
-  "issue_no": 2,
+  "issue_no": 3,
   "events": [
     {
       "baslik_ozet": "Rosatom yetkilisi: Akkuyu, Türkiye'nin 2053 karbon nötr hedefini destekleyecek",
@@ -76,6 +76,50 @@
     {
       "baslik_ozet": "Sırbistan, EDF Ortaklığıyla Sivil Nükleer Programının Faz 1'ini Başlattı",
       "hafta": "2026-H32"
+    },
+    {
+      "baslik_ozet": "Akkuyu 1. ünitede yıl sonuna kadar ilk elektrik hedefleniyor",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Avrupa'da kuraklık ve sıcaklık nükleer santrallerde kapanmalara yol açtı",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Centrus, X-energy'ye Xe-100 için LEU ve HALEU tedarik sözleşmesi imzaladı",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Mochovce 4. ünite, 34 yıllık gecikmenin ardından kritikliğe ulaştı",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Finlandiya'nın Onkalo tesisi düzenleyici güvenlik değerlendirmesini geçti",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "DOE, Diablo Canyon'ın uzatılmış işletmesi için 271 milyon dolarlık ödeme yaptı",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "CNNC, Xuwei'de yüksek sıcaklık reaktörü için 1,5 milyar dolarlık sözleşme sürecini başlatıyor",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Blue Energy ve GE Vernova Hitachi, Teksas'ta 2,5 GW'lık gaz-nükleer projeyi ilerletiyor",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Zaporijya santrali bir haftada üçüncü kez tüm dış güç bağlantısını kaybetti",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Curio, NuScale ve Framatome, geri dönüştürülmüş SMR yakıtı için ortaklık kurdu",
+      "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "TerraPower ile SK Innovation, küçük modüler reaktör ortaklığını genişletti",
+      "hafta": "2026-H33"
     }
   ],
   "urls": [
@@ -170,6 +214,57 @@
     "https://inl.gov/news/america-built-nuclear-power-in-idaho-first-now-its-doing-it-again",
     "https://neimagazine.com/news/japan-supports-mhi-next-gen-reactors",
     "https://neimagazine.com/news/bwxt-announces-800m-medical-sale",
-    "https://neimagazine.com/news/korea-uae-eye-vietnam-reactor-bid"
+    "https://neimagazine.com/news/korea-uae-eye-vietnam-reactor-bid",
+    "https://dunya.com/enerji/akkuyuda-geri-sayim-basladi-bayraktar-ilk-elektrik-icin-tarih-verdi-haberi-836050",
+    "https://neimagazine.com/news/akkuyu-1-nears-first-power",
+    "https://enerjigunlugu.net/bayraktar-turkiye-nukleerde-soz-sahibi-olacak-69378h.htm",
+    "https://aa.com.tr/tr/ekonomi/bakan-bayraktar-turkiyenin-hedefi-enerjide-disa-bagimliligi-bitirmek/4026102",
+    "https://cnbc.com/2026/08/12/europe-heat-drought-nuclear-power.html",
+    "https://world-nuclear-news.org/articles/romanian-plant-taken-offline-as-hungary-moves-to-keep-paks-operating",
+    "https://neimagazine.com/news/drought-forces-cernavoda-shutdown",
+    "https://neimagazine.com/news/jellyfish-trigger-shutdown-at-gravelines",
+    "https://energyintel.com/0000019f-d2a4-d8b9-a3df-f7fe35360000",
+    "https://centrusenergy.com/news/centrus-energy-signs-leu-and-haleu-supply-agreement-with-x-energy",
+    "https://neimagazine.com/news/x-energy-secures-haleu-for-xe-100",
+    "https://neimagazine.com/news/triso-x-extends-ornl-fuel-partnership",
+    "https://world-nuclear-news.org/articles/first-criticality-achieved-for-mochovce-unit-4",
+    "https://neimagazine.com/news/criticality-for-mochovce-4",
+    "https://nucnet.org/news/terrapower-announces-key-agreements-in-push-for-global-rollout-of-reactors-8-5-2026",
+    "https://ans.org/news/article-8280/onkalo-snf-repository-passes-safety-assessment",
+    "https://energy.gov/ne/articles/department-energy-awards-first-civil-nuclear-credit-payment-california-power-plant",
+    "https://world-nuclear-news.org/articles/cnnc-to-procure-contract-for-high-temperature-reactor",
+    "https://gevernova.com/news/press-releases/blue-energy-ge-vernova-hitachi-launch-next-phase-gas-plus-nuclear-project",
+    "https://powermag.com/texas-2-5-gw-gas-plus-nuclear-project-proceeds-to-engineering-licensing-phase",
+    "https://nucnet.org/news/blue-energy-and-gvh-sign-agreement-on-next-phase-of-gas-plus-nuclear-project-8-4-2026",
+    "https://modernpowersystems.com/news/blue-energy-gvh-advance-2-5-gw-gas-nuclear-project-in-texas",
+    "https://power-eng.com/nuclear/first-gas-plus-nuclear-plant-for-data-centers-advanced-manufacturing-is-closer-to-becoming-a-reality",
+    "https://iaea.org/newscenter/pressreleases/update-362-iaea-director-general-statement-on-situation-in-ukraine",
+    "https://neimagazine.com/news/tri-party-deal-targets-smr-fuel-supply",
+    "https://ans.org/news/2026-08-13/article-8292/doe-funds-ornl-and-kyoto-fusioneering-test-facility",
+    "https://dunya.com/gundem/bill-gates-nukleerde-vites-artirdi-yapay-zekanin-elektrigi-icin-yeni-ortaklik-haberi-836201",
+    "https://world-nuclear-news.org/articles/first-fuel-loaded-into-tianwan-unit-7",
+    "https://neimagazine.com/news/changjiang-3-connects-to-grid",
+    "https://neimagazine.com/news/taipingling-2-delivers-first-electricity",
+    "https://world-nuclear-news.org/articles/construction-of-bailong-2-conventional-island-begins",
+    "https://world-nuclear-news.org/articles/changjiang-4-control-room-commissioned",
+    "https://world-nuclear-news.org/articles/containment-of-first-egyptian-unit-takes-shape",
+    "https://neimagazine.com/news/leningrad-8-containment-rises",
+    "https://world-nuclear-news.org/articles/rosatom-staff-returning-to-irans-bushehr-nuclear-plant",
+    "https://ans.org/news/2026-08-14/article-8294/cernavoda-paks-gravelines-plants-suffer-as-european-heat-wave-impacts-water-sources",
+    "https://neimagazine.com/news/sogin-takes-military-waste-role",
+    "https://neimagazine.com/news/kozloduy-decommissioning-advances",
+    "https://neimagazine.com/news/holtec-eyes-southern-us-smr-growth",
+    "https://world-nuclear-news.org/articles/nuclea-energy-to-acquire-moltex-energy-technology-portfolio",
+    "https://neimagazine.com/news/transatlantic-alliance-advances-laser-fusion",
+    "https://world-nuclear-news.org/articles/ornl-type-one-partner-to-advance-fusion-fuel-cycle",
+    "https://ans.org/news/article-8296/new-measurement-of-diamond-phase-change-could-mean-increased-icf-energy-gain",
+    "https://neimagazine.com/news/tae-black-moon-eye-he-3-fusion-fuel",
+    "https://world-nuclear-news.org/articles/latest-mast-upgrade-experiments-achieve-milestones",
+    "https://neimagazine.com/news/ornl-boosts-cf-252-production",
+    "https://world-nuclear-news.org/articles/us-eu-bodies-report-on-nuclear-fuel-market-situation",
+    "https://ans.org/news/article-8285/calif-officials-urge-diablo-canyon-extension-but-newsom-holding-off",
+    "https://aa.com.tr/en/energy/electricity/turkiye-seeks-stonger-gulf-electricity-ties-through-regional-power-corridor/58954",
+    "https://power-eng.com/business/can-sco%E2%82%82-based-brayton-cycle-generators-help-solve-the-data-center-power-problem",
+    "https://energy-storage.news/multi-day-energy-storage-startup-noon-energy-makes-1gw-us-ai-infrastructure-deployment-agreement"
   ]
 }

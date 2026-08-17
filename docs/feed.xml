@@ -4,85 +4,95 @@
   <link>https://nukleer-enerji-bulteni.site</link>
   <description>Haftalık nükleer enerji sektörü, teknoloji ve politika izleme bülteni</description>
   <language>tr</language>
-  <lastBuildDate>Mon, 10 Aug 2026 06:52:32 +0000</lastBuildDate>
+  <lastBuildDate>Mon, 17 Aug 2026 07:55:18 +0000</lastBuildDate>
   <item>
-    <title>Akkuyu NGS 1. Ünite Türbin Tesisi Kritik Testi Geçti</title>
-    <link>https://nukleer-enerji-bulteni.site/#/haber/akkuyu-ngs-1-unite-turbin-tesisi-kritik-testi-gecti</link>
-    <guid isPermaLink="false">akkuyu-ngs-1-unite-turbin-tesisi-kritik-testi-gecti</guid>
-    <pubDate>2026-08-06</pubDate>
+    <title>Akkuyu 1. ünitede yıl sonuna kadar ilk elektrik hedefleniyor</title>
+    <link>https://nukleer-enerji-bulteni.site/#/haber/akkuyu-1-unitede-yil-sonuna-kadar-ilk-elektrik-hedefleniyor</link>
+    <guid isPermaLink="false">akkuyu-1-unitede-yil-sonuna-kadar-ilk-elektrik-hedefleniyor</guid>
+    <pubDate>2026-08-13</pubDate>
     <category>Türkiye</category>
-    <description>Akkuyu Nükleer Güç Santrali'nin 1. güç ünitesindeki türbin tesisi, kritik vakum testini başarıyla tamamlayarak bir sonraki devreye alma aşamasına hazır hale geldi. Gelişme, Rosatom ve Akkuyu Nükleer AŞ tarafından yürütülen projenin devreye alma sürecinde önemli bir teknik eşiği işaret ediyor.</description>
+    <description>Enerji Bakanı Alparslan Bayraktar, Akkuyu Nükleer Güç Santrali'nin ilk reaktöründe test elektrik üretimine yıl sonuna kadar başlanmasının hedeflendiğini açıkladı. Santralde devreye alma öncesi yaklaşık 2 bin test yürütülüyor.</description>
   </item>
   <item>
-    <title>Finlandiya'da Dünyanın İlk Nükleer Atık Deposu Güvenlik Onayı Aldı</title>
-    <link>https://nukleer-enerji-bulteni.site/#/haber/finlandiya-da-dunyanin-ilk-nukleer-atik-deposu-guvenlik-onayi-aldi</link>
-    <guid isPermaLink="false">finlandiya-da-dunyanin-ilk-nukleer-atik-deposu-guvenlik-onayi-aldi</guid>
-    <pubDate>2026-08-06</pubDate>
-    <category>Atık &amp; Söküm</category>
-    <description>Finlandiya'nın nükleer düzenleyicisi STUK, Posiva'nın Olkiluoto'daki derin jeolojik nihai bertaraf tesisi için olumlu güvenlik değerlendirmesi verdi. Karar, kullanılmış nükleer yakıt için dünya çapında bir depo projesinin işletme lisansı aşamasına ilerlediği ilk vaka oldu.</description>
+    <title>Avrupa'da kuraklık ve sıcaklık nükleer santrallerde kapanmalara yol açtı</title>
+    <link>https://nukleer-enerji-bulteni.site/#/haber/avrupa-da-kuraklik-ve-sicaklik-nukleer-santrallerde-kapanmalara-yol-ac</link>
+    <guid isPermaLink="false">avrupa-da-kuraklik-ve-sicaklik-nukleer-santrallerde-kapanmalara-yol-ac</guid>
+    <pubDate>2026-08-12</pubDate>
+    <category>İşletme &amp; Filo</category>
+    <description>Romanya, Tuna Nehri'ndeki rekor düşük su seviyesi nedeniyle tek çalışan reaktörünü şebekeden ayırmaya başladı. Fransa'da Gravelines santralinde denizanası istilası üç reaktörü, Macaristan'da ise yağış Paks'ta bir türbini yeniden devreye soktu.</description>
   </item>
   <item>
-    <title>Çin Devlet Konseyi 25,2 Milyar Dolarlık Sekiz Reaktörü Onayladı</title>
-    <link>https://nukleer-enerji-bulteni.site/#/haber/cin-devlet-konseyi-25-2-milyar-dolarlik-sekiz-reaktoru-onayladi</link>
-    <guid isPermaLink="false">cin-devlet-konseyi-25-2-milyar-dolarlik-sekiz-reaktoru-onayladi</guid>
-    <pubDate>2026-08-02</pubDate>
-    <category>Büyük Reaktör Projeleri</category>
-    <description>Çin Devlet Konseyi, Başbakan Li Qiang başkanlığındaki toplantıda dört ilde sekiz yeni reaktör ünitesinin inşasını onayladı. Projelerin toplam yatırım tutarı 170 milyar yuanı (yaklaşık 25,2 milyar dolar) aşıyor.</description>
-  </item>
-  <item>
-    <title>Japonya 2040'lara Kadar 2 ila 5 Nükleer Reaktörün Yenilenmesi İçin Hedef Belirledi</title>
-    <link>https://nukleer-enerji-bulteni.site/#/haber/japonya-2040-lara-kadar-reaktor-yeniden-insa-hedefi-belirledi</link>
-    <guid isPermaLink="false">japonya-2040-lara-kadar-reaktor-yeniden-insa-hedefi-belirledi</guid>
-    <pubDate>2026-08-04</pubDate>
-    <category>Politika &amp; Düzenleme</category>
-    <description>Japonya hükümeti, yaşlanan nükleer reaktörlerin devreden çıkmasıyla oluşacak üretim kaybını telafi etmek amacıyla 2040'lı yıllara kadar 2 ila 5 nükleer reaktörün yenileriyle değiştirilmesini hedefliyor. Hükümetin planı, aynı zamanda yapay zekâ uygulamalarına yönelik veri merkezleri başta olmak üzere ülkede artması beklenen elektrik talebini karşılamayı amaçlıyor.</description>
-  </item>
-  <item>
-    <title>EDF, EPR2 İnşası İçin Technip Energies İle Çerçeve Anlaşması İmzaladı</title>
-    <link>https://nukleer-enerji-bulteni.site/#/haber/edf-epr2-insasi-icin-technip-energies-ile-cerceve-anlasmasi-imzaladi</link>
-    <guid isPermaLink="false">edf-epr2-insasi-icin-technip-energies-ile-cerceve-anlasmasi-imzaladi</guid>
-    <pubDate>2026-08-05</pubDate>
-    <category>Büyük Reaktör Projeleri</category>
-    <description>EDF, Fransa'nın EPR2 yeni nükleer inşa programının yürütülmesini hızlandırmak için Technip Energies ile stratejik çerçeve anlaşması imzaladı. Programın maliyeti 51,7 milyar avrodan 72,8 milyar avroya yükselirken, ilk reaktörün devreye alınma hedefi 2038'e ertelendi.</description>
-  </item>
-  <item>
-    <title>Oklo'nun Grove Reaktörü Teksas'ta İlk Kritiklik Duruma Ulaştı</title>
-    <link>https://nukleer-enerji-bulteni.site/#/haber/oklo-nun-grove-reaktoru-teksas-ta-ilk-kritiklige-ulasti</link>
-    <guid isPermaLink="false">oklo-nun-grove-reaktoru-teksas-ta-ilk-kritiklige-ulasti</guid>
-    <pubDate>2026-08-06</pubDate>
-    <category>Teknoloji &amp; Ar-Ge</category>
-    <description>Oklo'nun izotop üretimi için geliştirdiği Grove test reaktörü, Teksas'ta Lockhart yakınlarında ilk kritiklik duruma ulaştı ve DOE Reaktör Pilot Programı kapsamındaki 4 Temmuz 2026 hedefini bir yıldan kısa sürede karşıladı. Reaktör, ABD'nin ulusal laboratuvarlar dışında ilerleyen gelişmiş reaktör test programının bir parçası.</description>
-  </item>
-  <item>
-    <title>X-energy ve Centrus, Xe-100 İçin HALEU Tedarik Anlaşması İmzaladı</title>
-    <link>https://nukleer-enerji-bulteni.site/#/haber/x-energy-ve-centrus-xe-100-icin-haleu-tedarik-anlasmasi-imzaladi</link>
-    <guid isPermaLink="false">x-energy-ve-centrus-xe-100-icin-haleu-tedarik-anlasmasi-imzaladi</guid>
-    <pubDate>2026-08-06</pubDate>
-    <category>SMR &amp; Mikro Reaktörler</category>
-    <description>X-energy ve Centrus Energy, Xe-100 küçük modüler reaktörü (SMR) için düşük zenginlikli uranyum (LEU) ve yüksek tahlilli düşük zenginlikli uranyum (HALEU) zenginleştirme hizmetlerine ilişkin kesin bir tedarik anlaşması imzaladı. Anlaşma, X-energy'nin 11,5 GW'lık ticari proje hattının bir kısmının ilk yakıt ihtiyacını güvence altına almayı hedefliyor.</description>
-  </item>
-  <item>
-    <title>TRISO-X, Oak Ridge Yakıt Kampüsünü 70 Dönüm Genişletiyor</title>
-    <link>https://nukleer-enerji-bulteni.site/#/haber/triso-x-oak-ridge-yakit-kampusunu-70-donum-genisletiyor</link>
-    <guid isPermaLink="false">triso-x-oak-ridge-yakit-kampusunu-70-donum-genisletiyor</guid>
-    <pubDate>2026-08-04</pubDate>
+    <title>Centrus, X-energy'ye Xe-100 için LEU ve HALEU tedarik sözleşmesi imzaladı</title>
+    <link>https://nukleer-enerji-bulteni.site/#/haber/centrus-x-energy-ye-xe-100-icin-leu-ve-haleu-tedarik-sozlesmesi-imzala</link>
+    <guid isPermaLink="false">centrus-x-energy-ye-xe-100-icin-leu-ve-haleu-tedarik-sozlesmesi-imzala</guid>
+    <pubDate>2026-08-10</pubDate>
     <category>Uranyum &amp; Yakıt Zinciri</category>
-    <description>X-energy'nin yan kuruluşu TRISO-X, Tennessee'deki Oak Ridge nükleer yakıt kampüsüne bitişik yaklaşık 70 dönümlük arazi satın aldığını duyurdu. Genişleme, toplam saha alanını yaklaşık 180 dönüme çıkararak uzun vadeli kapasite artışını destekliyor.</description>
+    <description>Centrus Energy, X-energy'nin Xe-100 küçük modüler reaktörleri (SMR) ve TRISO-X yakıtı için düşük zenginlikli uranyum (LEU) ve yüksek tahlilli düşük zenginlikli uranyum (HALEU) tedarikine yönelik kesin bir sözleşme imzaladı. X-energy, karşılığında Centrus'a ön ödemeler yapacak.</description>
   </item>
   <item>
-    <title>Commonwealth Fusion Systems 1 Milyar Dolar Ek Sermaye Topladı</title>
-    <link>https://nukleer-enerji-bulteni.site/#/haber/commonwealth-fusion-systems-1-milyar-dolar-ek-sermaye-topladi</link>
-    <guid isPermaLink="false">commonwealth-fusion-systems-1-milyar-dolar-ek-sermaye-topladi</guid>
-    <pubDate>2026-08-03</pubDate>
-    <category>Füzyon</category>
-    <description>Commonwealth Fusion Systems (CFS), 2021'deki 1,8 milyar dolarlık Series B turundan bu yana füzyon şirketleri arasındaki en büyük tekil finansman turuyla 1 milyar dolar ek özsermaye finansmanı topladığını duyurdu. Şirketin toplam topladığı sermaye 4 milyar dolara ulaştı; bu, füzyon sektöründe bugüne kadar toplanan toplam sermayenin yaklaşık %30'unu oluşturuyor.</description>
+    <title>Mochovce 4. ünite, 34 yıllık gecikmenin ardından kritikliğe ulaştı</title>
+    <link>https://nukleer-enerji-bulteni.site/#/haber/mochovce-4-unite-34-yillik-gecikmenin-ardindan-kritiklige-ulasti</link>
+    <guid isPermaLink="false">mochovce-4-unite-34-yillik-gecikmenin-ardindan-kritiklige-ulasti</guid>
+    <pubDate>2026-08-10</pubDate>
+    <category>Büyük Reaktör Projeleri</category>
+    <description>Slovakya'nın Mochovce santralinde 4. ünite, 6 Ağustos'ta ilk kritikliğe ve asgari kontrollü güce ulaştı. Ünitenin devreye girmesiyle nükleerin Slovakya elektrik tüketimindeki payı %77,5'e çıkarak dünyada en yüksek oran olacak.</description>
   </item>
   <item>
-    <title>Sırbistan, EDF Ortaklığıyla Sivil Nükleer Programının Faz 1'ini Başlattı</title>
-    <link>https://nukleer-enerji-bulteni.site/#/haber/sirbistan-edf-ortakligiyla-sivil-nukleer-programinin-faz-1-ini-baslatt</link>
-    <guid isPermaLink="false">sirbistan-edf-ortakligiyla-sivil-nukleer-programinin-faz-1-ini-baslatt</guid>
-    <pubDate>2026-08-03</pubDate>
+    <title>Finlandiya'nın Onkalo tesisi düzenleyici güvenlik değerlendirmesini geçti</title>
+    <link>https://nukleer-enerji-bulteni.site/#/haber/finlandiya-nin-onkalo-tesisi-duzenleyici-guvenlik-degerlendirmesini-ge</link>
+    <guid isPermaLink="false">finlandiya-nin-onkalo-tesisi-duzenleyici-guvenlik-degerlendirmesini-ge</guid>
+    <pubDate>2026-08-10</pubDate>
+    <category>Atık &amp; Söküm</category>
+    <description>Finlandiya'nın kullanılmış nükleer yakıt için inşa ettiği Onkalo depolama tesisi, ülkenin nükleer düzenleyicisi STUK'un güvenlik değerlendirmesinden geçti. Tesis, Posiva tarafından işletiliyor.</description>
+  </item>
+  <item>
+    <title>DOE, Diablo Canyon'ın uzatılmış işletmesi için 271 milyon dolarlık ödeme yaptı</title>
+    <link>https://nukleer-enerji-bulteni.site/#/haber/doe-diablo-canyon-in-uzatilmis-isletmesi-icin-271-milyon-dolarlik-odem</link>
+    <guid isPermaLink="false">doe-diablo-canyon-in-uzatilmis-isletmesi-icin-271-milyon-dolarlik-odem</guid>
+    <pubDate>2026-08-13</pubDate>
     <category>Politika &amp; Düzenleme</category>
-    <description>Sırbistan Madencilik ve Enerji Bakanı Dubravka Đedović Handanović, EDF ve Fransız Kalkınma Ajansı (AFD) ile Sırbistan'ın sivil nükleer programının 1. Fazını başlatan bir ortaklık anlaşması imzaladı. AFD, kapasite geliştirme için 500.000 avroluk (576.000 dolar) hibe sağlarken, ülke 2040 sonrası için 1.200 MWe nükleer kapasite entegrasyonunu hedefliyor.</description>
+    <description>ABD Enerji Bakanlığı (DOE), Sivil Nükleer Kredi Programı kapsamında PG&amp;E'ye Diablo Canyon santralinin işletmesinin uzatılması için ilk ödemesini yaptı: 271 milyon dolar. Bu, programın Kaliforniya'daki ilk ödemesi oldu.
+
+</description>
+  </item>
+  <item>
+    <title>CNNC, Xuwei'de yüksek sıcaklık reaktörü için 1,5 milyar dolarlık sözleşme sürecini başlatıyor</title>
+    <link>https://nukleer-enerji-bulteni.site/#/haber/cnnc-xuwei-de-yuksek-sicaklik-reaktoru-icin-1-5-milyar-dolarlik-sozles</link>
+    <guid isPermaLink="false">cnnc-xuwei-de-yuksek-sicaklik-reaktoru-icin-1-5-milyar-dolarlik-sozles</guid>
+    <pubDate>2026-08-13</pubDate>
+    <category>Büyük Reaktör Projeleri</category>
+    <description>China National Nuclear Corporation (CNNC), Jiangsu eyaletindeki Xuwei projesinin 3. ünitesi olan 660 MWe yüksek sıcaklık gaz soğutmalı reaktör (HTGR) için mühendislik sözleşmesi tedarikine hazırlanıyor. Sözleşme bedeli 10,3 milyar yuan (1,5 milyar dolar) olarak tahmin ediliyor.</description>
+  </item>
+  <item>
+    <title>Blue Energy ve GE Vernova Hitachi, Teksas'ta 2,5 GW'lık gaz-nükleer projeyi ilerletiyor</title>
+    <link>https://nukleer-enerji-bulteni.site/#/haber/blue-energy-ve-ge-vernova-hitachi-teksas-ta-2-5-gw-lik-gaz-nukleer-pro</link>
+    <guid isPermaLink="false">blue-energy-ve-ge-vernova-hitachi-teksas-ta-2-5-gw-lik-gaz-nukleer-pro</guid>
+    <pubDate>2026-08-12</pubDate>
+    <category>SMR &amp; Mikro Reaktörler</category>
+    <description>Blue Energy ve GE Vernova Hitachi, Victoria, Teksas'ta 2,5 GW'lık gaz-artı-nükleer projesi için mühendislik, lisanslama ve güvenlik analizi aşamasına geçen bir anlaşma imzaladı. Proje, iki gaz türbini ve beşe kadar BWRX-300 küçük modüler reaktör (SMR) içerecek; nihai yatırım kararı 2027'de bekleniyor.</description>
+  </item>
+  <item>
+    <title>Zaporijya santrali bir haftada üçüncü kez tüm dış güç bağlantısını kaybetti</title>
+    <link>https://nukleer-enerji-bulteni.site/#/haber/zaporijya-santrali-bir-haftada-ucuncu-kez-tum-dis-guc-baglantisini-kay</link>
+    <guid isPermaLink="false">zaporijya-santrali-bir-haftada-ucuncu-kez-tum-dis-guc-baglantisini-kay</guid>
+    <pubDate>2026-08-14</pubDate>
+    <category>Güvenlik &amp; Emniyet</category>
+    <description>Zaporijya Nükleer Santrali (ZNPP), 8 Ağustos'ta tüm dış elektrik bağlantısını kaybetti; bu, bir haftada üçüncü kayıp oldu. IAEA Genel Direktörü Rafael Mariano Grossi, santralin kırılgan güvenlik durumuna dikkat çekti.</description>
+  </item>
+  <item>
+    <title>Curio, NuScale ve Framatome, geri dönüştürülmüş SMR yakıtı için ortaklık kurdu</title>
+    <link>https://nukleer-enerji-bulteni.site/#/haber/curio-nuscale-ve-framatome-geri-donusturulmus-smr-yakiti-icin-ortaklik</link>
+    <guid isPermaLink="false">curio-nuscale-ve-framatome-geri-donusturulmus-smr-yakiti-icin-ortaklik</guid>
+    <pubDate>2026-08-10</pubDate>
+    <category>Uranyum &amp; Yakıt Zinciri</category>
+    <description>Curio, NuScale Power ve Framatome, kullanılmış nükleer malzemeyi geri dönüştürerek yeni nesil küçük modüler reaktörler (SMR) için birleşik bir yerli tedarik zinciri kurmak amacıyla bir mutabakat muhtırası (MoU) imzaladı. Curio'nun teknolojisi, kalıntı atık hacmini %97'ye kadar azaltabiliyor.</description>
+  </item>
+  <item>
+    <title>TerraPower ile SK Innovation, küçük modüler reaktör ortaklığını genişletti</title>
+    <link>https://nukleer-enerji-bulteni.site/#/haber/terrapower-ile-sk-innovation-kucuk-moduler-reaktor-ortakligini-genisle</link>
+    <guid isPermaLink="false">terrapower-ile-sk-innovation-kucuk-moduler-reaktor-ortakligini-genisle</guid>
+    <pubDate>2026-08-14</pubDate>
+    <category>SMR &amp; Mikro Reaktörler</category>
+    <description>Bill Gates'in kurduğu TerraPower, Güney Koreli SK Innovation ile küçük modüler reaktör projelerinde iş birliğini genişletecek ön anlaşma imzaladı. Görüşmeye Bill Gates, SK Group Başkanı Chey Tae-won ve Güney Kore Sanayi Bakanı Kim Jung-kwan katıldı.</description>
   </item>
 </channel></rss>
