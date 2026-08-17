@@ -90,17 +90,55 @@ def _gorunum(sayi):
     """Arayüze gönderilecek tek biçimli görünüm (her zaman taslak şeklinde)."""
     govde, tip = _govde(sayi)
     if tip == "draft_json":
-        return govde
+        return _brief_uyum_isaretle(govde)
     lead = govde.get("lead") or {}
     haberler = ([dict(lead, secim="one_cikan")] if lead else []) + \
                [dict(s, secim="one_cikan") for s in (govde.get("stories") or [])]
-    return {
+    # Yayınlanmış gövdede brief maddeleri habere `slug` ile bağlıdır; arayüz
+    # her iki durumda da haber id'siyle çalışsın diye `ref`e çevriliyor.
+    slug2id = {s.get("slug"): s.get("id") for s in haberler if s.get("slug")}
+    brief = [{"text": (m.get("text", "") if isinstance(m, dict) else str(m)),
+              "ref": slug2id.get(m.get("slug")) if isinstance(m, dict) else None}
+             for m in (govde.get("brief") or [])]
+    return _brief_uyum_isaretle({
         "issue": govde.get("issue", {}),
-        "brief": govde.get("brief", []),
+        "brief": brief,
         "lead_id": lead.get("id"),
         "stories": haberler,
         "radar": govde.get("radar", []),
-    }
+    })
+
+
+def _brief_uyum_isaretle(gorunum):
+    """Brief maddesinin metni ile bağlı olduğu haber uyuşuyor mu — uyuşmuyorsa öner.
+
+    ⚠ NEDEN: Hakem "60 Saniyede" maddesinin METNİNİ düzenlediğinde bağlantı
+    ESKİ haberde kalıyor; metin A haberini anlatırken bağlantı B'ye gidiyor.
+    Nükleer Sayı 3'te tam olarak bu oldu (madde 3 ve 4). Sistem bunu sessizce
+    kabul ediyordu, çünkü bağlantı teknik olarak GEÇERLİYDİ.
+
+    Burada uyumsuzluk yakalanıp arayüze "öneri" olarak bildiriliyor.
+    OTOMATİK DEĞİŞTİRİLMİYOR: hakem metni bilerek değiştirmiş olabilir,
+    kararı ona bırakıyoruz — tek tıkla uygulayabiliyor.
+    """
+    try:
+        from pipeline import brief_aday_bul     # ağır modül — yalnızca gerektiğinde
+    except Exception:
+        return gorunum
+
+    haberler = gorunum.get("stories") or []
+    havuz = {s.get("id"): (s.get("title", "") + " " + (s.get("excerpt") or ""))
+             for s in haberler if s.get("id")}
+    baslik = {s.get("id"): s.get("title", "") for s in haberler if s.get("id")}
+
+    for m in (gorunum.get("brief") or []):
+        ref = m.get("ref")
+        aday, skor, degistir = brief_aday_bul(m.get("text", ""), havuz,
+                                              ref if ref in havuz else None)
+        if degistir and aday:
+            m["oneri"] = {"id": aday, "baslik": baslik.get(aday, ""),
+                          "skor": round(skor, 2)}
+    return gorunum
 
 
 def _haber_bul(govde, tip, hid):
@@ -307,6 +345,51 @@ async def gorsel_ayarla(token: str, req: Request):
              {"id": veri.get("id"), "eski": eski, "yeni": url or None})
     return {"ok": True, "image": st["image"],
             "yayinda": sayi["status"] == "published"}
+
+
+@app.post("/api/{token}/brief-link")
+async def brief_baglanti(token: str, req: Request):
+    """'60 Saniyede' maddesinin bağlandığı haberi değiştir (veya bağlantıyı kaldır).
+
+    ⚠ İKİ FARKLI ALAN: taslakta madde habere `ref` (haber id'si) ile bağlanır,
+    yayınlanmış sayıda ise `slug` ile. Hangi gövde üzerinde çalışıyorsak doğru
+    alanı yazıyoruz; yanlışını yazmak bağlantıyı sessizce koparır.
+    """
+    h = _hakem(token)
+    sayi = _aktif_sayi()
+    veri = await req.json()
+    i, hid = veri.get("index"), veri.get("id")     # id=None → bağlantıyı kaldır
+    govde, govde_alani = _govde(sayi)
+
+    maddeler = govde.get("brief") or []
+    if not isinstance(i, int) or not (0 <= i < len(maddeler)):
+        raise HTTPException(400, "Madde bulunamadı")
+    if not isinstance(maddeler[i], dict):
+        maddeler[i] = {"text": str(maddeler[i])}
+
+    if hid is None:
+        maddeler[i].pop("ref", None)
+        maddeler[i].pop("slug", None)
+        maddeler[i]["ref" if govde_alani == "draft_json" else "slug"] = None
+        db.govde_guncelle(sayi["id"], govde_alani, govde)
+        db.logla(sayi["id"], h["ad"], "brief_baglanti", {"index": i, "hedef": None})
+        return {"ok": True, "yayinda": sayi["status"] == "published"}
+
+    st = _haber_bul(govde, govde_alani, hid)
+    if not st:
+        raise HTTPException(400, "Haber bulunamadı")
+
+    if govde_alani == "draft_json":
+        maddeler[i]["ref"] = hid
+    else:
+        if not st.get("slug"):
+            raise HTTPException(400, "Haberin slug'ı yok — bağlanamaz")
+        maddeler[i]["slug"] = st["slug"]
+
+    db.govde_guncelle(sayi["id"], govde_alani, govde)
+    db.logla(sayi["id"], h["ad"], "brief_baglanti",
+             {"index": i, "hedef": hid, "baslik": (st.get("title") or "")[:80]})
+    return {"ok": True, "yayinda": sayi["status"] == "published"}
 
 
 @app.post("/api/{token}/swap")

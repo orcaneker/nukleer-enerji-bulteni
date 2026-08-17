@@ -550,6 +550,47 @@ def benzerlik(a, b):
     return len(ortak) / len(A | B), len(ortak)
 
 
+# ============================================================
+# BRIEF BAĞLANTI EŞLEŞTİRME — tek doğruluk kaynağı
+# ------------------------------------------------------------
+# Hem taslak onarımı (dogrula_taslak) hem inceleme arayüzü uyarısı
+# (review_app) buradan geçer; eşikler tek yerde durur.
+#
+# ⚠ EŞİKLER NEDEN GÖRELİ: Hakem maddeyi KENDİ CÜMLELERİYLE yeniden
+# yazdığında kelime örtüşmesi düşer. Nükleer Sayı 3'te doğru haber
+# yalnızca 0.116 aldı — mutlak eşik (0.30) onu kaçırdı. Oysa sinyal
+# güçlüydü: en yakın rakip 0.029, mevcut (yanlış) bağlantı 0.000.
+# Bu yüzden karar "yeterince yüksek mi" değil, "rakiplerinden ve
+# mevcuttan belirgin şekilde iyi mi" sorusuna dayanıyor.
+# ============================================================
+BRIEF_ESIK = {
+    "taban": 0.10,        # bu kadar bile örtüşme yoksa karar verme
+    "kat_mevcut": 3.0,    # mevcut bağlantıdan en az bu kadar iyi olmalı
+    "kat_rakip": 2.0,     # ikinci adaydan da ayrışmalı (belirsizse dokunma)
+}
+
+
+def brief_aday_bul(metin, havuz, mevcut_ref=None):
+    """(aday_id, skor, degistir_mi) — maddeye en uygun haberi seç.
+
+    havuz: {haber_id: "başlık + özet"} — özet dahil, çünkü brief maddesi
+    çoğunlukla oradan türetilir ve sinyalin büyük kısmı özettedir.
+    """
+    sirali = sorted(((benzerlik(metin, t)[0], sid) for sid, t in havuz.items()),
+                    reverse=True)
+    if not sirali:
+        return None, 0.0, False
+    skor, aday = sirali[0]
+    rakip = sirali[1][0] if len(sirali) > 1 else 0.0
+    mevcut = benzerlik(metin, havuz.get(mevcut_ref, ""))[0] if mevcut_ref else 0.0
+
+    yeterli = (skor >= BRIEF_ESIK["taban"]
+               and skor >= max(rakip, 0.001) * BRIEF_ESIK["kat_rakip"])
+    degistir = (yeterli and aday != mevcut_ref
+                and skor >= max(mevcut, 0.01) * BRIEF_ESIK["kat_mevcut"])
+    return aday, skor, degistir
+
+
 def teyit_ara(olaylar, adaylar):
     """Tüm kaynakları duvarlı olan olaylar için erişilebilir kaynak ara.
     Bulunursa olay yazılabilir hale gelir ama 'ikinci_el' işaretlenir."""
@@ -1539,6 +1580,47 @@ def dogrula_taslak(b, kapsam_bas=None, kapsam_bit=None):
         else:
             yeni_brief.append({"text": m.get("text", ""), "ref": m.get("ref")})
     b["brief"] = yeni_brief
+    # --- brief bağlantı onarımı ---
+    # Üç kusur yakalanır: BOŞ, GEÇERSİZ/MÜKERRER ve GEÇERLİ AMA YANLIŞ bağlantı.
+    # Sonuncusu en sinsisi — ref gerçek bir habere işaret eder ama yanlış habere;
+    # yalnızca "boş mu?" diye bakan bir kontrol onu kaçırır.
+    # Eşikler ve eşleştirme mantığı brief_aday_bul()'da (tek kaynak).
+    baslik = {s.get("id"): s.get("title", "") for s in stories if s.get("id")}
+    havuz = {s.get("id"): (s.get("title", "") + " " + (s.get("excerpt") or ""))
+             for s in stories if s.get("id")}
+
+    kullanilan = set()
+    for i, m in enumerate(b["brief"], 1):
+        ref = m.get("ref")
+        gecersiz = ref is not None and ref not in havuz
+        mukerrer = ref is not None and ref in kullanilan
+        gecerli_ref = ref if (ref and not gecersiz and not mukerrer) else None
+        aday, skor, degistir = brief_aday_bul(m.get("text", ""), havuz, gecerli_ref)
+
+        if gecerli_ref:
+            if degistir and aday not in kullanilan:
+                m["ref"] = aday
+                kullanilan.add(aday)
+                hatalar.append(f"brief {i}: yanlış bağlantı düzeltildi → "
+                               f"{baslik[aday][:40]} (eşleşme {skor:.2f})")
+            else:
+                kullanilan.add(gecerli_ref)
+            continue
+
+        if aday and aday not in kullanilan and skor >= BRIEF_ESIK["taban"] and degistir:
+            m["ref"] = aday
+            kullanilan.add(aday)
+            sebep = "mükerrer" if mukerrer else "geçersiz" if gecersiz else "boş"
+            hatalar.append(f"brief {i}: {sebep} bağlantı onarıldı → "
+                           f"{baslik[aday][:40]} (eşleşme {skor:.2f})")
+        elif ref:
+            m["ref"] = None
+            hatalar.append(f"brief {i}: {'mükerrer' if mukerrer else 'geçersiz'} "
+                           f"bağlantı kaldırıldı (uygun haber bulunamadı)")
+        else:
+            hatalar.append(f"brief {i}: bağlantısız — eşleşen haber bulunamadı "
+                           f"(en iyi aday {skor:.2f})")
+
     return hatalar
 
 
