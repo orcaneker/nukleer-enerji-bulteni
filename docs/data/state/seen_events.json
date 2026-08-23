@@ -1,5 +1,5 @@
 {
-  "issue_no": 3,
+  "issue_no": 4,
   "events": [
     {
       "baslik_ozet": "Rosatom yetkilisi: Akkuyu, Türkiye'nin 2053 karbon nötr hedefini destekleyecek",
@@ -120,6 +120,46 @@
     {
       "baslik_ozet": "TerraPower ile SK Innovation, küçük modüler reaktör ortaklığını genişletti",
       "hafta": "2026-H33"
+    },
+    {
+      "baslik_ozet": "Zaporijya Nükleer Santrali askeri faaliyet nedeniyle tüm dış gücünü kaybetti",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "TerraPower, Natrium reaktör filosu için Hyundai E&C'yi EPC yüklenicisi seçti",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "Blue Energy ve GE Vernova, Texas'ta 2,5 GW'lık gaz-nükleer hibrit projeyi ilerletti",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "Urenco, New Mexico'da 2,1 milyon SWU'luk zenginleştirme kapasitesi için temel attı",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "Çin, Hualong One-HTGR hibrit Xuwei nükleer projesinin ilk fazını onayladı",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "Commonwealth Fusion Systems, 1 milyar dolarlık ek finansmanla 4 milyar dolara ulaştı",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "İspanya, Almaraz santralinin işletme lisansını 2030'a kadar uzattı",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "Putin, Rusya'nın uzun vadede 30 gigavatlık yeni nükleer kapasite kuracağını açıkladı",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "SMR hisselerinden 30,3 milyar dolar buharlaştı: yatırımcılar somut takvim istiyor",
+      "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "ABD Enerji Bakanlığı, Diablo Canyon'ın uzatılmış işletmesi için 271 milyon dolar aktardı",
+      "hafta": "2026-H34"
     }
   ],
   "urls": [
@@ -265,6 +305,62 @@
     "https://ans.org/news/article-8285/calif-officials-urge-diablo-canyon-extension-but-newsom-holding-off",
     "https://aa.com.tr/en/energy/electricity/turkiye-seeks-stonger-gulf-electricity-ties-through-regional-power-corridor/58954",
     "https://power-eng.com/business/can-sco%E2%82%82-based-brayton-cycle-generators-help-solve-the-data-center-power-problem",
-    "https://energy-storage.news/multi-day-energy-storage-startup-noon-energy-makes-1gw-us-ai-infrastructure-deployment-agreement"
+    "https://energy-storage.news/multi-day-energy-storage-startup-noon-energy-makes-1gw-us-ai-infrastructure-deployment-agreement",
+    "https://iaea.org/newscenter/pressreleases/update-363-iaea-director-general-statement-on-situation-in-ukraine",
+    "https://neimagazine.com/news/military-activity-cuts-znpp-power",
+    "https://aa.com.tr/en/eurasia/zaporizhzhia-nuclear-plant-loses-external-power-switches-to-backup-generators/4032891",
+    "https://nucnet.org/news/iaea-reports-new-loss-of-offsite-power-at-zaporizhzhya-nuclear-power-station-8-4-2026",
+    "https://power-eng.com/nuclear/bill-gates-terrapower-hopes-to-accelerate-natrium-reactor-deployment-with-two-new-collaborations",
+    "https://neimagazine.com/news/terrapower-builds-korean-natrium-alliance",
+    "https://world-nuclear-news.org/articles/blue-energy-ge-vernova-take-gas-plus-nuclear-collaboration-to-next-stage",
+    "https://ans.org/news/article-8301/agreement-advances-texas-gasplusnuclear-concept-to-next-phase",
+    "https://datacenterdynamics.com/en/news/blue-energy-ge-vernova-hitachi-advance-25gw-gas-plus-nuclear-plant-in-texas-to-power-up-to-15gw-data-center",
+    "https://neimagazine.com/news/blue-energy-advances-texas-hybrid-project",
+    "https://world-nuclear-news.org/articles/urenco-breaks-ground-for-new-enrichment-capacity",
+    "https://nucnet.org/news/urenco-usa-holds-groundbreaking-for-new-mexico-uranium-enrichment-facility-expansion-8-5-2026",
+    "https://ans.org/news/article-8311/nrc-opens-defines-hearing-opportunity-for-oranos-project-ike",
+    "https://neimagazine.com/news/china-approves-xuwei-phase-i",
+    "https://datacenterdynamics.com/en/news/google-backed-fusion-firm-cfs-raises-1bn-in-equity-financing",
+    "https://neimagazine.com/news/spain-delays-almaraz-shutdown",
+    "https://enerjigunlugu.net/ispanya-almaraz-nukleer-santralini-erken-kapatmaktan-vazgecti-69453h.htm",
+    "https://aa.com.tr/tr/dunya/putin-rusyanin-30-gigavatlik-yeni-nukleer-enerji-kapasitesi-kuracagini-soyledi/4033211",
+    "https://dunya.com/dunya/putin-duyurdu-30-gigavatlik-nukleer-kapasite-kurulacak-haberi-837087",
+    "https://dunya.com/finans/haberler/yapay-zekanin-nukleer-ruyasi-sondu-30-milyar-dolar-buharlasti-haberi-836706",
+    "https://world-nuclear-news.org/articles/india-begins-public-consultation-on-shanti-bill-rules",
+    "https://neimagazine.com/news/india-publishes-draft-shanti-act-rules",
+    "https://nucnet.org/news/pg-and-e-receives-usd271-million-federal-payment-for-diablo-canyon-extended-operation-8-2-2026",
+    "https://neimagazine.com/news/federal-funding-supports-diablo-canyon",
+    "https://ans.org/news/article-8298/diablo-canyon-receives-partial-civil-nuclear-credit-payment",
+    "https://neimagazine.com/news/el-dabaa-expansion-planned",
+    "https://nucnet.org/news/egypt-planning-to-add-two-more-nuclear-units-at-el-dabaa-says-minister-8-3-2026",
+    "https://world-nuclear-news.org/articles/fanco-advances-engagement-with-regulator-on-haleu-plant",
+    "https://ans.org/news/article-8308/fanco-informs-nrc-of-its-intent-to-build-haleu-fuel-fabrication-facility",
+    "https://neimagazine.com/news/fanco-advances-haleu-fuel-facility",
+    "https://neimagazine.com/news/kaleidos-moves-to-idaho-test-facility",
+    "https://enerjigunlugu.net/terrapower-ve-sk-innovation-smr-projelerinde-birlikte-calisacak-69437h.htm",
+    "https://datacenterdynamics.com/en/news/first-of-its-kind-50mw-smr-powered-data-center-planned-in-uzbekistan",
+    "https://gov.uk/government/publications/small-modular-reactor-technology-partner-summary-business-case",
+    "https://aa.com.tr/en/eurasia/russia-to-build-small-nuclear-power-plant-in-myanmar-as-symbol-of-friendship/4030520",
+    "https://kairospower.com/updates/kairos-power-announces-new-collaboration-to-advance-nuclear-manufacturing-construction-and-workforce-development-in-east-tennessee",
+    "https://world-nuclear-news.org/articles/hot-tests-completed-at-third-haiyang-unit",
+    "https://world-nuclear-news.org/articles/doosan-enerbility-contracted-for-natrium-components",
+    "https://world-nuclear-news.org/articles/further-chinese-order-for-doosan-enerbility-forgings",
+    "https://world-nuclear-news.org/articles/passive-safety-module-installed-at-zhangzhou-4",
+    "https://neimagazine.com/news/nuclea-energy-acquires-moltex-portfolio",
+    "https://datacenterdynamics.com/en/news/oklo-partners-with-idaho-national-lab-to-use-ai-for-advanced-reactor-and-fuel-system-design",
+    "https://ans.org/news/article-8323/panelists-talk-domestic-enrichment-expansion-at-global-2026",
+    "https://world-nuclear-news.org/articles/ur-energy-makes-first-shipment-from-wyoming-uranium-project",
+    "https://neimagazine.com/news/list-acquires-oak-ridge-isotope-facility",
+    "https://utilitydive.com/news/dukes-carolinas-resource-plan-solar-gas-nuclear/828402",
+    "https://datacenterdynamics.com/en/news/nextera-raises-data-center-forecast-to-8gw-by-2032-at-florida-subsidiary-fpl",
+    "https://iter.org/fr/mag/4/plus-grand-meccano-monde",
+    "https://neimagazine.com/analysis/decommissioning-wastemanagement/jet-and-future-fusion-decommissioning",
+    "https://neimagazine.com/news/fukushima-2-fuel-removal-begins",
+    "https://ans.org/news/article-8315/new-lab-at-ornl-speeds-up-u233-cleanup-ac225-delivery",
+    "https://gov.uk/government/news/latest-crane-lifts-mark-major-progress-on-sixep-continuity-plant",
+    "https://aa.com.tr/en/europe/bulgarias-kozloduy-nuclear-plant-cuts-output-because-of-danube-drought/4033319",
+    "https://iaea.org/newscenter/pressreleases/joint-statement-by-the-minister-of-foreign-affairs-and-expatriates-of-the-syrian-arab-republic-and-the-director-general-of-the-international-atomic-energy-agency",
+    "https://oecd-nea.org/jcms/pl_121251/nuclear-energy-agency-and-the-united-states-to-convene-global-leaders-for-roadmaps-to-new-nuclear-2026",
+    "https://ekonomim.com/sektorler/enerji/akkuyu-ngs-sahasinda-ikinci-itfaiye-istasyonu-hizmete-alindi-haberi-913237"
   ]
 }
