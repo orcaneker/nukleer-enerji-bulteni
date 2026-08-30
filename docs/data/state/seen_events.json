@@ -1,5 +1,5 @@
 {
-  "issue_no": 4,
+  "issue_no": 5,
   "events": [
     {
       "baslik_ozet": "Rosatom yetkilisi: Akkuyu, Türkiye'nin 2053 karbon nötr hedefini destekleyecek",
@@ -160,6 +160,42 @@
     {
       "baslik_ozet": "ABD Enerji Bakanlığı, Diablo Canyon'ın uzatılmış işletmesi için 271 milyon dolar aktardı",
       "hafta": "2026-H34"
+    },
+    {
+      "baslik_ozet": "Vietnam Meclisi, Rosatom'un 2.400 MWe'lik Ninh Thuận 1 projesini onayladı",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "ABD Ordusu, Janus Programı'nda 5 şirkete 2,2 milyar dolarlık mikroreaktör sözleşmesi verdi",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "Westinghouse'un eVinci mikroreaktörü Nevada'da sıfır güç kritikliğine ulaştı",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "Trump, ABD-Suudi Arabistan nükleer işbirliği anlaşmasını Kongre'ye sundu",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "Fransa, Gravelines'te ikinci EPR2 çifti için saha hazırlığına onay verdi",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "TRISO-X, Oak Ridge'deki yakıt fabrikasında inşaatın yeni aşamasına geçti",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "Bakan Bayraktar: Enerjide dışa bağımlılık kademeli olarak azaltılacak",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "Akkuyu 2. ünitede VVER-1200 birincil devre kaynak işlemleri tamamlandı",
+      "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "Pacific Fusion, 2030 hedefiyle 1 milyar dolarlık gösterim tesisinin temelini attı",
+      "hafta": "2026-H35"
     }
   ],
   "urls": [
@@ -361,6 +397,59 @@
     "https://aa.com.tr/en/europe/bulgarias-kozloduy-nuclear-plant-cuts-output-because-of-danube-drought/4033319",
     "https://iaea.org/newscenter/pressreleases/joint-statement-by-the-minister-of-foreign-affairs-and-expatriates-of-the-syrian-arab-republic-and-the-director-general-of-the-international-atomic-energy-agency",
     "https://oecd-nea.org/jcms/pl_121251/nuclear-energy-agency-and-the-united-states-to-convene-global-leaders-for-roadmaps-to-new-nuclear-2026",
-    "https://ekonomim.com/sektorler/enerji/akkuyu-ngs-sahasinda-ikinci-itfaiye-istasyonu-hizmete-alindi-haberi-913237"
+    "https://ekonomim.com/sektorler/enerji/akkuyu-ngs-sahasinda-ikinci-itfaiye-istasyonu-hizmete-alindi-haberi-913237",
+    "https://neimagazine.com/news/vietnam-approves-ninh-thuan",
+    "https://asia.nikkei.com/business/energy/vietnam-s-parliament-approves-first-nuclear-project",
+    "https://info.westinghousenuclear.com/news/westinghouse-evinci-microreactor-selected-for-u.s.-army-janus-project",
+    "https://powermag.com/u-s-army-mobilizes-2-2b-janus-program-to-deploy-more-than-20-commercial-microreactors",
+    "https://world-nuclear-news.org/articles/us-army-selects-five-microreactor-vendors-to-power-bases",
+    "https://utilitydive.com/news/us-army-selects-5-companies-to-deploy-microreactors-at-military-installatio/828974",
+    "https://info.westinghousenuclear.com/poland/news-and-insights/mikroreaktor-westinghouse-evinci-osi%C4%85ga-stan-krytyczny-przy-zerowej-mocy",
+    "https://powermag.com/westinghouse-evinci-reaches-criticality-milestone-at-nevada-test-site",
+    "https://world-nuclear-news.org/articles/criticality-testing-milestone-for-westinghouses-evinci-microreactor",
+    "https://cnbc.com/2026/08/26/trump-saudi-nuclear-agreement-congress-iran-deal-.html",
+    "https://energyintel.com/0000019f-d76c-d314-a19f-d7eff8ce0000",
+    "https://world-nuclear-news.org/articles/second-epr-site-authorised-for-site-preparations",
+    "https://x-energy.com/news/triso-x-advances-to-next-phase-of-construction-for-tx-1-fuel-fabrication-facility",
+    "https://ekonomim.com/ekonomi/bakan-bayraktar-10-bin-ton-altini-ekonomiye-kazandirmak-durumundayiz-haberi-914798",
+    "https://world-nuclear-news.org/articles/welding-of-akkuyu-2s-primary-circuit-completed",
+    "https://ekonomim.com/sektorler/enerji/akkuyu-ngsnin-2-unitesinde-onemli-adim-kaynak-calismalari-tamamlandi-haberi-914606",
+    "https://heatmap.news/climate-tech/pacific-fusion-net-energy",
+    "https://nature.com/articles/d41586-026-02620-3",
+    "https://world-nuclear-news.org/articles/pacific-fusion-breaks-ground-on-new-mexico-facility",
+    "https://neimagazine.com/news/groundbreaking-for-pacific-fusion-campus",
+    "https://gevernova.com/news/articles/whiteboard-idea-rewriting-future-nuclear-power",
+    "https://neimagazine.com/news/netherlands-signs-feed-study-contracts",
+    "https://world-nuclear-news.org/articles/reactor-technology-selection-process-progresses-in-netherlands",
+    "https://asiaconnectmagazine.com/japan-backs-fusion-recycling-startups-in-125m-public-private-funding",
+    "https://asia.nikkei.com/business/startups/japan-backs-fusion-recycling-startups-in-125m-public-private-funding",
+    "https://utilitydive.com/news/what-a-billion-dollar-funding-means-for-commonwealth-fusion-systems-and-its/828515",
+    "https://neimagazine.com/news/kf-boosts-fusion-infrastructure-funding",
+    "https://datacenterdynamics.com/en/news/nano-nuclear-partners-with-tillman-digital-to-deploy-micro-nuclear-reactors-at-us-ai-data-centers",
+    "https://power-eng.com/nuclear/new-collaboration-targets-up-to-6-gw-of-new-nuclear-for-data-centers",
+    "https://holtecinternational.com/hh-41-16",
+    "https://neimagazine.com/news/capital-raise-for-compact-pwrs",
+    "https://neimagazine.com/news/myanmar-advances-smr-plans",
+    "https://neimagazine.com/news/blykalla-seeks-second-reactor-park",
+    "https://world-nuclear-news.org/articles/niger-awards-arlit-uranium-mining-permit-to-state-owned-company",
+    "https://world-nuclear-news.org/articles/atomic-eagle-reaches-agreement-on-niger-uranium-project",
+    "https://neimagazine.com/news/gao-flags-gaps-in-us-enrichment",
+    "https://neimagazine.com/news/nano-qni-target-future-haleu",
+    "https://neimagazine.com/news/radiant-locks-in-triso-fuel-supply",
+    "https://world-nuclear-news.org/articles/new-realities-for-kazatomprom-as-demand-accelerates",
+    "https://world-nuclear-news.org/articles/rosatom-and-egypt-discuss-more-potential-units",
+    "https://fortum.com/en/media/2026/08/fortum-owned-project-company-nucore-energi-ab-initiates-discussions-framework-new-nuclear-sweden",
+    "https://neimagazine.com/news/russia-prepares-for-primorsky-npp",
+    "https://spectrum.ieee.org/spain-nuclear-power-reactor-shutdowns",
+    "https://nucnet.org/news/two-paks-reactor-units-return-to-nominal-power-as-danube-river-levels-rise-8-1-2026",
+    "https://neimagazine.com/news/nuclearelectrica-ceo-resigns",
+    "https://world-nuclear-news.org/articles/multinational-support-for-atlas-mritime-nuclear-initiative",
+    "https://iaea.org/newscenter/pressreleases/iaea-launches-atlas-as-countries-explore-nuclear-power-for-shipping-and-offshore-energy",
+    "https://world-nuclear-news.org/articles/core-power-teams-up-with-us-administration-on-maritime-nuclear",
+    "https://heatmap.news/climate-tech/marathon-fusion-lithium-tritium",
+    "https://ans.org/news/article-8335/inertia-and-llnl-accelerate-fuel-manufacturing",
+    "https://neimagazine.com/news/ai-set-to-transform-fuel-recycling",
+    "https://neimagazine.com/news/bruce-power-clears-lu-177-hotcell",
+    "https://powermag.com/nric-adds-13-projects-to-nuclear-energy-launch-pad-expanding-advanced-reactor-and-fuel-cycle-pipeline"
   ]
 }
