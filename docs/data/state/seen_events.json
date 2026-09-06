@@ -1,5 +1,5 @@
 {
-  "issue_no": 5,
+  "issue_no": 6,
   "events": [
     {
       "baslik_ozet": "Rosatom yetkilisi: Akkuyu, Türkiye'nin 2053 karbon nötr hedefini destekleyecek",
@@ -196,6 +196,42 @@
     {
       "baslik_ozet": "Pacific Fusion, 2030 hedefiyle 1 milyar dolarlık gösterim tesisinin temelini attı",
       "hafta": "2026-H35"
+    },
+    {
+      "baslik_ozet": "Rosatom, Kazakistan'ın ilk santrali Balkhash için 14,4 milyar dolarlık EPC imzaladı",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "Akkuyu 1. ünite birkaç ay içinde ilk elektriği üretecek",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "ABD'de kömür acil emirle çalışırken nükleere sadece söz veriliyor",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "Studsvik, GE Vernova Hitachi ve Samsung C&T ile 1,2 GW BWRX-300 anlaşması",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "ABD Ordusu 2,2 milyar dolarlık Janus mikroreaktör programını başlattı",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "Palisades'te yakıt yüklemesi başladı; ABD'de ilk santral yeniden başlıyor",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "DOE'nin Launch Pad programı 12 reaktör ve yakıt projesini destekliyor",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "TEPCO'nun 1.356 MW'lık Unit 6'sı Fukushima sonrası ilk kez yeniden başladı",
+      "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "Kanada'nın ilk taşınabilir nükleer santrali için New Brunswick'te niyet mektubu",
+      "hafta": "2026-H36"
     }
   ],
   "urls": [
@@ -450,6 +486,59 @@
     "https://ans.org/news/article-8335/inertia-and-llnl-accelerate-fuel-manufacturing",
     "https://neimagazine.com/news/ai-set-to-transform-fuel-recycling",
     "https://neimagazine.com/news/bruce-power-clears-lu-177-hotcell",
-    "https://powermag.com/nric-adds-13-projects-to-nuclear-energy-launch-pad-expanding-advanced-reactor-and-fuel-cycle-pipeline"
+    "https://powermag.com/nric-adds-13-projects-to-nuclear-energy-launch-pad-expanding-advanced-reactor-and-fuel-cycle-pipeline",
+    "https://ekonomim.com/sektorler/enerji/bakan-bayraktar-tarih-verdi-akkuyudan-ilk-nukleer-elektrik-icin-geri-sayim-haberi-915176",
+    "https://bloomberght.com/cumhurbaskani-erdogan-yeni-nukleer-santraller-icin-adim-atacagiz-3787029",
+    "https://dunya.com/gundem/erdogan-ve-putin-biskekte-bir-araya-geldi-erdogan-akkuyu-acilinca-yeni-santraller-icin-de-adim-atacagiz-haberi-838367",
+    "https://aa.com.tr/tr/ekonomi/bakan-bayraktar-enerji-guvenligi-ile-enerji-donusumu-birlikte-ilerlemek-zorunda/4047159",
+    "https://ekonomim.com/sektorler/enerji/bayraktar-acikladi-turkiye-enerji-donusumunde-yeni-doneme-hazirlaniyor-haberi-916245",
+    "https://powermag.com/coal-got-an-order-nuclear-got-a-meeting",
+    "https://ans.org/news/2026-09-04/article-8369/us-house-discusses-new-nuclear-reactors-permitting-reform-bills",
+    "https://gevernova.com/news/press-releases/studsvik-ge-vernova-hitachi-samsung-ct-commit-advancing-12-gw-nuclear-power-project",
+    "https://neimagazine.com/news/fortum-seeks-swedish-nuclear-aid",
+    "https://powermag.com/studsvik-selects-ge-vernova-hitachi-samsung-ct-for-1-2-gw-swedish-bwrx-300-project",
+    "https://nucnet.org/news/studsvik-signs-agreement-on-development-of-four-smr-nuclear-plants-in-sweden-9-4-2026",
+    "https://ans.org/news/2026-09-03/article-8366/studsvik-announces-partnership-to-deploy-four-bwrx300s-in-sweden",
+    "https://power-eng.com/nuclear/smrs/inside-the-u-s-armys-2b-plan-to-build-microreactors-at-five-bases",
+    "https://holtecinternational.com/hh-47-17",
+    "https://world-nuclear-news.org/articles/fuel-loading-under-way-for-palisades-restart-holtec-announces",
+    "https://nucnet.org/news/fuel-loading-process-begins-as-palisades-nears-return-to-power-generation-8-1-2026",
+    "https://ans.org/news/article-8355/fuel-loading-process-begins-at-palisades",
+    "https://powermag.com/saeul-3s-nine-year-nuclear-odyssey-to-operation",
+    "https://aa.com.tr/tr/ekonomi/turkiyenin-enerji-donusumune-200-milyar-dolar-yatirim-ongoruluyor/4042448",
+    "https://dunya.com/enerji/turkiyenin-enerjide-200-milyar-dolarlik-yol-haritasi-aciklandi-haberi-838207",
+    "https://world-nuclear-news.org/articles/rosatom-signs-epc-contract-for-kazakhstan-nuclear-plant",
+    "https://aa.com.tr/en/asia-pacific/russia-signs-contract-to-build-kazakhstan-s-1st-nuclear-power-plant/4046063",
+    "https://world-nuclear-news.org/articles/us-launch-pad-supports-reactor-and-fuel-projects",
+    "https://neimagazine.com/news/lightbridge-accelerates-fuel-facility-plans",
+    "https://ans.org/news/article-8367/ravenflint-u-conversion-plans-land-on-nrc-docket-in-launch-pad",
+    "https://powermag.com/reactor-restart-rekindling-japans-nuclear-renaissance",
+    "https://neimagazine.com/news/canada-plans-first-tnpp",
+    "https://world-nuclear-news.org/articles/proposal-for-canadian-marine-based-SMR-plant",
+    "https://neimagazine.com/news/antares-locks-in-fuel-for-microreactors",
+    "https://world-nuclear-news.org/Uranium-Fuel",
+    "https://interestingengineering.com/energy/raven-flint-doe-second-us-uranium-conversion-plant",
+    "https://world-nuclear-news.org/articles/india-and-uzbekistan-eye-uranium-deal-as-ties-grow",
+    "https://world-nuclear-news.org/articles/helical-selected-for-japanese-fusion-demonstration-project",
+    "https://ans.org/news/2026-09-03/article-8363/realta-fusions-utility-partnership-boosts-fusion-energy-in-wisconsin",
+    "https://world-nuclear-news.org/articles/tennessee-issues-licence-for-fusion-plant",
+    "https://world-nuclear-news.org/articles/fusions-lessons-from-fission-as-commercial-deployments-approach",
+    "https://neimagazine.com/news/marathon-in-fusion-fuel-cycle-breakthrough",
+    "https://neimagazine.com/news/akkuyu-2-completes-mcp-welds",
+    "https://aa.com.tr/tr/bilim-teknoloji/bakan-bayraktar-tr-2-arastirma-reaktorunun-yeniden-lisanslandigini-bildirdi/4047592",
+    "https://dunya.com/ekonomi/bakan-bayraktar-duyurdu-2028de-17-milyon-haneye-yerli-gaz-ulasacak-haberi-838137",
+    "https://iea.org/news/turkiye-can-build-on-strong-energy-foundations-to-meet-rising-demand-new-iea-review-says",
+    "https://f.aa.com.tr/tr/bilim-teknoloji/baykar-yonetim-kurulu-baskani-selcuk-bayraktardan-kucuk-moduler-reaktor-aciklamasi/4047641",
+    "https://world-nuclear-news.org/articles/blykalla-seeks-state-aid-for-second-smr-plant",
+    "https://terrapower.com/TerraPower-Awards-Next-Round-of-Vendor-Contracts-for-Natrium-Reactor-Advances-Supply-Chain-for-Kemmerer-Unit-1",
+    "https://world-nuclear-news.org/articles/siemens-energy-to-produce-rolls-royce-smr-turbines-in-the-uk",
+    "https://world-nuclear-news.org/articles/uzbekistan-aims-to-boost-localisation-in-nuclear-plant-construction-work",
+    "https://ans.org/news/2026-09-04/article-8326/westinghouse-nordion-and-pseg-team-up-to-produce-co60-in-the-united-states",
+    "https://utilitydive.com/news/pjm-oklo-advanced-nuclear-ferc-interconnection/829150",
+    "https://ans.org/news/article-8351/posiva-begins-drilling-disposal-holes-at-finlands-onkalo-repository",
+    "https://neimagazine.com/news/argentina-tests-atucha-ii-dry-storage",
+    "https://ans.org/news/2026-09-04/article-8368/nrc-proposes-rule-for-decommissioning-timelines-groundwater-protection",
+    "https://dunya.com/gundem/suriyenin-gizli-nukleer-dosyasi-acildi-iaea-reaktoru-dogruladi-haberi-838428",
+    "https://iaea.org/newscenter/pressreleases/tritium-level-far-below-japans-operational-limit-in-23rd-batch-of-alps-treated-water-iaea-confirms"
   ]
 }
