@@ -1,5 +1,5 @@
 {
-  "issue_no": 6,
+  "issue_no": 7,
   "events": [
     {
       "baslik_ozet": "Rosatom yetkilisi: Akkuyu, Türkiye'nin 2053 karbon nötr hedefini destekleyecek",
@@ -232,6 +232,42 @@
     {
       "baslik_ozet": "Kanada'nın ilk taşınabilir nükleer santrali için New Brunswick'te niyet mektubu",
       "hafta": "2026-H36"
+    },
+    {
+      "baslik_ozet": "DOE, Duane Arnold santralinin yeniden açılışı için 1,9 milyar dolarlık krediyi kapattı",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "Kazakistan, Rosatom liderliğinde ilk nükleer santrali için EPC sözleşmesini imzaladı",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "Google, Fortum ile Loviisa nükleer santralinden 22 yıllık elektrik alım anlaşması imzaladı",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "TENMAK, toryum kullanımı için Danimarkalı Copenhagen Atomics ile mutabakat imzaladı",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "IAEA arabuluculuğundaki yerel ateşkesle Zaporijya santraline dış elektrik döndü",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "KAERI, Saltfoss'un yüzer erimiş tuz reaktörü için 2,26 milyon dolarlık sözleşme imzaladı",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "Orano CEO'su Moğolistan projesinden yıllık milyonlarca libre uranyum üretimi bekliyor",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "ABD Ordusu, Janus Programı kapsamında beş üsse mikroreaktör için 2,2 milyar dolar ayırdı",
+      "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "AB Komisyonu, tıbbi radyoizotop tedarikini güvence altına alacak Radyoizotop Vadisi Girişimi'ni sundu",
+      "hafta": "2026-H37"
     }
   ],
   "urls": [
@@ -539,6 +575,63 @@
     "https://neimagazine.com/news/argentina-tests-atucha-ii-dry-storage",
     "https://ans.org/news/2026-09-04/article-8368/nrc-proposes-rule-for-decommissioning-timelines-groundwater-protection",
     "https://dunya.com/gundem/suriyenin-gizli-nukleer-dosyasi-acildi-iaea-reaktoru-dogruladi-haberi-838428",
-    "https://iaea.org/newscenter/pressreleases/tritium-level-far-below-japans-operational-limit-in-23rd-batch-of-alps-treated-water-iaea-confirms"
+    "https://iaea.org/newscenter/pressreleases/tritium-level-far-below-japans-operational-limit-in-23rd-batch-of-alps-treated-water-iaea-confirms",
+    "https://energy.gov/articles/energy-department-closes-19-billion-loan-restart-duane-arnold-nuclear-plant",
+    "https://power-eng.com/nuclear/duane-arnolds-nuclear-restart-in-eastern-iowa-gets-1-9b-boost-from-doe",
+    "https://datacenterdynamics.com/en/news/nextera-secures-19bn-loan-from-us-doe-to-support-restart-of-the-duane-arnold-nuclear-power-plant-in-linn-county-iowa",
+    "https://powermag.com/doe-closes-1-9-billion-loan-to-restart-duane-arnold-nuclear-plant",
+    "https://neimagazine.com/news/kazakhstan-formalises-first-npp",
+    "https://fortum.com/en/media/2026/09/inside-information-fortum-and-google-partner-drive-sustainable-growth-finland-sign-nuclear-power-purchase-agreement",
+    "https://theregister.com/on-prem/2026/09/09/google-takes-the-nuclear-option-for-13b-finland-expansion/5295306",
+    "https://datacenterdynamics.com/en/news/google-signs-nuclear-ppa-with-fortum-in-loviisa-finland",
+    "https://montelnews.com/news/9042d25c-0aa7-4867-b798-34bf3fba89ff/google-deal-gives-long-term-certainty-for-nuclear-fortum-ceo",
+    "https://fortum.com/fi/media/2026/09/sisapiiritieto-fortum-ja-google-vauhdittavat-kestavaa-kasvua-suomessa-yhtiot-ovat-allekirjoittaneet-ydinvoimaa-koskevan-sahkonostosopimuksen-ppa",
+    "https://neimagazine.com/news/google-ppa-boosts-loviisa-life-ex",
+    "https://heatmap.news/am/google-nuclear-fortum",
+    "https://dunya.com/is-dunyasi/google-avrupadaki-en-buyuk-yatirimini-finlandiyada-yapacak-haberi-839432",
+    "https://aa.com.tr/en/energy/nuclear/turkiye-signs-cooperation-deal-with-danish-company-to-use-thorium-reserves-in-nuclear-technology/59463",
+    "https://montelnews.com/tr/news/07c1ca85-594d-46df-88bb-f8af52e18523/tenmak-ile-copenhagen-atomics-mutabakat-zapti-imzaladi",
+    "https://dunya.com/ekonomi/turkiye-toryum-icin-harekete-gecti-yeni-donem-basliyor-haberi-839023",
+    "https://enerjigunlugu.net/turkiye-toryumdan-nukleer-yakit-elde-etmenin-pesinde-69710h.htm",
+    "https://iaea.org/newscenter/pressreleases/update-366-iaea-director-general-statement-on-situation-in-ukraine",
+    "https://world-nuclear-news.org/articles/zaporizhzhia-reconnected-to-external-power-after-18-days",
+    "https://ans.org/news/2026-09-09/article-8377/zaporizhzhia-restores-offsite-power-following-iaeabrokered-local-ceasefire",
+    "https://neimagazine.com/news/kaeri-backs-saltfosss-floating-nuclear-ambitions",
+    "https://world-nuclear-news.org/articles/orano-ceo-confident-bet-on-mongolian-production",
+    "https://ans.org/news/article-8374/fia-white-paper-guides-agreement-states-on-fusion-regulation",
+    "https://neimagazine.com/news/centrus-radiant-sign-haleu-deal",
+    "https://world-nuclear-news.org/articles/centrus-to-supply-radiant-with-microreactor-fuel",
+    "https://nucnet.org/news/centrus-signs-haleu-supply-contract-for-radiant-microreactors-9-3-2026",
+    "https://proximafusion.com/press-news/lower-saxony-sign-mou-first-large-scale-fusion-grade-hts-tape-facility",
+    "https://world-nuclear-news.org/articles/proxima-announces-plan-for-german-hts-production-facility",
+    "https://world-nuclear-news.org/articles/key-commissioning-tests-completed-at-changjiang-4",
+    "https://modernpowersystems.com/news/us-army-awards-military-nuclear-deals",
+    "https://energy.ec.europa.eu/news/nuclear-medicine-new-eu-framework-secure-europes-supply-medical-radioisotopes-and-reduce-dependence-2026-09-10_en",
+    "https://neimagazine.com/news/studsvik-advances-four-unit-swedish-smr",
+    "https://ans.org/news/2026-09-11/article-8383/navys-first-terrestrial-reactor-coming-to-indianas-nws-crane",
+    "https://neimagazine.com/news/nuscale-fabricates-smr-safety-pellets",
+    "https://nucnet.org/news/one-nuclear-unveils-plans-for-1-gw-smr-campus-project-in-louisiana-9-4-2026",
+    "https://neimagazine.com/news/r-r-smr-turbines-get-uk-build",
+    "https://world-nuclear-news.org/articles/rolls-royce-smr-abb-agree-to-collaborate",
+    "https://neimagazine.com/news/thailand-steps-up-smr-push",
+    "https://modernpowersystems.com/news/hd-hyundai-to-invest-krw-1-trillion-in-future-engine-and-smr-businesses",
+    "https://neimagazine.com/news/ra-10-reactor-nears-final-commissioning",
+    "https://world-nuclear-news.org/articles/construction-under-way-of-second-zhaoyuan-unit",
+    "https://world-nuclear-news.org/articles/groundwork-begins-at-new-chinese-plant-site",
+    "https://neimagazine.com/news/hualong-one-upgrade-revealed",
+    "https://neimagazine.com/news/uzbekistans-nuclear-future-takes-shape",
+    "https://world-nuclear-news.org/articles/tips-from-china-for-56-month-nuclear-construction-schedule",
+    "https://framatome.com/medias/framatome-and-technicatome-deliver-backup-instrumentation-control-system-hpc-epr",
+    "https://neimagazine.com/news/lightbridge-fuel-enters-critical-atr-testing",
+    "https://world-nuclear-news.org/articles/bannerman-completes-Etango-funding",
+    "https://nucnet.org/news/czech-regulator-approves-westinghouse-fuel-for-temelin-1-nuclear-plant-9-5-2026",
+    "https://neimagazine.com/news/orano-in-enrichment-deal-with-khnp",
+    "https://neimagazine.com/news/kairos-completes-first-etu-3-phase",
+    "https://iter.org/node/20687/summer-substantial-progress",
+    "https://tokamakenergy.com/2026/09/09/tokamak-energy-completes-world-leading-fusion-magnet-campaign-validating-technology-for-commercial-hts-systems",
+    "https://world-nuclear.org/news-and-media/press-statements/global-nuclear-electricity-generation-reaches-record-high-for-second-year-running",
+    "https://world-nuclear.org/news-and-media/press-statements/new-guide-highlights-tools-to-support-nuclear-investment-and-accelerate-global-scale-up",
+    "https://neimagazine.com/news/vietnam-joins-mbir-research-project",
+    "https://aa.com.tr/tr/dunya/uaea-baskani-grossi-irandaki-nukleer-tesislerin-durumu-hakkinda-bilgi-sahibi-olmadiklarini-soyledi/4049649"
   ]
 }
