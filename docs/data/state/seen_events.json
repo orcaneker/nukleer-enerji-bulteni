@@ -1,5 +1,5 @@
 {
-  "issue_no": 7,
+  "issue_no": 8,
   "events": [
     {
       "baslik_ozet": "Rosatom yetkilisi: Akkuyu, Türkiye'nin 2053 karbon nötr hedefini destekleyecek",
@@ -268,6 +268,58 @@
     {
       "baslik_ozet": "AB Komisyonu, tıbbi radyoizotop tedarikini güvence altına alacak Radyoizotop Vadisi Girişimi'ni sundu",
       "hafta": "2026-H37"
+    },
+    {
+      "baslik_ozet": "Türkiye 2050'ye kadar en az 20 gigavat nükleer kapasite hedefliyor",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "NRC, reaktör lisanslama ve söküm kurallarında kapsamlı reform önerdi",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "İngiltere, X-energy'nin Xe-100 reaktörü için tasarım değerlendirmesine başlıyor",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Blue Energy, Teksas'taki gaz-nükleer projesi için NRC'ye ilk inşa başvurusunu yaptı",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Avrupa Yatırım Bankası ilk kez bir SMR şirketine doğrudan yatırım yaptı",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Holtec, Palisades sahasında SMR-300 için erken saha çalışmalarına onay aldı",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Westinghouse'un eVinci mikroreaktörü rekor sıcaklıkta kritiklik testini tamamladı",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "ABD Ordusu, Indiana'daki ilk askeri mikroreaktör için NWS Crane'i seçti",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Çin'in Hainan'daki Changjiang 3. ünitesi ticari işletmeye alındı",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Cameco, Hindistan'a dokuz yılda 22 milyon libre (pound) uranyum tedarik edecek",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Türkiye, 2035'e kadar elektrik altyapısına 108 milyar dolar yatırım planlıyor",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "UAEA, 2060'a kadar 1.000 SMR'a ulaşılabileceğini öngördü",
+      "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "Antares ve Centrus, çok yıllı HALEU tedarik sözleşmesi imzaladı",
+      "hafta": "2026-H38"
     }
   ],
   "urls": [
@@ -632,6 +684,56 @@
     "https://world-nuclear.org/news-and-media/press-statements/global-nuclear-electricity-generation-reaches-record-high-for-second-year-running",
     "https://world-nuclear.org/news-and-media/press-statements/new-guide-highlights-tools-to-support-nuclear-investment-and-accelerate-global-scale-up",
     "https://neimagazine.com/news/vietnam-joins-mbir-research-project",
-    "https://aa.com.tr/tr/dunya/uaea-baskani-grossi-irandaki-nukleer-tesislerin-durumu-hakkinda-bilgi-sahibi-olmadiklarini-soyledi/4049649"
+    "https://aa.com.tr/tr/dunya/uaea-baskani-grossi-irandaki-nukleer-tesislerin-durumu-hakkinda-bilgi-sahibi-olmadiklarini-soyledi/4049649",
+    "https://aa.com.tr/tr/ekonomi/turkiye-2050ye-kadar-en-az-20-gigavat-nukleer-guc-kapasitesine-ulasmayi-hedefliyor/4058871",
+    "https://ans.org/news/article-8384/reactor-licensing-decommissioning-operational-oversight-regulations-addressed-in-latest-nrc-rulemaking",
+    "https://onr.org.uk/news/all-news/2026/09/regulators-asked-to-commence-gda-on-x-energy-reactor-design",
+    "https://world-nuclear-news.org/articles/uk-regulators-to-begin-xe-100-design-assessment",
+    "https://nucnet.org/news/x-energy-s-advanced-xe-100-reactor-accepted-for-uk-generic-design-assessment-9-2-2026",
+    "https://world-nuclear-news.org/articles/blue-energy-submits-first-construction-application-to-nrc",
+    "https://world-nuclear-news.org/articles/first-smr-investment-by-european-investment-bank",
+    "https://neimagazine.com/news/first-smr-funding-by-eib",
+    "https://bloomberght.com/ab-bankasi-40-yillik-nukleer-tabuyu-yikti-3788232",
+    "https://world-nuclear-news.org/articles/holtec-smr-project-gets-regulatory-nod-for-early-site-work",
+    "https://energy.gov/ne/articles/westinghouse-evinci-microreactor-achieves-criticality-milestone",
+    "https://info.westinghousenuclear.com/news/westinghouse-evinci-microreactor-achieves-zero-power-high-temperature-criticality",
+    "https://world-nuclear-news.org/articles/evinci-sets-temperature-record-during-zero-power-criticality-tests",
+    "https://neimagazine.com/news/crane-selected-for-us-military-mmr",
+    "https://world-nuclear-news.org/articles/indiana-to-get-its-first-power-producing-nuclear-reactor",
+    "https://ans.org/news/article-8392/nusano-releases-launch-pad-enrichment-project-details",
+    "https://theregister.com/offbeat/2026/09/15/higher-enriched-uranium-for-datacenters-has-doe-all-aglow/5296624",
+    "https://world-nuclear-news.org/articles/third-unit-at-changjiang-site-commissioned",
+    "https://cameco.com/node/3169",
+    "https://aa.com.tr/en/energy/electricity/turkiye-to-invest-108b-to-expand-power-generation-and-grid-by-2035/59649",
+    "https://iaea.org/newscenter/statements/director-generals-statement-to-the-seventieth-regular-session-of-the-iaea-general-conference",
+    "https://world-nuclear-news.org/Nuclear-Policies",
+    "https://ans.org/news/article-8388/iaea-general-conference-kicks-off-with-opening-remarks-from-dg-grossi",
+    "https://world-nuclear-news.org/articles/antares-centrus-sign-multi-year-haleu-contract",
+    "https://neimagazine.com/news/china-unveils-hl-4-fusion-tokamak",
+    "https://heatmap.news/climate-tech/inertia-fusion-energy-gain",
+    "https://ans.org/news/article-8385/proxima-signs-mou-with-lower-saxony-for-hts-tape-production",
+    "https://gov.uk/government/publications/global-fusion-policy-summit-joint-statement-on-fusion-energy/joint-statement-on-fusion-energy",
+    "https://world-nuclear-news.org/articles/china-begins-building-hydrogen-boron-fusion-device",
+    "https://gevernova.com/news/taxonomy/term/2225",
+    "https://world-nuclear-news.org/articles/china-launches-global-network-for-smr-innovation",
+    "https://world-nuclear-news.org/articles/us-funding-for-thai-smr-feasibility-study",
+    "https://neimagazine.com/news/smrs-set-for-global-nuclear-breakthrough",
+    "https://energy-storage.news/us-data-centre-buildout-sees-massachusetts-release-responsible-development-framework-one-nuclear-proposes-louisiana-portfolio",
+    "https://world-nuclear-news.org/articles/groundwork-begins-for-demonstration-hualong-one-20-units",
+    "https://world-nuclear-news.org/articles/smolensks-planned-new-units-get-environmental-approval",
+    "https://neimagazine.com/news/leningrad-7-foundation-work-underway",
+    "https://neimagazine.com/news/internal-cavity-concreting-for-brest",
+    "https://world-nuclear-news.org/articles/natural-draft-cooling-tower-is-preferred-jek2-option",
+    "https://world-nuclear-news.org/articles/cameco-in-offtake-agreement-for-us-laser-enrichment-plant",
+    "https://bloomberght.com/abd-ile-nukleer-isbirligi-sonrasi-suudi-arabistan-dan-dev-uranyum-kesfi-3788203",
+    "https://oecd-nea.org/jcms/pl_121582/adequate-uranium-resources-available-but-sustained-investment-essential-to-support-global-nuclear-capacity-growth",
+    "https://ans.org/news/2026-09-15/article-8391/newest-red-book-notes-the-need-for-more-u-investment",
+    "https://neimagazine.com/news/temelin-cleared-to-use-westinghouse-fuel",
+    "https://ans.org/news/article-8403/usda-opens-nuclear-power-funding-opportunity-for-rural-electric-cooperatives",
+    "https://dunya.com/dunya/uaeadan-iran-uyarisi-denetimler-ciddi-sekilde-aksadi-haberi-839982",
+    "https://ans.org/news/2026-09-16/article-8393/house-subcommittee-discusses-nlic-nuclear-spent-fuel-policy",
+    "https://world-nuclear-news.org/articles/chubu-withdraws-restart-applications-for-hamaoka-units",
+    "https://energy.gov/em/articles/walsh-urgency-and-impact-drive-new-era-nuclear-restoration-and-revitalization",
+    "https://ans.org/news/2026-09-15/article-8390/dod-funds-161-million-space-reactor-award"
   ]
 }
