@@ -1,5 +1,5 @@
 {
-  "issue_no": 8,
+  "issue_no": 9,
   "events": [
     {
       "baslik_ozet": "Rosatom yetkilisi: Akkuyu, Türkiye'nin 2053 karbon nötr hedefini destekleyecek",
@@ -320,6 +320,54 @@
     {
       "baslik_ozet": "Antares ve Centrus, çok yıllı HALEU tedarik sözleşmesi imzaladı",
       "hafta": "2026-H38"
+    },
+    {
+      "baslik_ozet": "TÜNAŞ ile USTDA, SMR ve 4. nesil reaktörler için 2 milyon dolarlık anlaşma imzaladı",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "Bakan Bayraktar, 2040'a kadar enerjide 300 milyar dolarlık yatırım hedefi açıkladı",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "Westinghouse-Bechtel ve PEJ, Polonya'nın ilk santrali için EPC şartlarında anlaştı",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "Akkuyu 1. ünite, reaktörün işletme öncesi testlerinde yeni aşamaya hazırlanıyor",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "Akkuyu 1. ünitede kontrol odası çalışmaya hazır hale geldi",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "İtalya, 40 yıl sonra Senato onayıyla nükleer enerjiye yeniden kapı açtı",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "GE Vernova, Hitachi, SGE ve Samsung C&T, Avrupa'da BWRX-300 için mutabakat imzaladı",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "EDF, 2035'e kadar Avrupa'da 10 adet SMR yerleştirmeyi hedefliyor",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "ABD Ordusu, altı üste nükleer dahil ticari güç projeleri için şartlı kiralama verdi",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "Pickering nükleer santralinin yenilenmesi için 3 milyar CAD'lik sözleşmeler imzalandı",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "Samsung C&T, Kairos Power'ın Google için Tennessee'deki SMR'sine 100 milyon dolar yatırıyor",
+      "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "Türkiye, toryum kaynaklarını yeni nesil nükleer teknolojilere kazandırmayı hedefliyor",
+      "hafta": "2026-H39"
     }
   ],
   "urls": [
@@ -734,6 +782,70 @@
     "https://ans.org/news/2026-09-16/article-8393/house-subcommittee-discusses-nlic-nuclear-spent-fuel-policy",
     "https://world-nuclear-news.org/articles/chubu-withdraws-restart-applications-for-hamaoka-units",
     "https://energy.gov/em/articles/walsh-urgency-and-impact-drive-new-era-nuclear-restoration-and-revitalization",
-    "https://ans.org/news/2026-09-15/article-8390/dod-funds-161-million-space-reactor-award"
+    "https://ans.org/news/2026-09-15/article-8390/dod-funds-161-million-space-reactor-award",
+    "https://bloomberght.com/abd-ile-nukleerde-yeni-isbirligi-3789022",
+    "https://aa.com.tr/en/turkiye/turkiye-us-agency-sign-grant-agreement-on-next-generation-nuclear-technologies/4064216",
+    "https://nucnet.org/news/us-signs-agreement-with-turkey-to-explore-rollout-of-smrs-9-3-2026",
+    "https://enerjigunlugu.net/tunas-ile-ustda-ortak-nukleer-proje-gelistirecek-69885h.htm",
+    "https://aa.com.tr/tr/ekonomi/bakan-bayraktar-turkiyenin-2040-enerji-vizyonunun-temelinde-elektrifikasyon-olacak/4065117",
+    "https://dunya.com/ekonomi/bakan-bayraktar-2040-planini-acikladi-enerjide-300-milyar-dolarlik-yatirim-haberi-841041",
+    "https://neimagazine.com/news/us-funds-turkiye-smr-study",
+    "https://world-nuclear-news.org/articles/us-turkey-agreement-to-accelerate-smr-deployment",
+    "https://info.westinghousenuclear.com/news/westinghouse-bechtel-and-pej-agree-on-main-commercial-terms-to-deliver-first-polish-nuclear-power-plant",
+    "https://powermag.com/bechtel-westinghouse-group-pej-agree-on-terms-for-polands-first-nuclear-power-plant",
+    "https://neimagazine.com/news/key-epc-terms-agreed-for-polands-npp",
+    "https://world-nuclear-news.org/articles/polish-plant-contract-negotiations-move-to-next-stage",
+    "https://world-nuclear-news.org/articles/akkuyu-1-set-for-next-stage-of-pre-commissioning-activities",
+    "https://ekonomim.com/sektorler/enerji/akkuyu-ngsnin-1-unitesinde-kritik-hazirlik-tamamlandi-haberi-919662",
+    "https://aa.com.tr/tr/ekonomi/bakan-bayraktar-turkiye-ilk-kucuk-moduler-reaktoru-2030larin-basinda-devreye-almayi-planliyor/4066235",
+    "https://ekonomim.com/kose-yazisi/nukleerde-ikinci-cag-treni-de-kacmasin-diye-ilk-kucuk-reaktor-2030lar-basinda-devreye-girecek/920309",
+    "https://bloomberght.com/italya-yaklasik-40-yil-sonra-nukleer-enerjiye-donuyor-3789241",
+    "https://world-nuclear-news.org/articles/italys-senate-approves-a-return-to-nuclear-power",
+    "https://ans.org/news/article-8437/european-new-nuclear-italian-revival-polish-agreement-parisian-summit",
+    "https://neimagazine.com/news/italy-reopens-door-to-nuclear",
+    "https://gevernova.com/news/press-releases/sge-ge-vernova-hitachi-samsung-ct-sign-mou-advance-bwrx-300-fleet-deployment-europe",
+    "https://world-nuclear-news.org/articles/ge-vernova-hitachi-sge-and-samsung-ct-sign-mou-on-bwrx-300s-in-europe",
+    "https://neimagazine.com/news/edf-bets-big-on-european-smrs",
+    "https://world-nuclear-news.org/articles/edfs-nuward-smr-planning-10-units-in-five-eu-countries",
+    "https://ans.org/news/article-8421/international-roundup-the-philippines-iaea-remarks-and-edfs-smr-plans",
+    "https://neimagazine.com/news/us-army-awards-six-site-energy-leases",
+    "https://ans.org/news/article-8416/army-announces-new-power-projects-for-installations",
+    "https://powermag.com/army-selects-three-developers-for-commercial-power-projects-at-six-installations",
+    "https://power-eng.com/onsite-power/microgrids/army-power-generation-gas-nuclear-battery",
+    "https://world-nuclear-news.org/articles/contracts-announced-as-pickering-refurb-approaches",
+    "https://modernpowersystems.com/news/atkinsrealis-jv-wins-1-7-bn-npp-refurbishment-contract",
+    "https://power-eng.com/operations-maintenance/opg-signs-1-7b-contract-for-pickering-nuclear-plant-refurbishment",
+    "https://ans.org/news/2026-09-24/article-8434/pickering-refurb-will-strengthen-ontarios-economic-sovereignty-and-energy-security",
+    "https://kairospower.com/updates/kairos-power-and-samsung-c-t-agree-to-pursue-strategic-investment-and-collaboration-for-kp-fhr-deployment",
+    "https://datacenterdynamics.com/en/news/kairos-power-selects-samsung-ct-to-help-build-50mw-smr-for-google-in-tennessee",
+    "https://neimagazine.com/news/samsung-ct-joins-kairos-epc",
+    "https://world-nuclear-news.org/articles/samsung-ct-invests-in-kairos-power",
+    "https://mobile.aa.com.tr/tr/ekonomi/turkiye-toryum-kaynaklarini-yeni-nesil-nukleer-teknolojilere-kazandirmayi-hedefliyor/4064137",
+    "https://aa.com.tr/ru/%D0%BC%D0%B8%D1%80/%D0%BD%D0%B0-%D1%87%D0%B5%D1%82%D0%B2%D0%B5%D1%80%D1%82%D0%BE%D0%BC-%D1%8D%D0%BD%D0%B5%D1%80%D0%B3%D0%BE%D0%B1%D0%BB%D0%BE%D0%BA%D0%B5-%D0%B0%D1%8D%D1%81-%D0%B0%D0%BA%D0%BA%D1%83%D1%8E-%D0%B2-%D1%82%D1%83%D1%80%D1%86%D0%B8%D0%B8-%D0%B7%D0%B0%D0%B2%D0%B5%D1%80%D1%88%D0%B5%D0%BD%D0%BE-%D0%B1%D0%B5%D1%82%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D1%80%D1%8B%D1%82%D0%B8%D1%8F-%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE-%D0%B7%D0%B0%D0%BB%D0%B0/4067782",
+    "https://bloomberght.com/google-in-tedarikcisi-kairos-iki-nukleer-reaktor-insa-etmek-icin-onay-aldi-3788989",
+    "https://canarymedia.com/articles/nuclear/federal-funding-x-energy-small-nuclear-reactor",
+    "https://power-eng.com/nuclear/blue-energy-nrc-application-gas-nuclear-project",
+    "https://x-energy.com/news/triso-x-completes-vertical-construction-of-tx-1-fuel-fabrication-facility",
+    "https://neimagazine.com/news/antares-lands-space-reactor-award",
+    "https://neimagazine.com/news/skoda-lands-key-r-r-smr-contract",
+    "https://neimagazine.com/news/china-launches-global-smr-network",
+    "https://neimagazine.com/news/us-backs-thailands-first-smr-study",
+    "https://framatome.com/medias/nuclear-industry-breakthrough-contract-to-implement-high-enriched-fuel-assemblies-at-us-reactor",
+    "https://ans.org/news/article-8412/centrus-touts-unobligated-uranium-production-in-haleu-agreements",
+    "https://neimagazine.com/news/cameco-locks-down-paducah-fuel",
+    "https://ans.org/news/article-8420/cameco-becomes-selling-agent-for-all-global-laser-enrichment-output",
+    "https://world-nuclear-news.org/articles/agreement-clears-way-for-resumption-of-niger-uranium-project",
+    "https://world-nuclear-news.org/articles/google-agreement-to-support-Georgia-plant-uprates",
+    "https://neimagazine.com/news/bechtel-out-as-natrium-epc",
+    "https://world-nuclear-news.org/articles/indian-plants-celebrate-fuel-loading-milestones",
+    "https://world-nuclear-news.org/articles/power-start-up-for-mochovce-4",
+    "https://neimagazine.com/news/romania-argentina-sign-candu-6-mou",
+    "https://aa.com.tr/tr/dunya/bakan-kurum-cop31in-lansmanini-new-yorkta-yapti/4063799",
+    "https://iaea.org/newscenter/pressreleases/update-368-iaea-director-general-statement-on-situation-in-ukraine",
+    "https://heatmap.news/energy/fusion-bill-obernolte-lofgren",
+    "https://iter.org/node/20687/teams-around-world-meet-tritium-plant-contracts-advance",
+    "https://nucnet.org/news/chinese-nuclear-fusion-startup-completes-usd102-million-funding-round-9-1-2026",
+    "https://neimagazine.com/news/helong-2-fusion-project-breaks-ground",
+    "https://energy.gov/ne/articles/department-energy-provides-rare-salt-material-natura-resources"
   ]
 }
