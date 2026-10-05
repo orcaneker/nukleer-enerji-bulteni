@@ -1,5 +1,5 @@
 {
-  "issue_no": 9,
+  "issue_no": 10,
   "events": [
     {
       "baslik_ozet": "Rosatom yetkilisi: Akkuyu, Türkiye'nin 2053 karbon nötr hedefini destekleyecek",
@@ -368,6 +368,50 @@
     {
       "baslik_ozet": "Türkiye, toryum kaynaklarını yeni nesil nükleer teknolojilere kazandırmayı hedefliyor",
       "hafta": "2026-H39"
+    },
+    {
+      "baslik_ozet": "Bakan Bayraktar: Akkuyu'nun ilk ünitesi birkaç ay içinde devrede",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "Türkiye nükleer kapasite hedefini 2050'ye kadar 20 bin megavata çıkaracak",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "NRC, reaktör lisanslamasında kapsamlı düzenleyici reform taslağını yayımladı",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "NRC, TVA'nın Clinch River'daki BWRX-300 SMR'ı için ilk inşaat iznini verdi",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "Güney Kore, ABD'de 8 reaktör için 120 milyar dolarlık yatırım planı açıkladı",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "Amazon, Calvert Cliffs'ten 690 megavat için 20 yıllık PPA imzaladı",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "General Matter, Paducah'daki zenginleştirme tesisi için NRC'ye lisans başvurusu yaptı",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "Commonwealth Fusion Systems, Fujikura'dan 10 bin km HTS bant siparişi verdi",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "Rooppur 2. ünite için Rus nükleer yakıtı Bangladeş'e ulaştı",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "ABD, Vistra'nın nükleer kapasite artırımı için 4,2 milyar dolarlık kredi planlıyor",
+      "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "GE Vernova, Hitachi, Samsung C&T ve SGE BWRX-300 için çerçeve imzaladı",
+      "hafta": "2026-H40"
     }
   ],
   "urls": [
@@ -846,6 +890,60 @@
     "https://iter.org/node/20687/teams-around-world-meet-tritium-plant-contracts-advance",
     "https://nucnet.org/news/chinese-nuclear-fusion-startup-completes-usd102-million-funding-round-9-1-2026",
     "https://neimagazine.com/news/helong-2-fusion-project-breaks-ground",
-    "https://energy.gov/ne/articles/department-energy-provides-rare-salt-material-natura-resources"
+    "https://energy.gov/ne/articles/department-energy-provides-rare-salt-material-natura-resources",
+    "https://aa.com.tr/tr/bilim-teknoloji/bakan-bayraktar-teknofest-guneydoguda-genclere-turkiyenin-nukleer-enerji-hedeflerini-anlatti/4077003",
+    "https://enerjigunlugu.net/smr-kanunu-bu-yil-mecliste-akkuyu-birkac-ay-icinde-devrede-70044h.htm",
+    "https://dunya.com/enerji/bakan-bayraktar-nukleer-enerjide-hedefi-acikladi-20-bin-megavat-haberi-842185",
+    "https://ans.org/news/2026-09-29/article-8442/nrc-roundup-crane-eafonsi-new-agreement-state",
+    "https://canarymedia.com/articles/nuclear/wholesale-revision-us-nuclear-rules",
+    "https://gevernova.com/news/press-releases/nrc-issues-first-us-construction-permit-bwrx-300-small-modular-reactor-tva-clinch-river",
+    "https://federalregister.gov/documents/2026/10/05/2026-20345/tennessee-valley-authority-clinch-river-nuclear-unit-1-construction-permit-and-record-of-decision",
+    "https://world-nuclear-news.org/articles/first-construction-permit-issued-for-bwrx300-smr-in-us",
+    "https://power-eng.com/nuclear/smrs/tennessee-clinch-river-bwrx-300-smr-nrc-construction-permit",
+    "https://info.westinghousenuclear.com/news/u.s.-korea-framework-advances-deployment-of-westinghouse-nuclear-technology-in-the-united-states",
+    "https://world-nuclear-news.org/articles/usa-south-korea-targeting-six-ap1000-two-apr1400-units",
+    "https://neimagazine.com/news/korea-maps-apr1400-entry-into-us",
+    "https://asia.nikkei.com/economy/trade-war/trump-tariffs/south-korea-to-build-8-nuclear-power-plants-in-us-invest-120bn",
+    "https://constellationenergy.com/news/2026/09/constellation-and-amazon-announce-20-year-power-purchase-agreement-at-calvert-cliffs.html",
+    "https://nucnet.org/news/amazon-and-constellation-sign-20-year-ppa-in-boost-for-us-nuclear-station-10-4-2026",
+    "https://ans.org/news/article-8452/amazon-constellation-partner-for-calvert-cliffs-uprate",
+    "https://datacenterdynamics.com/en/news/amazon-signs-ppa-with-constellation-for-maryland-nuclear-plant",
+    "https://aa.com.tr/tr/ekonomi/bakan-bayraktar-almanya-ile-yeni-nesil-enerji-projeleri-icin-isbirligi-cagrisi-yapti/4073682",
+    "https://world-nuclear-news.org/articles/general-matter-submits-enrichment-plant-licence-application",
+    "https://energyintel.com/000001a0-fab0-d746-adb4-fffdd9900000",
+    "https://world-nuclear-news.org/uranium-fuel",
+    "https://neimagazine.com/news/google-support-for-georgia-plant-uprates",
+    "https://ans.org/news/article-8424/google-georgia-power-announce-partnership-to-uprate-plants",
+    "https://cfs.energy/news-and-media/commonwealth-fusion-systems-places-largest-single-",
+    "https://neimagazine.com/news/rooppur-fuel-delivery-delayed",
+    "https://aa.com.tr/en/asia-pacific/russian-nuclear-fuel-lands-for-bangladesh-power-plant/4076849",
+    "https://ekonomim.com/dunya/abdden-nukleer-enerji-icin-dev-kredi-vistraya-42-milyar-dolar-haberi-922385",
+    "https://neimagazine.com/news/bwrx-deployment-framework-agreed",
+    "https://neimagazine.com/news/senate-approval-for-borssele-life-ex",
+    "https://nucnet.org/news/dutch-government-buys-70-of-epz-shares-in-bid-to-operate-borssele-nuclear-plant-for-longer-9-2-2026",
+    "https://world-nuclear-news.org/articles/nrc-completes-environmental-review-of-crane-restart",
+    "https://wnn.world-nuclear.org/articles/taiwan-regulator-completes-review-of-restart-plan",
+    "https://neimagazine.com/news/palisades-restart-delayed",
+    "https://ans.org/news/2026-10-02/article-8410/modernizing-for-more-megawatts-columbias-epu-journey",
+    "https://world-nuclear-news.org/articles/tianwan-7-brought-to-minimum-controllable-power-level",
+    "https://neimagazine.com/news/taishan-phase-ii-enters-construction",
+    "https://nucnet.org/news/zaporizhzhya-adjusts-strategy-as-critical-diesel-supplies-continue-to-decline-9-1-2026",
+    "https://neimagazine.com/news/first-light-validates-core-flare-technology",
+    "https://world-nuclear-news.org/articles/uk-aims-to-build-on-fusion-research-record-to-establish-industrial-base",
+    "https://neimagazine.com/news/daedal-ups-fusion-measurement-infrastructure",
+    "https://ans.org/news/2026-09-30/article-8446/bipartisan-fusion-bill-proposes-10b-for-commercialization-and-research",
+    "https://neimagazine.com/news/nusano-selected-for-doe-haleu-program",
+    "https://neimagazine.com/news/triso-x-completes-tx-1-vertical-construction",
+    "https://neimagazine.com/news/russia-to-test-msr-fuel-reprocessing",
+    "https://investingnews.com/bwxt-awarded-189-million-naval-nuclear-fuel-contract",
+    "https://gov.uk/government/news/uks-decommissioning-mission-continues-to-expand",
+    "https://ans.org/news/article-8438/findings-from-deep-borehole-disposal-study",
+    "https://gov.uk/government/news/sellafield-identifies-partners-for-36-billion-asset-care-framework",
+    "https://datacenterdynamics.com/en/news/94gw-smr-powered-data-center-campus-proposed-in-utah",
+    "https://world-nuclear-news.org/articles/polish-entrepreneurs-invest-in-sges-bwrx-300-projects",
+    "https://neimagazine.com/news/indonesia-finalising-smr-location",
+    "https://neimagazine.com/news/iaea-idb-ink-nuclear-energy-mou",
+    "https://ans.org/news/2026-10-02/article-8456/california-bills-consider-new-nuclear-power-plant-and-plan-for-the-future-of-fusion",
+    "https://enerjigunlugu.net/wnisr-avrupa-nukleer-yakitta-hala-rusyaya-bagimli-69985h.htm"
   ]
 }
