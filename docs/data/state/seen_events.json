@@ -1,5 +1,5 @@
 {
-  "issue_no": 10,
+  "issue_no": 11,
   "events": [
     {
       "baslik_ozet": "Rosatom yetkilisi: Akkuyu, Türkiye'nin 2053 karbon nötr hedefini destekleyecek",
@@ -412,6 +412,42 @@
     {
       "baslik_ozet": "GE Vernova, Hitachi, Samsung C&T ve SGE BWRX-300 için çerçeve imzaladı",
       "hafta": "2026-H40"
+    },
+    {
+      "baslik_ozet": "Akkuyu 1. ünitede hidrolik testler tamamlandı, sıcak testlere geçiliyor",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "NRC, TVA'ya Clinch River'da 300 MW'lık BWRX-300 için inşaat izni verdi",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "Türkiye'nin SMR yasa taslağı 2027 bütçesi sonrası TBMM'ye gidecek",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "Kaliforniya, 1976'dan kalan nükleer santral yasağını kaldıran yasayı imzaladı",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "Polonya, güncellenen nükleer programında ilk ünite tarihini 2036'ya kaydırdı",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "ABD-Güney Kore, Westinghouse reaktörleri için 120 milyar dolarlık çerçeve imzaladı",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "Google-Constellation anlaşması PJM'de 11 reaktörde 890 MW kapasite ekleyecek",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "General Matter, Paducah zenginleştirme tesisi için NRC başvuru belgelerini açıkladı",
+      "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "DOE, Vistra'nın üç nükleer santrali için 4,2 milyar dolarlık kredi önerdi",
+      "hafta": "2026-H41"
     }
   ],
   "urls": [
@@ -944,6 +980,51 @@
     "https://neimagazine.com/news/indonesia-finalising-smr-location",
     "https://neimagazine.com/news/iaea-idb-ink-nuclear-energy-mou",
     "https://ans.org/news/2026-10-02/article-8456/california-bills-consider-new-nuclear-power-plant-and-plan-for-the-future-of-fusion",
-    "https://enerjigunlugu.net/wnisr-avrupa-nukleer-yakitta-hala-rusyaya-bagimli-69985h.htm"
+    "https://enerjigunlugu.net/wnisr-avrupa-nukleer-yakitta-hala-rusyaya-bagimli-69985h.htm",
+    "https://world-nuclear-news.org/articles/hydraulic-tests-completed-at-turkeys-akkuyu-1",
+    "https://modernpowersystems.com/news/nrc-approves-construction-permit-for-300-mw-clinch-river-smr",
+    "https://ekonomim.com/sektorler/enerji/kucuk-moduler-nukleer-santraller-icin-ilk-adim-haberi-922735",
+    "https://nucnet.org/news/california-governor-signs-bills-to-overturn-nuclear-ban-and-plan-for-fusion-10-2-2026",
+    "https://nucnet.org/news/poland-formally-adopts-updated-nuclear-power-programme-for-up-to-9-gw-of-capacity-10-1-2026",
+    "https://world-nuclear-news.org/articles/timeline-for-polish-nuclear-units-slips-in-updated-programme",
+    "https://neimagazine.com/news/updated-plan-delays-polish-reactors",
+    "https://info.westinghousenuclear.com/news/pej-and-westinghouse-begin-long-lead-item-procurement-process-for-polands-first-nuclear-power-plant",
+    "https://nucnet.org/news/brookfield-welcomes-landmark-agreement-to-accelerate-us-nuclear-reactor-deployment-at-scale-10-1-2026",
+    "https://world-nuclear-news.org/articles/poland-begins-ordering-long-lead-components-for-first-ap1000",
+    "https://constellationenergy.com/news/2026/10/google-and-constellation-announce-landmark-agreement-to-bring-890-mw-of-new-nuclear-capacity-to-pjm-grid.html",
+    "https://world-nuclear-news.org/articles/new-end-user-agreements-support-long-term-us-plant-operations",
+    "https://powermag.com/google-deal-backs-890-mw-of-constellation-nuclear-uprates-at-11-pjm-reactors",
+    "https://ans.org/news/2026-10-06/article-8467/google-constellation-reach-11unit-uprate-plan-constellation-to-invest-43-billion",
+    "https://aa.com.tr/tr/enerjiterminali/elektrik/spot-piyasada-elektrik-fiyatlari/60160",
+    "https://dunya.com/ekonomi/google-elektrigini-20-yilligina-garantiye-aldi-yapay-zeka-nukleere-yoneltti-haberi-842899",
+    "https://ekonomim.com/sektorler/enerji/abdden-nukleer-enerjiye-42-milyar-dolarlik-kredi-taahhudu-haberi-922721",
+    "https://federalregister.gov/documents/full_text/text/2026/10/05/2026-20336.txt",
+    "https://ans.org/news/2026-10-06/article-8465/general-matters-nrc-license-application-materials-publicly-available",
+    "https://powermag.com/vistra-in-line-for-doe-loan-package-to-uprate-nuclear-plants-in-ohio-and-pennsylvania",
+    "https://world-nuclear-news.org/articles/doe-offers-vistra-loan-for-reactor-upgrades-and-uprates",
+    "https://nucnet.org/news/us-announces-usd4-2-billion-investment-to-boost-nuclear-power-in-pennsylvania-and-ohio-10-2-2026",
+    "https://utilitydive.com/news/doe-intends-to-loan-vistra-42b-for-nuclear-fleet-improvements/832236",
+    "https://ans.org/news/2026-10-09/article-8479/fermi-america-blue-energy-make-strides-in-texas",
+    "https://info.westinghousenuclear.com/blog/europes-final-iter-vacuum-vessel-sector-delivered",
+    "https://ans.org/news/2026-10-09/article-8478/general-fusion-reports-electron-temperatures-exceeding-1-kev",
+    "https://neimagazine.com/news/china-commissions-best-fusion-facility",
+    "https://nucnet.org/news/type-one-completes-usd200-million-financing-round-in-bid-to-deploy-nuclear-fusion-technology-10-5-2026",
+    "https://world-nuclear-news.org/articles/last-energy-texas-micro-modular-reactor-clears-safety-analysis",
+    "https://inl.gov/news-release/marvel-reactor-gets-federal-safety-approval-as-its-primary-vessel-arrives-in-idaho",
+    "https://nucnet.org/news/marvel-microreactor-clears-milestones-as-researchers-prepare-for-startup-tests-10-3-2026",
+    "https://world-nuclear-news.org/articles/bwxts-banr-microreactor-selected-for-canadian-project",
+    "https://neimagazine.com/news/bwxt-set-for-canadian-transportable-reactor",
+    "https://ans.org/news/article-8474/nrc-reviews-lar-on-palisades-fuel-loading-incident-as-pioneer-smr-application-advances",
+    "https://ans.org/news/article-8464/vistra-gets-42b-doe-loan-for-planned-uprates-in-ohio-pennsylvania",
+    "https://utilitydive.com/news/amazon-constellation-sign-20-year-ppa-to-expand-maryland-nuclear-plant/832145",
+    "https://wnn.world-nuclear.org/articles/slovakia-buys-out-czech-stake-in-new-nuclear-project",
+    "https://neimagazine.com/news/oracle-signs-point-beach-power-deal",
+    "https://world-nuclear-news.org/articles/chinas-tianwan-7-connected-to-the-grid",
+    "https://world-nuclear-news.org/articles/westinghouse-teams-up-with-hyundai-ec-for-dutch-feed-studies",
+    "https://neimagazine.com/news/brest-turbine-components-installed",
+    "https://nucnet.org/news/kazatomprom-shareholders-approve-major-chinese-uranium-contract-reject-deal-with-russia-10-5-2026",
+    "https://urenco.com/news/uusa/2026/urenco-usa-completes-75-percent-of-current-us-uranium-enrichment-capacity-project",
+    "https://urenco.com/news/deutschland/2026/uranium-oxide-storage-facility-in-germany-officially-commissioned",
+    "https://neimagazine.com/news/doe-backs-vistra-fleet-modernisation"
   ]
 }
