@@ -1,48 +1,4 @@
 {
-  "issue": {
-    "number": 11,
-    "hafta": "2026-H41",
-    "publication_date": "2026-10-12",
-    "coverage_start": "2026-10-04",
-    "coverage_end": "2026-10-11",
-    "window_days": 7,
-    "audio": {
-      "url": "assets/audio/2026-H41.mp3",
-      "duration_sec": 46,
-      "voice": "lxZLq5dcyw12UangGJgN",
-      "chars": 606,
-      "generated_at": "2026-10-12"
-    }
-  },
-  "brief": [
-    {
-      "text": "Kaliforniya, 1976'dan kalan nükleer santral yasağını kaldıran iki yasayı imzaladı.",
-      "slug": "kaliforniya-1976-dan-kalan-nukleer-santral-yasagini-kaldiran-yasayi-im"
-    },
-    {
-      "text": "ABD ve Güney Kore, Westinghouse reaktörleri için 120 milyar dolarlık sekiz reaktörlük finansman çerçevesi imzaladı.",
-      "slug": "abd-guney-kore-westinghouse-reaktorleri-icin-120-milyar-dolarlik-cerce"
-    },
-    {
-      "text": "NRC, TVA'ya Clinch River sahasında 300 MW'lık BWRX-300 SMR için inşaat izni verdi.",
-      "slug": "nrc-tva-ya-clinch-river-da-300-mw-lik-bwrx-300-icin-insaat-izni-verdi"
-    },
-    {
-      "text": "General Matter, Paducah'daki zenginleştirme tesisi için NRC lisans başvuru belgelerini kamuya açtı.",
-      "slug": "general-matter-paducah-zenginlestirme-tesisi-icin-nrc-basvuru-belgeler"
-    },
-    {
-      "text": "Akkuyu 1. ünitede birincil devre hidrolik testleri tamamlandı, sıcak fonksiyonel testlere geçiliyor.",
-      "slug": "akkuyu-1-unitede-hidrolik-testler-tamamlandi-sicak-testlere-geciliyor"
-    }
-  ],
-  "metrics": {
-    "aciklanan_yatirim_usd_milyon": 144700,
-    "kapasite_mwe": 2823,
-    "proje_sayisi": 9,
-    "politika_gelismesi": 3,
-    "kapsanan_ulke": 4
-  },
   "lead": {
     "id": "akkuyu-1-hydraulic-tests-completed",
     "slug": "akkuyu-1-unitede-hidrolik-testler-tamamlandi-sicak-testlere-geciliyor",
@@ -54,7 +10,7 @@
     "score": 10,
     "secim": "one_cikan",
     "title": "Akkuyu 1. ünitede hidrolik testler tamamlandı, sıcak testlere geçiliyor",
-    "detail": "Türkiye'nin güneyindeki Akkuyu nükleer güç santralinin 1. ünitesinde birincil devre sistemlerini ve ekipmanlarını kontrol eden hidrolik testler başarıyla tamamlandı. Testler, reaktör, ana sirkülasyon pompaları, buhar jeneratörleri, basınçlandırıcı ve bunları birbirine bağlayan ana sirkülasyon boru hattından oluşan birincil devrede yapıldı. Çalışma, ünitenin sıcak fonksiyonel testlere geçişinin önünü açtı.\n\nTestler sırasında birincil devredeki basınç, reaktörün normal işletme basıncının yaklaşık bir buçuk katı olan 24,5 MPa'ya çıkarıldı. Çalışmanın ilk aşamasında birincil devre suyunun sıcaklığı 135°C'ye ulaştı. Uzmanlar, ekipmanın tasarım gereksinimleri ve uluslararası güvenlik standartlarıyla uyumunu kontrol etti. Testler sırasında otomatik süreç kontrol sistemi (APCS) de devreye alındı.\n\nHidrolik testleri gerçekleştirmek için birincil devre kimyasal olarak demineralize edilmiş suyla dolduruldu. Gerekli basınç ve sıcaklık, ana sirkülasyon pompa üniteleri kullanılarak oluşturuldu. Kontrol odasındaki operasyon personeli, ekipman ve boru hatlarının durumunu APCS verileriyle izledi.\n\nSantralin normal işletiminde, soğutucu olarak kullanılan demineralize su, yaklaşık 16 MPa basınç altında 330°C'ye kadar sıcaklıkta birincil devrede dolaşarak buhar jeneratörlerindeki ikincil devre besleme suyunu ısıtıyor. Sahte yakıt yüklemesinin ardından Haziran ayında başlayan soğuk hidrolik testler, güvenlik açısından önemli bileşen ve sistemlerin doğru kurulduğunu ve soğuk koşulda çalışmaya hazır olduğunu doğrulamak için yapılıyor. Bu testlerin temel amacı, birincil devre ve bileşenlerin sızdırmazlığını doğrulamak ve ana sirkülasyon borularını temizlemektir. Testler, reaktör sistemlerinin yardımcı sistemlerle birlikte ilk kez çalıştırıldığı aşamayı oluşturdu.\n\nSoğuk testleri, ekipman ve sistemlerin işletme koşullarına hazır olduğunu doğrulayan sıcak fonksiyonel testler takip edecek. Bu aşamada dört ana sirkülasyon pompasının en az 260°C sıcaklıkta çalışması kontrol edilecek. Hem soğuk hem sıcak testler, nükleer yakıt yüklemesinden önce devreye alma sürecinin parçası olarak gerçekleştiriliyor.\n\nRosatom Genel Müdürü Alexey Likhachev, Akkuyu 1. ünitesinin inşası sırasında binlerce karmaşık mühendislik işleminin tamamlandığını belirtti. Likhachev, 'Şimdi bu büyük çalışmanın sonuçlarının kapsamlı bir incelemeden geçtiği aşamadayız; birincil devrenin güvenilirliği ünitenin güvenli işletilmesi için belirleyicidir' dedi. Mersin'in güneyinde yer alan Akkuyu, Türkiye'nin ilk nükleer santrali. Rosatom, santralde kur-işlet-devret (BOO) modeliyle dört VVER-1200 reaktörü inşa ediyor.",
+    "detail": "Türkiye'nin güneyindeki Akkuyu nükleer güç santralinin 1. ünitesinde birincil devre sistemlerini ve ekipmanlarını kontrol eden hidrolik testler başarıyla tamamlandı. Testler, reaktör, ana sirkülasyon pompaları, buhar jeneratörleri, basınçlandırıcı ve bunları birbirine bağlayan ana sirkülasyon boru hattından oluşan birincil devrede yapıldı. Çalışma, ünitenin sıcak fonksiyonel testlere geçişinin önünü açtı.\n\nTestler sırasında birincil devredeki basınç, reaktörün normal işletme basıncının yaklaşık bir buçuk katı olan 24,5 MPa'ya çıkarıldı. Çalışmanın ilk aşamasında birincil devre suyunun sıcaklığı 135°C'ye ulaştı. Uzmanlar, ekipmanın tasarım gereksinimleri ve uluslararası güvenlik standartlarıyla uyumunu kontrol etti. Testler sırasında otomatik süreç kontrol sistemi (APCS) de devreye alındı.\n\nHidrolik testleri gerçekleştirmek için birincil devre kimyasal olarak demineralize edilmiş suyla dolduruldu. Gerekli basınç ve sıcaklık, ana sirkülasyon pompa üniteleri kullanılarak oluşturuldu. Kontrol odasındaki operasyon personeli, ekipman ve boru hatlarının durumunu APCS verileriyle izledi.\n\nSantralin normal işletiminde soğutucu olarak kullanılan demineralize su, yaklaşık 16 MPa basınç ve 330°C’ye kadar sıcaklıkta birincil devrede dolaşarak buhar jeneratörlerindeki ikincil devre suyunu ısıtıyor. Temsili yakıt demetlerinin yüklenmesinin ardından Haziran ayında başlayan soğuk hidrolik testler, güvenlik açısından önemli bileşenlerin doğru monte edildiğini, birincil devrenin sızdırmazlığını ve sistemlerin soğuk koşullarda çalışmaya hazır olduğunu doğrulamak amacıyla gerçekleştirildi. Testler sırasında ana sirkülasyon borularının temizliği de yapıldı ve reaktör sistemleri yardımcı sistemlerle birlikte ilk kez çalıştırıldı.\n\nSoğuk testleri, ekipman ve sistemlerin işletme koşullarına hazır olduğunu doğrulayan sıcak fonksiyonel testler takip edecek. Bu aşamada dört ana sirkülasyon pompasının en az 260°C sıcaklıkta çalışması kontrol edilecek. Hem soğuk hem sıcak testler, nükleer yakıt yüklemesinden önce devreye alma sürecinin parçası olarak gerçekleştiriliyor.\n\nRosatom Genel Müdürü Alexey Likhachev, hidrolik testlerin montaj, kaynak ve devreye alma çalışmalarının kalitesini doğruladığını ve ünitenin fiziksel devreye alınmasına yönelik yeni bir aşamayı tamamladığını belirtti. Mersin’de bulunan Akkuyu, Türkiye’nin ilk nükleer güç santrali. Rosatom, sahada dört VVER-1200 reaktörünü yap-sahip ol-işlet modeliyle inşa ediyor.",
     "source": {
       "url": "https://world-nuclear-news.org/articles/hydraulic-tests-completed-at-turkeys-akkuyu-1",
       "name": "world-nuclear-news.org",
@@ -89,6 +45,229 @@
     ],
     "published_date": "2026-10-09",
     "supporting_sources": []
+  },
+  "brief": [
+    {
+      "slug": "kaliforniya-1976-dan-kalan-nukleer-santral-yasagini-kaldiran-yasayi-im",
+      "text": "Kaliforniya, 1976'dan kalan nükleer santral yasağını kaldıran iki yasayı imzaladı."
+    },
+    {
+      "slug": "abd-guney-kore-westinghouse-reaktorleri-icin-120-milyar-dolarlik-cerce",
+      "text": "ABD ve Güney Kore, Westinghouse reaktörleri için 120 milyar dolarlık sekiz reaktörlük finansman çerçevesi imzaladı."
+    },
+    {
+      "slug": "nrc-tva-ya-clinch-river-da-300-mw-lik-bwrx-300-icin-insaat-izni-verdi",
+      "text": "NRC, TVA'ya Clinch River sahasında 300 MW'lık BWRX-300 SMR için inşaat izni verdi."
+    },
+    {
+      "slug": "general-matter-paducah-zenginlestirme-tesisi-icin-nrc-basvuru-belgeler",
+      "text": "General Matter, Paducah'daki zenginleştirme tesisi için NRC lisans başvuru belgelerini kamuya açtı."
+    },
+    {
+      "slug": "akkuyu-1-unitede-hidrolik-testler-tamamlandi-sicak-testlere-geciliyor",
+      "text": "Akkuyu 1. ünitede birincil devre hidrolik testleri tamamlandı, sıcak fonksiyonel testlere geçiliyor."
+    }
+  ],
+  "issue": {
+    "audio": {
+      "url": "assets/audio/2026-H41.mp3",
+      "chars": 606,
+      "voice": "lxZLq5dcyw12UangGJgN",
+      "duration_sec": 46,
+      "generated_at": "2026-10-12"
+    },
+    "hafta": "2026-H41",
+    "number": 11,
+    "window_days": 7,
+    "coverage_end": "2026-10-11",
+    "coverage_start": "2026-10-04",
+    "publication_date": "2026-10-12"
+  },
+  "radar": [
+    {
+      "kume": "Füzyon ilerlemeleri",
+      "maddeler": [
+        {
+          "url": "https://info.westinghousenuclear.com/blog/europes-final-iter-vacuum-vessel-sector-delivered",
+          "date": "2026-10-05",
+          "title": "ITER füzyon projesi için Avrupa tarafında üretilen son vakum kabı sektörü teslim edildi",
+          "source": "info.westinghousenuclear.com",
+          "category": "fuzyon"
+        },
+        {
+          "url": "https://ans.org/news/2026-10-09/article-8478/general-fusion-reports-electron-temperatures-exceeding-1-kev",
+          "date": "2026-10-09",
+          "title": "General Fusion'ın LM26 makinesi manyetize hedef füzyonla 1 keV üzerinde plazma sıcaklığına ulaştı",
+          "source": "ans.org",
+          "category": "fuzyon"
+        },
+        {
+          "url": "https://neimagazine.com/news/china-commissions-best-fusion-facility",
+          "date": "2026-10-06",
+          "title": "Çin, Hefei'deki yanan plazma deneyi için BEST tokamak kampüsünü resmen işletmeye aldı",
+          "source": "neimagazine.com",
+          "category": "fuzyon"
+        },
+        {
+          "url": "https://nucnet.org/news/type-one-completes-usd200-million-financing-round-in-bid-to-deploy-nuclear-fusion-technology-10-5-2026",
+          "date": "2026-10-09",
+          "title": "Type One Energy, füzyon reaktör teknolojisini geliştirmek için 200 milyon dolarlık B serisi yatırım turunu tamamladı",
+          "source": "nucnet.org",
+          "category": "fuzyon"
+        }
+      ]
+    },
+    {
+      "kume": "SMR ve mikroreaktör gelişmeleri",
+      "maddeler": [
+        {
+          "url": "https://world-nuclear-news.org/articles/last-energy-texas-micro-modular-reactor-clears-safety-analysis",
+          "date": "2026-10-08",
+          "title": "Last Energy'nin Teksas'taki mikro modüler reaktörü DOE'nin ön belgelenmiş güvenlik analizini geçti",
+          "source": "world-nuclear-news.org",
+          "category": "smr"
+        },
+        {
+          "url": "https://inl.gov/news-release/marvel-reactor-gets-federal-safety-approval-as-its-primary-vessel-arrives-in-idaho",
+          "date": "2026-10-06",
+          "title": "DOE, Idaho'daki MARVEL mikroreaktörü için nihai belgelenmiş güvenlik analizini onayladı, kuru kritiklik testlerine yetki verdi",
+          "source": "inl.gov",
+          "category": "smr"
+        },
+        {
+          "url": "https://nucnet.org/news/marvel-microreactor-clears-milestones-as-researchers-prepare-for-startup-tests-10-3-2026",
+          "date": "2026-10-07",
+          "title": "MARVEL mikroreaktörüne birincil soğutma sistemi takıldı, kritiklik testi Aralık ayında bekleniyor",
+          "source": "nucnet.org",
+          "category": "teknoloji"
+        },
+        {
+          "url": "https://world-nuclear-news.org/articles/bwxts-banr-microreactor-selected-for-canadian-project",
+          "date": "2026-10-06",
+          "title": "BWXT'nin BANR mikroreaktörü, Prodigy'nin New Brunswick'teki taşınabilir nükleer santral projesi için seçildi",
+          "source": "world-nuclear-news.org",
+          "category": "smr"
+        },
+        {
+          "url": "https://neimagazine.com/news/bwxt-set-for-canadian-transportable-reactor",
+          "date": "2026-10-08",
+          "title": "BWXT, Prodigy Clean Energy ve iki First Nations topluluğu için BANR mikroreaktör teknolojisi tedarikçisi seçildi",
+          "source": "neimagazine.com",
+          "category": "smr"
+        },
+        {
+          "url": "https://ans.org/news/article-8474/nrc-reviews-lar-on-palisades-fuel-loading-incident-as-pioneer-smr-application-advances",
+          "date": "2026-10-08",
+          "title": "NRC, Palisades yakıt yükleme olayına ilişkin Holtec başvurusunu incelerken Pioneer SMR-300 başvurusu ilerliyor",
+          "source": "ans.org",
+          "category": "isletme"
+        }
+      ]
+    },
+    {
+      "kume": "Kurumsal alım ve veri merkezi anlaşmaları",
+      "maddeler": [
+        {
+          "url": "https://ans.org/news/article-8464/vistra-gets-42b-doe-loan-for-planned-uprates-in-ohio-pennsylvania",
+          "date": "2026-10-06",
+          "title": "DOE, Vistra'nın nükleer filo yükseltmeleri için 4,2 milyar dolarlık kredi anlaşmasını resmen kapattı",
+          "source": "ans.org",
+          "category": "kurumsal-alim"
+        },
+        {
+          "url": "https://utilitydive.com/news/amazon-constellation-sign-20-year-ppa-to-expand-maryland-nuclear-plant/832145",
+          "date": "2026-10-05",
+          "title": "Amazon ve Constellation, Maryland'deki Calvert Cliffs santralini genişletmek için 20 yıllık elektrik alım anlaşması imzaladı",
+          "source": "utilitydive.com",
+          "category": "kurumsal-alim"
+        },
+        {
+          "url": "https://wnn.world-nuclear.org/articles/slovakia-buys-out-czech-stake-in-new-nuclear-project",
+          "date": "2026-10-08",
+          "title": "Slovakya, yeni nükleer proje şirketindeki Çek Cumhuriyeti hissesini satın aldı",
+          "source": "wnn.world-nuclear.org",
+          "category": "kurumsal-alim"
+        },
+        {
+          "url": "https://neimagazine.com/news/oracle-signs-point-beach-power-deal",
+          "date": "2026-10-06",
+          "title": "Oracle, Wisconsin'deki Point Beach nükleer santralinden 125-250 MW elektrik alımı taahhüt etti",
+          "source": "neimagazine.com",
+          "category": "kurumsal-alim"
+        }
+      ]
+    },
+    {
+      "kume": "Büyük reaktör projeleri",
+      "maddeler": [
+        {
+          "url": "https://world-nuclear-news.org/articles/chinas-tianwan-7-connected-to-the-grid",
+          "date": "2026-10-08",
+          "title": "Çin'in Tianwan nükleer santralinde yedinci ünite elektrik şebekesine başarıyla bağlandı",
+          "source": "world-nuclear-news.org",
+          "category": "buyuk-reaktor"
+        },
+        {
+          "url": "https://world-nuclear-news.org/articles/westinghouse-teams-up-with-hyundai-ec-for-dutch-feed-studies",
+          "date": "2026-10-08",
+          "title": "Westinghouse ve Hyundai E&C, Hollanda'nın Borssele sahasında yeni reaktör için FEED çalışmalarında ortaklık kurdu",
+          "source": "world-nuclear-news.org",
+          "category": "buyuk-reaktor"
+        },
+        {
+          "url": "https://neimagazine.com/news/brest-turbine-components-installed",
+          "date": "2026-10-09",
+          "title": "Rusya'daki kurşun soğutmalı BREST-OD-300 hızlı reaktöründe türbin bileşenleri monte edildi",
+          "source": "neimagazine.com",
+          "category": "buyuk-reaktor"
+        }
+      ]
+    },
+    {
+      "kume": "Yakıt zinciri ve zenginleştirme",
+      "maddeler": [
+        {
+          "url": "https://nucnet.org/news/kazatomprom-shareholders-approve-major-chinese-uranium-contract-reject-deal-with-russia-10-5-2026",
+          "date": "2026-10-09",
+          "title": "Kazatomprom hissedarları, SNURDC ile uranyum tedarik sözleşmesini onayladı, Uranium One anlaşmasını reddetti",
+          "source": "nucnet.org",
+          "category": "yakit"
+        },
+        {
+          "url": "https://urenco.com/news/uusa/2026/urenco-usa-completes-75-percent-of-current-us-uranium-enrichment-capacity-project",
+          "date": "2026-10-08",
+          "title": "Urenco USA, ABD'deki uranyum zenginleştirme kapasitesi genişleme projesinin %75'ini tamamladı",
+          "source": "urenco.com",
+          "category": "yakit"
+        },
+        {
+          "url": "https://urenco.com/news/deutschland/2026/uranium-oxide-storage-facility-in-germany-officially-commissioned",
+          "date": "2026-10-06",
+          "title": "Urenco, Almanya'nın Gronau kentinde tükenmiş uranyum için U3O8 depolama tesisini işletmeye aldı",
+          "source": "urenco.com",
+          "category": "yakit"
+        }
+      ]
+    },
+    {
+      "kume": "Mevcut filo: işletme, modernizasyon ve söküm",
+      "maddeler": [
+        {
+          "url": "https://neimagazine.com/news/doe-backs-vistra-fleet-modernisation",
+          "date": "2026-10-09",
+          "title": "DOE, Vistra'nın nükleer filosunun modernizasyonunu ve kapasite artışını desteklediğini açıkladı",
+          "source": "neimagazine.com",
+          "category": "isletme"
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "kapasite_mwe": 2823,
+    "proje_sayisi": 9,
+    "kapsanan_ulke": 4,
+    "politika_gelismesi": 3,
+    "aciklanan_yatirim_usd_milyon": 144700
   },
   "stories": [
     {
@@ -149,8 +328,8 @@
       },
       "score": 9,
       "secim": "one_cikan",
-      "title": "Türkiye'nin SMR yasa taslağı 2027 bütçesi sonrası TBMM'ye gidecek",
-      "detail": "Enerji ve Tabii Kaynaklar Bakanlığı, küçük modüler reaktörler (SMR) için bir yasa taslağı hazırladı. Enerji ve Tabii Kaynaklar Bakanı Alparslan Bayraktar, Şanlıurfa'da düzenlenen Teknofest Güneydoğu'da yaptığı açıklamada, taslağın 2027 bütçe görüşmelerinin ardından Türkiye Büyük Millet Meclisi (TBMM) gündemine girmesini beklediklerini söyledi. Mevzuat hazırlıkları daha önce başlamış, tanımlar ve güvenlik temelli unsurlar sisteme dahil edilmişti.\n\nHazır reaktör alımının önünü açan unsurlar, 2 Ekim günü Resmi Gazete'de yayımlanan Nükleer Düzenleme Kurumu'nun (NDK) iki yönetmelik değişikliğiyle zaten sisteme girmişti. Hazırlanan yasa taslağı, küçük nükleer santrallerin kuruluşuna yönelik teşvik unsurları içeren finansman çerçevesini, yatırım izinlerinin kapsamını ve sorumlulukların tesisini içeriyor.\n\nSektör, büyük organize sanayi bölgeleri ya da çok yüksek elektrik tüketen sanayi kuruluşları ve bölgeler için şebeke dışı küçük nükleer santral kurma izni talep ediyordu. Bu konunun taslakta yer alıp almadığı bilinmiyor. Yasal düzenlemenin, hazır reaktörler için bir tip onayı sistemine izin vermesi de bekleniyor.\n\nDüzenlemenin, özel sektör yatırımı yanında kamu-özel ortaklığı modeline izin vermesi ve şebekeye elektrik verecek bazı yatırımlar için belirli bir süre kamu alımı imkânı sağlaması öngörülüyor. Yatırımcılara belirli bir oranda yerli katkı şartının teşviklerle ilişkilendirilebileceği kaydedildi. Türkiye, bu amaçla TENMAK aracılığıyla İstanbul'da deney amaçlı bir reaktör kurmuş, TÜBİTAK ise 2025 yılında teknoloji kazanımı için bir çağrı programı açmıştı. Kanada ve ABD ile de işbirliği anlaşmaları imzalandı.",
+      "title": "Türkiye’nin SMR kanun taslağı bütçe görüşmelerinin ardından TBMM gündemine gelecek",
+      "detail": "Enerji ve Tabii Kaynaklar Bakanlığı, küçük modüler reaktörlerin geliştirilmesine yönelik bir kanun taslağı hazırladı. Enerji ve Tabii Kaynaklar Bakanı Alparslan Bayraktar, TEKNOFEST Güneydoğu’da yaptığı açıklamada taslağın hazır olduğunu ve bütçe görüşmelerinin ardından, mevcut yasama yılı içinde Türkiye Büyük Millet Meclisinin gündemine getirilmesinin hedeflendiğini söyledi.\n\nBayraktar’ın açıklamasına göre düzenleme; SMR projelerinin geliştirilmesi, finansmanı ve güvenlik önlemleri için hukuki bir çerçeve oluşturmayı amaçlıyor. Bakanlığın açıklamasında şebekeden bağımsız santraller, kamu alım garantisi, yerli katkı oranı veya özel sektör teşviklerinin nasıl uygulanacağına ilişkin ayrıntı verilmedi. Bu nedenle mevcut metindeki bu konulara ilişkin kesin ifadeler çıkarılmalı.\n\nNükleer Düzenleme Kurumunun 2 Ekim 2026’da yayımlanan yönetmelik değişiklikleri ise modüler reaktör, reaktör modülü ve modüler üretim gibi kavramları mevzuata ekledi; nükleer tesislerin yetkilendirme, imalat, işletmeye alma ve yönetim sistemi kurallarını güncelledi.",
       "source": {
         "url": "https://ekonomim.com/sektorler/enerji/kucuk-moduler-nukleer-santraller-icin-ilk-adim-haberi-922735",
         "name": "ekonomim.com",
@@ -194,8 +373,8 @@
       },
       "score": 8,
       "secim": "one_cikan",
-      "title": "Kaliforniya, 1976'dan kalan nükleer santral yasağını kaldıran yasayı imzaladı",
-      "detail": "Kaliforniya Valisi Gavin Newsom, 1976'dan beri geçerli olan yeni nükleer santral yasağını kaldırabilecek ve bir füzyon enerjisi stratejisi oluşturacak iki yasayı eyalet kanunu olarak imzaladı. Demokrat Newsom'ın imzaladığı yasalardan biri, eyaleti yeni nükleer santrallerin ve ileri nükleer teknolojilerin Kaliforniya'nın temiz enerji hedeflerine ve kritik altyapıya katkı sağlayıp sağlayamayacağına dair resmi bir değerlendirme yapmaya yönlendiriyor.\n\nDeğerlendirmenin 1 Ocak 2028'e kadar tamamlanması gerekiyor. Çalışma; maliyet değerlendirmesi, güvenilirlik, işgücü faydaları, çevresel etki ve yakıt döngüsü konularını kapsayacak. Kaliforniya'nın tek işletmedeki ticari nükleer santrali, iki üniteli Diablo Canyon santrali.",
+      "title": "Kaliforniya, yeni nükleer santrallerin rolünü inceleyecek yasayı kabul etti",
+      "detail": "Kaliforniya Valisi Gavin Newsom, eyaletin yeni nükleer santrallere ilişkin kapsamlı bir değerlendirme yapmasını öngören AB 2647 sayılı yasayı imzaladı. Yasa, 1976’dan bu yana yeni nükleer santrallerin kurulmasını sınırlayan hükümleri kaldırmıyor ve herhangi bir santralin yapımına izin vermiyor.\n\nDüzenleme, Kaliforniya Enerji Komisyonunun ileri nükleer teknolojilerin kritik altyapıyı destekleme ve eyaletin 2045 sıfır karbonlu elektrik hedefine katkı sağlama potansiyelini 1 Ocak 2028’e kadar incelemesini öngörüyor. Çalışmada maliyet, şebeke güvenilirliği, emisyonlar, kurulum süreleri, atık yönetimi, çevresel etkiler, yer seçimi ve işgücü ihtiyaçları değerlendirilecek; mevcut nükleer mevzuatta yapılabilecek değişikliklere ilişkin öneriler de hazırlanabilecek. Newsom’ın aynı gün imzaladığı SB 925 ise nükleer fisyon santrallerinden ayrı olarak Kaliforniya’nın füzyon enerjisi stratejisini oluşturmayı amaçlıyor.",
       "source": {
         "url": "https://nucnet.org/news/california-governor-signs-bills-to-overturn-nuclear-ban-and-plan-for-fusion-10-2-2026",
         "name": "nucnet.org",
@@ -234,8 +413,8 @@
       },
       "score": 8,
       "secim": "one_cikan",
-      "title": "Polonya, güncellenen nükleer programında ilk ünite tarihini 2036'ya kaydırdı",
-      "detail": "Polonya hükümeti, iki büyük ölçekli nükleer santral planını ve toplam 6-9 GW kurulu güç hedefini teyit eden güncellenmiş bir nükleer enerji programını resmen kabul etti. Genel kapasite hedefi, 2020'de kabul edilen önceki programla aynı kalırken, güncellenen belge Lubiatowo-Kopalino'daki ilk santral ve ikinci proje için alınan kararları ve revize takvimleri içeriyor. Güncellenen programa göre, Baltık kıyısındaki Pomorskie bölgesindeki Lubiatowo-Kopalino'da üç üniteli Westinghouse AP1000 santrali için ilk nükleer beton dökümü 2028'de planlanıyor.\n\nPolonya, programın önceki sürümünü 2020'de onaylamıştı. O dönemki hedefler, ilk nükleer ünitenin 2033'te, diğer iki ünitenin ise 2035 ve 2037'de ticari işletmeye girmesini öngörüyordu. Güncellenen program bu tarihleri sırasıyla 2036, 2037 ve 2038'e kaydırırken, ardışık üniteler arasındaki planlanan aralığı iki yıldan bir yıla düşürdü. İlk AP1000 ünitesi için 2036 hedefi yeni bir gecikme değil. PEJ bu tarihi 2024'te olası başlangıç tarihi olarak vermişti. Hükümet, 2036'yı Aralık 2024'teki revize program taslağında resmen açıklamıştı.\n\nLubiatowo-Kopalino projesi hazırlık aşamasından uygulama aşamasına geçti. Devlete ait proje şirketi Polskie Elektrownie Jądrowe (PEJ), Mart 2026'da nükleer düzenleyici PAA'ya inşaat lisansı başvurusunda bulundu ve sahada hazırlık çalışmaları sürüyor. Polonya, proje için 2025-2030 döneminde 60,2 milyar zloti (13,6 milyar euro, 15,3 milyar dolar) devlet sermayesi ayırdı. Finansman modeli, proje maliyetinin %30'unun sermaye, kalan %70'inin ise devlet garantili borç finansmanıyla karşılanmasına dayanıyor. Avrupa Komisyonu, devlet destek modelini Aralık 2025'te onaylamıştı.\n\nİkinci santral için stratejik ortak ve reaktör teknolojisi seçimi 2027'de, saha seçimi 2028'de, ilk nükleer beton dökümü ise 2032'de planlanıyor. İlk iki ünitenin ticari işletmeye girmesi 2040 ve 2041'de hedefleniyor. EJ2 adıyla bilinen ikinci santral, büyük ölçekli Nesil III+ su soğutmalı reaktör teknolojisi kullanacak; teknoloji tedarikçisi ve genel yüklenici rekabetçi bir süreçle seçilecek. Fransa, Kanada ve ABD bu süreçteki diyaloğa katılıyor. Teklifler 2027'de değerlendirilecek. Orta Polonya'daki Bełchatów ve Konin kömür santrali sahaları EJ2 için tercih edilen konumlar olurken, doğu Polonya'daki Kozienice ve güneydoğudaki Polaniec de ileri analiz için listelendi.",
+      "title": "Polonya güncellenen nükleer programını kabul etti; ilk ünite için 2036 hedefini teyit etti",
+      "detail": "Polonya hükümeti, iki büyük ölçekli nükleer santral ve toplam 6-9 GW kurulu güç öngören güncellenmiş Polonya Nükleer Enerji Programı’nı kabul etti. İlk proje, Lubiatowo-Kopalino sahasında kurulacak üç Westinghouse AP1000 reaktöründen ve yaklaşık 3,75 GW toplam kapasiteden oluşacak.\n\nProgram, ilk nükleer betonun 2028’de dökülmesini ve üç ünitenin sırasıyla 2036, 2037 ve 2038’de ticari işletmeye alınmasını öngörüyor. Bu tarihler 2020 programındaki 2033, 2035 ve 2037 hedeflerinden daha geç olmakla birlikte, ilk ünite için 2036 hedefi daha önceki resmî planlarda da açıklanmıştı. Bu nedenle haftanın gelişmesi yeni bir erteleme kararı değil, güncellenmiş takvimin hükümet tarafından resmen kabul edilmesi.\n\nDevlete ait Polskie Elektrownie Jądrowe, Mart 2026’da Polonya Atom Enerjisi Ajansına inşaat izni başvurusunda bulundu. Projenin 2025-2030 dönemindeki sermaye ihtiyacı için 60,2 milyar zloti devlet katkısı öngörülüyor. Bu tutar projenin toplam yatırım maliyeti değil, devlet tarafından sağlanacak sermaye katkısıdır. Avrupa Komisyonu projenin kamu destek modelini Aralık 2025’te onayladı.\n\nİkinci santral için stratejik ortak ve reaktör teknolojisi seçimi 2027'de, saha seçimi 2028'de, ilk nükleer beton dökümü ise 2032'de planlanıyor. İlk iki ünitenin ticari işletmeye girmesi 2040 ve 2041'de hedefleniyor. EJ2 adıyla bilinen ikinci santral, büyük ölçekli Nesil III+ su soğutmalı reaktör teknolojisi kullanacak; teknoloji tedarikçisi ve genel yüklenici rekabetçi bir süreçle seçilecek. Fransa, Kanada ve ABD bu süreçteki diyaloğa katılıyor. Teklifler 2027'de değerlendirilecek. Orta Polonya'daki Bełchatów ve Konin kömür santrali sahaları EJ2 için tercih edilen konumlar olurken, doğu Polonya'daki Kozienice ve güneydoğudaki Polaniec de ileri analiz için listelendi.",
       "source": {
         "url": "https://nucnet.org/news/poland-formally-adopts-updated-nuclear-power-programme-for-up-to-9-gw-of-capacity-10-1-2026",
         "name": "nucnet.org",
@@ -430,7 +609,7 @@
       },
       "score": 7,
       "secim": "one_cikan",
-      "title": "General Matter, Paducah zenginleştirme tesisi için NRC başvuru belgelerini açıkladı",
+      "title": "General Matter, Paducah zenginleştirme tesisi için NRC lisans başvurusunu sundu",
       "detail": "Kentucky, Paducah'daki eski Gaseous Diffusion Plant sahasında yerli uranyum zenginleştirmesini canlandırma çalışmaları sürüyor. General Matter, 28 Eylül'de tesis inşaatına başlamak için Nükleer Düzenleme Kurumu'na (NRC) lisans başvurusunda bulunduğunu açıkladı. Çevresel rapor dahil başvuruya ilişkin belgeler, 5 Ekim'de NRC'nin ADAMS belge deposunda kamuya açık hale geldi. Onaylanması halinde başvuru, General Matter'ın NRC'nin 2026 başında kabul ettiği inşaat öncesi saha hazırlık çalışmalarının ötesine geçmesine izin verecek.\n\nBaşvuru, Paducah'da faaliyet planlayan ikinci zenginleştirme şirketi için de bir ilerleme anlamına geliyor. Global Laser Enrichment, önerdiği Paducah Laser Enrichment Facility için Temmuz 2025'te lisans başvurusu yapmış ve bu yılın Ocak ayında düşük zenginlikli uranyum zenginleştirme tesisleri inşa etmek için 28,5 milyon dolarlık bir görev siparişi almıştı. Her iki şirket de 2030'a kadar zenginleştirilmiş uranyum üretimine başlamayı hedefliyor.\n\nGeneral Matter, Ağustos 2025'te eski Gaseous Diffusion Plant sahasında 100 akre (yaklaşık 405 dönüm) arazi için Enerji Bakanlığı (DOE) ile kira sözleşmesi imzaladığını açıklamıştı. Başvurudaki çevresel rapora göre General Matter Paducah Enrichment Facility (GMPEF), zenginleştirmenin yapılacağı iki alan (A ve B Üretim Salonları) ile idari ve destek faaliyetleri için binalardan oluşacak. Şirket, sahada tükenmiş, doğal ve zenginleştirilmiş uranyum hekzaflorür (UF6) kullanarak hem düşük zenginlikli uranyum (LEU) hem de yüksek tahlilli düşük zenginleştirilmiş uranyum (HALEU) üretmeyi planlıyor. Kira kapsamında 7.600 silindir tükenmiş UF6 de yer alıyor.\n\nBu kapasite, General Matter'ın Ocak 2026'da DOE'den aldığı 900 milyon dolarlık HALEU sözleşmesini ve DOE'nin Aralık 2024'te açıkladığı LEU tedarik sözleşmesini yerine getirmesine olanak sağlayacak. Başvurunun halka açık bölümünden, kullanılacak zenginleştirme teknolojisine ilişkin bilgiler 'ticari sır' gerekçesiyle çıkarıldı. Rapor, yalnızca gazlı difüzyon, gaz santrifüj ve lazer zenginleştirme olmak üzere üç zenginleştirme teknolojisi türü bulunduğunu not ediyor. Şirket, başvuru dilekçesinde hızlandırılmış bir inceleme talep ediyor ve Paducah sahasına ilişkin önceki değerlendirmelerin hızlı bir incelemeyi mümkün kılacağına inandığını belirtiyor.",
       "source": {
         "url": "https://ans.org/news/2026-10-06/article-8465/general-matters-nrc-license-application-materials-publicly-available",
@@ -480,8 +659,8 @@
       },
       "score": 7,
       "secim": "one_cikan",
-      "title": "DOE, Vistra'nın üç nükleer santrali için 4,2 milyar dolarlık kredi önerdi",
-      "detail": "ABD Enerji Bakanlığı'nın (DOE) Enerji Hakimiyeti Finansmanı Ofisi (EDF), Vistra Corp'un Pennsylvania'daki Beaver Valley santralinde ve Ohio'daki Davis-Besse ile Perry santrallerindeki kapasite artırımı ve modernizasyon projelerini finanse etmek için 4,2 milyar dolara kadar koşullu kredi taahhüdü açıkladı. DOE, projelerin 433 MW yeni nükleer kapasite ekleyebileceğini ve yaklaşık 4 GW'lık mevcut baz yük üretimini koruyabileceğini belirtti. Koşullu taahhüt, Vistra'nın iki üniteli Comanche Peak santralinde Teksas'ta olası gelecekteki yükseltmeleri finanse etme opsiyonunu da içeriyor.\n\nKoşullu taahhüt, DOE'nin kredi sağlama niyetini gösteriyor. Vistra'nın nihai finansman belgeleri imzalanmadan ve kredi kullandırılmadan önce belirli teknik, hukuki, çevresel ve mali koşulları karşılaması gerekiyor. DOE, yatırımların santrallerin mevcut lisanslarının 20 yıl ötesine kadar işletilmesini de destekleyeceğini açıkladı. EDF Direktörü Gregory A. Beard, 'Başkan Trump ve Bakan Wright, Amerika'nın nükleer geleceği için net bir yön belirledi ve EDF bu misyonu ilerleten projeleri finanse ediyor' dedi.\n\nDuyuru, haftalarca süren hazırlık çalışmalarının ardından geldi. 15 Eylül'de EDF, Ohio Devlet Tarihi Koruma Ofisi'ne, Vistra Operations Company LLC'ye Perry santralinde genişletilmiş güç yükseltmesi için önerilen bir federal kredi garantisini değerlendirdiğini bildirmişti. Söz konusu mektup, yeni bir yardımcı mekanik çekişli soğutma kulesi, iki destek binası ve ana türbin, jeneratör rotoru, nem ayırıcı-yeniden ısıtıcılar ile reaktör içi buhar kurutucusunun olası değişimini tarif ediyor. İnşaatın Ekim 2026'da başlaması bekleniyor.\n\nVistra, üç santral için kapasite genişletme planlarını 14 Ocak'ta NRC'ye gönderdiği bir mektupla ortaya koymuştu. Bu mektup, NRC'nin Şubat 2025'te yayımladığı Regulatory Issue Summary 2025-02'ye gönüllü bir yanıttı. Mektuba göre Vistra, üç santraldeki dört reaktörün her birinde -Perry Ünite 1, Beaver Valley Ünite 1 ve 2, Davis-Besse Ünite 1- iki tür kapasite artırımı uygulamayı planlıyor. NRC üç kapasite artırımı kategorisi tanıyor. Ölçüm belirsizliği telafisi (MUR) artırımı, lisanslı gücün %2'sinden azını geri kazanıyor. Germe artırımı, donanımda büyük değişiklik yapmadan %7'ye kadar artış sağlıyor. Genişletilmiş güç artırımı ise türbin, kondensat pompaları, ana jeneratör ve transformatörlerde önemli değişiklikler gerektirerek %20'ye kadar kapasite ekleyebiliyor.",
+      "title": "DOE, Vistra’nın nükleer filosu için 4,2 milyar dolara kadar koşullu kredi taahhüdü verdi",
+      "detail": "ABD Enerji Bakanlığı'nın (DOE) Enerji Hakimiyeti Finansmanı Ofisi (EDF), Vistra’nın Pennsylvania’daki Beaver Valley ile Ohio’daki Davis-Besse ve Perry nükleer santrallerinde planladığı kapasite artırımı ve modernizasyon çalışmalarını finanse etmek üzere 4,2 milyar dolara kadar koşullu kredi taahhüdü açıkladı. Projelerin yaklaşık 4 GW mevcut üretim kapasitesini koruması ve toplam 433 MW ilave nükleer kapasite sağlaması bekleniyor. Düzenleme, Teksas’taki Comanche Peak santralinde ileride yapılabilecek kapasite artırımlarının finansmanı için de bir seçenek içeriyor.\n\nAçıklanan tutar, finansmanı kapanmış veya kullandırılmış bir kredi değil. Vistra’nın kredi belgeleri imzalanmadan ve kaynak aktarılmadan önce teknik, hukuki, çevresel ve mali koşulları yerine getirmesi gerekiyor. Projelerin yaklaşık 3.000 geçici mühendislik, inşaat ve bakım işi yaratması ve santrallerin mevcut lisans sürelerinin ötesinde 20 yıl daha işletilmesini desteklemesi öngörülüyor.\n\nDuyuru, haftalarca süren hazırlık çalışmalarının ardından geldi. 15 Eylül'de EDF, Ohio Devlet Tarihi Koruma Ofisi'ne, Vistra Operations Company LLC'ye Perry santralinde genişletilmiş güç yükseltmesi için önerilen bir federal kredi garantisini değerlendirdiğini bildirmişti. Söz konusu mektup, yeni bir yardımcı mekanik çekişli soğutma kulesi, iki destek binası ve ana türbin, jeneratör rotoru, nem ayırıcı-yeniden ısıtıcılar ile reaktör içi buhar kurutucusunun olası değişimini tarif ediyor. İnşaatın Ekim 2026'da başlaması bekleniyor.\n\nVistra, üç santral için kapasite genişletme planlarını 14 Ocak'ta NRC'ye gönderdiği bir mektupla ortaya koymuştu. Bu mektup, NRC'nin Şubat 2025'te yayımladığı Regulatory Issue Summary 2025-02'ye gönüllü bir yanıttı. Mektuba göre Vistra, üç santraldeki dört reaktörün her birinde -Perry Ünite 1, Beaver Valley Ünite 1 ve 2, Davis-Besse Ünite 1- iki tür kapasite artırımı uygulamayı planlıyor. NRC üç kapasite artırımı kategorisi tanıyor. Ölçüm belirsizliği telafisi (MUR) artırımı, lisanslı gücün %2'sinden azını geri kazanıyor. Germe artırımı, donanımda büyük değişiklik yapmadan %7'ye kadar artış sağlıyor. Genişletilmiş güç artırımı ise türbin, kondensat pompaları, ana jeneratör ve transformatörlerde önemli değişiklikler gerektirerek %20'ye kadar kapasite ekleyebiliyor.",
       "source": {
         "url": "https://powermag.com/vistra-in-line-for-doe-loan-package-to-uprate-nuclear-plants-in-ohio-and-pennsylvania",
         "name": "powermag.com",
@@ -532,185 +711,6 @@
           "url": "https://utilitydive.com/news/doe-intends-to-loan-vistra-42b-for-nuclear-fleet-improvements/832236",
           "name": "utilitydive.com",
           "domain": "utilitydive.com"
-        }
-      ]
-    }
-  ],
-  "radar": [
-    {
-      "kume": "Füzyon ilerlemeleri",
-      "maddeler": [
-        {
-          "url": "https://info.westinghousenuclear.com/blog/europes-final-iter-vacuum-vessel-sector-delivered",
-          "date": "2026-10-05",
-          "title": "ITER füzyon projesi için Avrupa tarafında üretilen son vakum kabı sektörü teslim edildi",
-          "source": "info.westinghousenuclear.com",
-          "category": "fuzyon"
-        },
-        {
-          "url": "https://ans.org/news/2026-10-09/article-8478/general-fusion-reports-electron-temperatures-exceeding-1-kev",
-          "date": "2026-10-09",
-          "title": "General Fusion'ın LM26 makinesi manyetize hedef füzyonla 1 keV üzerinde plazma sıcaklığına ulaştı",
-          "source": "ans.org",
-          "category": "fuzyon"
-        },
-        {
-          "url": "https://neimagazine.com/news/china-commissions-best-fusion-facility",
-          "date": "2026-10-06",
-          "title": "Çin, Hefei'deki yanan plazma deneyi için BEST tokamak kampüsünü resmen işletmeye aldı",
-          "source": "neimagazine.com",
-          "category": "fuzyon"
-        },
-        {
-          "url": "https://nucnet.org/news/type-one-completes-usd200-million-financing-round-in-bid-to-deploy-nuclear-fusion-technology-10-5-2026",
-          "date": "2026-10-09",
-          "title": "Type One Energy, füzyon reaktör teknolojisini geliştirmek için 200 milyon dolarlık B serisi yatırım turunu tamamladı",
-          "source": "nucnet.org",
-          "category": "fuzyon"
-        }
-      ]
-    },
-    {
-      "kume": "SMR ve mikroreaktör gelişmeleri",
-      "maddeler": [
-        {
-          "url": "https://world-nuclear-news.org/articles/last-energy-texas-micro-modular-reactor-clears-safety-analysis",
-          "date": "2026-10-08",
-          "title": "Last Energy'nin Teksas'taki mikro modüler reaktörü DOE'nin ön belgelenmiş güvenlik analizini geçti",
-          "source": "world-nuclear-news.org",
-          "category": "smr"
-        },
-        {
-          "url": "https://inl.gov/news-release/marvel-reactor-gets-federal-safety-approval-as-its-primary-vessel-arrives-in-idaho",
-          "date": "2026-10-06",
-          "title": "DOE, Idaho'daki MARVEL mikroreaktörü için nihai belgelenmiş güvenlik analizini onayladı, kuru kritiklik testlerine yetki verdi",
-          "source": "inl.gov",
-          "category": "smr"
-        },
-        {
-          "url": "https://nucnet.org/news/marvel-microreactor-clears-milestones-as-researchers-prepare-for-startup-tests-10-3-2026",
-          "date": "2026-10-07",
-          "title": "MARVEL mikroreaktörüne birincil soğutma sistemi takıldı, kritiklik testi Aralık ayında bekleniyor",
-          "source": "nucnet.org",
-          "category": "teknoloji"
-        },
-        {
-          "url": "https://world-nuclear-news.org/articles/bwxts-banr-microreactor-selected-for-canadian-project",
-          "date": "2026-10-06",
-          "title": "BWXT'nin BANR mikroreaktörü, Prodigy'nin New Brunswick'teki taşınabilir nükleer santral projesi için seçildi",
-          "source": "world-nuclear-news.org",
-          "category": "smr"
-        },
-        {
-          "url": "https://neimagazine.com/news/bwxt-set-for-canadian-transportable-reactor",
-          "date": "2026-10-08",
-          "title": "BWXT, Prodigy Clean Energy ve iki First Nations topluluğu için BANR mikroreaktör teknolojisi tedarikçisi seçildi",
-          "source": "neimagazine.com",
-          "category": "smr"
-        },
-        {
-          "url": "https://ans.org/news/article-8474/nrc-reviews-lar-on-palisades-fuel-loading-incident-as-pioneer-smr-application-advances",
-          "date": "2026-10-08",
-          "title": "NRC, Palisades yakıt yükleme olayına ilişkin Holtec başvurusunu incelerken Pioneer SMR-300 başvurusu ilerliyor",
-          "source": "ans.org",
-          "category": "isletme"
-        }
-      ]
-    },
-    {
-      "kume": "Kurumsal alım ve veri merkezi anlaşmaları",
-      "maddeler": [
-        {
-          "url": "https://ans.org/news/article-8464/vistra-gets-42b-doe-loan-for-planned-uprates-in-ohio-pennsylvania",
-          "date": "2026-10-06",
-          "title": "DOE, Vistra'nın nükleer filo yükseltmeleri için 4,2 milyar dolarlık kredi anlaşmasını resmen kapattı",
-          "source": "ans.org",
-          "category": "kurumsal-alim"
-        },
-        {
-          "url": "https://utilitydive.com/news/amazon-constellation-sign-20-year-ppa-to-expand-maryland-nuclear-plant/832145",
-          "date": "2026-10-05",
-          "title": "Amazon ve Constellation, Maryland'deki Calvert Cliffs santralini genişletmek için 20 yıllık elektrik alım anlaşması imzaladı",
-          "source": "utilitydive.com",
-          "category": "kurumsal-alim"
-        },
-        {
-          "url": "https://wnn.world-nuclear.org/articles/slovakia-buys-out-czech-stake-in-new-nuclear-project",
-          "date": "2026-10-08",
-          "title": "Slovakya, yeni nükleer proje şirketindeki Çek Cumhuriyeti hissesini satın aldı",
-          "source": "wnn.world-nuclear.org",
-          "category": "kurumsal-alim"
-        },
-        {
-          "url": "https://neimagazine.com/news/oracle-signs-point-beach-power-deal",
-          "date": "2026-10-06",
-          "title": "Oracle, Wisconsin'deki Point Beach nükleer santralinden 125-250 MW elektrik alımı taahhüt etti",
-          "source": "neimagazine.com",
-          "category": "kurumsal-alim"
-        }
-      ]
-    },
-    {
-      "kume": "Büyük reaktör projeleri",
-      "maddeler": [
-        {
-          "url": "https://world-nuclear-news.org/articles/chinas-tianwan-7-connected-to-the-grid",
-          "date": "2026-10-08",
-          "title": "Çin'in Tianwan nükleer santralinde yedinci ünite elektrik şebekesine başarıyla bağlandı",
-          "source": "world-nuclear-news.org",
-          "category": "buyuk-reaktor"
-        },
-        {
-          "url": "https://world-nuclear-news.org/articles/westinghouse-teams-up-with-hyundai-ec-for-dutch-feed-studies",
-          "date": "2026-10-08",
-          "title": "Westinghouse ve Hyundai E&C, Hollanda'nın Borssele sahasında yeni reaktör için FEED çalışmalarında ortaklık kurdu",
-          "source": "world-nuclear-news.org",
-          "category": "buyuk-reaktor"
-        },
-        {
-          "url": "https://neimagazine.com/news/brest-turbine-components-installed",
-          "date": "2026-10-09",
-          "title": "Rusya'daki kurşun soğutmalı BREST-OD-300 hızlı reaktöründe türbin bileşenleri monte edildi",
-          "source": "neimagazine.com",
-          "category": "buyuk-reaktor"
-        }
-      ]
-    },
-    {
-      "kume": "Yakıt zinciri ve zenginleştirme",
-      "maddeler": [
-        {
-          "url": "https://nucnet.org/news/kazatomprom-shareholders-approve-major-chinese-uranium-contract-reject-deal-with-russia-10-5-2026",
-          "date": "2026-10-09",
-          "title": "Kazatomprom hissedarları, SNURDC ile uranyum tedarik sözleşmesini onayladı, Uranium One anlaşmasını reddetti",
-          "source": "nucnet.org",
-          "category": "yakit"
-        },
-        {
-          "url": "https://urenco.com/news/uusa/2026/urenco-usa-completes-75-percent-of-current-us-uranium-enrichment-capacity-project",
-          "date": "2026-10-08",
-          "title": "Urenco USA, ABD'deki uranyum zenginleştirme kapasitesi genişleme projesinin %75'ini tamamladı",
-          "source": "urenco.com",
-          "category": "yakit"
-        },
-        {
-          "url": "https://urenco.com/news/deutschland/2026/uranium-oxide-storage-facility-in-germany-officially-commissioned",
-          "date": "2026-10-06",
-          "title": "Urenco, Almanya'nın Gronau kentinde tükenmiş uranyum için U3O8 depolama tesisini işletmeye aldı",
-          "source": "urenco.com",
-          "category": "yakit"
-        }
-      ]
-    },
-    {
-      "kume": "Mevcut filo: işletme, modernizasyon ve söküm",
-      "maddeler": [
-        {
-          "url": "https://neimagazine.com/news/doe-backs-vistra-fleet-modernisation",
-          "date": "2026-10-09",
-          "title": "DOE, Vistra'nın nükleer filosunun modernizasyonunu ve kapasite artışını desteklediğini açıkladı",
-          "source": "neimagazine.com",
-          "category": "isletme"
         }
       ]
     }
