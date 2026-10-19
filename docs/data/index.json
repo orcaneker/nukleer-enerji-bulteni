@@ -1,5 +1,16 @@
 [
   {
+    "number": 12,
+    "hafta": "2026-H42",
+    "publication_date": "2026-10-19",
+    "coverage_start": "2026-10-11",
+    "coverage_end": "2026-10-18",
+    "lead_title": "Rosatom, Akkuyu 1. ünitede fiziksel başlatmayı aralıkta planlıyor",
+    "story_count": 10,
+    "radar_count": 26,
+    "file": "data/arsiv/2026-H42.json"
+  },
+  {
     "number": 11,
     "hafta": "2026-H41",
     "publication_date": "2026-10-12",

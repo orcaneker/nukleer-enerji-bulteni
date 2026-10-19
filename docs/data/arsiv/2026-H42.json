@@ -1,0 +1,884 @@
+{
+  "issue": {
+    "number": 12,
+    "hafta": "2026-H42",
+    "publication_date": "2026-10-19",
+    "coverage_start": "2026-10-11",
+    "coverage_end": "2026-10-18",
+    "window_days": 7,
+    "audio": {
+      "url": "assets/audio/2026-H42.mp3",
+      "duration_sec": 51,
+      "voice": "lxZLq5dcyw12UangGJgN",
+      "chars": 669,
+      "generated_at": "2026-10-19"
+    }
+  },
+  "brief": [
+    {
+      "text": "ABD nükleer düzenleyicisi NRC, AP1000 reaktör tasarım sertifikasını Vogtle 3-4 inşaat tecrübesiyle güncelleyip yeniledi.",
+      "slug": "nrc-ap1000-tasarim-sertifikasini-vogtle-tecrubesiyle-yeniledi"
+    },
+    {
+      "text": "Polonya; Enerji Bakanlığı, PEJ ve PGE ülkenin ikinci büyük nükleer santrali için işbirliği anlaşması imzaladı.",
+      "slug": "polonya-ikinci-buyuk-nukleer-santral-icin-isbirligi-anlasmasi-imzaladi"
+    },
+    {
+      "text": "Slovakya'nın Mochovce 4 ünitesi (VVER-440, 471 MWe) ilk kez şebekeye elektrik vermeye başladı.",
+      "slug": "mochovce-4-unitesi-slovakya-sebekesine-elektrik-vermeye-basladi"
+    },
+    {
+      "text": "Urenco USA, ABD'deki zenginleştirme tesisinde sekiz kademeden altısını devreye alıp genişlemenin %75'ini tamamladı.",
+      "slug": "urenco-usa-zenginlestirme-genislemesinin-75-ini-tamamladi"
+    },
+    {
+      "text": "Rosatom, Akkuyu NGS'nin ilk reaktöründe fiziksel başlatmayı aralık ayının ikinci yarısında gerçekleştirmeyi planlıyor.",
+      "slug": "rosatom-akkuyu-1-unitede-fiziksel-baslatmayi-aralikta-planliyor"
+    }
+  ],
+  "metrics": {
+    "aciklanan_yatirim_usd_milyon": 23262,
+    "kapasite_mwe": 1796,
+    "proje_sayisi": 11,
+    "politika_gelismesi": 1,
+    "kapsanan_ulke": 9
+  },
+  "lead": {
+    "id": "akkuyu-unit1-physical-startup-december",
+    "slug": "rosatom-akkuyu-1-unitede-fiziksel-baslatmayi-aralikta-planliyor",
+    "image": {
+      "url": "https://web-cdnprod.aa.com.tr/uploads/Contents/2026/10/16/thumbs_b_c_9243dec9f398303e68c75bb3a8a33ebd.jpg",
+      "type": "og-sayfa",
+      "credit": "aa.com.tr"
+    },
+    "score": 10,
+    "secim": "one_cikan",
+    "title": "Rosatom, Akkuyu 1. ünitede fiziksel başlatmayı aralıkta planlıyor",
+    "detail": "Rosatom Genel Müdürü Aleksey Likhachev, Moskova'da düzenlenen Rusya Enerji Haftası kapsamında gazetecilere açıklamalarda bulundu. Açıklamalar 16 Ekim 2026'da yapıldı. Likhachev, Akkuyu Nükleer Güç Santrali'ndeki (NGS) çalışmaların takvime uygun ilerlediğini belirtti.\n\nLikhachev'e göre, santralin ilk reaktöründe fiziksel başlatma süreci aralık ayının ikinci yarısında gerçekleştirilecek. Rosatom, yıl sonuna kadar Türkiye'deki ünitenin inşaat aşamasından devreye alma aşamasına geçmesini umuyor. Likhachev bu konuda şu ifadeleri kullandı: \"Aralık ayının ikinci yarısında planlanan fiziksel başlatma süreci için takvime uygun ilerliyoruz.\"\n\nLikhachev, ilk reaktörde yıl sonundan önce ilk kontrollü ve kendi kendini sürdüren nükleer zincirleme reaksiyonun gerçekleştirilmesini beklediklerini vurguladı. Bu aşama, reaktörün kritiklik seviyesine erişmesi anlamına geliyor.\n\nAkkuyu NGS projesine yatırımcı çekilmesi konusunda da ilerleme kaydedildi. Likhachev, \"Türk yatırımcılarla çalışmaya yönelik çeşitli seçenekler geliştirdik\" dedi. Bu seçenekler arasındaki tercih hakkının öncelikle Türk hükümetine ait olduğunu sözlerine ekledi.",
+    "source": {
+      "url": "https://aa.com.tr/tr/ekonomi/rosatom-akkuyu-ngsde-ilk-reaktor-aralikta-devreye-alinacak/4091292",
+      "name": "aa.com.tr",
+      "tier": 2,
+      "type": "news_agency",
+      "domain": "aa.com.tr",
+      "primary": true
+    },
+    "excerpt": "Rosatom Genel Müdürü Aleksey Likhachev, Akkuyu Nükleer Güç Santrali'nin ilk reaktöründe aralık ayının ikinci yarısında fiziksel başlatma sürecinin planlandığını açıkladı. Likhachev, ünitenin yıl sonuna kadar inşaat aşamasından devreye alma aşamasına geçmesini umduklarını belirtti.",
+    "category": "turkiye",
+    "maturity": "commissioning",
+    "companies": [
+      "Rosatom",
+      "Akkuyu NGS"
+    ],
+    "countries": [
+      "Türkiye",
+      "Rusya"
+    ],
+    "event_key": "akkuyu-unit1-physical-startup-december",
+    "investment": null,
+    "value_chain": [
+      "reaktor-insa"
+    ],
+    "capacity_mwe": null,
+    "neden_onemli": null,
+    "technologies": [
+      "VVER-1200"
+    ],
+    "subcategories": [
+      "baslatma",
+      "isletmeye-alma"
+    ],
+    "published_date": "2026-10-16",
+    "supporting_sources": [
+      {
+        "url": "https://dunya.com/gundem/rosatomdan-akkuyu-aciklamasi-ilk-reaktor-aralikta-devreye-alinacak-haberi-844203",
+        "name": "dunya.com",
+        "domain": "dunya.com"
+      }
+    ]
+  },
+  "stories": [
+    {
+      "id": "nrc-ap1000-design-cert-renewal",
+      "slug": "nrc-ap1000-tasarim-sertifikasini-vogtle-tecrubesiyle-yeniledi",
+      "image": {
+        "url": "https://info.westinghousenuclear.com/hubfs/FI.DSC_3445.jpg",
+        "type": "og-sayfa",
+        "credit": "info.westinghousenuclear.com"
+      },
+      "score": 9,
+      "secim": "one_cikan",
+      "title": "NRC, AP1000 tasarım sertifikasını Vogtle tecrübesiyle yeniledi",
+      "detail": "ABD Nükleer Düzenleme Kurumu (NRC), Westinghouse'un AP1000 reaktör tasarımına ilişkin standart tasarım sertifikasını (DC) yeniledi ve güncelledi. Karar 14 Ekim 2026'da yayımlandı. Yenileme, Vogtle 3 ve 4 ünitelerinin inşaat ve işletme sürecinden çıkarılan dersleri sertifikalı tasarıma entegre ediyor. NRC, Vogtle 4'ü artık standart AP1000 tasarımı olarak kabul ediyor.\n\nAynı hafta Polonya'da proje şirketi Polskie Elektrownie Jądrowe (PEJ), Westinghouse'u Lubiatowo-Kopalino sahasındaki ilk AP1000 ünitesi için uzun tedarik süreli (long-lead item) parça alımına başlaması konusunda görevlendirdi. Westinghouse, 13 Ekim'de dört Polonyalı tedarikçiyle -- Energomontaż-Północ Gdynia (EPG), FAMAK, Mostostal Kielce ve Mostostal Krakow -- şartlı satın alma siparişleri imzaladı. Siparişler, güvenlik ilişkili CA02 duvar modülü, CA03 modülü, CA05 duvar modülü ve CA20 zemin modülü kapsamlarını içeriyor. Pomerania bölgesinde Choczewo belediyesindeki sahaya toplam üç AP1000 reaktörü planlanıyor.\n\nABD'de Teksas'ta Fermi America'nın Project Matador kapsamında planlanan dört AP1000 reaktörü için NRC personeli, çevresel etki değerlendirme (EIA) sürecinde ön tavsiye kararı verdi. Ön tavsiye, birleşik lisans başvurusunu destekler nitelikte. Proje, üretilen elektriği sahadaki veri merkezlerine iletmeyi planlıyor.\n\nWestinghouse Küresel İş Geliştirme Başkanı Dan Lipman, Polonyalı tedarikçilerin teknik kapasitesinden etkilendiklerini söyledi. PEJ Yönetim Kurulu Başkanı Marek Woszczyk, şartlı siparişlerin Polonya sanayisinin küresel AP1000 tedarik zincirine katılma potansiyelini gösterdiğini belirtti. Tedarikçiler, tam NQA-1 uyumluluğuna ulaştıktan ve ön üretim nitelik numunelerini tamamladıktan sonra projenin tam kapsamını üstlenecek.",
+      "source": {
+        "url": "https://info.westinghousenuclear.com/news/westinghouse-places-conditional-purchase-orders-with-polish-suppliers-for-first-ap1000-unit-at-lubiatowo-kopalino",
+        "name": "info.westinghousenuclear.com",
+        "tier": 1,
+        "type": "company",
+        "domain": "info.westinghousenuclear.com",
+        "primary": true
+      },
+      "excerpt": "ABD Nükleer Düzenleme Kurumu (NRC), Westinghouse'un AP1000 reaktör tasarım sertifikasını 14 Ekim'de yeniledi ve güncelledi. Yenileme, Vogtle 3 ve 4 ünitelerinin inşaat ve işletme tecrübesini sertifikalı tasarıma yansıtıyor.",
+      "category": "politika",
+      "maturity": "design_cert",
+      "companies": [
+        "Westinghouse",
+        "Fermi America",
+        "PEJ",
+        "EPG",
+        "FAMAK",
+        "Mostostal Kielce",
+        "Mostostal Krakow"
+      ],
+      "countries": [
+        "ABD",
+        "Polonya"
+      ],
+      "event_key": "nrc-ap1000-design-cert-renewal",
+      "investment": null,
+      "value_chain": [
+        "reaktor-insa"
+      ],
+      "capacity_mwe": null,
+      "neden_onemli": null,
+      "technologies": [
+        "AP1000"
+      ],
+      "subcategories": [
+        "tasarim-sertifikasi",
+        "tedarik-zinciri"
+      ],
+      "published_date": "2026-10-13",
+      "supporting_sources": [
+        {
+          "url": "https://federalregister.gov/documents/2026/10/14/2026-21030/ap1000-design-certification-renewal",
+          "name": "federalregister.gov",
+          "domain": "federalregister.gov"
+        },
+        {
+          "url": "https://powermag.com/nrc-updates-ap1000-reactor-design-certification",
+          "name": "powermag.com",
+          "domain": "powermag.com"
+        },
+        {
+          "url": "https://ans.org/news/2026-10-16/article-8493/nrc-oks-westinghouse-ap1000-design-certification-revision-renewal",
+          "name": "ans.org",
+          "domain": "ans.org"
+        }
+      ]
+    },
+    {
+      "id": "poland-second-npp-agreement",
+      "slug": "polonya-ikinci-buyuk-nukleer-santral-icin-isbirligi-anlasmasi-imzaladi",
+      "image": {
+        "url": "https://nucnet.imgix.net/nk33akjhmtez0ksnnr4azom0s8zk?ixlib=rails-4.3.1&w=770&h=423&fit=crop&q=60&fm=jpg&auto=format%2Ccompress&s=ffbb986046c75b0da68ad922676729d5",
+        "type": "og",
+        "credit": "nucnet.org"
+      },
+      "score": 7,
+      "secim": "one_cikan",
+      "title": "Polonya, ikinci büyük nükleer santral için işbirliği anlaşması imzaladı",
+      "detail": "Polonya Enerji Bakanlığı, nükleer proje şirketi Polskie Elektrownie Jądrowe (PEJ) ve devlete ait enerji şirketi Polska Grupa Energetyczna (PGE), ülkenin ikinci büyük ölçekli nükleer santralinin hazırlığına yönelik görev dağılımını belirleyen bir işbirliği anlaşması imzaladı. Anlaşma, Eylül 2026 sonunda kabul edilen güncellenmiş Polonya Nükleer Enerji Programı'na (PPEJ) dayanıyor. Program, Polonya'nın 6-9 GWe nükleer kapasiteye ulaşma yolunu tarif ediyor.\n\nYeni işbirliği ilkelerine göre PEJ, ülkenin Baltık kıyısındaki ilk nükleer tesisindeki rolüne benzer şekilde, ikinci santral için ana yatırımcı ve proje koordinatörü olacak. PGE ise saha analizleri, çevresel etki değerlendirmeleri ve ön fizibilite çalışmaları yürütecek. PGE, uluslararası teknoloji tedarikçileriyle görüşmeleri ve ortak analizleri de yönetecek. İncelemeler öncelikle Bełchatów ve Konin sahalarına odaklanacak; her ikisi de PGE'nin işlettiği büyük kömür santrallerine ev sahipliği yapıyor.\n\nDevlet Varlıkları Bakanı Wojciech Balczun, PEJ ile PGE arasındaki sinerjinin stratejik projenin etkin hazırlığını sağlayacağını söyledi. Enerji Bakan Yardımcısı ve Stratejik Enerji Altyapısı Hükümet Temsilcisi Wojciech Wrochna, önlerinde saha analizleri, fizibilite çalışmaları ve teknoloji seçiminin bulunduğunu belirtti. Wrochna, sürecin rekabetçi şekilde yürütüleceğini, yalnızca teknolojinin değil finansman ve uzun vadeli stratejik işbirliğinin de dikkate alınacağını vurguladı.\n\nİkinci santralin inşaatına 2032 yılı civarında başlanması, ilk reaktör ünitesinin 2040'ta işletmeye girmesi hedefleniyor. Polonya, ABD, Fransa ve Kanada'dan stratejik teknoloji tedarikçileriyle görüşmelerini sürdürüyor. Hükümet, 2027'de reaktör teknolojisi ve stratejik ortak seçimini tamamlamayı, 2028'de ise kesin saha seçimini yapmayı planlıyor. Enerji Bakanlığı, teknoloji, finansman ve uzun vadeli ortaklığı kapsayan bütüncül bir paket seçmek için \"rekabetçi diyalog\" sürecini yürütüyor.",
+      "source": {
+        "url": "https://neimagazine.com/news/poland-agrees-second-npp",
+        "name": "neimagazine.com",
+        "tier": 2,
+        "type": "trade_press",
+        "domain": "neimagazine.com",
+        "primary": true
+      },
+      "excerpt": "Polonya Enerji Bakanlığı, PEJ ve PGE, ülkenin ikinci büyük ölçekli nükleer santralinin hazırlık sürecine ilişkin işbirliği anlaşması imzaladı. Hükümet, 2027'de teknoloji ve ortak seçimini, 2028'de saha onayını tamamlamayı, inşaata ise 2032'de başlamayı hedefliyor.",
+      "category": "buyuk-reaktor",
+      "maturity": "announced",
+      "companies": [
+        "PEJ",
+        "PGE"
+      ],
+      "countries": [
+        "Polonya"
+      ],
+      "event_key": "poland-second-npp-agreement",
+      "investment": null,
+      "value_chain": [
+        "reaktor-insa"
+      ],
+      "capacity_mwe": null,
+      "neden_onemli": null,
+      "technologies": [],
+      "subcategories": [
+        "saha-secimi",
+        "program"
+      ],
+      "published_date": "2026-10-15",
+      "supporting_sources": [
+        {
+          "url": "https://nucnet.org/news/poland-announces-agreement-on-plans-for-second-nuclear-power-station-10-2-2026",
+          "name": "nucnet.org",
+          "domain": "nucnet.org"
+        }
+      ]
+    },
+    {
+      "id": "germany-fusion-2-5bn-programme",
+      "slug": "almanya-fuzyon-enerjisi-icin-2-5-milyar-euroluk-destek-programini-basl",
+      "image": {
+        "url": "https://nucnet.imgix.net/iwvp8wtamwwnh3dzvqyp6bcuon21?ixlib=rails-4.3.1&w=770&h=423&fit=crop&q=60&fm=jpg&auto=format%2Ccompress&s=0ced0a76b1ab63010dc339d944045f2f",
+        "type": "og",
+        "credit": "nucnet.org"
+      },
+      "score": 7,
+      "secim": "one_cikan",
+      "title": "Almanya, füzyon enerjisi için 2,5 milyar euroluk destek programını başlattı",
+      "detail": "Almanya, nükleer füzyon enerji santrallerinin ticari gelişimini hızlandırmak için 500 milyon euro (560 milyon dolar) tutarında bir Füzyon Kilometre Taşı Programı başlattı. Programı, Federal Araştırma, Teknoloji ve Uzay Bakanlığı (BMFTR) adına Sprunginnovasyonlar için Federal Ajans (SPRIND) yönetiyor. Girişim, özel sektör füzyon girişimlerini temel laboratuvar araştırmasından ticari pazar hazırlığına taşımayı hedefliyor.\n\nFederal hükümet, Altyapı ve İklim Nötrlüğü için Özel Fon (SVIK) aracılığıyla 2029 yılına kadar 500 milyon euro tahsis edecek. Şirketler tasarımlarını geliştirip gösterim santraline doğru inşaatı ölçeklendirdikçe, toplam kamu finansmanının 2,5 milyar euroya kadar yükselmesi öngörülüyor.\n\nSPRIND Direktörü Rafael Laguna de la Vera, \"Bu programla kasıtlı olarak yeni ve daha cesur bir yaklaşım izliyoruz: sadece teknolojileri fonlamıyoruz, güçlü şirketlerin gelişimini destekliyoruz\" dedi. Fon, geleneksel katı hibelerden farklı olarak doğrudan performansa bağlı. Girişimler, bağımsız uzmanların doğruladığı somut teknolojik ve finansal yol haritaları sunmak zorunda; bir kilometre taşına ulaşılamazsa finansman anında durduruluyor.\n\nProgram, rakip teknolojileri tek bir kazanan seçmeden paralel olarak destekliyor; manyetik hapsetme ve lazer güdümlü ataletsel hapsetme yaklaşımları eş zamanlı gelişebiliyor. Girişim, Almanya'nın bayrak programı Yüksek Teknoloji Gündemi Almanya (HTAD) çerçevesinde yapılandırılan daha geniş Füzyon Eylem Planı'nın merkezi bir parçası.",
+      "source": {
+        "url": "https://neimagazine.com/news/germany-launches-fusion-milestone-programme",
+        "name": "neimagazine.com",
+        "tier": 2,
+        "type": "trade_press",
+        "domain": "neimagazine.com",
+        "primary": true
+      },
+      "excerpt": "Almanya, füzyon enerjisi şirketlerini ticarileşmeye hazırlamak için 500 milyon euro (560 milyon dolar) başlangıç fonlu Füzyon Kilometre Taşı Programı'nı başlattı. Toplam kamu desteğinin 2,5 milyar euroya kadar çıkması planlanıyor.",
+      "category": "fuzyon",
+      "maturity": "funded",
+      "companies": [
+        "SPRIND"
+      ],
+      "countries": [
+        "Almanya"
+      ],
+      "event_key": "germany-fusion-2-5bn-programme",
+      "investment": {
+        "currency": "EUR",
+        "amount_original": 2.5,
+        "amount_usd_million": 2800,
+        "public_support_usd_million": 2800
+      },
+      "value_chain": [
+        "uygulama"
+      ],
+      "capacity_mwe": null,
+      "neden_onemli": null,
+      "technologies": [
+        "manyetik hapsetme",
+        "atalet hapsetmeli füzyon"
+      ],
+      "subcategories": [
+        "finansman",
+        "fuzyon-ar-ge"
+      ],
+      "published_date": "2026-10-14",
+      "supporting_sources": [
+        {
+          "url": "https://nucnet.org/news/germany-launches-eur2-5-billion-programme-to-spark-further-private-investment-in-fusion-10-1-2026",
+          "name": "nucnet.org",
+          "domain": "nucnet.org"
+        },
+        {
+          "url": "https://ans.org/news/2026-10-14/article-8485",
+          "name": "ans.org",
+          "domain": "ans.org"
+        }
+      ]
+    },
+    {
+      "id": "rooppur-1-criticality-licence",
+      "slug": "banglades-in-rooppur-1-reaktoru-ilk-kritiklige-ulasti",
+      "image": {
+        "url": "https://world-nuclear-news.org/images/articles/rooppur_npp_730_rosatom_14957.jpg",
+        "type": "og-sayfa",
+        "credit": "world-nuclear-news.org"
+      },
+      "score": 6,
+      "secim": "one_cikan",
+      "title": "Bangladeş'in Rooppur 1 reaktörü ilk kritikliğe ulaştı",
+      "detail": "Bangladeş Atom Enerjisi Düzenleme Kurumu (BAERA), Bangladeş Atom Enerjisi Komisyonuna kritik B-2 devreye alma lisansını verdi. Lisans, Rooppur Nükleer Güç Santrali'nin 1. ünitesinin ilk kontrollü nükleer fisyon reaksiyonunu başlatmasına izin veriyor. Ünite, düzenleyicinin onayından üç gün sonra, 11 Ekim Pazar günü saat 15.34'te kritikliğe ulaştı.\n\nYakıt yüklemesi 28 Nisan'da başlamış, 12 Mayıs'ta tamamlanmış ve ardından testler yapılmıştı. Ancak ilk kritiklik, bazı teknik komplikasyonlar nedeniyle iki aydan fazla gecikti. Bangladeş Nükleer Düzenleme Kurumu, işletme lisansını bu yılın 16 Nisan'ında vermişti. Strana Rosatom yayınına göre ünitenin güç başlatması 20 Kasım'da planlanıyor.\n\nRosatom Genel Müdürü Aleksey Likhachev, Moskova'da Bangladeş Bilim ve Teknoloji Bakanı Fakir Mahbub Anam ile yaptığı görüşmenin ardından, \"Minimum kontrol seviyesine ulaşmak, Rooppur NGS 1. ünite projesinin uygulanmasında önemli bir kilometre taşı\" dedi. Nuclear Engineering International, reaktörü 1.200 MWe gücünde VVER-1200 olarak tanımlarken, NucNet reaktörü 1.080 MW gücünde VVER V-523 modeli olarak aktardı.\n\nRusya, Şubat 2011'de Rooppur'da iki reaktör inşası için anlaşma imzalamıştı; projenin ilk sözleşmesi Aralık 2015'te 12,65 milyar dolar değerinde imzalandı. Bangladeş Atom Düzenleme Kurumu, ön saha çalışmalarına izin veren ilk saha lisansını Haziran 2016'da vermişti. 1. ünitenin inşaatı Kasım 2017'de, 2. ünitenin inşaatı Temmuz 2018'de başladı. Reaktörlerin ilk işletme ömrü 60 yıl, ek 20 yıllık uzatma seçeneğiyle birlikte planlanıyor. İlk yakıt sevkiyatı sahaya Ekim 2023'te ulaşmıştı.",
+      "source": {
+        "url": "https://world-nuclear-news.org/articles/bangladeshs-rooppur-1-achieves-criticality",
+        "name": "world-nuclear-news.org",
+        "tier": 2,
+        "type": "trade_press",
+        "domain": "world-nuclear-news.org",
+        "primary": true
+      },
+      "excerpt": "Bangladeş Atom Enerjisi Düzenleme Kurumu (BAERA), Rooppur Nükleer Güç Santrali'nin 1. ünitesi için B-2 devreye alma lisansını verdi. Ünite, 11 Ekim'de saat 15.34'te kendi kendini sürdüren nükleer zincirleme reaksiyona ulaştı.",
+      "category": "buyuk-reaktor",
+      "maturity": "commissioning",
+      "companies": [
+        "Rosatom"
+      ],
+      "countries": [
+        "Bangladeş",
+        "Rusya"
+      ],
+      "event_key": "rooppur-1-criticality-licence",
+      "investment": {
+        "currency": "USD",
+        "amount_original": 12.65,
+        "amount_usd_million": 12650
+      },
+      "value_chain": [
+        "reaktor-insa"
+      ],
+      "capacity_mwe": null,
+      "neden_onemli": null,
+      "technologies": [
+        "VVER-1200",
+        "VVER V-523"
+      ],
+      "subcategories": [
+        "kritiklik",
+        "devreye-alma"
+      ],
+      "published_date": "2026-10-12",
+      "supporting_sources": [
+        {
+          "url": "https://neimagazine.com/news/rooppur-1-cleared-for-criticality",
+          "name": "neimagazine.com",
+          "domain": "neimagazine.com"
+        },
+        {
+          "url": "https://nucnet.org/news/bangladesh-s-rooppur-1-nuclear-plant-achieves-first-criticality-10-1-2026",
+          "name": "nucnet.org",
+          "domain": "nucnet.org"
+        }
+      ]
+    },
+    {
+      "id": "urenco-usa-nef-cascades-2026",
+      "slug": "urenco-usa-zenginlestirme-genislemesinin-75-ini-tamamladi",
+      "image": {
+        "url": "https://world-nuclear-news.org/images/articles/UUSAmilestoneSept2026(UrencoUSA)_74083.png",
+        "type": "og-sayfa",
+        "credit": "world-nuclear-news.org"
+      },
+      "score": 6,
+      "secim": "one_cikan",
+      "title": "Urenco USA, zenginleştirme genişlemesinin %75'ini tamamladı",
+      "detail": "Urenco USA, New Mexico eyaletinin Eunice kasabasındaki Ulusal Zenginleştirme Tesisi'nde (NEF) altıncı santrifüj kademesinde üretime başladı. Bu adım, mevcut bir binaya sekiz santrifüj kademesi eklenerek 2025-2027 arasında 700.000 ayırma iş birimi (SWU) yeni kapasite kurulumu projesinin %75'inin tamamlandığı anlamına geliyor. Şirket, yedinci kademeyi bu yıl içinde, sekizinci ve son kademeyi ise 2027 baharında devreye almayı bekliyor.\n\nUrenco USA, önümüzdeki yıl tesisteki mevcut kademelerin yenilenmesine yönelik çalışmalara başlamayı planlıyor; bu, uzun vadeli ve güvenilir zenginleştirme hizmeti tedariğini sürdürmeye yönelik sermaye yatırımlarının bir parçası. Şirket, 2029 yılında ise tesiste yeni bir zenginleştirme tesisinin inşaatına başlamayı hedefliyor. Bu yeni tesiste 2,1 milyon SWU'luk ek kapasite kurulacak; ilk kademeler 2032'de üretime başlayacak, ek kademeler ise 2036'ya kadar devreye alınacak.\n\nUrenco USA Genel Müdürü Jody Blackshear, \"ABD nükleer sektörünü ve müttefik ülkeleri beslemek için istikrarlı şekilde yeni kapasite sunuyoruz, ekiplerimiz bunu takvimin önünde ve bütçe dahilinde gerçekleştiriyor\" dedi. Blackshear, geleneksel ve ileri reaktörlerin müşteri ihtiyaçlarını karşılamak için zenginleştirme üretimini %50'den fazla artırmayı planladıklarını belirtti.\n\nŞirketin hedefi, önümüzdeki on yılda yerli zenginleştirme üretim kapasitesini 7 milyon SWU'nun üzerine çıkarmak. Altı kademeyle tesis şu anda yıllık 500.000 SWU'nun üzerinde kapasite üretebiliyor. Eunice'teki Ulusal Zenginleştirme Tesisi, ABD'de şu anda faaliyette olan tek ticari uranyum zenginleştirme kapasitesi durumunda.",
+      "source": {
+        "url": "https://world-nuclear-news.org/articles/milestone-for-urenco-usa-expansion-project",
+        "name": "world-nuclear-news.org",
+        "tier": 2,
+        "type": "trade_press",
+        "domain": "world-nuclear-news.org",
+        "primary": true
+      },
+      "excerpt": "Urenco USA, New Mexico'daki Ulusal Zenginleştirme Tesisi'nde altıncı kademeyi devreye alarak 700.000 SWU'luk kapasite genişletmesinin %75'ini tamamladı. Şirket, önümüzdeki on yılda toplam zenginleştirme kapasitesini 7 milyon SWU'nun üzerine çıkarmayı hedefliyor.",
+      "category": "yakit",
+      "maturity": "construction",
+      "companies": [
+        "Urenco USA"
+      ],
+      "countries": [
+        "ABD"
+      ],
+      "event_key": "urenco-usa-nef-cascades-2026",
+      "investment": null,
+      "value_chain": [
+        "donusum-zenginlestirme"
+      ],
+      "capacity_mwe": null,
+      "neden_onemli": null,
+      "technologies": [
+        "gaz santrifüj zenginleştirme"
+      ],
+      "subcategories": [
+        "zenginlestirme-kapasitesi"
+      ],
+      "published_date": "2026-10-12",
+      "supporting_sources": [
+        {
+          "url": "https://nucnet.org/news/six-out-of-eight-cascades-installed-at-national-enrichment-facility-says-urenco-usa-10-1-2026",
+          "name": "nucnet.org",
+          "domain": "nucnet.org"
+        },
+        {
+          "url": "https://neimagazine.com/news/urenco-usa-scales-up-enrichment-capacity",
+          "name": "neimagazine.com",
+          "domain": "neimagazine.com"
+        }
+      ]
+    },
+    {
+      "id": "slovakia-jess-full-ownership-2026",
+      "slug": "slovakya-jess-ortak-girisiminde-tam-kontrolu-eline-aldi",
+      "image": {
+        "url": "https://www.neimagazine.com/wp-content/uploads/sites/7/2026/10/Slovakia.png",
+        "type": "hakem",
+        "credit": "neimagazine.com"
+      },
+      "score": 6,
+      "secim": "one_cikan",
+      "title": "Slovakya, JESS ortak girişiminde tam kontrolü eline aldı",
+      "detail": "Slovakya, devlet kontrolündeki JAVYS (Jadrová a vyraďovacia spoločnosť) şirketinin, ortak girişim JESS'teki (Jadrová energetická spoločnosť Slovenska) kalan %49 hisseyi çoğunluk hissedarı Çek devlet şirketi ČEZ'den satın almasıyla yeni nükleer santral projesinde tam mülkiyeti eline aldı. Slovakya ve ČEZ, JESS'i 2009'da, Başbakan Robert Fico'nun ilk hükümeti döneminde kurmuştu. Fico'nun şimdiki hükümeti, yeni santralin devlet mülkiyetinde olacağına karar verdi.\n\nAnlaşmaya göre nihai satın alma bedeli 189,4 milyon euro (212 milyon dolar) olarak belirlendi. Değerleme ilk olarak küresel muhasebe firması EY tarafından hazırlanmış, ardından hükümet içindeki anlaşmazlıkları çözmek için KPMG tarafından denetlenip doğrulanmıştı. Satın alma bedeli, Fico ile Ekonomi Bakanlığı arasında tartışmaya yol açmıştı ancak KPMG değerlemesi ČEZ Grubu'nun JESS'teki hissesinin orijinal değerlemesini teyit etti. Hükümet ardından yeni nükleer santralin inşaat hazırlığı sorumluluğunu Ekonomi Bakanlığı'ndan nükleer enerji geliştirme hükümet komiserine ve Hükümet Ofisi'ne devretti.\n\nČEZ Yönetim Kurulu Başkanı ve CEO'su Daniel Beneš, anlaşmayı imzaladıktan sonra \"Ortak girişimi yaklaşık 17 yıl önce kurduğumuzda amacımız, Slovakya'nın Jaslovské Bohunice'de bir nükleer santral inşa edebilmesi için projeyi hazırlamaktı\" dedi. Beneš, yeni santral hazırlıklarının fizibilite çalışmasının onayını, kapasite rezervasyon sertifikalarının temin edilmesini, olumlu bir çevresel etki değerlendirmesini (EIA), Atom Kanunu kapsamında bir saha izni ve proje için gereken arazinin alınmasını kapsadığını belirtti. İmar kararına ilişkin süreçler de başlamış durumda.\n\nSatın alma işlemi, Slovakya'nın mevcut Jaslovské Bohunice sahasında, mevcut altyapıyı kullanarak yeni bir 1.200 MWe'lik reaktör inşa etmesinin yolunu açıyor. Projenin tahmini maliyeti en az 10,9 milyar euro ve 2040'a kadar tamamlanması hedefleniyor. Bratislava, Avrupa Birliği üyeliği şartı olarak 2006 ve 2008'de santraldeki iki eski VVER-440 ünitesini kapatmıştı; saha şu anda 1984 ve 1985'te devreye alınan ve Slovakya'nın en büyük elektrik üreticisi Slovenské elektrárne tarafından işletilen iki VVER-440 ünitesine ev sahipliği yapıyor. Daha önceki haberlere göre ABD'li Westinghouse'un Bratislava'nın Jaslovské Bohunice'deki yeni santral inşasında ana ortağı olması bekleniyor.",
+      "source": {
+        "url": "https://neimagazine.com/news/slovakia-gains-full-control-of-new-npp",
+        "name": "neimagazine.com",
+        "tier": 2,
+        "type": "trade_press",
+        "domain": "neimagazine.com",
+        "primary": true
+      },
+      "excerpt": "Slovak devlet şirketi JAVYS, Çek ČEZ'in JESS ortak girişimindeki %49 hissesini 189,4 milyon euroya (212 milyon dolar) satın aldı. Anlaşma, Jaslovské Bohunice sahasında planlanan 1.200 MWe'lik yeni reaktör için mülkiyet engelini ortadan kaldırıyor.",
+      "category": "kurumsal-alim",
+      "maturity": "announced",
+      "companies": [
+        "JAVYS",
+        "ČEZ",
+        "JESS",
+        "Westinghouse"
+      ],
+      "countries": [
+        "Slovakya",
+        "Çekya"
+      ],
+      "event_key": "slovakia-jess-full-ownership-2026",
+      "investment": {
+        "currency": "EUR",
+        "amount_original": 189.4,
+        "amount_usd_million": 212
+      },
+      "value_chain": [
+        "reaktor-insa"
+      ],
+      "capacity_mwe": 1200,
+      "neden_onemli": null,
+      "technologies": [],
+      "subcategories": [
+        "hisse-satisi",
+        "mulkiyet"
+      ],
+      "published_date": "2026-10-13",
+      "supporting_sources": []
+    },
+    {
+      "id": "tianwan-7-grid-connection",
+      "slug": "cin-in-tianwan-7-unitesi-sebekeye-baglandi-9-138-mwe-lik-dev-santral-t",
+      "image": {
+        "url": "https://nucnet.imgix.net/9pcja7tdtqcn95p5v8tg2204pdkf?ixlib=rails-4.3.1&w=770&h=423&fit=crop&q=60&fm=jpg&auto=format%2Ccompress&s=a9425adbadd370cc44afad5f1d7768d5",
+        "type": "og",
+        "credit": "nucnet.org"
+      },
+      "score": 6,
+      "secim": "one_cikan",
+      "title": "Çin'in Tianwan 7 ünitesi şebekeye bağlandı, 9.138 MWe'lik dev santral tamamlanıyor",
+      "detail": "Çin'in Jiangsu eyaletinde Lianyungang kentindeki Tianwan Nükleer Güç Santrali'nin 7. ünitesi şebekeye bağlandı. Törene Çin Devlet Başkanı Şi Cinping Pekin'den, Rusya Devlet Başkanı Vladimir Putin ise video bağlantısıyla katıldı. Şebeke bağlantısı, reaktör nominal gücünün yaklaşık %25'ine ulaştığında gerçekleşiyor; bunu, ünitenin pilot işletme aşamasında kademeli güç artışı ve ardından iki yıllık garanti işletme süreci izleyecek.\n\nRusya ve Çin, 2018'de Tianwan 7 ve 8 üniteleri için iki VVER-1200 reaktörü inşasını da içeren dört anlaşma imzalamıştı. 7. ünitenin inşaatı Mayıs 2021'de, 8. ünitenin inşaatı Şubat 2022'de başladı. 7. ünitenin bu yıl içinde, 8. ünitenin ise 2027'de devreye girmesi planlanıyor. 2007-2018 arasında devreye alınan VVER-1000 reaktörlü 1-4 üniteler zaten işletimde; Çin tasarımı ACPR-1000 reaktörlü 5 ve 6 üniteler ise 2020 ve 2021'de devreye alınmıştı.\n\nTianwan 7, Çin'de işletmeye giren ilk nesil III+ VVER-1200 reaktörü olacak ve eski VVER-1000 modellerinden evrimsel bir adım ileride. VVER-1200, beklenen 60 yıllık işletme ömrüyle önceki modelin iki katı kadar dayanıklı; yakıt değişim sıklığı üçte iki daha yavaş ve gelişmiş pasif güvenlik sistemlerine sahip. 7 ve 8 üniteler tam kapasiteye ulaştığında, birlikte yıllık 18,8 TWh elektrik üretecek.\n\nSantraldeki sekiz ünitenin tamamı işletime girdiğinde toplam kurulu güç 9.138 MWe'ye ulaşacak ve Tianwan, kurulu kapasite açısından dünyanın en büyük nükleer santrali olacak. Santralin yıllık karbondioksit emisyonlarını 57,4 milyon ton azaltması bekleniyor. Tianwan NGS aynı zamanda Çin'in ilk endüstriyel nükleer buhar tedarik projesi Heqi No1'in de temelini oluşturuyor; proje, 3 ve 4. ünitelerin ikincil devre buharını yaklaşık 23 kilometre uzaktaki Xuwei petrokimya endüstri bölgesine iletiyor.",
+      "source": {
+        "url": "https://neimagazine.com/news/grid-connection-for-tianwan-7",
+        "name": "neimagazine.com",
+        "tier": 2,
+        "type": "trade_press",
+        "domain": "neimagazine.com",
+        "primary": true
+      },
+      "excerpt": "Çin'in Jiangsu eyaletindeki Tianwan Nükleer Güç Santrali'nin 7. ünitesi (VVER-1200) şebekeye bağlandı. Sekiz ünitenin tamamı devreye girdiğinde santral, 9.138 MWe kurulu güçle dünyanın en büyük nükleer santrali olacak.",
+      "category": "buyuk-reaktor",
+      "maturity": "grid_connection",
+      "companies": [
+        "Rosatom",
+        "CNNC"
+      ],
+      "countries": [
+        "Çin",
+        "Rusya"
+      ],
+      "event_key": "tianwan-7-grid-connection",
+      "investment": null,
+      "value_chain": [
+        "reaktor-insa",
+        "isletme"
+      ],
+      "capacity_mwe": null,
+      "neden_onemli": null,
+      "technologies": [
+        "VVER-1200",
+        "VVER-1000",
+        "ACPR-1000"
+      ],
+      "subcategories": [
+        "sebeke-baglanti"
+      ],
+      "published_date": "2026-10-12",
+      "supporting_sources": [
+        {
+          "url": "https://nucnet.org/news/china-s-tianwan-7-connected-to-grid-as-commercial-operation-approaches-10-1-2026",
+          "name": "nucnet.org",
+          "domain": "nucnet.org"
+        }
+      ]
+    },
+    {
+      "id": "linglong-one-hot-testing",
+      "slug": "cnnc-linglong-one-smr-de-sicak-fonksiyonel-testlere-basladi",
+      "image": {
+        "url": "https://world-nuclear-news.org/images/articles/ACP100(CNNC)_66891_61461.jpg",
+        "type": "og-sayfa",
+        "credit": "world-nuclear-news.org"
+      },
+      "score": 6,
+      "secim": "one_cikan",
+      "title": "CNNC, Linglong One SMR'de sıcak fonksiyonel testlere başladı",
+      "detail": "Çin Ulusal Nükleer Kurumu (CNNC), Hainan eyaletindeki Changjiang Nükleer Güç Santrali sahasında inşa edilen ACP100 (Linglong One) küçük modüler reaktörünün (SMR) sıcak fonksiyonel testlerine başladı. Testler, reaktör soğutma devresinin sıcaklığını artırarak soğutma devrelerinin ve güvenlik sistemlerinin tasarıma uygun çalıştığını doğruluyor. Resmi China News Service'e göre amaç, yıl içinde reaktöre yakıt yüklemek.\n\nCNNC, Temmuz 2019'da Changjiang'da ACP100 inşası projesini başlattığını duyurmuştu. Saha, zaten işletimde olan iki CNP600 basınçlı su reaktörüne (PWR) ev sahipliği yapıyor; ayrıca Mart ve Aralık 2021'de inşaatına başlanan iki Hualong One ünitesi de bulunuyor. Bu Hualong One ünitelerinden ilki geçen ay ticari işletmeye girdi, ikincisinin ise gelecek yılın başında devreye girmesi planlanıyor.\n\nACP100 için ilk beton 13 Temmuz 2021'de döküldü ve toplam inşaat süresi 58 ay olarak planlandı. Ekipman montajı Aralık 2022'de başladı, reaktör binasının ana iç yapısı Mart 2023'te tamamlandı. Dış muhafaza kubbesi geçen yılın şubat ayında yerine yerleştirildi. Birincil devrenin ve bileşenlerin sızdırmazlığını doğrulamak amacıyla yapılan soğuk fonksiyonel testler geçen yılın ekim ayında tamamlanmıştı.\n\nACP100'ün tasarım geliştirme süreci 2010'dan beri sürüyor; ön tasarım 2014'te tamamlandı. 2016'da ACP100, Uluslararası Atom Enerjisi Ajansı'nın (IAEA) güvenlik incelemesinden geçen ilk SMR oldu. Tamamlandığında reaktör, yıllık 1 milyar kilovat-saat elektrik üretebilecek; bu da 526.000 hanenin ihtiyacını karşılamaya yetecek miktar. 125 MWe gücündeki entegre PWR, elektrik üretimi, ısıtma, buhar üretimi veya deniz suyu arıtımı için tasarlandı.",
+      "source": {
+        "url": "https://world-nuclear-news.org/articles/hot-testing-of-chinese-smr-under-way",
+        "name": "world-nuclear-news.org",
+        "tier": 2,
+        "type": "trade_press",
+        "domain": "world-nuclear-news.org",
+        "primary": true
+      },
+      "excerpt": "Çin Ulusal Nükleer Kurumu (CNNC), Hainan'daki Changjiang sahasında ACP100 (Linglong One) küçük modüler reaktörünün (SMR) sıcak fonksiyonel testlerine başladı. 125 MWe gücündeki reaktörün yıl içinde yakıt yüklemesine geçmesi planlanıyor.",
+      "category": "smr",
+      "maturity": "commissioning",
+      "companies": [
+        "CNNC"
+      ],
+      "countries": [
+        "Çin"
+      ],
+      "event_key": "linglong-one-hot-testing",
+      "investment": null,
+      "value_chain": [
+        "reaktor-insa"
+      ],
+      "capacity_mwe": 125,
+      "neden_onemli": null,
+      "technologies": [
+        "ACP100"
+      ],
+      "subcategories": [
+        "sicak-fonksiyonel-test"
+      ],
+      "published_date": "2026-10-14",
+      "supporting_sources": [
+        {
+          "url": "https://neimagazine.com/news/hot-testing-for-linglong-one",
+          "name": "neimagazine.com",
+          "domain": "neimagazine.com"
+        }
+      ]
+    },
+    {
+      "id": "mochovce-4-grid-connection",
+      "slug": "mochovce-4-unitesi-slovakya-sebekesine-elektrik-vermeye-basladi",
+      "image": {
+        "url": "https://world-nuclear-news.org/images/articles/Mochovce_NPP_730_16281.jpg",
+        "type": "og-sayfa",
+        "credit": "wnn.world-nuclear.org"
+      },
+      "score": 6,
+      "secim": "one_cikan",
+      "title": "Mochovce 4 ünitesi Slovakya şebekesine elektrik vermeye başladı",
+      "detail": "Slovakya'nın en yeni nükleer güç ünitesi Mochovce 4, şebekeye bağlandı ve ilk elektriğini vermeye başladı. Slovenské elektrárne'ye göre yeni VVER-440 ünitesinin elektrik sistemine kademeli entegrasyonu, Perşembe günü 15 Ekim'de saat 20.41'de, reaktör %20 güç çıkışındayken gerçekleşti. Yeni ünitenin toplam kapasitesi 471 MWe ve üretimi Slovakya'nın şu anki toplam elektrik tüketiminin yaklaşık %13'üne denk geliyor.\n\nSlovenské elektrárne Yönetim Kurulu Başkanı ve CEO'su Branislav Strýček, \"Tarihte ilk kez Mochovce 4. ünite Slovak elektrik sistemine elektrik veriyor\" dedi. Strýček, bunun projeyi hazırlayan, inşa eden ve devreye alan nesillerin yıllardır beklediği bir an olduğunu belirtti ve bu çalışmanın sonucunun Slovakya için düşük emisyonlu yeni bir elektrik kaynağı şeklinde göründüğünü ekledi.\n\nDört üniteli Mochovce santralinde ilk iki VVER-440 ünitesinin inşaatı 1982'de başlamıştı. 3 ve 4. ünitelerdeki çalışmalar 1986'da başlamış, ancak 1992'de durmuştu. İlk iki reaktör 1998 ve 1999'da tamamlanıp işletmeye girmişti; 3 ve 4. üniteleri tamamlama projesi on yıl sonra, tahmini 6,7 milyar euro (7,6 milyar dolar) maliyetle başlamıştı. Mochovce 3, Ekim 2023'te ticari işletmeye girmişti. Mochovce 4 ise 6 Ağustos'ta kritikliğe ulaşmış, ardından geçen ay fiziksel başlatma öncesi bir dizi test ve kontrolden geçmişti.\n\nPerşembe günkü şebeke bağlantısı, nükleer olmayan bölümün elektrik voltaj ölçüm devrelerinde standart dışı bir tepki kaydedilmesi nedeniyle teknik testlerin bir kısmının tekrarlanmasını gerektirmiş ve planlanandan iki gün geç gerçekleşmişti. Şebeke bağlantısı, Mochovce 4'ün ilk türbojeneratörünün hizalanıp bağlanmasını içeriyor; ikinci türbojeneratör için de benzer bir süreç ve her güç seviyesinde test ve kontroller gerekiyor. Son test, %100 güçte 144 saatlik bir çalışma olacak.",
+      "source": {
+        "url": "https://wnn.world-nuclear.org/articles/mochovce-4-connected-to-the-grid",
+        "name": "wnn.world-nuclear.org",
+        "tier": 1,
+        "type": "trade_press",
+        "domain": "wnn.world-nuclear.org",
+        "primary": true
+      },
+      "excerpt": "Slovakya'nın en yeni nükleer ünitesi Mochovce 4, 15 Ekim akşamı %20 güç çıkışında şebekeye bağlandı. 471 MWe kapasiteli ünite, Slovakya'nın toplam elektrik tüketiminin yaklaşık %13'üne denk geliyor.",
+      "category": "buyuk-reaktor",
+      "maturity": "grid_connection",
+      "companies": [
+        "Slovenské elektrárne"
+      ],
+      "countries": [
+        "Slovakya"
+      ],
+      "event_key": "mochovce-4-grid-connection",
+      "investment": {
+        "currency": "EUR",
+        "amount_original": 6.7,
+        "amount_usd_million": 7600
+      },
+      "value_chain": [
+        "reaktor-insa",
+        "isletme"
+      ],
+      "capacity_mwe": 471,
+      "neden_onemli": null,
+      "technologies": [
+        "VVER-440"
+      ],
+      "subcategories": [
+        "sebeke-baglanti"
+      ],
+      "published_date": "2026-10-16",
+      "supporting_sources": []
+    },
+    {
+      "id": "palisades-pioneer-smr-300-cp-application",
+      "slug": "holtec-in-palisades-teki-ikiz-smr-300-unitesi-icin-nrc-basvurusu-ilerl",
+      "image": {
+        "url": "https://www.federalregister.gov/assets/open_graph_site_banner.png",
+        "type": "og",
+        "credit": "federalregister.gov"
+      },
+      "score": 6,
+      "secim": "one_cikan",
+      "title": "Holtec'in Palisades'teki ikiz SMR-300 ünitesi için NRC başvurusu ilerliyor",
+      "detail": "ABD Nükleer Düzenleme Kurumu (NRC), Holtec International'ın bağlı şirketi Palisades SMR, LLC adına SMR, LLC tarafından sunulan aşamalı inşaat izni başvurusunun ilk bölümüne ilişkin kamuoyu bildirimini yayımladı. Bildirim, 1 Ekim 2026'dan başlayarak dört hafta boyunca art arda yapılan duyurulardan üçüncüsü. Başvuru, Michigan'ın Covert kasabasındaki Palisades Enerji Merkezi'nde (PEC) planlanan ikiz üniteli SMR-300 santrali için sınırlı çalışma yetkisi (LWA) talebini de kapsıyor.\n\nÜniteler ayrı ayrı Pioneer Unit 1 ve Pioneer Unit 2 olarak adlandırıldı. Başvuru, Docket No. 50-616 ve 50-617 ile NRC-2026-0265 numaralı dosya altında işleniyor. Aşamalı inşaat izni başvurusunun ilk bölümü (Part 1), SMR, LLC tarafından 31 Aralık 2025'te NRC'ye sunulmuştu. Başvuruya ilişkin belgeler, ADAMS sisteminde ML25365A983 erişim numarasıyla kamuoyuna açık.\n\nNRC, 13 Kasım 2026'ya kadar süren bir kamuoyu yorum dönemi başlattı. Düzenleyici kurum, başvuruya ilişkin görüşlerin Regulations.gov üzerinden de iletilebileceğini belirtti.",
+      "source": {
+        "url": "https://federalregister.gov/documents/full_text/text/2026/10/15/2026-21049.txt",
+        "name": "federalregister.gov",
+        "tier": 1,
+        "type": "official",
+        "domain": "federalregister.gov",
+        "primary": true
+      },
+      "excerpt": "ABD Nükleer Düzenleme Kurumu (NRC), Holtec International'ın Michigan'daki Palisades Enerji Merkezi'nde planlanan ikiz üniteli SMR-300 projesi için aşamalı inşaat izni başvurusunu dört haftalık bildirim sürecinin üçüncü haftasında duyurdu. Üniteler Pioneer 1 ve Pioneer 2 olarak adlandırılıyor.",
+      "category": "smr",
+      "maturity": "announced",
+      "companies": [
+        "Holtec International",
+        "Holtec"
+      ],
+      "countries": [
+        "ABD"
+      ],
+      "event_key": "palisades-pioneer-smr-300-cp-application",
+      "investment": null,
+      "value_chain": [
+        "reaktor-insa"
+      ],
+      "capacity_mwe": null,
+      "neden_onemli": null,
+      "technologies": [
+        "SMR-300"
+      ],
+      "subcategories": [
+        "insaat-izni",
+        "lisanslama"
+      ],
+      "published_date": "2026-10-15",
+      "supporting_sources": []
+    }
+  ],
+  "radar": [
+    {
+      "kume": "SMR lisanslama ve yeni projeler",
+      "maddeler": [
+        {
+          "url": "https://neimagazine.com/news/doe-approval-for-last-energys-pilot-reactor",
+          "date": "2026-10-13",
+          "title": "DOE onayı, Last Energy'nin pilot reaktörünü kritiklik yetkisi öncesi hazırlık incelemesine taşıyor",
+          "source": "Nuclear Engineering International",
+          "category": "smr"
+        },
+        {
+          "url": "https://cez.cz/cs/pro-media/tiskove-zpravy/projekt-maleho-modularniho-reaktoru-v-temeline-postupuje-do-dalsi-faze.-cez-odevzdal-klicovou-dokumentaci-eia-240242",
+          "date": "2026-10-12",
+          "title": "ČEZ, Temelín'deki ilk SMR için çevresel etki değerlendirme dosyasını sundu (Rolls-Royce SMR)",
+          "source": "ČEZ",
+          "category": "smr"
+        },
+        {
+          "url": "https://nucnet.org/news/russia-signs-agreement-with-indonesia-for-floating-nuclear-power-plants-10-5-2026",
+          "date": "2026-10-16",
+          "title": "Rosatom ve Endonezya'nın PT PLN'si, kuzey Endonezya için iki RITM yüzer santral anlaşması imzaladı",
+          "source": "NucNet",
+          "category": "smr"
+        },
+        {
+          "url": "https://wnn.world-nuclear.org/articles/joint-venture-formed-for-six-unit-smr-plant-in-poland",
+          "date": "2026-10-15",
+          "title": "SGE ve ZE PAK, Polonya'da altı üniteli 1.800 MWe'lik BWRX-300 santrali için PAK BWRX ortak girişimini kurdu",
+          "source": "World Nuclear News",
+          "category": "smr"
+        }
+      ]
+    },
+    {
+      "kume": "Avrupa nükleer politikası",
+      "maddeler": [
+        {
+          "url": "https://nucleus.iaea.org/sites/smr/SitePages/EU-SMR-LFR-NHSI-Multinational-Pre-Licensing-Pilot-Project.aspx",
+          "date": "2026-10-13",
+          "title": "IAEA NHSI çerçevesinde Belçika FANC ve Romanya CNCAN'la çok uluslu SMR-LFR ön lisanslama pilotu başlatıldı",
+          "source": "IAEA Nucleus",
+          "category": "politika"
+        },
+        {
+          "url": "https://nucnet.org/news/eu-faces-crucial-2-3-crucial-years-to-show-real-action-on-nuclear-10-5-2026",
+          "date": "2026-10-16",
+          "title": "AB Komisyonu'ndan Hübel: Avrupa'nın nükleerde somut adım atması için 2-3 yıl var",
+          "source": "NucNet",
+          "category": "politika"
+        },
+        {
+          "url": "https://wnn.world-nuclear.org/articles/agreement-signed-on-second-polish-nuclear-power-plant",
+          "date": "2026-10-13",
+          "title": "Polonya'nın ikinci nükleer santrali için anlaşma imzalandı; ortak seçimi 2027, inşaat 2032, işletme 2040 hedefleniyor",
+          "source": "World Nuclear News",
+          "category": "politika"
+        },
+        {
+          "url": "https://world-nuclear-news.org/articles/namibia-takes-step-towards-nuclear-power",
+          "date": "2026-10-14",
+          "title": "Namibya'nın NEPIO Yönetim Komitesi nükleer enerji hazırlığını güvenlik, finansman ve atık yönetimi açısından değerlendirmeye başladı",
+          "source": "World Nuclear News",
+          "category": "politika"
+        }
+      ]
+    },
+    {
+      "kume": "Füzyon ilerlemeleri",
+      "maddeler": [
+        {
+          "url": "https://neimagazine.com/news/type-one-stellarator-attracts-major-funding",
+          "date": "2026-10-12",
+          "title": "Type One Energy, FusionDirect ve TVA'daki Project Infinity için 200 milyon dolarlık Seri B turunu tamamladı",
+          "source": "Nuclear Engineering International",
+          "category": "fuzyon"
+        },
+        {
+          "url": "https://neimagazine.com/news/general-fusion-hits-plasma-heating-target",
+          "date": "2026-10-14",
+          "title": "General Fusion, LM26'da düşük hızlı mekanik sıkıştırmayla plazmayı 1,1 keV'e ısıttı, UKAEA doğruladı",
+          "source": "Nuclear Engineering International",
+          "category": "fuzyon"
+        },
+        {
+          "url": "https://nucnet.org/news/general-fusion-announces-world-first-milestone-path-to-commercial-fusion-power-10-5-2026",
+          "date": "2026-10-16",
+          "title": "General Fusion, manyetize hedef füzyonunda elektron sıcaklığını 12 milyon °C'nin üzerine çıkardı",
+          "source": "NucNet",
+          "category": "fuzyon"
+        },
+        {
+          "url": "https://headlinesbriefing.com/market/ft-companies/west-in-nuclear-fusion-race-with-china-ukaea-chief-says-2bf0e833",
+          "date": "2026-10-15",
+          "title": "UKAEA'nın füzyon programı başkanı: Batı, füzyonda Çin'le yarışıyor ve ticarileşme büyük jeopolitik olay olur",
+          "source": "Headlines Briefing",
+          "category": "fuzyon"
+        }
+      ]
+    },
+    {
+      "kume": "Büyük reaktör inşaatı",
+      "maddeler": [
+        {
+          "url": "https://nucnet.org/news/china-completes-concrete-pouring-for-inner-containment-at-zhangzhou-3-10-4-2026",
+          "date": "2026-10-15",
+          "title": "CNNC, Zhangzhou 3 ünitesinde (Hualong One) iç muhafaza kubbesi beton dökümünü tamamlayıp inşai işleri bitirdi",
+          "source": "NucNet",
+          "category": "buyuk-reaktor"
+        }
+      ]
+    },
+    {
+      "kume": "İşletme ve kurumsal elektrik alımı",
+      "maddeler": [
+        {
+          "url": "https://constellationenergy.com/about/locations/calvert-cliffs-clean-energy-center/amazon-and-constellation-agreement-to-add-clean-energy-at-calvert-cliffs.html",
+          "date": "2026-10-16",
+          "title": "Amazon ve Constellation, Calvert Cliffs'te ek ~190 MW için 20 yıllık anlaşma imzaladı, ruhsat uzatmasını destekliyor",
+          "source": "Constellation Energy",
+          "category": "isletme"
+        },
+        {
+          "url": "https://wnn.world-nuclear.org/articles/milestone-for-bruce-4-refurbishment",
+          "date": "2026-10-15",
+          "title": "Bruce Power'ın Major Component Replacement programında Bruce 4 ünitesi ömür uzatmanın yarı yoluna ulaştı",
+          "source": "World Nuclear News",
+          "category": "isletme"
+        }
+      ]
+    },
+    {
+      "kume": "Yakıt çevrimi, atık ve söküm",
+      "maddeler": [
+        {
+          "url": "https://energy.gov/em/articles/portsmouth-converts-4500-legacy-duf6-cylinders-20-inventory-reduction",
+          "date": "2026-10-13",
+          "title": "DOE'nin Portsmouth sahası 4.500 eski DUF6 silindirini dönüştürerek envanteri %20'den fazla azalttı",
+          "source": "Energy.gov",
+          "category": "atik-sokum"
+        },
+        {
+          "url": "https://nucnet.org/news/swiss-decommissioning-cost-estimated-at-eur25-3-billion-says-industry-group-study-10-1-2026",
+          "date": "2026-10-12",
+          "title": "Swissnuclear'ın 2026 çalışması, İsviçre'nin söküm ve atık bertaraf maliyetini 23,6 milyar İsviçre frangı olarak hesapladı",
+          "source": "NucNet",
+          "category": "atik-sokum"
+        },
+        {
+          "url": "https://asnr.fr/dossiers/6e-pngmdr/avis-sur-la-gestion-des-dechets-tfa",
+          "date": "2026-10-14",
+          "title": "Fransa'nın ASNR'si, 6. PNGMDR hazırlığında çok düşük aktiviteli (TFA) atık yönetimi görüşünü yayımladı",
+          "source": "ASNR",
+          "category": "atik-sokum"
+        },
+        {
+          "url": "https://reglementation-controle.asnr.fr/reglementation/consultations-du-public/centrale-nucleaire-de-fessenheim-prescriptions-de-l-asnr-encadrant-le-demantelement-de-l-installation",
+          "date": "2026-10-15",
+          "title": "ASNR, 19 Haziran 2026'da yürürlüğe giren kararnamenin ardından Fessenheim'in söküm koşullarını belirleyen talimatları yayımladı",
+          "source": "ASNR",
+          "category": "atik-sokum"
+        }
+      ]
+    },
+    {
+      "kume": "Raporlar ve güvenlik",
+      "maddeler": [
+        {
+          "url": "https://oecd-nea.org/jcms/pl_66130/ukraine-current-status-of-nuclear-power-installations",
+          "date": "2026-10-15",
+          "title": "NEA, Ukrayna'nın nükleer santral şebeke ve işletme koşullarına ilişkin güncel durum raporunu yayımladı",
+          "source": "OECD-NEA",
+          "category": "rapor"
+        },
+        {
+          "url": "https://oecd-nea.org/jcms/pl_122667/quench-atf-five-years-of-success-and-a-new-phase-ahead",
+          "date": "2026-10-14",
+          "title": "NEA, QUENCH-ATF kaza toleranslı yakıt testlerinde beş yıllık deneyimi ve yeni aşamayı değerlendirdi",
+          "source": "OECD-NEA",
+          "category": "rapor"
+        },
+        {
+          "url": "https://neimagazine.com/news/znpp-faces-diesel-supply-shortage",
+          "date": "2026-10-12",
+          "title": "Zaporijya Nükleer Santrali'nde dizel yakıt tedarik açığı yaşanıyor; IAEA uyarılarını yineledi",
+          "source": "Nuclear Engineering International",
+          "category": "guvenlik"
+        },
+        {
+          "url": "https://nucnet.org/news/clearer-strategy-and-leadership-needed-to-improve-below-par-cybersecurity-in-uk-nuclear-10-3-2026",
+          "date": "2026-10-14",
+          "title": "ONR yıllık raporu, İngiltere nükleer sektöründe siber güvenliğin beklenen düzeyin altında olduğunu belirtti",
+          "source": "NucNet",
+          "category": "rapor"
+        }
+      ]
+    },
+    {
+      "kume": "Teknoloji ve araştırma",
+      "maddeler": [
+        {
+          "url": "https://southerncompany.com/newsroom/clean-energy/u-s--department-of-energy-funding-accelerates-world-first-molten-chloride-reactor-experiment.html",
+          "date": "2026-10-14",
+          "title": "DOE, dünyada ilk erimiş klorürlü hızlı reaktör deneyi MCRE için hızlandırılmış ortak finansmanı onayladı",
+          "source": "Southern Company",
+          "category": "teknoloji"
+        },
+        {
+          "url": "https://oklo.com/newsroom/oklo-to-advance-groves-2-forge-as-part-of-u-s-department-of-energys-nuclear-energy-launch-pad-se",
+          "date": "2026-10-13",
+          "title": "Oklo, DOE'nin Nuclear Energy Launch Pad programı kapsamında izotop üretim tesisi Groves-2 Forge'u duyurdu",
+          "source": "Oklo",
+          "category": "teknoloji"
+        },
+        {
+          "url": "https://world-nuclear-news.org/articles/agreements-and-deals-support-us-maritime-nuclear-developments",
+          "date": "2026-10-13",
+          "title": "ABS ve ABD DOE, yüzer platformlar ve nükleer tahrikli gemiler için ticari nükleer teknolojiyi geliştirmek üzere güçlerini birleştirdi",
+          "source": "World Nuclear News",
+          "category": "teknoloji"
+        }
+      ]
+    }
+  ]
+}

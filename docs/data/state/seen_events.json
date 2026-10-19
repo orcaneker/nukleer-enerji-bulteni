@@ -1,5 +1,5 @@
 {
-  "issue_no": 11,
+  "issue_no": 12,
   "events": [
     {
       "baslik_ozet": "Rosatom yetkilisi: Akkuyu, Türkiye'nin 2053 karbon nötr hedefini destekleyecek",
@@ -448,6 +448,50 @@
     {
       "baslik_ozet": "DOE, Vistra'nın üç nükleer santrali için 4,2 milyar dolarlık kredi önerdi",
       "hafta": "2026-H41"
+    },
+    {
+      "baslik_ozet": "Rosatom, Akkuyu 1. ünitede fiziksel başlatmayı aralıkta planlıyor",
+      "hafta": "2026-H42"
+    },
+    {
+      "baslik_ozet": "NRC, AP1000 tasarım sertifikasını Vogtle tecrübesiyle yeniledi",
+      "hafta": "2026-H42"
+    },
+    {
+      "baslik_ozet": "Polonya, ikinci büyük nükleer santral için işbirliği anlaşması imzaladı",
+      "hafta": "2026-H42"
+    },
+    {
+      "baslik_ozet": "Almanya, füzyon enerjisi için 2,5 milyar euroluk destek programını başlattı",
+      "hafta": "2026-H42"
+    },
+    {
+      "baslik_ozet": "Bangladeş'in Rooppur 1 reaktörü ilk kritikliğe ulaştı",
+      "hafta": "2026-H42"
+    },
+    {
+      "baslik_ozet": "Urenco USA, zenginleştirme genişlemesinin %75'ini tamamladı",
+      "hafta": "2026-H42"
+    },
+    {
+      "baslik_ozet": "Slovakya, JESS ortak girişiminde tam kontrolü eline aldı",
+      "hafta": "2026-H42"
+    },
+    {
+      "baslik_ozet": "Çin'in Tianwan 7 ünitesi şebekeye bağlandı, 9.138 MWe'lik dev santral tamamlanıyor",
+      "hafta": "2026-H42"
+    },
+    {
+      "baslik_ozet": "CNNC, Linglong One SMR'de sıcak fonksiyonel testlere başladı",
+      "hafta": "2026-H42"
+    },
+    {
+      "baslik_ozet": "Mochovce 4 ünitesi Slovakya şebekesine elektrik vermeye başladı",
+      "hafta": "2026-H42"
+    },
+    {
+      "baslik_ozet": "Holtec'in Palisades'teki ikiz SMR-300 ünitesi için NRC başvurusu ilerliyor",
+      "hafta": "2026-H42"
     }
   ],
   "urls": [
@@ -1025,6 +1069,60 @@
     "https://nucnet.org/news/kazatomprom-shareholders-approve-major-chinese-uranium-contract-reject-deal-with-russia-10-5-2026",
     "https://urenco.com/news/uusa/2026/urenco-usa-completes-75-percent-of-current-us-uranium-enrichment-capacity-project",
     "https://urenco.com/news/deutschland/2026/uranium-oxide-storage-facility-in-germany-officially-commissioned",
-    "https://neimagazine.com/news/doe-backs-vistra-fleet-modernisation"
+    "https://neimagazine.com/news/doe-backs-vistra-fleet-modernisation",
+    "https://aa.com.tr/tr/ekonomi/rosatom-akkuyu-ngsde-ilk-reaktor-aralikta-devreye-alinacak/4091292",
+    "https://dunya.com/gundem/rosatomdan-akkuyu-aciklamasi-ilk-reaktor-aralikta-devreye-alinacak-haberi-844203",
+    "https://info.westinghousenuclear.com/news/westinghouse-places-conditional-purchase-orders-with-polish-suppliers-for-first-ap1000-unit-at-lubiatowo-kopalino",
+    "https://federalregister.gov/documents/2026/10/14/2026-21030/ap1000-design-certification-renewal",
+    "https://powermag.com/nrc-updates-ap1000-reactor-design-certification",
+    "https://ans.org/news/2026-10-16/article-8493/nrc-oks-westinghouse-ap1000-design-certification-revision-renewal",
+    "https://neimagazine.com/news/akkuyu-1-passes-crucial-pressure-testing",
+    "https://aa.com.tr/tr/enerjiterminali/elektrik/enerjide-acele-kamulastirma-kararlari/60281",
+    "https://neimagazine.com/news/poland-agrees-second-npp",
+    "https://nucnet.org/news/poland-announces-agreement-on-plans-for-second-nuclear-power-station-10-2-2026",
+    "https://neimagazine.com/news/germany-launches-fusion-milestone-programme",
+    "https://nucnet.org/news/germany-launches-eur2-5-billion-programme-to-spark-further-private-investment-in-fusion-10-1-2026",
+    "https://ans.org/news/2026-10-14/article-8485",
+    "https://world-nuclear-news.org/articles/bangladeshs-rooppur-1-achieves-criticality",
+    "https://neimagazine.com/news/rooppur-1-cleared-for-criticality",
+    "https://nucnet.org/news/bangladesh-s-rooppur-1-nuclear-plant-achieves-first-criticality-10-1-2026",
+    "https://neimagazine.com/news/icc-delivers-split-verdict-on-hanhikivi",
+    "https://nucnet.org/news/icc-panel-rules-on-russian-finnish-nuclear-power-plant-dispute-10-2-2026",
+    "https://world-nuclear-news.org/articles/milestone-for-urenco-usa-expansion-project",
+    "https://nucnet.org/news/six-out-of-eight-cascades-installed-at-national-enrichment-facility-says-urenco-usa-10-1-2026",
+    "https://neimagazine.com/news/urenco-usa-scales-up-enrichment-capacity",
+    "https://neimagazine.com/news/slovakia-gains-full-control-of-new-npp",
+    "https://neimagazine.com/news/grid-connection-for-tianwan-7",
+    "https://nucnet.org/news/china-s-tianwan-7-connected-to-grid-as-commercial-operation-approaches-10-1-2026",
+    "https://world-nuclear-news.org/articles/hot-testing-of-chinese-smr-under-way",
+    "https://neimagazine.com/news/hot-testing-for-linglong-one",
+    "https://wnn.world-nuclear.org/articles/mochovce-4-connected-to-the-grid",
+    "https://federalregister.gov/documents/full_text/text/2026/10/15/2026-21049.txt",
+    "https://neimagazine.com/news/doe-approval-for-last-energys-pilot-reactor",
+    "https://cez.cz/cs/pro-media/tiskove-zpravy/projekt-maleho-modularniho-reaktoru-v-temeline-postupuje-do-dalsi-faze.-cez-odevzdal-klicovou-dokumentaci-eia-240242",
+    "https://nucnet.org/news/russia-signs-agreement-with-indonesia-for-floating-nuclear-power-plants-10-5-2026",
+    "https://wnn.world-nuclear.org/articles/joint-venture-formed-for-six-unit-smr-plant-in-poland",
+    "https://nucleus.iaea.org/sites/smr/SitePages/EU-SMR-LFR-NHSI-Multinational-Pre-Licensing-Pilot-Project.aspx",
+    "https://nucnet.org/news/eu-faces-crucial-2-3-crucial-years-to-show-real-action-on-nuclear-10-5-2026",
+    "https://wnn.world-nuclear.org/articles/agreement-signed-on-second-polish-nuclear-power-plant",
+    "https://world-nuclear-news.org/articles/namibia-takes-step-towards-nuclear-power",
+    "https://neimagazine.com/news/type-one-stellarator-attracts-major-funding",
+    "https://neimagazine.com/news/general-fusion-hits-plasma-heating-target",
+    "https://nucnet.org/news/general-fusion-announces-world-first-milestone-path-to-commercial-fusion-power-10-5-2026",
+    "https://headlinesbriefing.com/market/ft-companies/west-in-nuclear-fusion-race-with-china-ukaea-chief-says-2bf0e833",
+    "https://nucnet.org/news/china-completes-concrete-pouring-for-inner-containment-at-zhangzhou-3-10-4-2026",
+    "https://constellationenergy.com/about/locations/calvert-cliffs-clean-energy-center/amazon-and-constellation-agreement-to-add-clean-energy-at-calvert-cliffs.html",
+    "https://wnn.world-nuclear.org/articles/milestone-for-bruce-4-refurbishment",
+    "https://energy.gov/em/articles/portsmouth-converts-4500-legacy-duf6-cylinders-20-inventory-reduction",
+    "https://nucnet.org/news/swiss-decommissioning-cost-estimated-at-eur25-3-billion-says-industry-group-study-10-1-2026",
+    "https://asnr.fr/dossiers/6e-pngmdr/avis-sur-la-gestion-des-dechets-tfa",
+    "https://reglementation-controle.asnr.fr/reglementation/consultations-du-public/centrale-nucleaire-de-fessenheim-prescriptions-de-l-asnr-encadrant-le-demantelement-de-l-installation",
+    "https://oecd-nea.org/jcms/pl_66130/ukraine-current-status-of-nuclear-power-installations",
+    "https://oecd-nea.org/jcms/pl_122667/quench-atf-five-years-of-success-and-a-new-phase-ahead",
+    "https://neimagazine.com/news/znpp-faces-diesel-supply-shortage",
+    "https://nucnet.org/news/clearer-strategy-and-leadership-needed-to-improve-below-par-cybersecurity-in-uk-nuclear-10-3-2026",
+    "https://southerncompany.com/newsroom/clean-energy/u-s--department-of-energy-funding-accelerates-world-first-molten-chloride-reactor-experiment.html",
+    "https://oklo.com/newsroom/oklo-to-advance-groves-2-forge-as-part-of-u-s-department-of-energys-nuclear-energy-launch-pad-se",
+    "https://world-nuclear-news.org/articles/agreements-and-deals-support-us-maritime-nuclear-developments"
   ]
 }
